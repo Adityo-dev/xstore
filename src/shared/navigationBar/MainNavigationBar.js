@@ -5,7 +5,7 @@ import Search from "./Search";
 
 function MainNavigationBar() {
   return (
-    <section className="container mx-auto bg-[#23262F] py-[18px] px-[30px] rounded-[12px] mt-6 flex items-center justify-between">
+    <section className="z-10 fixed left-0 right-0 container mx-auto bg-[#23262F] py-[18px] px-[30px] rounded-[12px] mt-6 flex items-center justify-between">
       <div className="flex items-center gap-[30px]">
         <Image
           src={"/logos/logo.png"}

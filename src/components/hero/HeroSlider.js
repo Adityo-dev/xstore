@@ -1,0 +1,95 @@
+"use client";
+import Image from "next/image";
+import "swiper/css";
+import "swiper/css/navigation";
+import { Autoplay, Navigation } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
+
+export default function HeroSlider() {
+  const slides = [
+    {
+      id: 1,
+      image: "/images/heroCard3.jpg",
+      bgCover: "/images/hero-bg-slider3.jpeg",
+      title: "RISE OF THE TITĀN",
+      subtitle: "odyssey",
+      buttonText: "Purchase Now",
+      gradient: "from-[#0b0c10] to-[#1f2833]",
+    },
+    {
+      id: 2,
+      image: "/images/heroCard2.jpg",
+      bgCover: "/images/hero-bg-slider2.jpeg",
+      title: "RISE OF THE TITĀN",
+      subtitle: "odyssey",
+      buttonText: "Purchase Now",
+      gradient: "from-[#0b0c10] to-[#1f2833]",
+    },
+    {
+      id: 3,
+      bgCover: "/images/hero-bg-slider1.jpeg",
+      image: "/images/heroCard1.jpg",
+      title: "RISE OF THE TITĀN",
+      subtitle: "odyssey",
+      buttonText: "Purchase Now",
+      gradient: "from-[#0b0c10] to-[#1f2833]",
+    },
+  ];
+
+  return (
+    <div className="relative w-full container mx-auto rounded-lg overflow-hidden group">
+      <Swiper
+        modules={[Navigation, Autoplay]}
+        navigation={{
+          nextEl: ".custom-next",
+          prevEl: ".custom-prev",
+        }}
+        autoplay={{ delay: 10000 }}
+        loop
+      >
+        {slides.map((slide) => (
+          <SwiperSlide key={slide.id}>
+            <SwiperSlide key={slide.id}>
+              <div
+                className="relative w-full h-[500px] overflow-hidden"
+                style={{
+                  backgroundImage: `url(${slide?.bgCover})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
+              >
+                <Image
+                  src={slide.image}
+                  width={600}
+                  height={600}
+                  alt={slide.title}
+                  className="w-fit h-[70%] rounded-lg relative top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                />
+
+                {/* Text Content Right side */}
+                <div className="absolute top-1/2 right-8 -translate-y-1/2 text-white z-20 flex flex-col text-center gap-2 ">
+                  <h2 className="text-[30px]">{slide?.title}</h2>
+                  <p className="text-[100px] uppercase">{slide?.subtitle}</p>
+                  <button className="mt-4 px-5 py-2 bg-red-600 rounded-lg hover:bg-red-700 transition">
+                    {slide?.buttonText}
+                  </button>
+                </div>
+              </div>
+            </SwiperSlide>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+
+      {/* Custom Navigation Buttons */}
+      <button className="custom-prev absolute left-0 group-hover:left-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 flex items-center justify-center bg-[#FFFFFF38] hover:bg-[#ffffff60] text-white rounded-lg transition-all duration-300 opacity-0 group-hover:opacity-100 cursor-pointer">
+        <SlArrowLeft className="text-lg" />
+      </button>
+
+      <button className="custom-next absolute right-0 group-hover:right-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 flex items-center justify-center bg-[#FFFFFF38] hover:bg-[#ffffff60] text-white rounded-lg transition-all duration-300 opacity-0 group-hover:opacity-100 cursor-pointer">
+        <SlArrowRight className="text-lg" />
+      </button>
+    </div>
+  );
+}

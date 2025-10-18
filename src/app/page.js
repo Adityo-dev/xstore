@@ -1,7 +1,11 @@
+import Hero from "@/components/hero/Hero";
+import RecentReleases from "@/components/recentReleases/RecentReleases";
+
 export default function Home() {
   return (
-    <div>
-      <p>x Store</p>
+    <div className="space-y-10">
+      <Hero />
+      <RecentReleases />
     </div>
   );
 }
