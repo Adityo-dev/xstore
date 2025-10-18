@@ -1,19 +1,19 @@
 "use client";
 import { useState } from "react";
 import { IoSearchOutline } from "react-icons/io5";
-import SearchPage from "./SearchPage";
+import SearchPanel from "./searchPanel/SearchPanel";
 
 function Search() {
-  const [open, setOpen] = useState(false);
+  const [openPanel, setOpenPanel] = useState(false);
 
   const closeSearchPanel = (value) => {
-    setOpen(value);
+    setOpenPanel(value);
   };
 
   return (
     <>
       <button
-        onClick={() => setOpen(true)}
+        onClick={() => setOpenPanel(true)}
         className="w-full flex items-center gap-2 cursor-pointer border-s border-[#FFFFFF24] pl-[20px] hover:text-[#776BF8] transition"
       >
         <IoSearchOutline className="text-2xl" />
@@ -21,7 +21,7 @@ function Search() {
       </button>
 
       {/* Sliding Search Panel */}
-      {open && <SearchPage onClose={closeSearchPanel} />}
+      {openPanel && <SearchPanel onClose={closeSearchPanel} />}
     </>
   );
 }
