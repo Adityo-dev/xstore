@@ -34,7 +34,7 @@ function NavBarList() {
       <ul className="flex items-center gap-7">
         {navList.map((list) => (
           <Link href={list?.url} key={list?.id}>
-            <li className="text-[17px] font-semibold hover:text-[#776BF8] transition">
+            <li className="text-[17px] font-semibold text-nowrap hover:text-[#776BF8] transition">
               {list?.name}
             </li>
           </Link>
