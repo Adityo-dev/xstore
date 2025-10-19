@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-function SectionHeader({ title, btn, btnUrl }) {
+function SectionHeader({ title, btn, btnUrl = "#" }) {
   return (
     <div className="container mx-auto flex items-center justify-between mb-9">
       {title && <h2 className="text-[30px] font-semibold">{title}</h2>}

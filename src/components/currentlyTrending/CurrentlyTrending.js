@@ -1,4 +1,6 @@
-import RowCard from "../cards/RowCard";
+import Image from "next/image";
+import Link from "next/link";
+import DotsSlider from "../DotsSlider";
 import SectionHeader from "../SectionHeader";
 
 const games = [
@@ -53,7 +55,7 @@ const games = [
   {
     id: 6,
     image: "/images/1.10-300x300.jpg",
-    title: "Ghost Recon Breakpoint. Lorem ipsum dolor sit amet, consectetur",
+    title: "Ghost Recon ",
     rating: 4.5,
     originalPrice: 69.99,
     salePrice: 54.99,
@@ -61,22 +63,36 @@ const games = [
   },
 ];
 
-function RecentReleases() {
+function CurrentlyTrending() {
   return (
-    <section className="container mx-auto">
-      <SectionHeader
-        title={"Recent Releases"}
-        btn={"Discover All"}
-        btnUrl={"/recent"}
-      />
+    <>
+      <SectionHeader title={"Currently Trending"} />
 
-      <div className="grid grid-cols-3 gap-6">
-        {games.map((game) => (
-          <RowCard key={game?.id} game={game} />
-        ))}
+      <div className="container mx-auto grid grid-cols-10 gap-6">
+        <div className="col-span-2 rounded-lg overflow-hidden relative">
+          <Image
+            src={"/images/banner2.png"}
+            width={600}
+            height={600}
+            alt=""
+            className="w-full h-full object-cover"
+          />
+
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center justify-center gap-5 text-center">
+            <h2 className="text-nowrap text-4xl font-semibold ">Row Game</h2>
+            <Link href="">
+              <button className="bg-[#776BF8] hover:bg-[#fff] hover:text-[#776BF8] px-8 py-2 rounded-lg cursor-pointer text-[17px] font-semibold transition duration-300">
+                Shop Now
+              </button>
+            </Link>
+          </div>
+        </div>
+        <div className="col-span-8">
+          <DotsSlider data={games} />
+        </div>
       </div>
-    </section>
+    </>
   );
 }
 
-export default RecentReleases;
+export default CurrentlyTrending;

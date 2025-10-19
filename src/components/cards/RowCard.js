@@ -1,7 +1,7 @@
 import StarRating from "@/components/utils/StarRating";
 import Image from "next/image";
 
-function RowCards({ game }) {
+function RowCard({ game }) {
   return (
     <div className="relative flex items-center gap-6 bg-[#23262F] rounded-lg overflow-hidden">
       <Image
@@ -33,4 +33,4 @@ function RowCards({ game }) {
   );
 }
 
-export default RowCards;
+export default RowCard;
