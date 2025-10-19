@@ -7,7 +7,7 @@ function LogoAndSubscription() {
       {/* logo */}
       <Link href={"/"}>
         <Image
-          src={"/logos/logo.png"}
+          src={"/logos/Logo.png"}
           width={200}
           height={200}
           alt=""
