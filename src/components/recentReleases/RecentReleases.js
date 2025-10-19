@@ -1,11 +1,11 @@
-import Image from "next/image";
+import RowCards from "../cards/rowCards/RowCards";
 
 const games = [
   {
     id: 1,
     image: "/images/1.16-300x300.jpg",
     title: "Ghost Recon Breakpoint. Lorem ipsum dolor sit amet, consectetur",
-    rating: 4, // out of 5
+    rating: 4.6,
     originalPrice: 99.33,
     salePrice: 61.78,
     tag: "SALE",
@@ -25,7 +25,7 @@ const games = [
     image: "/images/1.6-300x300.jpg",
     title:
       "The Callistos Protocols: generation- survival horror Glen Schofield",
-    rating: 4,
+    rating: 4.5,
     originalPrice: 69.99,
     salePrice: 49.99,
     tag: "NEW",
@@ -53,7 +53,7 @@ const games = [
     id: 6,
     image: "/images/1.10-300x300.jpg",
     title: "Ghost Recon Breakpoint. Lorem ipsum dolor sit amet, consectetur",
-    rating: 4,
+    rating: 4.5,
     originalPrice: 69.99,
     salePrice: 54.99,
     tag: "SALE",
@@ -70,44 +70,7 @@ function RecentReleases() {
 
       <div className="grid grid-cols-3 gap-6">
         {games.map((game) => (
-          <div
-            key={game?.id}
-            className="relative flex items-center gap-6 bg-[#23262F] rounded-lg overflow-hidden"
-          >
-            <Image
-              src={game?.image}
-              width={400}
-              height={400}
-              alt=""
-              className="w-[260px] h-[200px] object-cover"
-            />
-            <div>
-              <p className="font-semibold">{game?.title}</p>
-              <div className="flex items-center mt-2">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <span
-                    key={i}
-                    className={`text-yellow-400 ${
-                      i < game.rating ? "filled" : "empty"
-                    }`}
-                  >
-                    ★
-                  </span>
-                ))}
-              </div>
-              <div className="mt-2 flex items-center gap-2">
-                <span className="line-through text-gray-400">
-                  ${game.originalPrice}
-                </span>
-                <span className="font-bold text-green-600">
-                  ${game.salePrice}
-                </span>
-              </div>
-              <span className="absolute left-3 top-0 inline-block mt-2 px-2 py-1 text-[.70rem] font-semibold bg-[#37a937] text-white rounded">
-                {game.tag}
-              </span>
-            </div>
-          </div>
+          <RowCards key={game?.id} game={game} />
         ))}
       </div>
     </section>
