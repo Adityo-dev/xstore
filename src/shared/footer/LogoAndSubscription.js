@@ -4,6 +4,7 @@ import Link from "next/link";
 function LogoAndSubscription() {
   return (
     <>
+      {/* logo */}
       <Link href={"/"}>
         <Image
           src={"/logos/logo.png"}
