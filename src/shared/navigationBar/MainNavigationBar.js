@@ -14,6 +14,7 @@ function MainNavigationBar() {
           alt=""
           className="w-fit h-fit"
         />
+
         <NavBarList />
         <Search />
       </div>

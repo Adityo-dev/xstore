@@ -1,15 +1,19 @@
 import Image from "next/image";
+import Link from "next/link";
 
 function LogoAndSubscription() {
   return (
     <>
-      <Image
-        src={"/logos/logo.png"}
-        width={200}
-        height={200}
-        alt=""
-        className="w-fit h-fit"
-      />
+      <Link href={"/"}>
+        <Image
+          src={"/logos/logo.png"}
+          width={200}
+          height={200}
+          alt=""
+          className="w-fit h-fit"
+        />
+      </Link>
+
       <p className="text-[17px] text-[#A9ABB2] font-semibold my-6 leading-relaxed">
         Get notified about new product, tips, updates, and tutorials. You can
         always unsubscribe. No spam.

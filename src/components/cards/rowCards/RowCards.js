@@ -9,19 +9,24 @@ function RowCards({ game }) {
         width={400}
         height={400}
         alt=""
-        className="w-[260px] h-[200px] object-cover"
+        className="w-[260px] h-[210px] object-cover"
       />
+
       <div>
-        <p className="font-semibold mb-2">{game?.title}</p>
+        <p className="font-semibold mb-3">{game?.title}</p>
         <StarRating rating={game?.rating} />
-        <div className="mt-2 flex items-center gap-2">
+        <div className="flex items-center gap-2 mt-6 text-[15px]">
           <span className="line-through text-gray-400">
-            ${game.originalPrice}
+            ${game?.originalPrice}
           </span>
-          <span className="font-bold text-green-600">${game.salePrice}</span>
+          <span className="font-semibold text-green-600">
+            ${game?.salePrice}
+          </span>
         </div>
+
+        {/*  */}
         <span className="absolute left-3 top-0 inline-block mt-2 px-2 py-1 text-[.70rem] font-semibold bg-[#37a937] text-white rounded">
-          {game.tag}
+          {game?.tag}
         </span>
       </div>
     </div>

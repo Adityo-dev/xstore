@@ -1,4 +1,5 @@
 import RowCards from "../cards/rowCards/RowCards";
+import SectionHeader from "../SectionHeader";
 
 const games = [
   {
@@ -63,10 +64,11 @@ const games = [
 function RecentReleases() {
   return (
     <section className="container mx-auto">
-      <div className="flex items-center justify-between mb-7">
-        <h2 className="text-[30px] font-semibold">Recent Releases</h2>
-        <button>Discover All</button>
-      </div>
+      <SectionHeader
+        title={"Recent Releases"}
+        btn={"Discover All"}
+        btnUrl={"/recent"}
+      />
 
       <div className="grid grid-cols-3 gap-6">
         {games.map((game) => (
