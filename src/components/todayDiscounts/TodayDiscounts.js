@@ -63,13 +63,17 @@ const games = [
   },
 ];
 
-function CurrentlyTrending() {
+function TodayDiscounts() {
   return (
     <>
-      <SectionHeader title={"Currently Trending"} />
+      <SectionHeader title={"Today’s Discounts"} />
 
-      <div className="container mx-auto grid grid-cols-10 gap-6">
-        <div className="col-span-2 rounded-lg overflow-hidden relative">
+      <div className="container mx-auto grid grid-cols-12 gap-6">
+        <div className="col-span-9">
+          <DotsSlider data={games} uniqueId={"todays-discounts"} />
+        </div>
+
+        <div className="col-span-3 rounded-lg overflow-hidden relative">
           <Image
             src={"/images/banner2.png"}
             width={600}
@@ -87,12 +91,9 @@ function CurrentlyTrending() {
             </Link>
           </div>
         </div>
-        <div className="col-span-8">
-          <DotsSlider data={games} uniqueId={"currently-trending"} />
-        </div>
       </div>
     </>
   );
 }
 
-export default CurrentlyTrending;
+export default TodayDiscounts;

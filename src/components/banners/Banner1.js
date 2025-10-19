@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-function Banner() {
+function Banner1() {
   return (
     <div className="relative">
       <Image
@@ -35,4 +35,4 @@ function Banner() {
   );
 }
 
-export default Banner;
+export default Banner1;
