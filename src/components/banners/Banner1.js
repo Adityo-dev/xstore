@@ -19,7 +19,7 @@ function Banner1() {
           backgroundRepeat: "no-repeat",
         }}
       >
-        <h2 className="text-[40px] font-semibold capitalize text-nowrap">
+        <h2 className="text-[40px] font-semibold font-marcellus capitalize text-nowrap">
           XStore Elementor Games Dark Demo - WooCommerce Theme
         </h2>
         <p className="text-[17px] font-medium mt-4 mb-6">

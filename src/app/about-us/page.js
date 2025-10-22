@@ -1,10 +1,14 @@
+import AboutUsHero from "@/components/aboutUs/AboutUsHero";
+import FactSheet from "@/components/aboutUs/FactSheet";
+import OurPlayersTalk from "@/components/aboutUs/OurPlayersTalk";
+
 function page() {
   return (
-    <div className="container mx-auto pt-48 text-center">
-      <h2 className="text-7xl font-semibold">
-        Crafting Unforgettable Experiences
-      </h2>
-    </div>
+    <section className="space-y-20">
+      <AboutUsHero />
+      <FactSheet />
+      <OurPlayersTalk />
+    </section>
   );
 }
 

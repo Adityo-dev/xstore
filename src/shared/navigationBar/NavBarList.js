@@ -20,16 +20,16 @@ function NavBarList() {
           const isActive = pathname === list.url;
 
           return (
-            <li key={list.id}>
+            <li key={list?.id}>
               <Link
-                href={list.url}
+                href={list?.url}
                 className={`text-[17px] font-semibold text-nowrap ${
                   isActive
                     ? "text-[#776BF8] border-b-2 border-[#776BF8] pb-1"
                     : "text-white"
                 } hover:text-[#776BF8] transition`}
               >
-                {list.name}
+                {list?.name}
               </Link>
             </li>
           );

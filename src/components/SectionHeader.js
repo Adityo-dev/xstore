@@ -1,9 +1,13 @@
 import Link from "next/link";
 
-function SectionHeader({ title, btn, btnUrl = "#" }) {
+function SectionHeader({ title, btn, btnUrl = "#", justify = "between" }) {
   return (
-    <div className="container mx-auto flex items-center justify-between mb-9">
-      {title && <h2 className="text-[30px] font-semibold">{title}</h2>}
+    <div
+      className={`container mx-auto flex items-center justify-${justify} mb-9`}
+    >
+      {title && (
+        <h2 className="text-[30px] font-semibold font-marcellus">{title}</h2>
+      )}
       {btn && (
         <Link href={btnUrl}>
           <button className="bg-[#776BF8] hover:bg-[#fff] hover:text-[#776BF8] px-8 py-2 rounded-lg cursor-pointer text-[17px] font-semibold transition duration-300">

@@ -5,7 +5,9 @@ function NavBarRightSection() {
   return (
     <div className="relative flex items-center gap-[30px] pr-[20px]">
       <div className="cursor-pointer">
-        <p className="text-[15px] font-semibold text-[#776BF8]">Support 24/7</p>
+        <p className="text-[15px] font-semibold text-[#776BF8] text-end">
+          Support 24/7
+        </p>
         <p className="text-[17px] font-semibold">+8801770365981</p>
       </div>
       <div className="flex items-center gap-2 cursor-pointer border-s border-[#FFFFFF24] pl-[20px]">

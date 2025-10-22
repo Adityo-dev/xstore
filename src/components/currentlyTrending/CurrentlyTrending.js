@@ -79,7 +79,9 @@ function CurrentlyTrending() {
           />
 
           <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center justify-center gap-5 text-center">
-            <h2 className="text-nowrap text-4xl font-semibold ">Row Game</h2>
+            <h2 className="text-nowrap text-[30px] font-semibold font-marcellus">
+              Row Game
+            </h2>
             <Link href="">
               <button className="bg-[#776BF8] hover:bg-[#fff] hover:text-[#776BF8] px-8 py-2 rounded-lg cursor-pointer text-[17px] font-semibold transition duration-300">
                 Shop Now

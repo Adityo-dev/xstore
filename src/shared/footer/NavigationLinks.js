@@ -43,7 +43,7 @@ function NavigationLinks() {
           <h3 className="text-base font-semibold uppercase mb-4">
             {section?.title}
           </h3>
-          <ul className="space-y-3 text-sm font-semibold text-[#A9ABB2]">
+          <ul className="space-y-4 text-base font-semibold text-[#A9ABB2]">
             {section?.links.map((link) => (
               <li
                 key={link?.id}

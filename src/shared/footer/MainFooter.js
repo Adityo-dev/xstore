@@ -21,7 +21,7 @@ export default function MainFooter() {
       <SocialIconAndPayment />
 
       {/* copy right */}
-      <p className="pt-12 text-center text-xs text-[#A9ABB2]">
+      <p className="pt-12 text-center text-xs text-[#A9ABB2] font-marcellus">
         © 2025 XStore Gaming. Powered by Next Js
       </p>
     </footer>

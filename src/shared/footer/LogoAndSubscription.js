@@ -25,7 +25,7 @@ function LogoAndSubscription() {
           placeholder="Enter Your Email"
           className="w-full px-4 py-3 rounded-l bg-[#3F4555] border-[#3A3B45] outline-none"
         />
-        <button className="px-6 py-3 bg-[#776BF8] text-white uppercase rounded-r font-semibold transition cursor-pointer">
+        <button className="px-6 py-3 bg-[#776BF8] text-white uppercase rounded-r text-sm font-medium font-marcellus transition cursor-pointer">
           Subscribe
         </button>
       </div>

@@ -15,7 +15,9 @@ function BlogCard({ blog }) {
           {blog?.tag}
         </p>
       </div>
-      <h3 className="text-xl font-semibold mt-5">{blog?.title}</h3>
+      <h3 className="text-[17px] font-semibold font-marcellus mt-5">
+        {blog?.title}
+      </h3>
     </div>
   );
 }

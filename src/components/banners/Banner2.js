@@ -12,7 +12,7 @@ function Banner2() {
       />
 
       <div className="col-span-4 p-6">
-        <h2 className="text-[30px] font-semibold">
+        <h2 className="text-[30px] font-semibold font-marcellus">
           Gran Turismo 2 Racing Simulation Video Game
         </h2>
         <p className="text-[#DBDCE1] text-[17px] leading-relaxed mt-4 mb-12">

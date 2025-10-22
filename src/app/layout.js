@@ -1,16 +1,18 @@
 import MainFooter from "@/shared/footer/MainFooter";
 import MainNavigationBar from "@/shared/navigationBar/MainNavigationBar";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Rethink_Sans, Unbounded } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const unbounded = Unbounded({
   subsets: ["latin"],
+  variable: "--font-marcellus",
+  weight: ["400", "600", "700"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const rethinkSans = Rethink_Sans({
   subsets: ["latin"],
+  variable: "--font-rethink-sans",
+  weight: ["400", "500", "700"],
 });
 
 export const metadata = {
@@ -22,7 +24,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${unbounded.variable} ${rethinkSans.variable} antialiased`}
       >
         <MainNavigationBar />
         {children}

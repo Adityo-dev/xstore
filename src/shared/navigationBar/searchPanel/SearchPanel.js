@@ -16,7 +16,7 @@ function SearchPanel({ onClose }) {
       {/* Main Content */}
       <div className="flex flex-col items-center justify-center space-y-5">
         {/* Header Title */}
-        <h3 className="text-[1.6rem] text-white mb-[10px]">
+        <h3 className="text-[1.6rem] font-marcellus font-semibold text-white mb-6">
           What Are You Looking For?
         </h3>
         {/* Search bar */}
