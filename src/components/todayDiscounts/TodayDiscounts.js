@@ -1,7 +1,9 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import DotsSlider from "../DotsSlider";
 import SectionHeader from "../SectionHeader";
+import ColumCard from "../cards/ColumCard";
 
 const games = [
   {
@@ -70,7 +72,19 @@ function TodayDiscounts() {
 
       <div className="container mx-auto grid grid-cols-12 gap-6">
         <div className="col-span-9">
-          <DotsSlider data={games} uniqueId={"todays-discounts"} />
+          <DotsSlider
+            data={games}
+            CardComponent={ColumCard}
+            uniqueId="todays-discounts"
+            slidesPerView={1}
+            spaceBetween={20}
+            loop={true}
+            paginationColor="#6c63ff"
+            breakpoints={{
+              640: { slidesPerView: 2 },
+              1024: { slidesPerView: 4 },
+            }}
+          />
         </div>
 
         <div className="col-span-3 rounded-lg overflow-hidden relative">

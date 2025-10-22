@@ -1,7 +1,9 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import DotsSlider from "../DotsSlider";
 import SectionHeader from "../SectionHeader";
+import ColumCard from "../cards/ColumCard";
 
 const games = [
   {
@@ -90,7 +92,19 @@ function CurrentlyTrending() {
           </div>
         </div>
         <div className="col-span-8">
-          <DotsSlider data={games} uniqueId={"currently-trending"} />
+          <DotsSlider
+            data={games}
+            CardComponent={ColumCard}
+            uniqueId="currently-trending"
+            slidesPerView={1}
+            spaceBetween={20}
+            loop={true}
+            paginationColor="#6c63ff"
+            breakpoints={{
+              640: { slidesPerView: 2 },
+              1024: { slidesPerView: 4 },
+            }}
+          />
         </div>
       </div>
     </>

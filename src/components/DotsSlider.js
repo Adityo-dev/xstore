@@ -4,44 +4,52 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import ColumCard from "./cards/ColumCard";
 
-const DotsSlider = ({ data, uniqueId = "slider" }) => {
+export default function DotsSlider({
+  data = [],
+  CardComponent,
+  uniqueId = "slider",
+  slidesPerView = 1,
+  spaceBetween = 24,
+  loop = true,
+  breakpoints = {
+    640: { slidesPerView: 2 },
+    1024: { slidesPerView: 4 },
+  },
+  paginationColor = "#776bf8",
+}) {
   const paginationId = `custom-pagination-${uniqueId}`;
 
   return (
     <div className="relative w-full">
       <Swiper
-        key={`game-slider-${uniqueId}`}
+        key={`swiper-${uniqueId}`}
         modules={[Pagination]}
-        spaceBetween={24}
-        slidesPerView={1}
-        loop={true}
-        breakpoints={{
-          640: { slidesPerView: 2 },
-          1024: { slidesPerView: 4 },
-        }}
+        spaceBetween={spaceBetween}
+        slidesPerView={slidesPerView}
+        loop={loop}
+        breakpoints={breakpoints}
         pagination={{
           clickable: true,
           el: `.${paginationId}`,
         }}
-        className="w-full custom-swiper"
+        className="w-full"
       >
-        {data.map((game) => (
-          <SwiperSlide key={game?.id}>
-            <ColumCard game={game} />
+        {data.map((item, index) => (
+          <SwiperSlide key={item?.id || index}>
+            {CardComponent ? <CardComponent data={item} /> : null}
           </SwiperSlide>
         ))}
       </Swiper>
 
-      {/* External pagination (unique per slider) */}
+      {/* External pagination */}
       <div className={`${paginationId} flex justify-center mt-6`}></div>
 
-      {/* Custom Swiper Styles */}
+      {/* Custom Swiper Dots */}
       <style jsx global>{`
         .swiper-pagination-bullet {
           background-color: #ffffff;
-          opacity: 0.6;
+          opacity: 0.5;
           width: 10px;
           height: 10px;
           margin: 0 4px;
@@ -49,13 +57,11 @@ const DotsSlider = ({ data, uniqueId = "slider" }) => {
           transition: all 0.3s ease;
         }
         .swiper-pagination-bullet-active {
-          background-color: #776bf8;
+          background-color: ${paginationColor};
           opacity: 1;
           transform: scale(1.3);
         }
       `}</style>
     </div>
   );
-};
-
-export default DotsSlider;
+}
