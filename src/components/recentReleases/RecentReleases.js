@@ -50,6 +50,7 @@ const games = [
     salePrice: 59.99,
     tag: "HOT",
   },
+
   {
     id: 6,
     image: "/images/1.10-300x300.jpg",

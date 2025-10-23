@@ -2,7 +2,7 @@ import Image from "next/image";
 import { AiOutlinePlus } from "react-icons/ai";
 import { HiMiniEquals } from "react-icons/hi2";
 import SectionHeader from "../SectionHeader";
-import StarRating from "../utils/StarRating";
+import { default as GetStarRating } from "../utils/GetStarRating";
 
 function Bundle() {
   return (
@@ -25,7 +25,7 @@ function Bundle() {
                 "Ghost Recon Breakpoint. Lorem ipsum dolor sit amet, consectetur"
               }
             </p>
-            <StarRating rating={5} />
+            <GetStarRating rating={5} />
             <div className="flex items-center gap-2 mt-6 text-[15px]">
               <span className="line-through text-gray-400">69.99</span>
               <span className="font-semibold text-green-600">54.99</span>
@@ -55,7 +55,7 @@ function Bundle() {
                 "Ghost Recon Breakpoint. Lorem ipsum dolor sit amet, consectetur"
               }
             </p>
-            <StarRating rating={5} />
+            <GetStarRating rating={5} />
             <div className="flex items-center gap-2 mt-6 text-[15px]">
               <span className="line-through text-gray-400">69.99</span>
               <span className="font-semibold text-green-600">54.99</span>

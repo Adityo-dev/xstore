@@ -1,9 +1,9 @@
-import StarRating from "@/components/utils/StarRating";
+import GetStarRating from "@/components/utils/GetStarRating";
 import Image from "next/image";
 
 function RowCard({ game }) {
   return (
-    <div className="relative flex items-center gap-6 bg-[#23262F] rounded-lg overflow-hidden">
+    <div className="group relative flex items-center gap-6 bg-[#23262F] rounded-lg overflow-hidden">
       <Image
         src={game?.image}
         width={400}
@@ -14,7 +14,7 @@ function RowCard({ game }) {
 
       <div>
         <p className="font-semibold mb-3">{game?.title}</p>
-        <StarRating rating={game?.rating} />
+        <GetStarRating rating={game?.rating} />
         <div className="flex items-center gap-2 mt-6 text-[15px]">
           <span className="line-through text-gray-400">
             ${game?.originalPrice}
