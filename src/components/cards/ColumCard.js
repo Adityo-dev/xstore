@@ -12,7 +12,7 @@ function ColumCard({ data }) {
         {data?.images?.[0] && (
           <Link
             key={data.images[0].id}
-            href=""
+            href={`/game/${data?.id}`}
             className="block h-[250px] overflow-hidden relative"
           >
             <Image
