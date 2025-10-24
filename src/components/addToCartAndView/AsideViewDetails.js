@@ -22,8 +22,8 @@ function AsideViewDetails({ data }) {
     <div className="flex flex-col gap-5 py-4">
       <div className="relative w-full h-[350px] rounded-md overflow-hidden">
         <Image
-          src={data.image}
-          alt={data.title}
+          src={data.images[0].src}
+          alt={data.images[0].alt}
           fill
           className="object-cover"
         />
@@ -45,16 +45,23 @@ function AsideViewDetails({ data }) {
           </span>
         </div>
 
-        <GetStarRating rating={data?.rating} />
+        <GetStarRating rating={5} />
 
         <p className="text-[#8e919f] text-base my-3">
-          {"Contrary to popular beliefs has roots in a piece of classical literature from 45 BC, making it over 2000 years old. Richard McClintock an professors at hampden-sydney colleges in virginia, looked up once of the more obscure consectetur from an passages and going through the cites of the words in classical literature discovered undoubtable source book treatise." ||
-            "No description available."}
+          {data?.description && data.description.length > 0
+            ? data.description
+            : "No description available."}
         </p>
 
-        <p className="text-[#209e27] flex items-center gap-1">
-          <IoCheckmark size={20} /> 119 in stock
-        </p>
+        {data.stock <= 0 ? (
+          <p className="text-[#e00a0a] flex items-center gap-1">
+            ✕ Out of stock
+          </p>
+        ) : (
+          <p className="text-[#209e27] flex items-center gap-1">
+            <IoCheckmark size={20} /> {data?.stock} in stock
+          </p>
+        )}
 
         <div className="space-y-4 text-white mt-4">
           {/* Quantity and Add to Cart */}
@@ -89,12 +96,15 @@ function AsideViewDetails({ data }) {
           <div>
             <p className="text-sm">
               <span className="font-semibold text-gray-300">Category :</span>{" "}
-              <Link
-                href={"#"}
-                className="text-[#888] hover:text-gray-300 transition duration-300"
-              >
-                Heroic Tower Defense with NFTs
-              </Link>
+              {data.categories.map((cat) => (
+                <Link
+                  key={cat.id}
+                  href={"#"}
+                  className="text-[#888] hover:text-gray-300 transition duration-300"
+                >
+                  {cat}{" "}
+                </Link>
+              ))}
             </p>
           </div>
 

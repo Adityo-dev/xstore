@@ -88,9 +88,10 @@ const products = [
     description: "Command airships in epic sky battles.",
     images: [
       { id: 1, alt: "Klondike gameplay cover", src: "/images/games3.jpg" },
+      { id: 2, alt: "Klondike gameplay cover", src: "/images/games3.jpg" },
     ],
     sold: 120,
-    stock: 200,
+    stock: 100,
     timeLeft: { hours: 12 },
     reviews: [
       {

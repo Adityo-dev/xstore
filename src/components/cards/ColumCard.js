@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 
+import Image from "next/image";
 import AddToCartAndView from "../addToCartAndView/AddToCartAndView";
 import GetStarRating from "../utils/GetStarRating";
 
@@ -9,15 +9,21 @@ function ColumCard({ data }) {
     <div className="group relative bg-[#23262F] rounded-lg overflow-hidden max-w-[300px] w-full h-full flex flex-col">
       {/* Image section */}
       <div className="relative">
-        <Link href={""} className="block h-[250px] overflow-hidden relative">
-          <Image
-            src={data?.image}
-            width={400}
-            height={400}
-            alt={data?.title || "Game Image"}
-            className="w-full h-full object-cover hover:scale-110 transition duration-300"
-          />
-        </Link>
+        {data?.images?.[0] && (
+          <Link
+            key={data.images[0].id}
+            href=""
+            className="block h-[250px] overflow-hidden relative"
+          >
+            <Image
+              src={data.images[0].src}
+              width={400}
+              height={400}
+              alt={data.images[0].alt || "Game Image"}
+              className="w-full h-full object-cover hover:scale-110 transition duration-300"
+            />
+          </Link>
+        )}
 
         {/* Button group animation */}
         <div className="absolute left-1/2 -translate-x-1/2 top-[55%] opacity-0 group-hover:opacity-100 group-hover:top-[50%] transition-all duration-500 ease-in-out">
@@ -33,7 +39,7 @@ function ColumCard({ data }) {
               {data?.title}
             </p>
           </Link>
-          <GetStarRating rating={data?.rating} />
+          <GetStarRating rating={5} />
         </div>
 
         <div className="flex items-center gap-2 mt-4 text-[15px]">
