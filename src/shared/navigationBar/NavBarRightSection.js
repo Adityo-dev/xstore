@@ -19,12 +19,12 @@ function NavBarRightSection() {
         <p className="text-[17px] font-semibold">Sign In</p>
       </Link>
 
-      <div className="relative">
+      <Link href={"/cart"} className="relative">
         <FaOpencart className="text-2xl cursor-pointer" />
         <p className="absolute -top-2 -right-6 flex items-center justify-center w-6 h-6 bg-[#776BF8] rounded-full p-1">
           00
         </p>
-      </div>
+      </Link>
     </div>
   );
 }
