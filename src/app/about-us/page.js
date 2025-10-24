@@ -4,7 +4,7 @@ import OurPlayersTalk from "@/components/aboutUs/OurPlayersTalk";
 
 function page() {
   return (
-    <section className="space-y-20">
+    <section className="space-y-20 mb-24">
       <AboutUsHero />
       <FactSheet />
       <OurPlayersTalk />

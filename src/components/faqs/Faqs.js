@@ -1,6 +1,6 @@
 function Faqs() {
   return (
-    <section className="container mx-auto pt-44 text-center space-y-20">
+    <section className="container mx-auto pt-44 mb-24 text-center space-y-20">
       <div>
         <h2 className="text-[50px] font-semibold font-marcellus">
           Answers & Questions

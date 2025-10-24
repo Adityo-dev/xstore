@@ -10,7 +10,7 @@ import TodayDiscounts from "@/components/todayDiscounts/TodayDiscounts";
 
 export default function Home() {
   return (
-    <section className="space-y-20">
+    <section className="space-y-20 mb-24">
       <Hero />
       <RecentReleases />
       <Marquee />

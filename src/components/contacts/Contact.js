@@ -4,7 +4,7 @@ import Message from "./Message";
 
 function Contact() {
   return (
-    <div className="container mx-auto pt-44 space-y-20">
+    <div className="container mx-auto pt-44 mb-24 space-y-20">
       <div className="grid grid-cols-5">
         <div className="col-span-3">
           <p className="text-[17px] text-[#776BF8] font-marcellus">

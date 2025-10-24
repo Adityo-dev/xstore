@@ -4,7 +4,7 @@ import SocialIconAndPayment from "./SocialIconAndPayment";
 
 export default function MainFooter() {
   return (
-    <footer className="bg-[#1E1F25] text-white mt-24 py-4">
+    <footer className="bg-[#1E1F25] text-white py-4">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-5 gap-12">
         {/* Logo & Subscription */}
         <div className="col-span-2 pr-20 border-r border-[#FFFFFF24] py-12">

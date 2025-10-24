@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { FaOpencart } from "react-icons/fa6";
 import { FiUser } from "react-icons/fi";
 
@@ -10,10 +11,13 @@ function NavBarRightSection() {
         </p>
         <p className="text-[17px] font-semibold">+8801770365981</p>
       </div>
-      <div className="flex items-center gap-2 cursor-pointer border-s border-[#FFFFFF24] pl-[20px]">
+      <Link
+        href={"/account/login"}
+        className="flex items-center gap-2 cursor-pointer border-s border-[#FFFFFF24] pl-[20px]"
+      >
         <FiUser className="text-2xl" />
         <p className="text-[17px] font-semibold">Sign In</p>
-      </div>
+      </Link>
 
       <div className="relative">
         <FaOpencart className="text-2xl cursor-pointer" />
