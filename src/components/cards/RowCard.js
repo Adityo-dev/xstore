@@ -1,10 +1,11 @@
 import GetStarRating from "@/components/utils/GetStarRating";
 import Image from "next/image";
+import Link from "next/link";
 
 function RowCard({ game }) {
   return (
     <div className="group relative flex items-center gap-6 bg-[#23262F] rounded-lg overflow-hidden">
-      <div className="w-[220px] h-[210px]">
+      <Link href={`/game/${game?.id}`} className="w-[220px] h-[210px]">
         {game.images.map((img) => (
           <Image
             key={img?.id}
@@ -15,7 +16,7 @@ function RowCard({ game }) {
             className="h-full w-full object-cover"
           />
         ))}
-      </div>
+      </Link>
 
       <div>
         <p className="font-semibold mb-3">{game?.title}</p>

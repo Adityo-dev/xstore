@@ -14,7 +14,7 @@ function MainNavigationBar() {
             width={200}
             height={200}
             alt="Logo"
-            className="w-[150px] h-auto object-contain"
+            className="w-[150px] max-h-[30px] object-contain"
           />
         </Link>
 
