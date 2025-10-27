@@ -268,7 +268,7 @@ export default function Shop() {
                 setSortBy(e.target.value);
                 updateURL({ sort_by: e.target.value });
               }}
-              className="p-2 bg-gray-700 text-white rounded"
+              className="p-2 bg-gray-700 text-white rounded outline-0 cursor-pointer"
             >
               <option value="default">Default sorting</option>
               <option value="popularity">Sort by popularity</option>
@@ -308,7 +308,7 @@ export default function Shop() {
                     key={num}
                     onClick={() => paginate(num)}
                     className={`px-4 py-2 cursor-pointer ${
-                      currentPage === num ? "bg-blue-600" : "bg-gray-700 "
+                      currentPage === num ? "bg-[#776BF8]" : "bg-gray-700 "
                     } text-white`}
                   >
                     {num}
