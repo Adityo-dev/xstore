@@ -30,8 +30,10 @@ const blogs = [
 function Blog() {
   return (
     <div>
+      {/* section Header  */}
       <SectionHeader title={"From The Blog"} btn={"Discover All"} />
 
+      {/* Blog Card */}
       <div className="container mx-auto grid grid-cols-3 gap-6">
         {blogs.map((blog) => (
           <BlogCard key={blog?.id} blog={blog} />
