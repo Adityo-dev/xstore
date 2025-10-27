@@ -12,7 +12,7 @@ function Bundle() {
       <div className="container mx-auto bg-[#23262F] p-6 rounded-lg flex items-center gap-6">
         <div className="relative flex items-center gap-6 bg-[#23262F] border border-[#FFFFFF24] rounded-lg overflow-hidden pr-2">
           <Image
-            src={"/images/1.12-300x300.jpg"}
+            src={"/images/games6.jpg"}
             width={400}
             height={400}
             alt=""
