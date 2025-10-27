@@ -13,27 +13,24 @@ export default function HeroSlider() {
       id: 1,
       image: "/images/heroCard3.jpg",
       bgCover: "/images/hero-bg-slider3.jpeg",
-      title: "RISE OF THE TITĀN",
+      title: "RISE OF THE",
       subtitle: "odyssey",
-      buttonText: "Purchase Now",
       gradient: "from-[#0b0c10] to-[#1f2833]",
     },
     {
       id: 2,
       image: "/images/heroCard2.jpg",
       bgCover: "/images/hero-bg-slider2.jpeg",
-      title: "RISE OF THE TITĀN",
-      subtitle: "odyssey",
-      buttonText: "Purchase Now",
+      title: "RISE OF THE",
+      subtitle: "xbox",
       gradient: "from-[#0b0c10] to-[#1f2833]",
     },
     {
       id: 3,
       bgCover: "/images/hero-bg-slider1.jpeg",
       image: "/images/heroCard1.jpg",
-      title: "RISE OF THE TITĀN",
-      subtitle: "odyssey",
-      buttonText: "Purchase Now",
+      title: "RISE OF THE",
+      subtitle: "TitĀn",
       gradient: "from-[#0b0c10] to-[#1f2833]",
     },
   ];
@@ -69,11 +66,14 @@ export default function HeroSlider() {
                 />
 
                 {/* Text Content Right side */}
-                <div className="absolute top-1/2 right-8 -translate-y-1/2 text-white z-20 flex flex-col text-center gap-2 ">
+                <div className="absolute top-1/2 right-20 -translate-y-1/2 text-white z-20 flex flex-col text-center gap-2">
                   <h2 className="text-[30px]">{slide?.title}</h2>
-                  <p className="text-[100px] uppercase">{slide?.subtitle}</p>
-                  <button className="mt-4 px-5 py-2 bg-red-600 rounded-lg hover:bg-red-700 transition">
-                    {slide?.buttonText}
+                  <p className="text-[90px] uppercase font-marcellus">
+                    {slide?.subtitle}
+                  </p>
+                  <p></p>
+                  <button className="bg-[#776BF8] hover:bg-[#fff] hover:text-[#776BF8] px-8 py-2 rounded-lg cursor-pointer text-[17px] font-semibold transition duration-300">
+                    Purchase Now
                   </button>
                 </div>
               </div>
