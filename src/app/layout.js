@@ -1,3 +1,4 @@
+import ScrollToTopButton from "@/components/ScrollToTopButton";
 import MainFooter from "@/shared/footer/MainFooter";
 import MainNavigationBar from "@/shared/navigationBar/MainNavigationBar";
 import { Rethink_Sans, Unbounded } from "next/font/google";
@@ -29,6 +30,7 @@ export default function RootLayout({ children }) {
         <MainNavigationBar />
         {children}
         <MainFooter />
+        <ScrollToTopButton />
       </body>
     </html>
   );

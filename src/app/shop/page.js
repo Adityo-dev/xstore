@@ -50,7 +50,8 @@ export default function Shop() {
         value === undefined ||
         value === null ||
         value === "" ||
-        (Array.isArray(value) && value.length === 0)
+        (Array.isArray(value) && value.length === 0) ||
+        (key === "page" && value === 1)
       ) {
         updated.delete(key);
       } else {
@@ -141,11 +142,19 @@ export default function Shop() {
     updateURL({ page });
   };
 
+  // Smooth scroll when page changes
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, [currentPage]);
+
   return (
     <section className="container mx-auto py-44">
       <div className="flex gap-6">
         {/* Sidebar Filters */}
-        <div className="max-w-[300px] w-full p-4 rounded-lg h-fit sticky top-4">
+        <div className="max-w-[300px] w-full p-4 rounded-lg h-fit sticky top-44">
           <h2 className="text-xl font-bold mb-4">Filters</h2>
 
           {/* Category */}
@@ -283,33 +292,38 @@ export default function Shop() {
           </div>
 
           {/* Pagination */}
-          <div className="mt-6 flex justify-center">
-            <button
-              onClick={() => paginate(currentPage - 1)}
-              disabled={currentPage === 1}
-              className="px-4 py-2 bg-gray-700 text-white rounded-l disabled:opacity-50"
-            >
-              Prev
-            </button>
-            {Array.from({ length: totalPages }, (_, i) => i + 1).map((num) => (
+          {filteredProducts.length > productsPerPage && (
+            <div className="mt-6 flex justify-center">
               <button
-                key={num}
-                onClick={() => paginate(num)}
-                className={`px-4 py-2 ${
-                  currentPage === num ? "bg-blue-600" : "bg-gray-700"
-                } text-white`}
+                onClick={() => paginate(currentPage - 1)}
+                disabled={currentPage === 1}
+                className="px-4 py-2 bg-gray-700 text-white rounded-l disabled:opacity-50 cursor-pointer"
               >
-                {num}
+                Prev
               </button>
-            ))}
-            <button
-              onClick={() => paginate(currentPage + 1)}
-              disabled={currentPage === totalPages}
-              className="px-4 py-2 bg-gray-700 text-white rounded-r disabled:opacity-50"
-            >
-              Next
-            </button>
-          </div>
+
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+                (num) => (
+                  <button
+                    key={num}
+                    onClick={() => paginate(num)}
+                    className={`px-4 py-2 cursor-pointer ${
+                      currentPage === num ? "bg-blue-600" : "bg-gray-700 "
+                    } text-white`}
+                  >
+                    {num}
+                  </button>
+                )
+              )}
+              <button
+                onClick={() => paginate(currentPage + 1)}
+                disabled={currentPage === totalPages}
+                className="px-4 py-2 bg-gray-700 text-white rounded-r disabled:opacity-50 cursor-pointer"
+              >
+                Next
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </section>
