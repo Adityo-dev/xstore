@@ -1,5 +1,4 @@
-"use client";
-import RelatedProducts from "@/components/relatedProducts/RelatedProducts";
+import RelatedProducts from "@/components/relatedproducts/RelatedProducts";
 import SinglePage from "@/components/singlePage/SinglePage";
 import { products } from "@/data/products";
 
