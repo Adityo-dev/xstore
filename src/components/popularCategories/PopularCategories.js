@@ -7,6 +7,8 @@ import {
   FaTag,
   FaTicketAlt,
 } from "react-icons/fa";
+import DotsSlider from "../DotsSlider";
+import CategoriesCard from "../cards/CategoriesCard";
 
 const menuItems = [
   {
@@ -55,16 +57,20 @@ const menuItems = [
 
 function PopularCategories() {
   return (
-    <section className="container mx-auto grid grid-cols-7 gap-6">
-      {menuItems.map((item) => (
-        <div
-          key={item?.id}
-          className="flex items-center gap-2 border border-[#FFFFFF38] w-full p-4 rounded-lg cursor-pointer"
-        >
-          <p className="text-[#776BF8] text-xl">{item?.icon}</p>
-          <p className="text-lg font-semibold text-nowrap">{item?.name}</p>
-        </div>
-      ))}
+    <section className="container mx-auto">
+      <DotsSlider
+        data={menuItems}
+        CardComponent={CategoriesCard}
+        uniqueId="popular-categories"
+        slidesPerView={1}
+        spaceBetween={20}
+        loop={true}
+        paginationColor="#6c63ff"
+        breakpoints={{
+          640: { slidesPerView: 2 },
+          1024: { slidesPerView: 7 },
+        }}
+      />
     </section>
   );
 }
