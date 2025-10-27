@@ -1,32 +1,36 @@
-"use client";
+import Image from "next/image";
 import Link from "next/link";
 
-export default function Gaming404() {
+function NotFound() {
   return (
-    <div className="flex flex-col justify-center items-center h-screen px-4">
-      {/* Glitch Text */}
-      <h1 className="text-8xl font-bold text-[#ff0055] relative">
-        404
-        <span className="absolute top-0 left-0 text-[#00ffff] opacity-50 animate-glitch">
-          404
-        </span>
-        <span className="absolute top-0 left-0 text-[#ffdd00] opacity-50 animate-glitch animation-delay-200">
-          404
-        </span>
-      </h1>
+    <section className="container mx-auto px-2 min-h-[100vh] py-6 flex flex-col items-center justify-center text-center">
+      <div className="w-full h-full flex items-center justify-center">
+        <Image
+          src={"/gifs/404.gif"}
+          width={300}
+          height={300}
+          alt="404 Error - The page you are looking for does not exist."
+          className="max-w-[450px] w-full h-[350px]"
+        />
+      </div>
+      <div className="space-y-4 px-4">
+        <h2 className="text-2xl md:text-4xl font-marcellus">
+          Oops! Page not found
+        </h2>
+        <p className="text-sm md:text-base lg:text-lg text-[#8e919f]">
+          Whoops, this is embarrassing. Looks like the page you were looking for
+          was not found.
+        </p>
+      </div>
 
-      {/* Subtext */}
-      <p className="mt-6 text-xl text-[#7e7a99] text-center">
-        Oops! The level you are trying to access does not exist.
-      </p>
-
-      {/* Call to Action */}
       <Link
-        href="/"
-        className="mt-8 px-6 py-3 bg-[#776BF8] hover:bg-[#5a50c0] text-white font-semibold rounded-lg transition"
+        className="bg-[#776BF8] hover:bg-[#fff] hover:text-[#776BF8] px-8 py-2 rounded-lg cursor-pointer text-[17px] font-semibold transition duration-300 mt-6"
+        href={"/shop"}
       >
-        Return to Base
+        Go To Shop
       </Link>
-    </div>
+    </section>
   );
 }
+
+export default NotFound;
