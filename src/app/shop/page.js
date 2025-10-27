@@ -145,27 +145,29 @@ export default function Shop() {
     <section className="container mx-auto py-44">
       <div className="flex gap-6">
         {/* Sidebar Filters */}
-        <div className="w-1/4 bg-gray-800 p-4 rounded-lg h-fit sticky top-4">
+        <div className="max-w-[300px] w-full p-4 rounded-lg h-fit sticky top-4">
           <h2 className="text-xl font-bold mb-4">Filters</h2>
 
           {/* Category */}
           <h3 className="text-lg mb-2">Categories</h3>
-          {allCategories.map((cat) => (
-            <label key={cat} className="block">
-              <input
-                type="checkbox"
-                checked={categoryFilter.includes(cat)}
-                onChange={(e) => {
-                  const updated = e.target.checked
-                    ? [...categoryFilter, cat]
-                    : categoryFilter.filter((c) => c !== cat);
-                  setCategoryFilter(updated);
-                  updateURL({ category: updated });
-                }}
-              />{" "}
-              {cat}
-            </label>
-          ))}
+          <div className="w-full max-h-[300px] h-full overflow-y-auto custom-scrollbar">
+            {allCategories.map((cat) => (
+              <label key={cat} className="block">
+                <input
+                  type="checkbox"
+                  checked={categoryFilter.includes(cat)}
+                  onChange={(e) => {
+                    const updated = e.target.checked
+                      ? [...categoryFilter, cat]
+                      : categoryFilter.filter((c) => c !== cat);
+                    setCategoryFilter(updated);
+                    updateURL({ category: updated });
+                  }}
+                />{" "}
+                {cat}
+              </label>
+            ))}
+          </div>
 
           {/* Price */}
           <h3 className="text-lg mb-2 mt-4">Price</h3>
@@ -248,7 +250,7 @@ export default function Shop() {
         </div>
 
         {/* Product Grid */}
-        <div className="w-3/4">
+        <div className="w-full">
           {/* Sort Dropdown */}
           <div className="mb-4 flex justify-end">
             <select
