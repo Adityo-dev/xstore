@@ -6,10 +6,10 @@ import { default as GetStarRating } from "../utils/GetStarRating";
 
 function Bundle() {
   return (
-    <>
+    <section className="px-4">
       <SectionHeader title={"Purchase in Bundle!"} />
 
-      <div className="container mx-auto bg-[#23262F] p-6 rounded-lg flex items-center gap-6">
+      <div className="container mx-auto bg-[#23262F] p-6 rounded-lg flex flex-col items-center gap-6">
         <div className="relative flex items-center gap-6 bg-[#23262F] border border-[#FFFFFF24] rounded-lg overflow-hidden pr-2">
           <Image
             src={"/images/games6.jpg"}
@@ -90,7 +90,7 @@ function Bundle() {
           </button>
         </div>
       </div>
-    </>
+    </section>
   );
 }
 

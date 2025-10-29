@@ -5,7 +5,7 @@ import { FiUser } from "react-icons/fi";
 function NavBarRightSection() {
   return (
     <div className="relative flex items-center gap-[30px] pr-[20px]">
-      <div className="cursor-pointer">
+      <div className="cursor-pointer hidden xl:block">
         <p className="text-[15px] font-semibold text-[#776BF8] text-end">
           Support 24/7
         </p>
@@ -13,7 +13,7 @@ function NavBarRightSection() {
       </div>
       <Link
         href={"/account/login"}
-        className="flex items-center gap-2 cursor-pointer border-s border-[#FFFFFF24] pl-[20px]"
+        className="hidden xl:flex items-center gap-2 cursor-pointer border-s border-[#FFFFFF24] pl-[20px]"
       >
         <FiUser className="text-2xl" />
         <p className="text-[17px] font-semibold">Sign In</p>

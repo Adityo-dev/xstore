@@ -11,7 +11,7 @@ export default function Hero() {
       }}
     >
       {/* Slider Container */}
-      <div className="pt-[136px] pb-4 space-y-8">
+      <div className="pt-[136px] pb-4 space-y-8 px-4">
         <HeroSlider />
         <PopularCategories />
       </div>

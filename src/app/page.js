@@ -16,10 +16,10 @@ export default function Home() {
       <Marquee />
       <Bundle />
       <Banner2 />
-      <CurrentlyTrending />
-      <Banner1 />
-      <TodayDiscounts />
-      <Blog />
+      {/* <CurrentlyTrending /> */}
+      {/* <Banner1 /> */}
+      {/* <TodayDiscounts /> */}
+      {/* <Blog /> */}
     </section>
   );
 }

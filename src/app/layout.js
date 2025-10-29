@@ -29,8 +29,8 @@ export default function RootLayout({ children }) {
       >
         <MainNavigationBar />
         {children}
-        <MainFooter />
-        <ScrollToTopButton />
+        {/* <MainFooter />
+        <ScrollToTopButton /> */}
       </body>
     </html>
   );

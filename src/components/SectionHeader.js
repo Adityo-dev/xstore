@@ -3,7 +3,7 @@ import Link from "next/link";
 function SectionHeader({ title, btn, btnUrl = "#", justify = "between" }) {
   return (
     <div
-      className={`container mx-auto flex items-center justify-${justify} mb-9`}
+      className={`container mx-auto flex flex-wrap gap-4 items-center justify-${justify} mb-9`}
     >
       {title && (
         <h2 className="text-[30px] font-semibold font-marcellus">{title}</h2>

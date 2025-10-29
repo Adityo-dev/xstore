@@ -15,7 +15,7 @@ function NavBarList() {
 
   return (
     <nav>
-      <ul className="flex items-center gap-7">
+      <ul className="hidden xl:flex items-center gap-7">
         {navList.map((list) => {
           const isActive = pathname === list.url;
 

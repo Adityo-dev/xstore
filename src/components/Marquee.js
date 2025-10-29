@@ -21,7 +21,7 @@ export default function GameMarquee() {
         {items.map((item, index) => (
           <span
             key={index}
-            className="mx-10 text-[50px] font-semibold font-marcellus text-white opacity-20 capitalize"
+            className="mx-10 text-[30px] md:text-[50px] font-semibold font-marcellus text-white opacity-20 capitalize"
           >
             {item}
           </span>
@@ -33,7 +33,7 @@ export default function GameMarquee() {
         {items.map((item, index) => (
           <span
             key={index}
-            className="mx-10 text-[50px] font-semibold font-marcellus text-white opacity-100 capitalize"
+            className="mx-10 text-[30px] md:text-[50px] font-semibold font-marcellus text-white opacity-100 capitalize"
           >
             {item}
           </span>
@@ -45,7 +45,7 @@ export default function GameMarquee() {
         {items.map((item, index) => (
           <span
             key={index}
-            className="mx-10 text-[50px] font-semibold font-marcellus text-white opacity-20 capitalize"
+            className="mx-10 text-[30px] md:text-[50px] font-semibold font-marcellus text-white opacity-20 capitalize"
           >
             {item}
           </span>
