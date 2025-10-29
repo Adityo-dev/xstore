@@ -4,6 +4,7 @@ import SinglePage from "@/components/singlePage/SinglePage";
 import { products } from "@/data/products";
 
 function Page({ params }) {
+  // slug
   const { slug } = params;
   let data = products.find((item) => item?.id === Number(slug));
 
