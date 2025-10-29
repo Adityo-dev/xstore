@@ -1,4 +1,5 @@
-import RelatedProducts from "@/components/relatedproducts/RelatedProducts";
+
+import RelatedProducts from "@/components/relatedProducts/RelatedProducts";
 import SinglePage from "@/components/singlePage/SinglePage";
 import { products } from "@/data/products";
 
