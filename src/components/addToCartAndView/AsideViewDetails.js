@@ -12,7 +12,7 @@ import { IoMdAdd, IoMdRemove } from "react-icons/io";
 import { IoCheckmark } from "react-icons/io5";
 import GetStarRating from "../utils/GetStarRating";
 
-function AsideViewDetails({ data }) {
+function AsideViewDetails({ data, onAddToCart }) {
   const [quantity, setQuantity] = useState(1);
 
   const handleIncrease = () => setQuantity((prev) => prev + 1);
@@ -84,6 +84,7 @@ function AsideViewDetails({ data }) {
             </div>
 
             <button
+              onClick={() => onAddToCart(data)}
               className="flex items-center gap-2 bg-[#776BF8] hover:bg-[#fff] hover:text-[#776BF8]  text-[17px]
                     font-semibold py-2 px-5 rounded transition-all duration-300 cursor-pointer"
             >

@@ -17,6 +17,12 @@ function AddToCartAndView({ data }) {
     setOpenAside(true);
   };
 
+  const handleAsideAddToCartOpen = (item) => {
+    addToCart(item);
+    setPanelType("cart");
+    setOpenAside(true);
+  };
+
   return (
     <>
       <div className="flex items-center gap-3">
@@ -52,7 +58,10 @@ function AddToCartAndView({ data }) {
             <AsideAddToCard data={data} />
           ) : (
             /* ---------------- VIEW DETAILS CONTENT ---------------- */
-            <AsideViewDetails data={data} />
+            <AsideViewDetails
+              data={data}
+              onAddToCart={handleAsideAddToCartOpen}
+            />
           )}
         </AsidePanel>
       )}
