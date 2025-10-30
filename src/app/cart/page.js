@@ -1,59 +1,23 @@
 "use client";
 
+import { useCart } from "@/components/context/CartContext";
 import Image from "next/image";
-import { useState } from "react";
 import CartTotals from "./CartTotals";
 
 export default function ShoppingCart() {
-  const [cart, setCart] = useState([
-    {
-      id: 1,
-      name: "Vikings: War Of Clans Frigid P Strategy Warfare Conquer Enemies Feud",
-      price: 313.33,
-      img: "/images/image-1.jpg",
-      quantity: 1,
-      sku: "N/A",
-    },
-    {
-      id: 2,
-      name: "Klondike: Lost Expedition Farm & Explore Wilderness Of The Alaska",
-      price: 209.99,
-      img: "/images/image-4.jpg",
-      quantity: 1,
-      sku: "N/A",
-    },
-  ]);
+  const { cartItems, removeFromCart, updateQuantity, totalPrice, clearCart } =
+    useCart();
 
-  const handleQuantityChange = (id, type) => {
-    setCart((prev) =>
-      prev.map((item) =>
-        item.id === id
-          ? {
-              ...item,
-              quantity:
-                type === "increase"
-                  ? item.quantity + 1
-                  : item.quantity > 1
-                  ? item.quantity - 1
-                  : 1,
-            }
-          : item
-      )
-    );
+  const handleQuantityChange = (id, type, currentQuantity) => {
+    const newQuantity =
+      type === "increase"
+        ? currentQuantity + 1
+        : currentQuantity > 1
+        ? currentQuantity - 1
+        : 1;
+
+    updateQuantity(id, newQuantity);
   };
-
-  const handleRemove = (id) => {
-    setCart((prev) => prev.filter((item) => item.id !== id));
-  };
-
-  const handleClearCart = () => {
-    setCart([]);
-  };
-
-  const subtotal = cart.reduce(
-    (acc, item) => acc + item.price * item.quantity,
-    0
-  );
 
   return (
     <div className="min-h-screen bg-[#0d0d0d] text-white py-44 px-5">
@@ -84,7 +48,7 @@ export default function ShoppingCart() {
         <div className="grid md:grid-cols-3 gap-6">
           {/* Left: Cart Items */}
           <div className="md:col-span-2 bg-[#111] p-6 rounded-lg">
-            {cart.length === 0 ? (
+            {cartItems.length === 0 ? (
               <p className="text-center text-gray-400 py-10">
                 Your cart is empty 🛒
               </p>
@@ -99,7 +63,7 @@ export default function ShoppingCart() {
                   <p className="text-right">SUBTOTAL</p>
                 </div>
 
-                {cart.map((item) => (
+                {cartItems.map((item) => (
                   <div
                     key={item.id}
                     className="grid md:grid-cols-[3fr_1fr_1fr_1fr_1fr] items-center border-b border-gray-700 py-5 gap-4"
@@ -107,18 +71,18 @@ export default function ShoppingCart() {
                     {/* Product */}
                     <div className="flex items-center gap-4">
                       <Image
-                        src={item.img}
-                        alt={item.name}
+                        src={item.images?.[0]?.src}
+                        alt={item.images?.[0]?.alt || item.title}
                         width={75}
                         height={75}
                         className="rounded-md object-cover w-[150px] h-[75px]"
                       />
                       <div>
                         <p className="font-semibold text-[15px] leading-snug text-gray-100 max-w-xs">
-                          {item.name}
+                          {item.title}
                         </p>
                         <button
-                          onClick={() => handleRemove(item.id)}
+                          onClick={() => removeFromCart(item.id)}
                           className="text-[#776BF8] text-xs mt-2 hover:underline"
                         >
                           Remove
@@ -128,20 +92,26 @@ export default function ShoppingCart() {
 
                     {/* Price */}
                     <p className="text-gray-300 text-[15px]">
-                      ${item.price.toFixed(2)}
+                      ${item?.salePrice}
                     </p>
 
                     {/* SKU */}
-                    <p className="text-gray-400 text-[15px]">{item.sku}</p>
+                    <p className="text-gray-400 text-[15px]">
+                      {item.sku || "N/A"}
+                    </p>
 
                     {/* Quantity */}
                     <div className="flex items-center justify-center">
                       <div className="flex items-center bg-[#0d0d0d] border border-gray-600 rounded-md">
                         <button
                           onClick={() =>
-                            handleQuantityChange(item.id, "decrease")
+                            handleQuantityChange(
+                              item.id,
+                              "decrease",
+                              item.quantity
+                            )
                           }
-                          className="px-3 py-1 text-gray-300 hover:text-white"
+                          className="px-3 py-1 text-gray-300 hover:text-white cursor-pointer"
                         >
                           -
                         </button>
@@ -150,9 +120,13 @@ export default function ShoppingCart() {
                         </span>
                         <button
                           onClick={() =>
-                            handleQuantityChange(item.id, "increase")
+                            handleQuantityChange(
+                              item.id,
+                              "increase",
+                              item.quantity
+                            )
                           }
-                          className="px-3 py-1 text-gray-300 hover:text-white"
+                          className="px-3 py-1 text-gray-300 hover:text-white cursor-pointer"
                         >
                           +
                         </button>
@@ -161,7 +135,7 @@ export default function ShoppingCart() {
 
                     {/* Subtotal */}
                     <p className="text-right font-semibold text-[15px]">
-                      ${(item.price * item.quantity).toFixed(2)}
+                      ${(item.salePrice * item.quantity).toFixed(2)}
                     </p>
                   </div>
                 ))}
@@ -179,7 +153,7 @@ export default function ShoppingCart() {
                     </button>
                   </div>
                   <button
-                    onClick={handleClearCart}
+                    onClick={clearCart}
                     className="flex items-center gap-2 text-gray-300 border border-gray-600 px-4 py-2 rounded-md hover:bg-gray-800 transition cursor-pointer"
                   >
                     🗑️ Clear Shopping Cart
@@ -190,7 +164,7 @@ export default function ShoppingCart() {
           </div>
 
           {/* Right: Cart Totals */}
-          <CartTotals subtotal={subtotal} />
+          <CartTotals totalPrice={totalPrice} />
         </div>
       </div>
     </div>

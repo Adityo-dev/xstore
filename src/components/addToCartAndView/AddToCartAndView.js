@@ -3,12 +3,14 @@ import { useState } from "react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { IoEyeOutline } from "react-icons/io5";
 import AsidePanel from "../asidePanel/AsidePanel";
+import { useCart } from "../context/CartContext";
 import AsideAddToCard from "./AsideAddToCard";
 import AsideViewDetails from "./AsideViewDetails";
 
 function AddToCartAndView({ data }) {
   const [openAside, setOpenAside] = useState(false);
   const [panelType, setPanelType] = useState(null);
+  const { addToCart } = useCart();
 
   const openPanel = (type) => {
     setPanelType(type);
@@ -20,7 +22,10 @@ function AddToCartAndView({ data }) {
       <div className="flex items-center gap-3">
         {/* Add to Cart */}
         <button
-          onClick={() => openPanel("cart")}
+          onClick={() => {
+            openPanel("cart");
+            addToCart(data);
+          }}
           className="bg-white text-black w-10 h-10 flex items-center justify-center rounded-full shadow-md hover:bg-[#37a937] hover:text-white hover:scale-110 transition-all duration-300 cursor-pointer"
         >
           <AiOutlineShoppingCart size={20} />

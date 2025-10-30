@@ -13,8 +13,8 @@ function TodayDiscounts() {
     <>
       <SectionHeader title={"Today’s Discounts"} />
 
-      <div className="container mx-auto grid grid-cols-12 gap-6">
-        <div className="col-span-9">
+      <div className="container mx-auto px-4 grid grid-cols-12 gap-6">
+        <div className="col-span-full sm:col-span-9">
           <DotsSlider
             data={discounts}
             CardComponent={ColumCard}
@@ -30,12 +30,12 @@ function TodayDiscounts() {
           />
         </div>
 
-        <div className="col-span-3 rounded-lg overflow-hidden relative">
-          <div className="max-w-sm bg-[#1c1f26] rounded-xl overflow-hidden shadow-[0_0_10px_rgba(0,0,0,0.6)] border border-[#2a2d36] text-white">
+        <div className="col-span-full sm:col-span-3 rounded-lg overflow-hidden relative">
+          <div className="sm:max-w-sm bg-[#1c1f26] rounded-xl overflow-hidden shadow-[0_0_10px_rgba(0,0,0,0.6)] border border-[#2a2d36] text-white">
             {/* Image */}
             <Link
               href={""}
-              className="block h-[160px] overflow-hidden relative"
+              className="block sm:h-[160px] overflow-hidden relative"
             >
               <Image
                 src={"/images/blog2.jpeg"}

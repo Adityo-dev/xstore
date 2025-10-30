@@ -13,8 +13,8 @@ function CurrentlyTrending() {
     <>
       <SectionHeader title={"Currently Trending"} />
 
-      <div className="container mx-auto grid grid-cols-10 gap-6">
-        <div className="col-span-2 rounded-lg overflow-hidden relative">
+      <div className="container mx-auto px-4 grid grid-cols-10 gap-6">
+        <div className="col-span-full sm:col-span-2 rounded-lg h-full overflow-hidden relative">
           <Image
             src={"/images/banner2.png"}
             width={600}
@@ -34,7 +34,7 @@ function CurrentlyTrending() {
             </Link>
           </div>
         </div>
-        <div className="col-span-8">
+        <div className="col-span-full sm:col-span-8">
           <DotsSlider
             data={trending}
             CardComponent={ColumCard}

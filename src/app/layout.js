@@ -1,3 +1,4 @@
+import { CartProvider } from "@/components/context/CartContext";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
 import MainFooter from "@/shared/footer/MainFooter";
 import MainNavigationBar from "@/shared/navigationBar/MainNavigationBar";
@@ -27,10 +28,12 @@ export default function RootLayout({ children }) {
       <body
         className={`${unbounded.variable} ${rethinkSans.variable} antialiased`}
       >
-        <MainNavigationBar />
-        {children}
-        {/* <MainFooter />
-        <ScrollToTopButton /> */}
+        <CartProvider>
+          <MainNavigationBar />
+          {children}
+        </CartProvider>
+        <MainFooter />
+        <ScrollToTopButton />
       </body>
     </html>
   );

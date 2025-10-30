@@ -167,7 +167,7 @@ export default function SinglePage({ data }) {
         {data?.images?.map((src) => (
           <div
             key={src?.id}
-            className="relative w-full h-[800px] rounded-lg overflow-hidden"
+            className="relative w-full h-[400px] rounded-lg overflow-hidden"
           >
             <Image
               src={src?.src}

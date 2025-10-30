@@ -1,5 +1,7 @@
-import SectionHeader from "../SectionHeader";
+"use client";
 import BlogCard from "../cards/BlogCard";
+import DotsSlider from "../DotsSlider";
+import SectionHeader from "../SectionHeader";
 
 const blogs = [
   {
@@ -34,10 +36,20 @@ function Blog() {
       <SectionHeader title={"From The Blog"} btn={"Discover All"} />
 
       {/* Blog Card */}
-      <div className="container mx-auto grid grid-cols-3 gap-6">
-        {blogs.map((blog) => (
-          <BlogCard key={blog?.id} blog={blog} />
-        ))}
+      <div className="container mx-auto px-4">
+        <DotsSlider
+          data={blogs}
+          CardComponent={BlogCard}
+          uniqueId="blog-slider"
+          slidesPerView={1}
+          spaceBetween={20}
+          loop={true}
+          paginationColor="#6c63ff"
+          breakpoints={{
+            640: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          }}
+        />
       </div>
     </div>
   );

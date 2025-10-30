@@ -1,22 +1,23 @@
 import Image from "next/image";
 
-function BlogCard({ blog }) {
+function BlogCard({ data }) {
   return (
-    <div key={blog?.id}>
-      <div className="relative w-full max-h-[250px] h-full rounded-lg overflow-hidden">
+    <div key={data?.id} className="w-full">
+      <div className="relative w-full max-h-[250px] sm:max-h-[280px] md:max-h-[320px] h-full rounded-lg overflow-hidden">
         <Image
-          src={blog?.image}
+          src={data?.image}
           width={500}
           height={500}
-          alt={blog?.title}
-          className="w-fit h-fit cursor-pointer hover:scale-110 transition duration-300"
+          alt={data?.title}
+          className="w-full h-full object-cover cursor-pointer hover:scale-110 transition duration-300"
         />
         <p className="absolute left-3 bottom-3 inline-block px-2 py-1 text-[.70rem] font-semibold bg-[#37a937] text-white rounded">
-          {blog?.tag}
+          {data?.tag}
         </p>
       </div>
-      <h3 className="text-[17px] font-semibold font-marcellus mt-5">
-        {blog?.title}
+
+      <h3 className="text-base sm:text-[17px] font-semibold font-marcellus mt-4 sm:mt-5">
+        {data?.title}
       </h3>
     </div>
   );

@@ -6,14 +6,14 @@ import GetStarRating from "../utils/GetStarRating";
 
 function ColumCard({ data }) {
   return (
-    <div className="group relative bg-[#23262F] rounded-lg overflow-hidden max-w-[300px] w-full h-full flex flex-col">
+    <div className="group relative bg-[#23262F] rounded-lg overflow-hidden w-full sm:max-w-[300px] h-full flex flex-col">
       {/* Image section */}
       <div className="relative">
         {data?.images?.[0] && (
           <Link
             key={data.images[0].id}
             href={`/game/${data?.id}`}
-            className="block h-[250px] overflow-hidden relative"
+            className="block sm:h-[250px] overflow-hidden relative"
           >
             <Image
               src={data.images[0].src}
@@ -35,7 +35,7 @@ function ColumCard({ data }) {
       <div className="flex flex-col justify-between flex-1 p-4">
         <div>
           <Link href={"#"}>
-            <p className="font-semibold mb-3 line-clamp-2 min-h-[48px]">
+            <p className="text-[17px] font-semibold mb-3 line-clamp-2 min-h-[48px]">
               {data?.title}
             </p>
           </Link>

@@ -4,8 +4,11 @@ import Link from "next/link";
 
 function RowCard({ game }) {
   return (
-    <div className="group relative flex items-center gap-6 bg-[#23262F] rounded-lg overflow-hidden">
-      <Link href={`/game/${game?.id}`} className="w-[220px] h-[210px]">
+    <div className="group relative flex items-center gap-4 md:gap-6 bg-[#23262F] rounded-lg overflow-hidden">
+      <Link
+        href={`/game/${game?.id}`}
+        className="w-[189px] sm:w-[220px] h-[189px] sm:h-[210px]"
+      >
         {game.images.map((img) => (
           <Image
             key={img?.id}
@@ -18,9 +21,11 @@ function RowCard({ game }) {
         ))}
       </Link>
 
-      <div>
-        <p className="font-semibold mb-3">{game?.title}</p>
-        <GetStarRating rating={game?.rating} />
+      <div className="pr-2">
+        <p className="text-sm md:text-[17px] font-semibold mb-3">
+          {game?.title}
+        </p>
+        <GetStarRating rating={5} />
         <div className="flex items-center gap-2 mt-6 text-[15px]">
           <span className="line-through text-gray-400">
             ${game?.originalPrice}
