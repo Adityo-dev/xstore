@@ -10,7 +10,7 @@ const testimonials = [
     text: "The standard chunk of Lorem Ipsum used since the 1500 is reproduced below for those interested Sections 1.10.32 and 1.10.33.",
     linkText: "Stromup: Undersea Tripeaks",
     linkUrl: "#",
-    author: "Kajal Jennifer",
+    author: "Kajalo Jennifer",
   },
   {
     id: 2,
