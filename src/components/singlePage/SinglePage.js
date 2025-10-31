@@ -41,12 +41,12 @@ export default function SinglePage({ data }) {
   const timeLeft = { days, hours, mins, secs };
 
   return (
-    <div className="container mx-auto flex flex-col md:flex-row gap-10 items-start">
+    <div className="container mx-auto px-4 flex flex-col-reverse lg:flex-row  gap-10 items-start">
       {/* ---------- LEFT CONTENT (Sticky) ---------- */}
-      <div className="md:w-1/2">
+      <div className="w-full lg:w-1/2">
         <div className="sticky top-40 self-start">
           {/* Title */}
-          <h1 className="text-[38px] font-semibold leading-tight">
+          <h1 className="text-[26px] md:text-[38px] font-semibold leading-tight">
             {data?.title}
           </h1>
 
@@ -138,7 +138,7 @@ export default function SinglePage({ data }) {
           </div>
 
           {/* Info Section */}
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-6">
             <Info label="Genre" values={data?.genre} />
             <Info label="Developer" values={[data?.developer]} />
             <Info label="Languages" values={data?.languages} />
@@ -163,7 +163,7 @@ export default function SinglePage({ data }) {
       </div>
 
       {/* ---------- RIGHT CONTENT (Scrollable images) ---------- */}
-      <div className="md:w-1/2 space-y-6">
+      <div className="w-full lg:w-1/2 space-y-6">
         {data?.images?.map((src) => (
           <div
             key={src?.id}

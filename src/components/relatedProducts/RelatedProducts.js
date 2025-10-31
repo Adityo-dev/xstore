@@ -11,19 +11,23 @@ function RelatedProducts() {
     <section className="container mx-auto">
       <SectionHeader title={"Related products"} />
 
-      <DotsSlider
-        data={trending}
-        CardComponent={ColumCard}
-        uniqueId="related-products"
-        slidesPerView={1}
-        spaceBetween={20}
-        loop={true}
-        paginationColor="#6c63ff"
-        breakpoints={{
-          640: { slidesPerView: 2 },
-          1024: { slidesPerView: 5 },
-        }}
-      />
+      <div className="px-4">
+        <DotsSlider
+          data={trending}
+          CardComponent={ColumCard}
+          uniqueId="related-products"
+          slidesPerView={1}
+          spaceBetween={20}
+          loop={true}
+          paginationColor="#6c63ff"
+          breakpoints={{
+            400: { slidesPerView: 2 },
+            700: { slidesPerView: 3 },
+            1024: { slidesPerView: 4 },
+            1440: { slidesPerView: 5 },
+          }}
+        />
+      </div>
     </section>
   );
 }
