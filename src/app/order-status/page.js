@@ -90,7 +90,7 @@ export default function MyOrders() {
 
       {/* ===== ORDER DETAILS MODAL ===== */}
       {selectedOrder && (
-        <div className="fixed inset-0 flex items-center justify-center backdrop-blur-sm">
+        <div className="fixed inset-0 flex items-center justify-center backdrop-blur-sm px-4">
           <div className="bg-[#111] w-full max-w-2xl rounded-lg p-6 relative shadow-lg overflow-y-auto max-h-[90vh]">
             <button
               onClick={() => setSelectedOrder(null)}
