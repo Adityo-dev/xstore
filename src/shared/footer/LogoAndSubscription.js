@@ -15,7 +15,7 @@ function LogoAndSubscription() {
         />
       </Link>
 
-      <p className="text-[17px] text-[#A9ABB2] font-semibold my-6 leading-relaxed">
+      <p className="sm:text-[17px] text-[#A9ABB2] font-semibold my-6 leading-relaxed">
         Get notified about new product, tips, updates, and tutorials. You can
         always unsubscribe. No spam.
       </p>

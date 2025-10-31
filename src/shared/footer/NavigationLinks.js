@@ -37,19 +37,19 @@ const navigationData = [
 
 function NavigationLinks() {
   return (
-    <div className="flex justify-between">
+    <div className="flex flex-col sm:flex-row justify-between gap-8 sm:gap-0">
       {navigationData.map((section) => (
-        <div key={section?.id}>
+        <div key={section.id} className="text-left">
           <h3 className="text-base font-semibold uppercase mb-4">
-            {section?.title}
+            {section.title}
           </h3>
           <ul className="space-y-4 text-base font-semibold text-[#A9ABB2]">
-            {section?.links.map((link) => (
+            {section.links.map((link) => (
               <li
-                key={link?.id}
+                key={link.id}
                 className="hover:text-white cursor-pointer transition"
               >
-                <Link href={link?.url}>{link?.name}</Link>
+                <Link href={link.url}>{link.name}</Link>
               </li>
             ))}
           </ul>

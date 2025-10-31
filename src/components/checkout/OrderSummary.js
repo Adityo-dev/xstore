@@ -3,12 +3,12 @@ import Image from "next/image";
 function OrderSummary({
   cartItems,
   totalPrice,
-  updateItemQuantity,
+  updateQuantity,
   handlePlaceOrder,
   orderPlaced,
 }) {
   return (
-    <div className="bg-[#111] p-6 rounded-lg space-y-6">
+    <div className="bg-[#1E2129] p-6 rounded-lg space-y-6">
       <h2 className="text-2xl font-semibold text-[#f5f5f5]">Your Order</h2>
       {cartItems.length === 0 && (
         <p className="text-gray-400 text-center mt-4">Your cart is empty.</p>
@@ -17,7 +17,7 @@ function OrderSummary({
         {cartItems.map((item) => (
           <div
             key={item.id}
-            className="flex items-center justify-between gap-4 bg-[#1a1a1a] p-3 rounded-lg shadow-inner"
+            className="flex items-center justify-between gap-4 bg-[#272a31] p-3 rounded-lg"
           >
             <div className="flex items-center gap-3">
               <Image
@@ -31,9 +31,7 @@ function OrderSummary({
                 <p className="text-sm font-medium">{item.title}</p>
                 <div className="flex items-center gap-2 mt-1">
                   <button
-                    onClick={() =>
-                      updateItemQuantity(item.id, item.quantity - 1)
-                    }
+                    onClick={() => updateQuantity(item.id, item.quantity - 1)}
                     disabled={item.quantity === 1}
                     className="px-2 py-1 bg-[#2c2c2c] hover:bg-gray-700 rounded transition"
                   >
@@ -41,9 +39,7 @@ function OrderSummary({
                   </button>
                   <span className="px-2">{item.quantity}</span>
                   <button
-                    onClick={() =>
-                      updateItemQuantity(item.id, item.quantity + 1)
-                    }
+                    onClick={() => updateQuantity(item.id, item.quantity + 1)}
                     className="px-2 py-1 bg-[#2c2c2c] hover:bg-gray-700 rounded transition"
                   >
                     +
@@ -66,7 +62,7 @@ function OrderSummary({
       <div className="mt-4">
         <button
           onClick={handlePlaceOrder}
-          className="w-full py-3 rounded-xl font-semibold text-black bg-[#776BF8] hover:bg-[#5f53d1] transition shadow-lg"
+          className="w-full bg-[#776BF8] hover:bg-[#fff] hover:text-[#776BF8] px-8 py-2.5 rounded-lg cursor-pointer text-[17px] font-semibold transition duration-300"
         >
           {orderPlaced ? "Order Placed!" : "Place Order"}
         </button>

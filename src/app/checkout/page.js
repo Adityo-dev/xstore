@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function CheckoutPage() {
-  const { cartItems, totalPrice, updateItemQuantity, placeOrder, userInfo } =
+  const { cartItems, totalPrice, updateQuantity, placeOrder, userInfo } =
     useCart();
 
   const router = useRouter();
@@ -69,20 +69,26 @@ export default function CheckoutPage() {
 
       <StepHeader />
 
-      <div className="grid lg:grid-cols-2 gap-6">
-        <BillingDetails
-          form={form}
-          errors={errors}
-          handleChange={handleChange}
-        />
-        <OrderSummary
-          cartItems={cartItems}
-          totalPrice={totalPrice}
-          updateItemQuantity={updateItemQuantity}
-          handlePlaceOrder={handlePlaceOrder}
-          orderPlaced={orderPlaced}
-        />
-      </div>
+      {cartItems.length === 0 && !orderPlaced ? (
+        <p className="text-center text-xl mt-20">
+          Your cart is empty. Please add items to your cart before checking
+        </p>
+      ) : (
+        <div className="grid lg:grid-cols-2 gap-6">
+          <BillingDetails
+            form={form}
+            errors={errors}
+            handleChange={handleChange}
+          />
+          <OrderSummary
+            cartItems={cartItems}
+            totalPrice={totalPrice}
+            updateQuantity={updateQuantity}
+            handlePlaceOrder={handlePlaceOrder}
+            orderPlaced={orderPlaced}
+          />
+        </div>
+      )}
     </div>
   );
 }

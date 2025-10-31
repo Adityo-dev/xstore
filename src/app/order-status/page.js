@@ -23,11 +23,11 @@ export default function MyOrders() {
   };
 
   return (
-    <div className="bg-[#0d0d0d] text-white pt-44 pb-20 px-6">
+    <div className="pt-44 pb-20 px-6">
       <StepHeader />
       <div className="max-w-6xl mx-auto space-y-10">
         {/* ORDERS */}
-        <div className="bg-[#111] p-8 rounded-lg shadow-lg">
+        <div className="bg-[#1E2129] p-8 rounded-lg shadow-lg">
           <div className="mb-8">
             <h1 className="text-3xl font-bold mb-2 text-white">My Orders</h1>
             <p className="text-gray-400">Track and manage your order history</p>
@@ -52,7 +52,7 @@ export default function MyOrders() {
                     <tr
                       key={order.id}
                       className={`border-b border-gray-800 hover:bg-[#1a1a1a] transition ${
-                        i % 2 === 0 ? "bg-[#101010]" : "bg-[#111]"
+                        i % 2 === 0 ? "bg-[#1E2129]" : "bg-[#1E2129]"
                       }`}
                     >
                       <td className="py-4 px-4 font-medium text-gray-200">
@@ -74,7 +74,7 @@ export default function MyOrders() {
                       <td className="py-4 px-4">
                         <button
                           onClick={() => setSelectedOrder(order)}
-                          className="text-[#d8d6d8] hover:underline font-medium"
+                          className="text-[#d8d6d8] hover:underline font-medium cursor-pointer"
                         >
                           View Details
                         </button>
@@ -90,7 +90,7 @@ export default function MyOrders() {
 
       {/* ===== ORDER DETAILS MODAL ===== */}
       {selectedOrder && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60 backdrop-blur-sm">
+        <div className="fixed inset-0 flex items-center justify-center backdrop-blur-sm">
           <div className="bg-[#111] w-full max-w-2xl rounded-lg p-6 relative shadow-lg overflow-y-auto max-h-[90vh]">
             <button
               onClick={() => setSelectedOrder(null)}
@@ -107,7 +107,7 @@ export default function MyOrders() {
             </p>
 
             {/* CUSTOMER INFO */}
-            <div className="bg-[#1a1a1a] p-4 rounded-lg mb-6">
+            <div className="bg-[#1E2129] p-4 rounded-lg mb-6">
               <h3 className="text-lg font-semibold mb-3 text-white">
                 Customer Information
               </h3>
@@ -158,7 +158,7 @@ export default function MyOrders() {
                 {selectedOrder.items.map((item) => (
                   <div
                     key={item.id}
-                    className="flex items-center justify-between bg-[#1a1a1a] p-3 rounded-md"
+                    className="flex items-center justify-between bg-[#1E2129] p-3 rounded-md"
                   >
                     <div className="flex items-center gap-3">
                       <Image

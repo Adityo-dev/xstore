@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
+import { RiMenuFill } from "react-icons/ri";
 import NavBarList from "./NavBarList";
 import NavBarRightSection from "./NavBarRightSection";
 import Search from "./Search";
-import { RiMenuFill } from "react-icons/ri";
 
 function MainNavigationBar() {
   return (
