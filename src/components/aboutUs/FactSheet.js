@@ -46,43 +46,43 @@ const statsData = [
 
 function FactSheet() {
   return (
-    <div className="bg-[#23262F] py-20">
+    <div className="bg-[#23262F] py-6 lg:py-12 xl:py-20 px-4">
       <SectionHeader title={"Our Fact Sheet in Numbers"} />
 
-      <section className="grid grid-cols-4 gap-6 container mx-auto">
-        {statsData.map((item) => (
+      <section className="container mx-auto grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
+        {statsData.map((item, index) => (
           <div
-            key={item?.id}
-            className={`${
-              item?.large
-                ? "col-span-2 row-span-2 col-start-1 flex flex-col justify-center"
+            key={item.id}
+            className={`bg-[#141416] p-6 rounded-lg flex flex-col justify-center ${
+              item.large
+                ? "sm:col-span-1 md:col-span-2 xl:col-span-2 xl:row-span-2"
                 : ""
-            } bg-[#141416] p-6 rounded-lg`}
+            }`}
           >
-            <div className="text-4xl mb-3 text-purple-400">{item?.icon}</div>
+            <div className="text-4xl mb-3 text-purple-400">{item.icon}</div>
 
             <h2
               className={`${
-                item?.large
-                  ? "text-[120px] font-marcellus mb-3"
-                  : "text-[35px] font-marcellus mb-2"
+                item.large
+                  ? "lg:text-[120px] md:text-[80px] text-[50px] font-marcellus mb-3"
+                  : "md:text-[35px] text-[30px] font-marcellus mb-2"
               } text-white`}
             >
-              {item?.value}
+              {item.value}
             </h2>
 
             <h3
               className={`${
-                item?.large
-                  ? "text-[30px] font-semibold font-marcellus mb-4"
+                item.large
+                  ? "lg:text-[30px] md:text-[24px] text-[18px] font-semibold font-marcellus mb-4"
                   : "text-[17px] font-marcellus mb-2"
               } text-white`}
             >
-              {item?.title}
+              {item.title}
             </h3>
 
-            <p className="text-[#8E919F] text-[17px] font-medium leading-relaxed">
-              {item?.description}
+            <p className="text-[#8E919F] sm:text-[17px] font-medium leading-relaxed">
+              {item.description}
             </p>
           </div>
         ))}

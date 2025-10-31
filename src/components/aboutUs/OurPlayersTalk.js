@@ -40,7 +40,7 @@ const testimonials = [
 
 function OurPlayersTalk() {
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto px-4">
       <SectionHeader title={"Our Players Talk"} justify="center" />
       <DotsSlider
         data={testimonials}

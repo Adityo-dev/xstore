@@ -2,12 +2,12 @@ import Image from "next/image";
 
 function AboutUsHero() {
   return (
-    <section className="container mx-auto pt-44 text-center space-y-20">
+    <section className="container mx-auto px-4 pt-44 text-center space-y-6 md:space-y-10 lg:space-y-20">
       <div>
-        <h2 className="text-[50px] font-semibold font-marcellus">
+        <h2 className="text-[30px] md:text-[40px] lg:text-[50px] font-semibold font-marcellus">
           Crafting Unforgettable Experiences
         </h2>
-        <p className="text-[20px] font-semibold mt-1">
+        <p className="text-[17px] md:text-[18px]  lg:text-[20px] font-semibold mt-3">
           There are many variations of passages available but majority have
           suffered alteration in some forms by believable.
         </p>
@@ -19,7 +19,7 @@ function AboutUsHero() {
             alt=""
             className="w-fit h-fit"
           />
-          <p className="text-start text-[17px] leading-5 font-semibold text-[#8e919f]">
+          <p className="text-start text-sm md:text-[17px] leading-5 font-semibold text-[#8e919f]">
             30M+ customer in 180 <br /> countries
           </p>
         </div>
@@ -28,9 +28,9 @@ function AboutUsHero() {
       <Image
         src={"/images/aboutHero.png"}
         width={1600}
-        height={600}
+        height={800}
         alt=""
-        className="w-full max-h-[550px] rounded-lg"
+        className="w-full h-full object-cover rounded-lg"
       />
     </section>
   );

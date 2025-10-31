@@ -12,10 +12,7 @@ export default function DotsSlider({
   slidesPerView = 1,
   spaceBetween = 24,
   loop = true,
-  breakpoints = {
-    640: { slidesPerView: 2 },
-    1024: { slidesPerView: 4 },
-  },
+  breakpoints,
   paginationColor = "#776bf8",
 }) {
   const paginationId = `custom-pagination-${uniqueId}`;
