@@ -60,7 +60,7 @@ export default function CheckoutPage() {
   };
 
   return (
-    <div className="py-44 relative container mx-auto">
+    <div className="relative container mx-auto px-4 mb-16 md:mb-24 pt-32 xl:pt-44">
       {showToast && (
         <div className="fixed top-1/2 left-1/2 -translate-x-1/2 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg font-semibold animate-bounce">
           ✅ Your order has been placed successfully!

@@ -8,7 +8,7 @@ function OrderSummary({
   orderPlaced,
 }) {
   return (
-    <div className="bg-[#1E2129] p-6 rounded-lg space-y-6">
+    <div className="bg-[#1E2129] p-4 md:p-6 rounded-lg space-y-6">
       <h2 className="text-2xl font-semibold text-[#f5f5f5]">Your Order</h2>
       {cartItems.length === 0 && (
         <p className="text-gray-400 text-center mt-4">Your cart is empty.</p>
