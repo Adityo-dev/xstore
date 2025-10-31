@@ -9,7 +9,7 @@ export default function RegisterPage() {
         {/* LEFT SIDE */}
         <div className="relative hidden md:flex flex-col items-center justify-center">
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-          <div className="text-center space-y-6 p-8">
+          <div className="text-center space-y-6 p-4 md:p-6">
             <h2 className="text-2xl font-extrabold tracking-tight">X-Store</h2>
 
             <p className="max-w-xs text-sm text-[#B8C0D6]">
@@ -27,7 +27,7 @@ export default function RegisterPage() {
         </div>
 
         {/* RIGHT SIDE */}
-        <div className="p-8 flex flex-col justify-center">
+        <div className="p-4 md:p-6 flex flex-col justify-center">
           <h3 className="text-2xl font-bold mb-2">Create Account</h3>
           <p className="text-sm text-[#9AA3C7] mb-6">
             Fill in the details to start your adventure
