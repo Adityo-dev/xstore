@@ -2,7 +2,7 @@ import Image from "next/image";
 
 function AboutUsHero() {
   return (
-    <section className="container mx-auto px-4 pt-44 text-center space-y-6 md:space-y-10 lg:space-y-20">
+    <section className="container mx-auto px-4 text-center space-y-6 md:space-y-10 lg:space-y-20">
       <div>
         <h2 className="text-[30px] md:text-[40px] lg:text-[50px] font-semibold font-marcellus">
           Crafting Unforgettable Experiences

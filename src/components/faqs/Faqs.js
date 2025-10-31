@@ -40,12 +40,12 @@ function Faqs() {
   };
 
   return (
-    <section className="container mx-auto pt-44 mb-24 text-center space-y-12">
+    <section className="container mx-auto px-4 text-center space-y-6 md:space-y-8 lg:space-y-12">
       <div>
-        <h2 className="text-[50px] font-semibold font-marcellus">
+        <h2 className="text-[30px] md:text-[40px] lg:text-[50px] font-semibold font-marcellus">
           Answers & Questions
         </h2>
-        <p className="text-[20px] font-semibold mt-1">
+        <p className="text-[17px] md:text-[18px]  lg:text-[20px] font-semibold mt-3">
           From basic inquiries to intricate details, we’ve collated the most
           common queries from our user base.
         </p>
@@ -58,7 +58,7 @@ function Faqs() {
             className="max-w-6xl mx-auto bg-[#1E2129] rounded-md text-start overflow-hidden"
           >
             <button
-              className="w-full text-[24px] font-semibold p-6 flex justify-between items-center cursor-pointer"
+              className="w-full text-[18px] md:text-[20px] lg:text-[24px] font-semibold p-4 md:p-6 flex justify-between items-center cursor-pointer"
               onClick={() => toggleFaq(faq.id)}
             >
               <span>{faq.question}</span>
@@ -73,7 +73,7 @@ function Faqs() {
 
             {openFaqId === faq.id && (
               <div
-                className={`px-6 pb-6 text-[18px] text-[#8E919F] overflow-hidden ${
+                className={`px-4 md:px-6 pb-4 md:pb-6 md:text-[17px] lg:text-[18px] text-[#8E919F] overflow-hidden ${
                   openFaqId === faq.id ? "opacity-100" : "opacity-0"
                 }`}
               >
