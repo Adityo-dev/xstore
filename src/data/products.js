@@ -15,6 +15,7 @@ const products = [
       "Explore the wilderness of Alaska in this heroic tower defense adventure.",
     images: [
       { id: 1, alt: "Klondike gameplay cover", src: "/images/games1.jpg" },
+      { id: 2, alt: "Klondike gameplay cover", src: "/images/games1.jpg" },
     ],
     sold: 9,
     stock: 120,

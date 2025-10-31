@@ -14,7 +14,6 @@ import { IoMdAdd, IoMdRemove } from "react-icons/io";
 export default function SinglePage({ data }) {
   // 👉 Base total time (in seconds)
   const totalSeconds = 50 * 60 * 60; // 50 hours
-
   const [secondsLeft, setSecondsLeft] = useState(totalSeconds);
   const [quantity, setQuantity] = useState(1);
 
@@ -28,7 +27,6 @@ export default function SinglePage({ data }) {
         return prev - 1;
       });
     }, 1000);
-
     return () => clearInterval(interval);
   }, []);
 
@@ -37,24 +35,20 @@ export default function SinglePage({ data }) {
   const hours = Math.floor((secondsLeft % (24 * 3600)) / 3600);
   const mins = Math.floor((secondsLeft % 3600) / 60);
   const secs = secondsLeft % 60;
-
   const timeLeft = { days, hours, mins, secs };
 
   return (
-    <div className="container mx-auto px-4 flex flex-col-reverse lg:flex-row  gap-10 items-start">
-      {/* ---------- LEFT CONTENT (Sticky) ---------- */}
+    <div className="container mx-auto px-4 flex flex-col-reverse lg:flex-row gap-10 items-start">
+      {/* ---------- LEFT CONTENT ---------- */}
       <div className="w-full lg:w-1/2">
         <div className="sticky top-40 self-start">
-          {/* Title */}
           <h1 className="text-[26px] md:text-[38px] font-semibold leading-tight">
             {data?.title}
           </h1>
-
           <p className="text-[#888] font-semibold text-lg mt-3">
             {data?.subtitle}
           </p>
 
-          {/* Price */}
           <div className="flex items-center gap-2 my-3 text-[30px]">
             <span className="line-through text-gray-400">
               ${data?.originalPrice}
@@ -64,7 +58,6 @@ export default function SinglePage({ data }) {
             </span>
           </div>
 
-          {/* Tax */}
           <p className="text-gray-400 text-sm mb-6">
             {data?.taxIncluded ? "Tax included." : "Not tax included."}
           </p>
@@ -89,7 +82,7 @@ export default function SinglePage({ data }) {
             </div>
           </div>
 
-          {/* Progress Bar */}
+          {/* Progress */}
           <div>
             <div className="flex justify-between text-sm text-gray-400 py-2">
               <span>Sold:</span>
@@ -100,7 +93,6 @@ export default function SinglePage({ data }) {
             </div>
           </div>
 
-          {/* Description */}
           <p className="text-gray-400 leading-relaxed text-[17px] mt-4">
             Contrary to popular beliefs, this has roots in a piece of classical
             literature from 45 BC, making it over 2000 years old. Richard
@@ -111,7 +103,6 @@ export default function SinglePage({ data }) {
 
           {/* Add to Cart */}
           <div className="flex items-center gap-3 py-6">
-            {/* Quantity Selector */}
             <div className="flex items-center bg-[#1f1f1f] border border-[#333] rounded">
               <button
                 onClick={() => setQuantity((q) => Math.max(1, q - 1))}
@@ -129,7 +120,7 @@ export default function SinglePage({ data }) {
             </div>
 
             <button
-              className="flex items-center gap-2 bg-[#776BF8] hover:bg-[#fff] hover:text-[#776BF8]
+              className="flex items-center gap-2 bg-[#776BF8] hover:bg-white hover:text-[#776BF8]
                          text-[17px] font-semibold py-2 px-5 rounded transition-all duration-300 cursor-pointer"
             >
               <FiShoppingBag size={18} />
@@ -145,7 +136,7 @@ export default function SinglePage({ data }) {
             <Info label="Platform" values={data?.platform} />
           </div>
 
-          {/* Social Share */}
+          {/* Social */}
           <div className="flex items-center gap-4 mt-10">
             <p className="text-gray-400">Share</p>
             <div className="flex items-center space-x-3 text-lg text-white">
@@ -162,18 +153,16 @@ export default function SinglePage({ data }) {
         </div>
       </div>
 
-      {/* ---------- RIGHT CONTENT (Scrollable images) ---------- */}
+      {/* ---------- RIGHT CONTENT (Images) ---------- */}
       <div className="w-full lg:w-1/2 space-y-6">
         {data?.images?.map((src) => (
-          <div
-            key={src?.id}
-            className="relative w-full h-[400px] rounded-lg overflow-hidden"
-          >
+          <div key={src?.id} className="overflow-hidden rounded-lg">
             <Image
               src={src?.src}
               alt="Game Image"
-              fill
-              className="object-cover"
+              width={1000}
+              height={600}
+              className="w-full h-auto object-contain rounded-lg"
             />
           </div>
         ))}
@@ -182,10 +171,10 @@ export default function SinglePage({ data }) {
   );
 }
 
-// ✅ Reusable Info Component
+// ✅ Info Component
 function Info({ label, values = [] }) {
   return (
-    <div className="flex items-center gap-4">
+    <div className="flex items-start gap-3">
       <FaUser className="mt-[2px]" />
       <div className="flex flex-col gap-1">
         <p className="text-[#A3A1AF] font-semibold">{label}:</p>
