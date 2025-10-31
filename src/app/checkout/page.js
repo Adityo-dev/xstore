@@ -1,61 +1,88 @@
 "use client";
 
+import BillingDetails from "@/components/checkout/BillingDetails";
+import OrderSummary from "@/components/checkout/OrderSummary";
 import { useCart } from "@/components/context/CartContext";
+import StepHeader from "@/components/StepHeader";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 export default function CheckoutPage() {
-  const { cartItems, totalPrice, clearCart } = useCart();
+  const { cartItems, totalPrice, updateItemQuantity, placeOrder, userInfo } =
+    useCart();
+
   const router = useRouter();
 
+  const [form, setForm] = useState(userInfo);
+  const [errors, setErrors] = useState({});
+  const [orderPlaced, setOrderPlaced] = useState(false);
+  const [showToast, setShowToast] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+    setErrors((prev) => ({ ...prev, [name]: "" }));
+  };
+
+  const validateForm = () => {
+    const newErrors = {};
+    if (!form.firstName) newErrors.firstName = "First Name is required";
+    if (!form.street) newErrors.street = "Street Address is required";
+    if (!form.city) newErrors.city = "City is required";
+    if (!form.phone) newErrors.phone = "Phone is required";
+    return newErrors;
+  };
+
   const handlePlaceOrder = () => {
-    if (cartItems.length === 0) {
-      alert("Your cart is empty!");
+    const formErrors = validateForm();
+    if (Object.keys(formErrors).length > 0) {
+      setErrors(formErrors);
       return;
     }
 
-    // এখানে তুমি চাইলে backend এ order save করতে পারো
+    const newOrder = placeOrder(form);
 
-    alert("✅ Order placed successfully!");
-    clearCart();
-    router.push("/"); // order complete হলে home এ নিয়ে যাবে
+    if (newOrder) {
+      setShowToast(true);
+      setOrderPlaced(true);
+      setForm({
+        firstName: "",
+        lastName: "",
+        street: "",
+        city: "",
+        phone: "",
+        email: "",
+        notes: "",
+      });
+      setTimeout(() => setShowToast(false), 4000);
+      router.push("/order-status");
+    }
   };
 
   return (
-    <div className="max-w-3xl mx-auto pt-44 bg-[#111] p-6 rounded-lg text-gray-200">
-      <h1 className="text-2xl font-bold mb-5 border-b border-gray-700 pb-3">
-        Checkout
-      </h1>
-
-      {/* Cart Summary */}
-      {cartItems.length === 0 ? (
-        <p>Your cart is empty!</p>
-      ) : (
-        <>
-          {cartItems.map((item) => (
-            <div
-              key={item.id}
-              className="flex justify-between py-3 border-b border-gray-700"
-            >
-              <span>{item.title}</span>
-              <span>
-                {item.quantity} × ${item.price.toFixed(2)}
-              </span>
-            </div>
-          ))}
-
-          <div className="flex justify-between py-3 font-semibold text-lg mt-3 border-t border-gray-700">
-            <span>Total:</span>
-            <span>${totalPrice.toFixed(2)}</span>
-          </div>
-
-          <button
-            onClick={handlePlaceOrder}
-            className="w-full bg-[#776BF8] text-white py-3 rounded-md font-semibold mt-5 hover:bg-[#6558e5] transition-all"
-          >
-            PLACE ORDER
-          </button>
-        </>
+    <div className="py-44 relative container mx-auto">
+      {showToast && (
+        <div className="fixed top-1/2 left-1/2 -translate-x-1/2 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg font-semibold animate-bounce">
+          ✅ Your order has been placed successfully!
+        </div>
       )}
+
+      <StepHeader />
+
+      <div className="grid lg:grid-cols-2 gap-6">
+        <BillingDetails
+          form={form}
+          errors={errors}
+          handleChange={handleChange}
+        />
+        <OrderSummary
+          cartItems={cartItems}
+          totalPrice={totalPrice}
+          updateItemQuantity={updateItemQuantity}
+          handlePlaceOrder={handlePlaceOrder}
+          orderPlaced={orderPlaced}
+        />
+      </div>
     </div>
   );
 }

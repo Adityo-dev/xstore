@@ -1,6 +1,7 @@
 "use client";
 
 import { useCart } from "@/components/context/CartContext";
+import StepHeader from "@/components/StepHeader";
 import Image from "next/image";
 import CartTotals from "./CartTotals";
 
@@ -8,41 +9,11 @@ export default function ShoppingCart() {
   const { cartItems, removeFromCart, updateQuantity, totalPrice, clearCart } =
     useCart();
 
-  const handleQuantityChange = (id, type, currentQuantity) => {
-    const newQuantity =
-      type === "increase"
-        ? currentQuantity + 1
-        : currentQuantity > 1
-        ? currentQuantity - 1
-        : 1;
-
-    updateQuantity(id, newQuantity);
-  };
-
   return (
     <div className="min-h-screen bg-[#0d0d0d] text-white py-44 px-5">
       <div className="container mx-auto">
         {/* Step Header */}
-        <div className="flex justify-center items-center gap-8 mb-10 text-gray-300">
-          <div className="flex items-center gap-2">
-            <span className="w-6 h-6 rounded-full bg-white text-black text-sm font-bold flex items-center justify-center">
-              1
-            </span>
-            <p className="text-sm tracking-wide">SHOPPING CART</p>
-          </div>
-          <div className="flex items-center gap-2 opacity-50">
-            <span className="w-6 h-6 rounded-full border border-gray-500 flex items-center justify-center text-sm">
-              2
-            </span>
-            <p className="text-sm tracking-wide">CHECKOUT</p>
-          </div>
-          <div className="flex items-center gap-2 opacity-50">
-            <span className="w-6 h-6 rounded-full border border-gray-500 flex items-center justify-center text-sm">
-              3
-            </span>
-            <p className="text-sm tracking-wide">ORDER STATUS</p>
-          </div>
-        </div>
+        <StepHeader />
 
         {/* Main Grid */}
         <div className="grid md:grid-cols-3 gap-6">
@@ -105,11 +76,7 @@ export default function ShoppingCart() {
                       <div className="flex items-center bg-[#0d0d0d] border border-gray-600 rounded-md">
                         <button
                           onClick={() =>
-                            handleQuantityChange(
-                              item.id,
-                              "decrease",
-                              item.quantity
-                            )
+                            updateQuantity(item.id, item.quantity - 1)
                           }
                           className="px-3 py-1 text-gray-300 hover:text-white cursor-pointer"
                         >
@@ -120,11 +87,7 @@ export default function ShoppingCart() {
                         </span>
                         <button
                           onClick={() =>
-                            handleQuantityChange(
-                              item.id,
-                              "increase",
-                              item.quantity
-                            )
+                            updateQuantity(item.id, item.quantity + 1)
                           }
                           className="px-3 py-1 text-gray-300 hover:text-white cursor-pointer"
                         >

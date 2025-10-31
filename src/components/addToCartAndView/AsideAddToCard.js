@@ -13,17 +13,6 @@ export default function AsideAddToCard() {
   const { cartItems, removeFromCart, updateQuantity, totalPrice, clearCart } =
     useCart();
 
-  const handleQuantityChange = (id, type, currentQuantity) => {
-    const newQuantity =
-      type === "increase"
-        ? currentQuantity + 1
-        : currentQuantity > 1
-        ? currentQuantity - 1
-        : 1;
-
-    updateQuantity(id, newQuantity);
-  };
-
   return (
     <section className="w-full h-full flex flex-col">
       <div className="flex-1 overflow-y-auto custom-scrollbar">
@@ -60,18 +49,14 @@ export default function AsideAddToCard() {
                 <div className="mt-3 flex items-center gap-3">
                   <div className="flex items-center rounded bg-[#111111] p-1">
                     <button
-                      onClick={() =>
-                        handleQuantityChange(item.id, "decrease", item.quantity)
-                      }
+                      onClick={() => updateQuantity(item.id, item.quantity - 1)}
                       className="px-2 py-0.5 text-sm select-none cursor-pointer"
                     >
                       -
                     </button>
                     <div className="px-3 text-sm"> {item.quantity}</div>
                     <button
-                      onClick={() =>
-                        handleQuantityChange(item.id, "increase", item.quantity)
-                      }
+                      onClick={() => updateQuantity(item.id, item.quantity + 1)}
                       className="px-2 py-0.5 text-sm select-none cursor-pointer"
                     >
                       +
