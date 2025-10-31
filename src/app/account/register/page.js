@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function RegisterPage() {
   return (
-    <div className="py-44 flex items-center justify-center">
+    <div className="mb-16 md:mb-24 pt-32 xl:pt-44 px-4 flex items-center justify-center">
       <div className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 bg-gradient-to-br from-[#0f1724] via-[#0b0f1a] to-[#051024] rounded-lg shadow-lg overflow-hidden">
         {/* LEFT SIDE */}
         <div className="relative hidden md:flex flex-col items-center justify-center">

@@ -13,7 +13,7 @@ export default function StepHeader() {
   ];
 
   return (
-    <div className="flex justify-center items-center gap-8 mb-10 text-gray-300">
+    <div className="flex justify-center items-center flex-wrap gap-4 md:gap-8 mb-10  text-gray-300">
       {steps.map((step) => {
         const isActive = pathname === step.path;
 
@@ -37,13 +37,13 @@ export default function StepHeader() {
             )}
 
             {isActive ? (
-              <p className="text-sm tracking-wide text-white font-semibold">
+              <p className="text-[17px] tracking-wide text-white font-semibold uppercase">
                 {step.label}
               </p>
             ) : (
               <Link
                 href={step.path}
-                className="text-sm tracking-wide hover:text-white transition-colors"
+                className="text-[17px] tracking-wide hover:text-white transition-colors uppercase"
               >
                 {step.label}
               </Link>

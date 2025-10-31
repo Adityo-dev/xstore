@@ -12,14 +12,14 @@ export default function ShoppingCart() {
     useCart();
 
   return (
-    <div className="container mx-auto py-44">
+    <div className="container mx-auto px-4 mb-16 md:mb-24 pt-32 xl:pt-44">
       {/* Step Header */}
       <StepHeader />
 
       {/* Main Grid */}
-      <div className="grid md:grid-cols-3 gap-6">
+      <div className="grid lg:grid-cols-3 gap-6">
         {/* Left: Cart Items */}
-        <div className="md:col-span-2 bg-[#1E2129] p-6 rounded-lg">
+        <div className="lg:col-span-2 bg-[#1E2129] p-6 rounded-lg">
           {cartItems.length === 0 ? (
             <p className="text-center text-gray-400 py-10">
               Your cart is empty 🛒
