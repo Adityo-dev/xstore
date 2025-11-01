@@ -68,7 +68,10 @@ function PopularCategories() {
         paginationColor="#6c63ff"
         breakpoints={{
           400: { slidesPerView: 2 },
-          1024: { slidesPerView: 7 },
+          768: { slidesPerView: 3 },
+          1024: { slidesPerView: 4 },
+          1280: { slidesPerView: 5 },
+          1440: { slidesPerView: 7 },
         }}
       />
     </section>
