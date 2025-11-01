@@ -19,7 +19,7 @@ export default function ShoppingCart() {
       {/* Main Grid */}
       <div className="grid lg:grid-cols-3 gap-6">
         {/* Left: Cart Items */}
-        <div className="lg:col-span-2 bg-[#1E2129] p-6 rounded-lg">
+        <div className="lg:col-span-2 bg-[#1E2129] p-4 md:p-6 rounded-lg">
           {cartItems.length === 0 ? (
             <p className="text-center text-gray-400 py-10">
               Your cart is empty 🛒
