@@ -1,5 +1,5 @@
 import Image from "next/image";
-import CustomButton from "../ui/CustomButton";
+import CustomButton from "../ui/buttons/CustomButton";
 
 function OrderSummary({
   cartItems,

@@ -7,7 +7,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
 import Container from "../Container";
-import CustomButton from "../ui/CustomButton";
+import CustomButton from "../ui/buttons/CustomButton";
 
 export default function HeroSlider() {
   const slides = [

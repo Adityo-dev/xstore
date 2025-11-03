@@ -5,7 +5,7 @@ import ColumCard from "../cards/ColumCard";
 import Container from "../Container";
 import DotsSlider from "../DotsSlider";
 import SectionHeader from "../SectionHeader";
-import CustomButton from "../ui/CustomButton";
+import CustomButton from "../ui/buttons/CustomButton";
 
 const trending = products.filter((product) => product.isRecent);
 

@@ -1,5 +1,5 @@
 import Container from "./Container";
-import CustomButton from "./ui/CustomButton";
+import CustomButton from "./ui/buttons/CustomButton";
 
 function SectionHeader({ title, btn, btnUrl = "#", justify = "between" }) {
   return (

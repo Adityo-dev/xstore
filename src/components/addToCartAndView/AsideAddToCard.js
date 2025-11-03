@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useCart } from "../context/CartContext";
-import CustomButton from "../ui/CustomButton";
+import CustomButton from "../ui/buttons/CustomButton";
 
 export default function AsideAddToCard() {
   const recommended = [

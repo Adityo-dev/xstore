@@ -45,7 +45,7 @@ function AsideViewDetails({ data, onAddToCart }) {
           </span>
         </div>
 
-        <GetStarRating rating={5} />
+        <GetStarRating rating={data?.reviews[0].rating} />
 
         <p className="text-[#8e919f] text-base my-3">
           {data?.description && data.description.length > 0

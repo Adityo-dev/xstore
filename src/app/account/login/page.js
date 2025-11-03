@@ -1,5 +1,5 @@
 "use client";
-import CustomButton from "@/components/ui/CustomButton";
+import CustomButton from "@/components/ui/buttons/CustomButton";
 import Image from "next/image";
 import Link from "next/link";
 

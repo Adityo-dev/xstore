@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import CustomButton from "../ui/CustomButton";
+import CustomButton from "../ui/buttons/CustomButton";
 
 export default function ContactForm() {
   const [form, setForm] = useState({

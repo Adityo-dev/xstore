@@ -3,7 +3,7 @@ import { AiOutlinePlus } from "react-icons/ai";
 import { HiMiniEquals } from "react-icons/hi2";
 import Container from "../Container";
 import SectionHeader from "../SectionHeader";
-import { default as GetStarRating } from "../utils/GetStarRating";
+import GetStarRating from "../utils/GetStarRating";
 
 // Example bundle data
 const bundleData = [
@@ -45,7 +45,7 @@ function Bundle() {
             />
             <div>
               <p className="font-semibold mb-3">{bundleData[0].title}</p>
-              <GetStarRating rating={bundleData[0].rating} />
+              <GetStarRating rating={5} />
               <div className="flex items-center gap-2 mt-6 text-[15px]">
                 <span className="line-through text-gray-400">
                   {bundleData[0].originalPrice}
@@ -76,7 +76,7 @@ function Bundle() {
             />
             <div>
               <p className="font-semibold mb-3">{bundleData[1].title}</p>
-              <GetStarRating rating={bundleData[1].rating} />
+              <GetStarRating rating={5} />
               <div className="flex items-center gap-2 mt-6 text-[15px]">
                 <span className="line-through text-gray-400">
                   {bundleData[1].originalPrice}
