@@ -1,4 +1,5 @@
 "use client";
+import CustomButton from "@/components/ui/CustomButton";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -59,12 +60,9 @@ export default function LoginPage() {
               />
             </label>
 
-            <button
-              type="submit"
-              className="w-full bg-[#776BF8] hover:bg-[#fff] hover:text-[#776BF8] px-8 py-2 rounded-lg cursor-pointer text-[17px] font-semibold transition duration-300"
-            >
+            <CustomButton className="w-full" type="submit">
               Sign in
-            </button>
+            </CustomButton>
           </form>
 
           <p className="text-xs text-[#9AA3C7] text-center mt-4">

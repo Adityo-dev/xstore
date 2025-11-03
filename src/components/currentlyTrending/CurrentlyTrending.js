@@ -1,11 +1,11 @@
 "use client";
 import { products } from "@/data/products";
 import Image from "next/image";
-import Link from "next/link";
 import ColumCard from "../cards/ColumCard";
 import Container from "../Container";
 import DotsSlider from "../DotsSlider";
 import SectionHeader from "../SectionHeader";
+import CustomButton from "../ui/CustomButton";
 
 const trending = products.filter((product) => product.isRecent);
 
@@ -28,11 +28,7 @@ function CurrentlyTrending() {
             <h2 className="text-nowrap text-[30px] font-semibold font-marcellus">
               Row Game
             </h2>
-            <Link href="">
-              <button className="bg-[#776BF8] hover:bg-[#fff] hover:text-[#776BF8] px-8 py-2 rounded-lg cursor-pointer text-[17px] font-semibold transition duration-300">
-                Shop Now
-              </button>
-            </Link>
+            <CustomButton href={"#"}>Shop Now</CustomButton>
           </div>
         </div>
         <div className="col-span-full sm:col-span-8">

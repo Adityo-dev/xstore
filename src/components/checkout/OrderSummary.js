@@ -1,4 +1,5 @@
 import Image from "next/image";
+import CustomButton from "../ui/CustomButton";
 
 function OrderSummary({
   cartItems,
@@ -59,14 +60,12 @@ function OrderSummary({
         <span>${totalPrice.toFixed(2)}</span>
       </div>
 
-      <div className="mt-4">
-        <button
-          onClick={handlePlaceOrder}
-          className="w-full bg-[#776BF8] hover:bg-[#fff] hover:text-[#776BF8] px-8 py-2.5 rounded-lg cursor-pointer text-[17px] font-semibold transition duration-300"
-        >
-          {orderPlaced ? "Order Placed!" : "Place Order"}
-        </button>
-      </div>
+      <CustomButton
+        onClick={handlePlaceOrder}
+        className="w-full block text-center"
+      >
+        {orderPlaced ? "Order Placed!" : "Place Order"}
+      </CustomButton>
     </div>
   );
 }

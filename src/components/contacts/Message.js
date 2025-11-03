@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import CustomButton from "../ui/CustomButton";
 
 export default function ContactForm() {
   const [form, setForm] = useState({
@@ -66,12 +67,10 @@ export default function ContactForm() {
             className="w-full bg-transparent border-b border-gray-600 focus:border-[#776BF8] outline-none resize-none py-2"
           ></textarea>
         </div>
-        <button
-          type="submit"
-          className=" w-full bg-[#776BF8] hover:bg-[#fff] hover:text-[#776BF8] px-8 py-2 rounded-lg cursor-pointer text-[17px] font-semibold transition duration-300"
-        >
+
+        <CustomButton className="w-full" type="submit">
           Send Message
-        </button>
+        </CustomButton>
       </form>
     </div>
   );

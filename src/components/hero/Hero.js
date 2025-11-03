@@ -1,4 +1,5 @@
 "use client";
+import Container from "../Container";
 import PopularCategories from "../popularCategories/PopularCategories";
 import HeroSlider from "./HeroSlider";
 
@@ -11,10 +12,10 @@ export default function Hero() {
       }}
     >
       {/* Slider Container */}
-      <div className="pt-[136px] pb-4 space-y-8 px-4">
+      <Container className="pt-[136px] pb-4 space-y-8">
         <HeroSlider />
         <PopularCategories />
-      </div>
+      </Container>
     </section>
   );
 }

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Container from "../Container";
+import CustomButton from "../ui/CustomButton";
 
 function Banner2() {
   return (
@@ -26,9 +27,10 @@ function Banner2() {
             have suffered alteration in some forms by injected humours randomise
             words don’t look believable.
           </p>
-          <button className="bg-[#776BF8] hover:bg-[#fff] hover:text-[#776BF8] px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg cursor-pointer text-base sm:text-[17px] font-semibold transition duration-300">
+
+          <CustomButton href="#" className="py-3">
             Purchase Now
-          </button>
+          </CustomButton>
         </div>
       </div>
     </Container>

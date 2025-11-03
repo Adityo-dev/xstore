@@ -1,5 +1,5 @@
-import Link from "next/link";
 import Container from "./Container";
+import CustomButton from "./ui/CustomButton";
 
 function SectionHeader({ title, btn, btnUrl = "#", justify = "between" }) {
   return (
@@ -9,13 +9,7 @@ function SectionHeader({ title, btn, btnUrl = "#", justify = "between" }) {
       {title && (
         <h2 className="text-[30px] font-semibold font-marcellus">{title}</h2>
       )}
-      {btn && (
-        <Link href={btnUrl}>
-          <button className="bg-[#776BF8] hover:bg-[#fff] hover:text-[#776BF8] px-8 py-2 rounded-lg cursor-pointer text-[17px] font-semibold transition duration-300">
-            {btn}
-          </button>
-        </Link>
-      )}
+      {btn && <CustomButton href={btnUrl}>{btn}</CustomButton>}
     </Container>
   );
 }

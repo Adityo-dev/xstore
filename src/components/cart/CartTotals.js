@@ -1,4 +1,4 @@
-import Link from "next/link";
+import CustomButton from "../ui/CustomButton";
 
 function CartTotals({ totalPrice }) {
   return (
@@ -12,16 +12,16 @@ function CartTotals({ totalPrice }) {
         <p>TOTAL</p>
         <p>${totalPrice.toFixed(2)}</p>
       </div>
-      <Link href={"/checkout"}>
-        <button className="w-full bg-[#776BF8] hover:bg-[#fff] hover:text-[#776BF8] px-8 py-2.5 rounded-lg cursor-pointer text-[17px] font-semibold transition duration-300 mb-3">
-          Proceed to Checkout
-        </button>
-      </Link>
-      <Link href={"/shop"}>
-        <button className="w-full bg-[#776BF8] hover:bg-[#fff] hover:text-[#776BF8] px-8 py-2.5 rounded-lg cursor-pointer text-[17px] font-semibold transition duration-300">
-          Continue Shopping
-        </button>
-      </Link>
+      <CustomButton
+        href={"/checkout"}
+        className="w-full block mb-3 text-center"
+        hoverDefault={true}
+      >
+        Proceed to Checkout
+      </CustomButton>
+      <CustomButton href={"/shop"} className="w-full block text-center">
+        Continue Shopping
+      </CustomButton>
     </div>
   );
 }

@@ -6,6 +6,8 @@ import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
+import Container from "../Container";
+import CustomButton from "../ui/CustomButton";
 
 export default function HeroSlider() {
   const slides = [
@@ -36,7 +38,7 @@ export default function HeroSlider() {
   ];
 
   return (
-    <div className="relative w-full container mx-auto rounded-lg overflow-hidden group">
+    <Container className="relative w-full rounded-lg overflow-hidden group">
       <Swiper
         modules={[Navigation, Autoplay]}
         navigation={{
@@ -72,9 +74,9 @@ export default function HeroSlider() {
                     {slide?.subtitle}
                   </p>
                   <p></p>
-                  <button className="bg-[#776BF8] hover:bg-[#fff] hover:text-[#776BF8] px-8 py-2 rounded-lg cursor-pointer text-[17px] font-semibold transition duration-300">
+                  <CustomButton href="#" className="mx-auto">
                     Purchase Now
-                  </button>
+                  </CustomButton>
                 </div>
               </div>
             </SwiperSlide>
@@ -90,6 +92,6 @@ export default function HeroSlider() {
       <button className="custom-next absolute right-0 group-hover:right-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 flex items-center justify-center bg-[#FFFFFF38] hover:bg-[#ffffff60] text-white rounded-lg transition-all duration-300 opacity-0 group-hover:opacity-100 cursor-pointer">
         <SlArrowRight className="text-lg" />
       </button>
-    </div>
+    </Container>
   );
 }

@@ -57,24 +57,22 @@ const menuItems = [
 
 function PopularCategories() {
   return (
-    <section className="container mx-auto">
-      <DotsSlider
-        data={menuItems}
-        CardComponent={CategoriesCard}
-        uniqueId="popular-categories"
-        slidesPerView={1}
-        spaceBetween={20}
-        loop={true}
-        paginationColor="#6c63ff"
-        breakpoints={{
-          400: { slidesPerView: 2 },
-          768: { slidesPerView: 3 },
-          1024: { slidesPerView: 4 },
-          1280: { slidesPerView: 5 },
-          1440: { slidesPerView: 7 },
-        }}
-      />
-    </section>
+    <DotsSlider
+      data={menuItems}
+      CardComponent={CategoriesCard}
+      uniqueId="popular-categories"
+      slidesPerView={1}
+      spaceBetween={20}
+      loop={true}
+      paginationColor="#6c63ff"
+      breakpoints={{
+        400: { slidesPerView: 2 },
+        768: { slidesPerView: 3 },
+        1024: { slidesPerView: 4 },
+        1280: { slidesPerView: 5 },
+        1440: { slidesPerView: 7 },
+      }}
+    />
   );
 }
 
