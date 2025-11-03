@@ -1,6 +1,7 @@
 "use client";
+
 import ColumCard from "@/components/cards/ColumCard";
-import { products } from "@/data/products";
+import Container from "@/components/Container";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -8,15 +9,15 @@ export default function Shop() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  // Extract query params
   const query = Object.fromEntries(searchParams.entries());
 
-  // Default filters
+  // States
+  const [products, setProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
   const [priceRange, setPriceRange] = useState({
     min: 0,
     max: query.max_price ? parseInt(query.max_price) : 314,
   });
-
   const [ratingFilter, setRatingFilter] = useState(
     query.rating_filter ? query.rating_filter.split(",").map(Number) : []
   );
@@ -30,27 +31,34 @@ export default function Shop() {
     query.availability ? query.availability.split(",") : []
   );
   const [sortBy, setSortBy] = useState(query.sort_by || "default");
-  const [filteredProducts, setFilteredProducts] = useState(products);
   const [currentPage, setCurrentPage] = useState(
     query.page ? parseInt(query.page) : 1
   );
+
   const productsPerPage = 12;
 
-  // Unique values (dynamic)
+  // Fetch products from public folder
+  useEffect(() => {
+    fetch("/data/products.json")
+      .then((res) => res.json())
+      .then((data) => {
+        setProducts(data);
+        setFilteredProducts(data);
+      });
+  }, []);
+
+  // Dynamic categories and platforms
   const allCategories = [
     ...new Set(products.flatMap((p) => p.categories || [])),
   ];
-
   const allPlatforms = [...new Set(products.flatMap((p) => p.platform || []))];
 
-  // Helper: Update URL
+  // Update URL helper
   const updateURL = (params) => {
     const updated = new URLSearchParams(searchParams.toString());
     Object.entries(params).forEach(([key, value]) => {
       if (
-        value === undefined ||
-        value === null ||
-        value === "" ||
+        !value ||
         (Array.isArray(value) && value.length === 0) ||
         (key === "page" && value === 1)
       ) {
@@ -62,8 +70,10 @@ export default function Shop() {
     router.push(`/shop?${updated.toString()}`, { scroll: false });
   };
 
-  // Filter logic
+  // Filtering & Sorting
   useEffect(() => {
+    if (!products.length) return;
+
     let filtered = [...products].filter((product) => {
       const priceOK =
         product.salePrice >= priceRange.min &&
@@ -81,13 +91,12 @@ export default function Shop() {
       const platformOK =
         platformFilter.length === 0 ||
         platformFilter.some((p) => product.platform?.includes(p));
-
       const categoryOK =
         categoryFilter.length === 0 ||
         categoryFilter.some((c) => product.categories?.includes(c));
 
       const availabilityOK = (() => {
-        if (availabilityFilter.length === 0) return true;
+        if (!availabilityFilter.length) return true;
         if (availabilityFilter.includes("in_stock") && product.stock > 0)
           return true;
         if (availabilityFilter.includes("out_of_stock") && product.stock <= 0)
@@ -101,27 +110,24 @@ export default function Shop() {
     });
 
     // Sorting
-    if (sortBy === "popularity") {
-      filtered.sort((a, b) => b.sold - a.sold);
-    } else if (sortBy === "rating") {
-      filtered.sort((a, b) => {
-        const avgA =
-          a.reviews?.reduce((sum, r) => sum + r.rating, 0) /
-            (a.reviews?.length || 1) || 0;
-        const avgB =
-          b.reviews?.reduce((sum, r) => sum + r.rating, 0) /
-            (b.reviews?.length || 1) || 0;
-        return avgB - avgA;
-      });
-    } else if (sortBy === "priceLowToHigh") {
+    if (sortBy === "popularity") filtered.sort((a, b) => b.sold - a.sold);
+    else if (sortBy === "rating")
+      filtered.sort(
+        (a, b) =>
+          (b.reviews?.reduce((sum, r) => sum + r.rating, 0) /
+            (b.reviews?.length || 1) || 0) -
+          (a.reviews?.reduce((sum, r) => sum + r.rating, 0) /
+            (a.reviews?.length || 1) || 0)
+      );
+    else if (sortBy === "priceLowToHigh")
       filtered.sort((a, b) => a.salePrice - b.salePrice);
-    } else if (sortBy === "priceHighToLow") {
+    else if (sortBy === "priceHighToLow")
       filtered.sort((a, b) => b.salePrice - a.salePrice);
-    }
 
     setFilteredProducts(filtered);
-    setCurrentPage(1); // reset page when filters change
+    setCurrentPage(1);
   }, [
+    products,
     priceRange,
     ratingFilter,
     platformFilter,
@@ -143,22 +149,19 @@ export default function Shop() {
     updateURL({ page });
   };
 
-  // Smooth scroll when page changes
+  // Smooth scroll on page change
   useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, [currentPage]);
 
   return (
-    <section className="container mx-auto py-44">
+    <Container className="py-44">
       <div className="flex gap-6">
         {/* Sidebar Filters */}
-        <div className="max-w-[300px] w-full p-4 rounded-lg h-fit sticky top-44">
+        <div className="max-w-[300px] w-full rounded-lg h-fit sticky top-44">
           <h2 className="text-xl font-bold mb-4">Filters</h2>
 
-          {/* Category */}
+          {/* Category Filter */}
           <h3 className="text-lg mb-2">Categories</h3>
           <div className="w-full max-h-[300px] h-full overflow-y-auto custom-scrollbar">
             {allCategories.map((cat) => (
@@ -179,7 +182,7 @@ export default function Shop() {
             ))}
           </div>
 
-          {/* Price */}
+          {/* Price Filter */}
           <h3 className="text-lg mb-2 mt-4">Price</h3>
           <input
             type="range"
@@ -197,7 +200,7 @@ export default function Shop() {
             Price: ${priceRange.min} - ${priceRange.max}
           </p>
 
-          {/* Rating */}
+          {/* Rating Filter */}
           <h3 className="text-lg mb-2 mt-4">Filter by Rating</h3>
           {[5, 4, 3].map((rate) => (
             <label key={rate} className="block">
@@ -216,7 +219,7 @@ export default function Shop() {
             </label>
           ))}
 
-          {/* Platform */}
+          {/* Platform Filter */}
           <h3 className="text-lg mb-2 mt-4">Platform</h3>
           {allPlatforms.map((plat) => (
             <label key={plat} className="block">
@@ -235,7 +238,7 @@ export default function Shop() {
             </label>
           ))}
 
-          {/* Availability */}
+          {/* Availability Filter */}
           <h3 className="text-lg mb-2 mt-4">Availability</h3>
           {[
             { key: "in_stock", label: "In stock" },
@@ -309,13 +312,14 @@ export default function Shop() {
                     key={num}
                     onClick={() => paginate(num)}
                     className={`px-4 py-2 cursor-pointer ${
-                      currentPage === num ? "bg-[#776BF8]" : "bg-gray-700 "
+                      currentPage === num ? "bg-[#776BF8]" : "bg-gray-700"
                     } text-white`}
                   >
                     {num}
                   </button>
                 )
               )}
+
               <button
                 onClick={() => paginate(currentPage + 1)}
                 disabled={currentPage === totalPages}
@@ -327,6 +331,6 @@ export default function Shop() {
           )}
         </div>
       </div>
-    </section>
+    </Container>
   );
 }

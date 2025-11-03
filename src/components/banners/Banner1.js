@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Container from "../Container";
 
 function Banner1() {
   return (
@@ -11,7 +12,7 @@ function Banner1() {
         className="w-full max-h-[550px] h-full object-cover relative"
       />
 
-      <div
+      <Container
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center"
         style={{
           backgroundImage: `url("/images/Shadow.png")`,
@@ -30,7 +31,7 @@ function Banner1() {
           <button className="font-semibold">Join Now </button>
           <button className="font-semibold">Explore Game Library</button>
         </div>
-      </div>
+      </Container>
     </div>
   );
 }

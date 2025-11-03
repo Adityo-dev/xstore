@@ -23,11 +23,11 @@ export default function MyOrders() {
   };
 
   return (
-    <div className="pt-44 pb-20 px-6">
+    <div className="pt-44 pb-20">
       <StepHeader />
       <div className="max-w-6xl mx-auto space-y-10">
         {/* ORDERS */}
-        <div className="bg-[#1E2129] p-8 rounded-lg shadow-lg">
+        <div className="bg-[#1E2129] p-6 rounded-lg">
           <div className="mb-8">
             <h1 className="text-3xl font-bold mb-2 text-white">My Orders</h1>
             <p className="text-gray-400">Track and manage your order history</p>

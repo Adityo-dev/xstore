@@ -1,4 +1,3 @@
-import Banner1 from "@/components/banners/Banner1";
 import Banner2 from "@/components/banners/Banner2";
 import Blog from "@/components/blog/Blog";
 import Bundle from "@/components/bundle/Bundle";
@@ -17,7 +16,7 @@ export default function Home() {
       <Bundle />
       <Banner2 />
       <CurrentlyTrending />
-      <Banner1 />
+      {/* <Banner1 /> */}
       <TodayDiscounts />
       <Blog />
     </section>
