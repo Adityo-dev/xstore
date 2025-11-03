@@ -9,11 +9,11 @@ import Search from "./Search";
 function MainNavigationBar() {
   return (
     <Container className="fixed left-0 right-0 z-50">
-      <div className="bg-[#23262F] py-[18px] px-[30px] rounded-[12px] mt-6 flex items-center justify-between">
+      <div className="bg-[#23262F] py-[20px] px-[12px] md:px-[30px] rounded-[12px] mt-6 flex items-center justify-between">
         <div className="xl:hidden">
-          <RiMenuFill size={18} />
+          <RiMenuFill size={22} />
         </div>
-        <div className="flex items-center gap-[30px]">
+        <div className="flex items-center lg:gap-[30px]">
           <Link href={"/"} className="shrink-0">
             <Image
               src={"/logos/Logo.png"}

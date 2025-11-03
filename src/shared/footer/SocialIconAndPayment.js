@@ -1,19 +1,15 @@
 import Image from "next/image";
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaTelegramPlane,
-  FaYoutube,
-} from "react-icons/fa";
+import { FaFacebookF, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaUser } from "react-icons/fa6";
 
 function SocialIconAndPayment() {
   return (
     <div className="border-t border-[#FFFFFF24] mt-4 pt-6 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-0">
       <div className="flex justify-center space-x-5 text-xl text-white">
+        <FaUser className="hover:text-[#776BF8] cursor-pointer transition" />
         <FaFacebookF className="hover:text-[#776BF8] cursor-pointer transition" />
-        <FaInstagram className="hover:text-[#776BF8] cursor-pointer transition" />
-        <FaYoutube className="hover:text-[#776BF8] cursor-pointer transition" />
-        <FaTelegramPlane className="hover:text-[#776BF8] cursor-pointer transition" />
+        <FaGithub className="hover:text-[#776BF8] cursor-pointer transition" />
+        <FaLinkedin className="hover:text-[#776BF8] cursor-pointer transition" />
       </div>
       <div className="flex flex-wrap justify-center gap-4 items-center">
         {[

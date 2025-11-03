@@ -2,6 +2,7 @@
 
 import ColumCard from "@/components/cards/ColumCard";
 import Container from "@/components/Container";
+import CheckboxFilter from "@/components/shop/sidebarFilters/CheckboxFilter";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -158,29 +159,19 @@ export default function Shop() {
     <Container className="py-44">
       <div className="flex gap-6">
         {/* Sidebar Filters */}
-        <div className="max-w-[300px] w-full rounded-lg h-fit sticky top-44">
+        <div className="max-w-[300px] w-full rounded-lg h-fit sticky top-44 hidden xl:block">
           <h2 className="text-xl font-bold mb-4">Filters</h2>
 
           {/* Category Filter */}
-          <h3 className="text-lg mb-2">Categories</h3>
-          <div className="w-full max-h-[300px] h-full overflow-y-auto custom-scrollbar">
-            {allCategories.map((cat) => (
-              <label key={cat} className="block">
-                <input
-                  type="checkbox"
-                  checked={categoryFilter.includes(cat)}
-                  onChange={(e) => {
-                    const updated = e.target.checked
-                      ? [...categoryFilter, cat]
-                      : categoryFilter.filter((c) => c !== cat);
-                    setCategoryFilter(updated);
-                    updateURL({ category: updated });
-                  }}
-                />{" "}
-                {cat}
-              </label>
-            ))}
-          </div>
+          <CheckboxFilter
+            title="Categories"
+            options={allCategories}
+            selectedValues={categoryFilter}
+            onUpdate={(updated) => {
+              setCategoryFilter(updated);
+              updateURL({ category: updated });
+            }}
+          />
 
           {/* Price Filter */}
           <h3 className="text-lg mb-2 mt-4">Price</h3>
@@ -201,65 +192,41 @@ export default function Shop() {
           </p>
 
           {/* Rating Filter */}
-          <h3 className="text-lg mb-2 mt-4">Filter by Rating</h3>
-          {[5, 4, 3].map((rate) => (
-            <label key={rate} className="block">
-              <input
-                type="checkbox"
-                checked={ratingFilter.includes(rate)}
-                onChange={(e) => {
-                  const updated = e.target.checked
-                    ? [...ratingFilter, rate]
-                    : ratingFilter.filter((r) => r !== rate);
-                  setRatingFilter(updated);
-                  updateURL({ rating_filter: updated });
-                }}
-              />{" "}
-              {rate}+ Stars
-            </label>
-          ))}
+          <CheckboxFilter
+            title="Filter by Rating"
+            options={[5, 4, 3]}
+            selectedValues={ratingFilter}
+            onUpdate={(updated) => {
+              setRatingFilter(updated);
+              updateURL({ rating_filter: updated });
+            }}
+            getLabel={(rating) => `${rating}+ Stars`}
+          />
 
           {/* Platform Filter */}
-          <h3 className="text-lg mb-2 mt-4">Platform</h3>
-          {allPlatforms.map((plat) => (
-            <label key={plat} className="block">
-              <input
-                type="checkbox"
-                checked={platformFilter.includes(plat)}
-                onChange={(e) => {
-                  const updated = e.target.checked
-                    ? [...platformFilter, plat]
-                    : platformFilter.filter((p) => p !== plat);
-                  setPlatformFilter(updated);
-                  updateURL({ platform: updated });
-                }}
-              />{" "}
-              {plat}
-            </label>
-          ))}
+          <CheckboxFilter
+            title="Platform"
+            options={allPlatforms}
+            selectedValues={platformFilter}
+            onUpdate={(updated) => {
+              setPlatformFilter(updated);
+              updateURL({ platform: updated });
+            }}
+          />
 
           {/* Availability Filter */}
-          <h3 className="text-lg mb-2 mt-4">Availability</h3>
-          {[
-            { key: "in_stock", label: "In stock" },
-            { key: "out_of_stock", label: "Out of stock" },
-            { key: "on_sale", label: "On sale" },
-          ].map((item) => (
-            <label key={item.key} className="block">
-              <input
-                type="checkbox"
-                checked={availabilityFilter.includes(item.key)}
-                onChange={(e) => {
-                  const updated = e.target.checked
-                    ? [...availabilityFilter, item.key]
-                    : availabilityFilter.filter((a) => a !== item.key);
-                  setAvailabilityFilter(updated);
-                  updateURL({ availability: updated });
-                }}
-              />{" "}
-              {item.label}
-            </label>
-          ))}
+          <CheckboxFilter
+            title="Availability"
+            options={["in_stock", "out_of_stock"]}
+            selectedValues={availabilityFilter}
+            onUpdate={(updated) => {
+              setAvailabilityFilter(updated);
+              updateURL({ availability: updated });
+            }}
+            getLabel={(item) =>
+              item === "in_stock" ? "In Stock" : "Out of Stock"
+            }
+          />
         </div>
 
         {/* Product Grid */}
@@ -283,7 +250,7 @@ export default function Shop() {
           </div>
 
           {/* Product Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {currentProducts.length > 0 ? (
               currentProducts.map((product) => (
                 <ColumCard key={product.id} data={product} />

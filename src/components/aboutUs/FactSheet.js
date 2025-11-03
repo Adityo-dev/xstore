@@ -47,7 +47,7 @@ const statsData = [
 
 function FactSheet() {
   return (
-    <div className="bg-[#23262F] py-6 lg:py-12 xl:py-20 px-4">
+    <div className="bg-[#23262F] py-6 lg:py-12 xl:py-20">
       <SectionHeader title={"Our Fact Sheet in Numbers"} />
 
       <Container className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
