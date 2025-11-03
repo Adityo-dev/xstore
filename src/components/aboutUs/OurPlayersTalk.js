@@ -1,5 +1,6 @@
 "use client";
 import TestimonialCard from "../cards/TestimonialCard";
+import Container from "../Container";
 import DotsSlider from "../DotsSlider";
 import SectionHeader from "../SectionHeader";
 
@@ -40,7 +41,7 @@ const testimonials = [
 
 function OurPlayersTalk() {
   return (
-    <div className="container mx-auto px-4">
+    <Container>
       <SectionHeader title={"Our Players Talk"} justify="center" />
       <DotsSlider
         data={testimonials}
@@ -55,7 +56,7 @@ function OurPlayersTalk() {
           1024: { slidesPerView: 3 },
         }}
       />
-    </div>
+    </Container>
   );
 }
 

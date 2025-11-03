@@ -2,6 +2,7 @@
 
 import BillingDetails from "@/components/checkout/BillingDetails";
 import OrderSummary from "@/components/checkout/OrderSummary";
+import Container from "@/components/Container";
 import { useCart } from "@/components/context/CartContext";
 import StepHeader from "@/components/StepHeader";
 import { useRouter } from "next/navigation";
@@ -60,7 +61,7 @@ export default function CheckoutPage() {
   };
 
   return (
-    <div className="relative container mx-auto px-4 mb-16 md:mb-24 pt-32 xl:pt-44">
+    <Container className="relative mb-16 md:mb-24 pt-32 xl:pt-44">
       {showToast && (
         <div className="fixed top-1/2 left-1/2 -translate-x-1/2 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg font-semibold animate-bounce">
           ✅ Your order has been placed successfully!
@@ -89,6 +90,6 @@ export default function CheckoutPage() {
           />
         </div>
       )}
-    </div>
+    </Container>
   );
 }

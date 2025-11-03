@@ -1,8 +1,9 @@
 import Image from "next/image";
+import Container from "../Container";
 
 function AboutUsHero() {
   return (
-    <section className="container mx-auto px-4 text-center space-y-6 md:space-y-10 lg:space-y-20">
+    <Container className="text-center space-y-6 md:space-y-10 lg:space-y-20">
       <div>
         <h2 className="text-[30px] md:text-[40px] lg:text-[50px] font-semibold font-marcellus">
           Crafting Unforgettable Experiences
@@ -32,7 +33,7 @@ function AboutUsHero() {
         alt=""
         className="w-full h-full object-cover rounded-lg"
       />
-    </section>
+    </Container>
   );
 }
 

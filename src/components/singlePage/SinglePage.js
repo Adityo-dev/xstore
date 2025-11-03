@@ -9,6 +9,7 @@ import {
 import { FaUser } from "react-icons/fa6";
 import { FiShoppingBag } from "react-icons/fi";
 import { IoMdAdd, IoMdRemove } from "react-icons/io";
+import Container from "../Container";
 import DotsSlider from "../DotsSlider";
 import ImageCart from "./ImageCart";
 
@@ -42,7 +43,7 @@ export default function SinglePage({ data }) {
   const timeLeft = { days, hours, mins, secs };
 
   return (
-    <div className="container mx-auto px-4 flex flex-col-reverse lg:flex-row  gap-10 items-start">
+    <Container className="flex flex-col-reverse lg:flex-row  gap-10 items-start">
       {/* ---------- LEFT CONTENT (Sticky) ---------- */}
       <div className="w-full lg:w-1/2">
         <div className="sticky top-40 self-start">
@@ -175,7 +176,7 @@ export default function SinglePage({ data }) {
           paginationColor="#6c63ff"
         />
       </div>
-    </div>
+    </Container>
   );
 }
 

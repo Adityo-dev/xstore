@@ -1,8 +1,9 @@
 import Image from "next/image";
+import Container from "../Container";
 
 function Banner2() {
   return (
-    <div className="container mx-auto px-4">
+    <Container>
       <div className="h-full min-h-[350px] md:min-h-[500px] bg-[#23262F] grid grid-cols-1 lg:grid-cols-12 items-center rounded-lg overflow-hidden relative">
         {/* Image Section */}
         <div className="col-span-1 lg:col-span-7 h-[250px] sm:h-[300px] md:h-[400px] lg:h-full">
@@ -30,7 +31,7 @@ function Banner2() {
           </button>
         </div>
       </div>
-    </div>
+    </Container>
   );
 }
 

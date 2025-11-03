@@ -1,5 +1,6 @@
 import { products } from "@/data/products";
 import RowCard from "../cards/RowCard";
+import Container from "../Container";
 import SectionHeader from "../SectionHeader";
 
 const recentReleases = products.filter((product) => product.isRecent);
@@ -13,11 +14,11 @@ function RecentReleases() {
         btnUrl={"/recent"}
       />
 
-      <div className="container mx-auto px-4 grid lg:grid-cols-2 2xl:grid-cols-3 gap-4 md:gap-6">
+      <Container className="grid lg:grid-cols-2 2xl:grid-cols-3 gap-4 md:gap-6">
         {recentReleases.slice(0, 6).map((game) => (
           <RowCard key={game?.id} game={game} />
         ))}
-      </div>
+      </Container>
     </>
   );
 }

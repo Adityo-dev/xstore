@@ -4,6 +4,7 @@ import { useState } from "react";
 
 import { FiPlus } from "react-icons/fi";
 import { HiOutlineMinus } from "react-icons/hi2";
+import Container from "../Container";
 
 const faqs = [
   {
@@ -40,7 +41,7 @@ function Faqs() {
   };
 
   return (
-    <section className="container mx-auto px-4 text-center space-y-6 md:space-y-8 lg:space-y-12">
+    <Container className="text-center space-y-6 md:space-y-8 lg:space-y-12">
       <div>
         <h2 className="text-[30px] md:text-[40px] lg:text-[50px] font-semibold font-marcellus">
           Answers & Questions
@@ -83,7 +84,7 @@ function Faqs() {
           </div>
         ))}
       </div>
-    </section>
+    </Container>
   );
 }
 

@@ -1,5 +1,6 @@
 "use client";
 import BlogCard from "../cards/BlogCard";
+import Container from "../Container";
 import DotsSlider from "../DotsSlider";
 import SectionHeader from "../SectionHeader";
 
@@ -31,12 +32,12 @@ const blogs = [
 
 function Blog() {
   return (
-    <div>
+    <>
       {/* section Header  */}
       <SectionHeader title={"From The Blog"} btn={"Discover All"} />
 
       {/* Blog Card */}
-      <div className="container mx-auto px-4">
+      <Container>
         <DotsSlider
           data={blogs}
           CardComponent={BlogCard}
@@ -50,8 +51,8 @@ function Blog() {
             1024: { slidesPerView: 3 },
           }}
         />
-      </div>
-    </div>
+      </Container>
+    </>
   );
 }
 

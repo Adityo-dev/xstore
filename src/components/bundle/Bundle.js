@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { AiOutlinePlus } from "react-icons/ai";
 import { HiMiniEquals } from "react-icons/hi2";
+import Container from "../Container";
 import SectionHeader from "../SectionHeader";
 import { default as GetStarRating } from "../utils/GetStarRating";
 
@@ -31,7 +32,7 @@ function Bundle() {
     <>
       <SectionHeader title={"Purchase in Bundle!"} />
 
-      <div className="container mx-auto px-4">
+      <Container>
         <div className="bg-[#23262F] p-6 rounded-lg flex flex-wrap lg:flex-nowrap items-center justify-center gap-6">
           {/* Card 1 */}
           <div className="relative flex items-center gap-6 bg-[#23262F] border border-[#FFFFFF24] rounded-lg overflow-hidden pr-2">
@@ -113,7 +114,7 @@ function Bundle() {
             </button>
           </div>
         </div>
-      </div>
+      </Container>
     </>
   );
 }

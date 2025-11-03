@@ -2,6 +2,7 @@
 
 import CouponAndClear from "@/components/cart/CouponAndClear";
 import TableHeader from "@/components/cart/TableHeader";
+import Container from "@/components/Container";
 import { useCart } from "@/components/context/CartContext";
 import StepHeader from "@/components/StepHeader";
 import Image from "next/image";
@@ -12,7 +13,7 @@ export default function ShoppingCart() {
     useCart();
 
   return (
-    <div className="container mx-auto px-4 mb-16 md:mb-24 pt-32 xl:pt-44">
+    <Container className="mb-16 md:mb-24 pt-32 xl:pt-44">
       {/* Step Header */}
       <StepHeader />
 
@@ -107,6 +108,6 @@ export default function ShoppingCart() {
         {/* Right: Cart Totals */}
         <CartTotals totalPrice={totalPrice} />
       </div>
-    </div>
+    </Container>
   );
 }

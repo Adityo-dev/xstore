@@ -40,6 +40,7 @@ export default function Shop() {
   const allCategories = [
     ...new Set(products.flatMap((p) => p.categories || [])),
   ];
+
   const allPlatforms = [...new Set(products.flatMap((p) => p.platform || []))];
 
   // Helper: Update URL

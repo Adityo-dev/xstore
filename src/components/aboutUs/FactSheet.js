@@ -1,3 +1,4 @@
+import Container from "../Container";
 import SectionHeader from "../SectionHeader";
 
 const statsData = [
@@ -49,7 +50,7 @@ function FactSheet() {
     <div className="bg-[#23262F] py-6 lg:py-12 xl:py-20 px-4">
       <SectionHeader title={"Our Fact Sheet in Numbers"} />
 
-      <section className="container mx-auto grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
+      <Container className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
         {statsData.map((item, index) => (
           <div
             key={item.id}
@@ -86,7 +87,7 @@ function FactSheet() {
             </p>
           </div>
         ))}
-      </section>
+      </Container>
     </div>
   );
 }

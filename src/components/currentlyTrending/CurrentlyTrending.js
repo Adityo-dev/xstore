@@ -2,9 +2,10 @@
 import { products } from "@/data/products";
 import Image from "next/image";
 import Link from "next/link";
+import ColumCard from "../cards/ColumCard";
+import Container from "../Container";
 import DotsSlider from "../DotsSlider";
 import SectionHeader from "../SectionHeader";
-import ColumCard from "../cards/ColumCard";
 
 const trending = products.filter((product) => product.isRecent);
 
@@ -13,7 +14,7 @@ function CurrentlyTrending() {
     <>
       <SectionHeader title={"Currently Trending"} />
 
-      <div className="container mx-auto px-4 grid grid-cols-10 gap-6">
+      <Container className="grid grid-cols-10 gap-6">
         <div className="col-span-full sm:col-span-2 rounded-lg h-full overflow-hidden relative">
           <Image
             src={"/images/banner2.png"}
@@ -49,7 +50,7 @@ function CurrentlyTrending() {
             }}
           />
         </div>
-      </div>
+      </Container>
     </>
   );
 }

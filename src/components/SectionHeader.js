@@ -1,9 +1,10 @@
 import Link from "next/link";
+import Container from "./Container";
 
 function SectionHeader({ title, btn, btnUrl = "#", justify = "between" }) {
   return (
-    <div
-      className={`container mx-auto px-4 flex flex-wrap gap-4 items-center justify-${justify} mb-9`}
+    <Container
+      className={`flex flex-wrap gap-4 items-center justify-${justify} mb-9`}
     >
       {title && (
         <h2 className="text-[30px] font-semibold font-marcellus">{title}</h2>
@@ -15,7 +16,7 @@ function SectionHeader({ title, btn, btnUrl = "#", justify = "between" }) {
           </button>
         </Link>
       )}
-    </div>
+    </Container>
   );
 }
 

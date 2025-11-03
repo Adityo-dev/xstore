@@ -2,9 +2,10 @@
 import { products } from "@/data/products";
 import Image from "next/image";
 import Link from "next/link";
+import ColumCard from "../cards/ColumCard";
+import Container from "../Container";
 import DotsSlider from "../DotsSlider";
 import SectionHeader from "../SectionHeader";
-import ColumCard from "../cards/ColumCard";
 
 function TodayDiscounts() {
   const discounts = products.filter((product) => product.isRecent);
@@ -13,7 +14,7 @@ function TodayDiscounts() {
     <>
       <SectionHeader title={"Today’s Discounts"} />
 
-      <div className="container mx-auto px-4 grid grid-cols-12 gap-6">
+      <Container className="grid grid-cols-12 gap-6">
         <div className="col-span-full sm:col-span-9">
           <DotsSlider
             data={discounts}
@@ -114,7 +115,7 @@ function TodayDiscounts() {
             </div>
           </div>
         </div>
-      </div>
+      </Container>
     </>
   );
 }
