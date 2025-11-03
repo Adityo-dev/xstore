@@ -1,4 +1,4 @@
-import GetStarRating from "@/components/utils/GetStarRating";
+import GetStarRating from "@/components/ui/GetStarRating";
 import Image from "next/image";
 import Link from "next/link";
 

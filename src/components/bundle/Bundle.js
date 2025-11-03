@@ -3,7 +3,7 @@ import { AiOutlinePlus } from "react-icons/ai";
 import { HiMiniEquals } from "react-icons/hi2";
 import Container from "../Container";
 import SectionHeader from "../SectionHeader";
-import GetStarRating from "../utils/GetStarRating";
+import GetStarRating from "../ui/GetStarRating";
 
 // Example bundle data
 const bundleData = [

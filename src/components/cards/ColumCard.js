@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import Image from "next/image";
 import AddToCartAndView from "../addToCartAndView/AddToCartAndView";
-import GetStarRating from "../utils/GetStarRating";
+import GetStarRating from "../ui/GetStarRating";
 
 function ColumCard({ data }) {
   return (

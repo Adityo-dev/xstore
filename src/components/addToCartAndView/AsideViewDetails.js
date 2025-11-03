@@ -10,7 +10,7 @@ import {
 import { FiShoppingBag } from "react-icons/fi";
 import { IoMdAdd, IoMdRemove } from "react-icons/io";
 import { IoCheckmark } from "react-icons/io5";
-import GetStarRating from "../utils/GetStarRating";
+import GetStarRating from "../ui/GetStarRating";
 
 function AsideViewDetails({ data, onAddToCart }) {
   const [quantity, setQuantity] = useState(1);
