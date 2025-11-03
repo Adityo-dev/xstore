@@ -10,7 +10,7 @@ function CustomButton({
 }) {
   const baseClass = `${
     hoverDefault
-      ? "bg-[#fff] text-[#776BF8]"
+      ? "bg-[#fff] text-[#000]"
       : "bg-[#776BF8] hover:bg-[#fff] hover:text-[#776BF8]"
   } px-8 py-2.5 rounded-lg cursor-pointer text-[17px] font-semibold transition duration-300`;
 

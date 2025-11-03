@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
-import Link from "next/link";
 import { useCart } from "../context/CartContext";
+import CustomButton from "../ui/CustomButton";
 
 export default function AsideAddToCard() {
   const recommended = [
@@ -10,8 +10,7 @@ export default function AsideAddToCard() {
     { id: 3, title: "Lost Island: Blast A...", image: "/images/rec-3.jpg" },
   ];
 
-  const { cartItems, removeFromCart, updateQuantity, totalPrice, clearCart } =
-    useCart();
+  const { cartItems, removeFromCart, updateQuantity, totalPrice } = useCart();
 
   return (
     <section className="w-full h-full flex flex-col">
@@ -80,19 +79,17 @@ export default function AsideAddToCard() {
           <p className="text-sm font-semibold">${totalPrice.toFixed(2)}</p>
         </div>
 
-        <div className="flex flex-col gap-3">
-          <Link href={"/cart"}>
-            <button className="w-full bg-white text-black py-2 rounded-md font-semibold cursor-pointer">
-              View Cart
-            </button>
-          </Link>
+        <CustomButton
+          href={"/cart"}
+          className="w-full block text-center mb-3"
+          hoverDefault={true}
+        >
+          View Cart
+        </CustomButton>
 
-          <Link href={"/checkout"}>
-            <button className="w-full bg-[#7C5CFF] py-2 rounded-md font-semibold cursor-pointer">
-              Checkout
-            </button>
-          </Link>
-        </div>
+        <CustomButton href={"/checkout"} className="w-full block text-center">
+          Checkout
+        </CustomButton>
       </div>
     </section>
   );
