@@ -2,7 +2,7 @@ import Link from "next/link";
 
 function CartTotals({ totalPrice }) {
   return (
-    <div className="bg-[#1E2129] p-6 rounded-lg h-fit">
+    <div className="bg-[#1E2129] p-4 md:p-6 rounded-lg h-fit">
       <h2 className="text-lg font-semibold mb-4">CART TOTALS</h2>
       <div className="flex justify-between text-gray-400 mb-4 border-b border-gray-700 pb-2">
         <p>Subtotal</p>

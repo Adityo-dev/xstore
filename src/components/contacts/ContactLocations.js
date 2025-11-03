@@ -21,7 +21,7 @@ const locations = [
 
 export default function ContactLocations() {
   return (
-    <section className="container mx-auto px-6 flex flex-col">
+    <section className="container mx-auto  flex flex-col">
       {locations.map((loc) => (
         <div key={loc?.id} className="space-y-5">
           {/* City Name */}
