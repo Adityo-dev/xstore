@@ -26,7 +26,7 @@ export default function MyOrders() {
     <Container>
       <div className="max-w-6xl mx-auto space-y-10">
         {/* ORDERS */}
-        <div className="bg-[#1E2129] p-6 rounded-lg">
+        <div className="bg-[#1E2129] p-4 rounded-lg">
           <div className="mb-8">
             <h1 className="text-3xl font-bold mb-2 text-white">My Orders</h1>
             <p className="text-gray-400">Track and manage your order history</p>
@@ -38,7 +38,7 @@ export default function MyOrders() {
             <div className="overflow-x-auto">
               <table className="min-w-full border-collapse text-sm">
                 <thead>
-                  <tr className="text-gray-400 border-b border-gray-700 text-left">
+                  <tr className="text-gray-400 border-b border-gray-700 text-left text-nowrap">
                     <th className="py-3 px-4">ORDER ID</th>
                     <th className="py-3 px-4">DATE</th>
                     <th className="py-3 px-4">STATUS</th>
@@ -50,7 +50,7 @@ export default function MyOrders() {
                   {orders.map((order, i) => (
                     <tr
                       key={order.id}
-                      className={`border-b border-gray-800 hover:bg-[#1a1a1a] transition ${
+                      className={`border-b border-gray-800 hover:bg-[#1a1a1a] transition text-nowrap ${
                         i % 2 === 0 ? "bg-[#1E2129]" : "bg-[#1E2129]"
                       }`}
                     >
