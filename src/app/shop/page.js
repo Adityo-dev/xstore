@@ -156,10 +156,10 @@ export default function Shop() {
   }, [currentPage]);
 
   return (
-    <Container className="py-44">
+    <Container className="mb-16 md:mb-24 pt-32 xl:pt-44">
       <div className="flex gap-6">
         {/* Sidebar Filters */}
-        <div className="max-w-[300px] w-full rounded-lg h-fit sticky top-44 hidden xl:block">
+        <div className="max-w-[260px] w-full rounded-lg h-fit sticky top-44 hidden xl:block">
           <h2 className="text-xl font-bold mb-4">Filters</h2>
 
           {/* Category Filter */}

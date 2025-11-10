@@ -26,7 +26,12 @@ function ColumCard({ data }) {
         )}
 
         {/* Button group animation */}
-        <div className="absolute left-1/2 -translate-x-1/2 top-[55%] opacity-0 group-hover:opacity-100 group-hover:top-[50%] transition-all duration-500 ease-in-out">
+        <div
+          className="absolute top-1/2 right-2 xl:left-1/2 xl:right-auto xl:top-[55%] -translate-y-1/2 xl:-translate-x-1/2 xl:translate-y-0 flex flex-col gap-2
+    bg-black/40 xl:bg-transparent backdrop-blur-md xl:backdrop-blur-0 opacity-100 xl:opacity-0 group-hover:xl:opacity-100 p-2 rounded-md
+    transition-all duration-500 ease-in-out
+  "
+        >
           <AddToCartAndView data={data} />
         </div>
       </div>

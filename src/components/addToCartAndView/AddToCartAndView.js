@@ -25,14 +25,14 @@ function AddToCartAndView({ data }) {
 
   return (
     <>
-      <div className="flex items-center gap-3">
+      <div className="flex flex-col xl:flex-row items-center gap-2 xl:gap-3">
         {/* Add to Cart */}
         <button
           onClick={() => {
             openPanel("cart");
             addToCart(data);
           }}
-          className="bg-white text-black w-10 h-10 flex items-center justify-center rounded-full shadow-md hover:bg-[#37a937] hover:text-white hover:scale-110 transition-all duration-300 cursor-pointer"
+          className="bg-white text-[#776BF8] w-8 xl:w-10 h-8 xl:h-10 flex items-center justify-center xl:rounded-full shadow-md hover:bg-[#37a937] hover:text-white hover:scale-110 transition-all duration-300 cursor-pointer"
         >
           <AiOutlineShoppingCart size={20} />
         </button>
@@ -40,7 +40,7 @@ function AddToCartAndView({ data }) {
         {/* View Details */}
         <button
           onClick={() => openPanel("view")}
-          className="bg-white text-black w-10 h-10 flex items-center justify-center rounded-full shadow-md hover:bg-[#37a937] hover:text-white hover:scale-110 transition-all duration-300 cursor-pointer"
+          className="bg-white text-[#776BF8] w-8 xl:w-10 h-8 xl:h-10 flex items-center justify-center xl:rounded-full shadow-md hover:bg-[#37a937] hover:text-white hover:scale-110 transition-all duration-300 cursor-pointer"
         >
           <IoEyeOutline size={20} />
         </button>

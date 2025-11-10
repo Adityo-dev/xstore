@@ -15,37 +15,35 @@ export default function StepHeader() {
   return (
     <div className="flex justify-center items-center flex-wrap gap-4 md:gap-8 mb-10  text-gray-300">
       {steps.map((step) => {
-        const isActive = pathname === step.path;
+        const isActive = pathname === step?.path;
 
         return (
           <div
-            key={step.id}
+            key={step?.id}
             className={`flex items-center gap-2 transition-all ${
-              isActive ? "opacity-100" : "opacity-60 hover:opacity-100"
+              isActive ? "opacity-100" : "opacity-70 hover:opacity-100"
             }`}
           >
             {isActive ? (
-              <span className="w-8 h-8 rounded-full bg-white text-black text-sm font-bold flex items-center justify-center">
-                {step.id}
-              </span>
-            ) : (
-              <Link href={step.path}>
-                <span className="w-8 h-8 rounded-full border border-gray-500 flex items-center justify-center text-sm">
-                  {step.id}
+              <p className="flex items-center gap-1.5">
+                <span className="w-8 h-8 rounded-full bg-[#776BF8] text-sm font-bold flex items-center justify-center">
+                  {step?.id}
                 </span>
-              </Link>
-            )}
-
-            {isActive ? (
-              <p className="text-[17px] tracking-wide text-white font-semibold uppercase">
-                {step.label}
+                <span className="text-[17px] tracking-wide text-[#776BF8] font-semibold uppercase">
+                  {step?.label}
+                </span>
               </p>
             ) : (
-              <Link
-                href={step.path}
-                className="text-[17px] tracking-wide hover:text-white transition-colors uppercase"
-              >
-                {step.label}
+              <Link href={step?.path}>
+                <p className="flex items-center gap-1.5">
+                  <span className="w-8 h-8 rounded-full border border-gray-500 flex items-center justify-center text-sm">
+                    {step?.id}
+                  </span>
+
+                  <span className="text-[17px] tracking-wide hover:text-[#776BF8] transition-colors uppercase">
+                    {step?.label}
+                  </span>
+                </p>
               </Link>
             )}
           </div>
