@@ -1,5 +1,6 @@
 "use client";
 import CustomButton from "@/components/ui/buttons/CustomButton";
+import InputField from "@/components/ui/InputField";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -35,30 +36,19 @@ export default function LoginPage() {
           </p>
 
           <form className="space-y-4">
-            <label className="block">
-              <span className="text-xs text-[#9AA3C7]">Email</span>
-              <input
-                type="email"
-                required
-                placeholder="you@game.com"
-                className="mt-2 w-full bg-[#0b1220] border border-[#1f2a44] rounded-lg p-3 outline-none focus:border-[#776BF8] transition duration-300"
-              />
-            </label>
+            <InputField
+              title="Email"
+              type="email"
+              placeholder="you@game.com"
+              isRequired={true}
+            />
 
-            <label className="block">
-              <div className="flex justify-between items-center">
-                <span className="text-xs text-[#9AA3C7]">Password</span>
-                <a href="#" className="text-xs hover:underline text-[#B8C0D6]">
-                  Forgot?
-                </a>
-              </div>
-              <input
-                type="password"
-                required
-                placeholder="Your password"
-                className="mt-2 w-full bg-[#0b1220] border border-[#1f2a44] rounded-lg p-3 outline-none focus:border-[#776BF8] transition duration-300"
-              />
-            </label>
+            <InputField
+              title="Password"
+              type="password"
+              placeholder="Your password"
+              isRequired={true}
+            />
 
             <CustomButton className="w-full" type="submit">
               Sign in

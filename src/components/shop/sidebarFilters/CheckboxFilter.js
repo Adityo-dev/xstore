@@ -1,4 +1,5 @@
 import Checkbox from "@/components/ui/Checkbox";
+import InputField from "@/components/ui/InputField";
 import { useState } from "react";
 
 function CheckboxFilter({
@@ -34,20 +35,18 @@ function CheckboxFilter({
       {title && <h3 className="text-lg mb-2 mt-4">{title}</h3>}
 
       {/* search box */}
-      <input
-        type="text"
-        placeholder="Search..."
-        value={search}
-        onChange={(e) => SetSearch(e.target.value)}
-        className="
-            w-full px-3 py-2 text-sm rounded-md border border-gray-600 
-            bg-transparent focus:outline-none focus:ring-2 focus:ring-blue-500
-            mb-3
-          "
-      />
+      {options.length > 10 ? (
+        <InputField
+          type="search"
+          placeholder="Search..."
+          value={search}
+          onChange={SetSearch}
+          className="py-2"
+        />
+      ) : null}
 
       {/* data show */}
-      <div className="w-full max-h-[300px] h-full overflow-y-auto custom-scrollbar">
+      <div className="w-full max-h-[300px] h-full overflow-y-auto custom-scrollbar mt-2">
         {filteredOptions.map((item) => (
           <Checkbox
             key={item}
