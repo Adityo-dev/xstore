@@ -1,11 +1,9 @@
-"use client";
-import { useCart } from "@/components/context/CartContext";
 import Link from "next/link";
 import { FaOpencart } from "react-icons/fa6";
 import { FiUser } from "react-icons/fi";
+import TotalItems from "./TotalItems";
 
 function NavBarRightSection() {
-  const { totalItems } = useCart();
   return (
     <div className="relative flex items-center gap-[30px] pr-[20px]">
       <div className="cursor-pointer hidden xl:block">
@@ -24,9 +22,7 @@ function NavBarRightSection() {
 
       <Link href={"/cart"} className="relative">
         <FaOpencart className="text-2xl cursor-pointer" />
-        <p className="absolute -top-2 -right-6 flex items-center justify-center w-6 h-6 bg-[#776BF8] rounded-full p-1">
-          {totalItems}
-        </p>
+        <TotalItems />
       </Link>
     </div>
   );

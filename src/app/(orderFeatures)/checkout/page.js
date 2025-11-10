@@ -4,7 +4,6 @@ import BillingDetails from "@/components/checkout/BillingDetails";
 import OrderSummary from "@/components/checkout/OrderSummary";
 import Container from "@/components/Container";
 import { useCart } from "@/components/context/CartContext";
-import StepHeader from "@/components/StepHeader";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -61,14 +60,12 @@ export default function CheckoutPage() {
   };
 
   return (
-    <Container className="relative mb-16 md:mb-24 pt-32 xl:pt-44">
+    <Container>
       {showToast && (
         <div className="fixed top-1/2 left-1/2 -translate-x-1/2 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg font-semibold animate-bounce">
           ✅ Your order has been placed successfully!
         </div>
       )}
-
-      <StepHeader />
 
       {cartItems.length === 0 && !orderPlaced ? (
         <p className="text-center text-xl mt-20">

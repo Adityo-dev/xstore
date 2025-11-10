@@ -1,7 +1,7 @@
 "use client";
 
+import Container from "@/components/Container";
 import { useCart } from "@/components/context/CartContext";
-import StepHeader from "@/components/StepHeader";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -23,8 +23,7 @@ export default function MyOrders() {
   };
 
   return (
-    <div className="pt-44 pb-20">
-      <StepHeader />
+    <Container>
       <div className="max-w-6xl mx-auto space-y-10">
         {/* ORDERS */}
         <div className="bg-[#1E2129] p-6 rounded-lg">
@@ -190,6 +189,6 @@ export default function MyOrders() {
           </div>
         </div>
       )}
-    </div>
+    </Container>
   );
 }
