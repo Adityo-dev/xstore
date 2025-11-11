@@ -9,6 +9,8 @@ import { useEffect, useState } from "react";
 export default function Shop() {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   const query = Object.fromEntries(searchParams.entries());
 
@@ -40,12 +42,22 @@ export default function Shop() {
 
   // Fetch products from public folder
   useEffect(() => {
-    fetch("/data/products.json")
-      .then((res) => res.json())
-      .then((data) => {
-        setProducts(data);
-        setFilteredProducts(data);
-      });
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        const res = await fetch("/data/products.json");
+        if (!res.ok) throw new Error("Failed to fetch");
+        const result = await res.json();
+        const productsData = result.data || result;
+        setProducts(productsData);
+        setFilteredProducts(productsData);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchData();
   }, []);
 
   // Dynamic categories and platforms
@@ -157,147 +169,168 @@ export default function Shop() {
 
   return (
     <Container className="mb-16 md:mb-24 pt-32 xl:pt-44">
-      <div className="flex gap-6">
-        {/* Sidebar Filters */}
-        <div className="max-w-[260px] w-full rounded-lg h-fit sticky top-44 hidden xl:block">
-          <h2 className="text-xl font-bold mb-4">Filters</h2>
-
-          {/* Category Filter */}
-          <CheckboxFilter
-            title="Categories"
-            options={allCategories}
-            selectedValues={categoryFilter}
-            onUpdate={(updated) => {
-              setCategoryFilter(updated);
-              updateURL({ category: updated });
-            }}
-          />
-
-          {/* Price Filter */}
-          <h3 className="text-lg mb-2 mt-4">Price</h3>
-          <input
-            type="range"
-            min="0"
-            max="314"
-            value={priceRange.max}
-            onChange={(e) => {
-              const max = parseInt(e.target.value);
-              setPriceRange({ ...priceRange, max });
-              updateURL({ max_price: max });
-            }}
-            className="w-full"
-          />
-          <p>
-            Price: ${priceRange.min} - ${priceRange.max}
+      {/* Loading State */}
+      {loading && (
+        <div className="flex justify-center items-center h-60 w-full">
+          <p className="text-lg font-medium text-gray-400 animate-pulse">
+            Loading products...
           </p>
-
-          {/* Rating Filter */}
-          <CheckboxFilter
-            title="Filter by Rating"
-            options={[5, 4, 3]}
-            selectedValues={ratingFilter}
-            onUpdate={(updated) => {
-              setRatingFilter(updated);
-              updateURL({ rating_filter: updated });
-            }}
-            getLabel={(rating) => `${rating}+ Stars`}
-          />
-
-          {/* Platform Filter */}
-          <CheckboxFilter
-            title="Platform"
-            options={allPlatforms}
-            selectedValues={platformFilter}
-            onUpdate={(updated) => {
-              setPlatformFilter(updated);
-              updateURL({ platform: updated });
-            }}
-          />
-
-          {/* Availability Filter */}
-          <CheckboxFilter
-            title="Availability"
-            options={["in_stock", "out_of_stock"]}
-            selectedValues={availabilityFilter}
-            onUpdate={(updated) => {
-              setAvailabilityFilter(updated);
-              updateURL({ availability: updated });
-            }}
-            getLabel={(item) =>
-              item === "in_stock" ? "In Stock" : "Out of Stock"
-            }
-          />
         </div>
+      )}
 
-        {/* Product Grid */}
-        <div className="w-full">
-          {/* Sort Dropdown */}
-          <div className="mb-4 flex justify-end">
-            <select
-              value={sortBy}
-              onChange={(e) => {
-                setSortBy(e.target.value);
-                updateURL({ sort_by: e.target.value });
+      {/* Error State */}
+      {error && (
+        <div className="flex justify-center items-center h-60 w-full">
+          <p className="text-red-500 text-lg font-semibold">
+            ⚠️ {error || "Something went wrong!"}
+          </p>
+        </div>
+      )}
+
+      {/* Main Content */}
+      {!loading && !error && (
+        <div className="flex gap-6">
+          {/* Sidebar Filters */}
+          <div className="max-w-[260px] w-full rounded-lg h-fit sticky top-44 hidden xl:block">
+            <h2 className="text-xl font-bold mb-4">Filters</h2>
+
+            {/* Category Filter */}
+            <CheckboxFilter
+              title="Categories"
+              options={allCategories}
+              selectedValues={categoryFilter}
+              onUpdate={(updated) => {
+                setCategoryFilter(updated);
+                updateURL({ category: updated });
               }}
-              className="p-2 bg-gray-700 text-white rounded outline-0 cursor-pointer"
-            >
-              <option value="default">Default sorting</option>
-              <option value="popularity">Sort by popularity</option>
-              <option value="rating">Sort by rating</option>
-              <option value="priceLowToHigh">Price: low to high</option>
-              <option value="priceHighToLow">Price: high to low</option>
-            </select>
+            />
+
+            {/* Price Filter */}
+            <h3 className="text-lg mb-2 mt-4">Price</h3>
+            <input
+              type="range"
+              min="0"
+              max="314"
+              value={priceRange.max}
+              onChange={(e) => {
+                const max = parseInt(e.target.value);
+                setPriceRange({ ...priceRange, max });
+                updateURL({ max_price: max });
+              }}
+              className="w-full"
+            />
+            <p>
+              Price: ${priceRange.min} - ${priceRange.max}
+            </p>
+
+            {/* Rating Filter */}
+            <CheckboxFilter
+              title="Filter by Rating"
+              options={[5, 4, 3]}
+              selectedValues={ratingFilter}
+              onUpdate={(updated) => {
+                setRatingFilter(updated);
+                updateURL({ rating_filter: updated });
+              }}
+              getLabel={(rating) => `${rating}+ Stars`}
+            />
+
+            {/* Platform Filter */}
+            <CheckboxFilter
+              title="Platform"
+              options={allPlatforms}
+              selectedValues={platformFilter}
+              onUpdate={(updated) => {
+                setPlatformFilter(updated);
+                updateURL({ platform: updated });
+              }}
+            />
+
+            {/* Availability Filter */}
+            <CheckboxFilter
+              title="Availability"
+              options={["in_stock", "out_of_stock"]}
+              selectedValues={availabilityFilter}
+              onUpdate={(updated) => {
+                setAvailabilityFilter(updated);
+                updateURL({ availability: updated });
+              }}
+              getLabel={(item) =>
+                item === "in_stock" ? "In Stock" : "Out of Stock"
+              }
+            />
           </div>
 
-          {/* Product Cards */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {currentProducts.length > 0 ? (
-              currentProducts.map((product) => (
-                <ColumCard key={product.id} data={product} />
-              ))
-            ) : (
-              <p className="text-center text-gray-400 col-span-full">
-                No products found.
-              </p>
+          {/* Product Grid */}
+          <div className="w-full">
+            {/* Sort Dropdown */}
+            <div className="mb-4 flex justify-end">
+              <select
+                value={sortBy}
+                onChange={(e) => {
+                  setSortBy(e.target.value);
+                  updateURL({ sort_by: e.target.value });
+                }}
+                className="p-2 bg-gray-700 text-white rounded outline-0 cursor-pointer"
+              >
+                <option value="default">Default sorting</option>
+                <option value="popularity">Sort by popularity</option>
+                <option value="rating">Sort by rating</option>
+                <option value="priceLowToHigh">Price: low to high</option>
+                <option value="priceHighToLow">Price: high to low</option>
+              </select>
+            </div>
+
+            {/* Product Cards */}
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              {currentProducts.length > 0 ? (
+                currentProducts.map((product) => (
+                  <ColumCard key={product.id} data={product} />
+                ))
+              ) : (
+                <p className="text-center text-gray-400 col-span-full">
+                  No products found.
+                </p>
+              )}
+            </div>
+
+            {/* Pagination */}
+            {filteredProducts.length > productsPerPage && (
+              <div className="mt-6 flex justify-center">
+                <button
+                  onClick={() => paginate(currentPage - 1)}
+                  disabled={currentPage === 1}
+                  className="px-4 py-2 bg-gray-700 text-white rounded-l disabled:opacity-50 cursor-pointer"
+                >
+                  Prev
+                </button>
+
+                {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+                  (num) => (
+                    <button
+                      key={num}
+                      onClick={() => paginate(num)}
+                      className={`px-4 py-2 cursor-pointer ${
+                        currentPage === num ? "bg-[#776BF8]" : "bg-gray-700"
+                      } text-white`}
+                    >
+                      {num}
+                    </button>
+                  )
+                )}
+
+                <button
+                  onClick={() => paginate(currentPage + 1)}
+                  disabled={currentPage === totalPages}
+                  className="px-4 py-2 bg-gray-700 text-white rounded-r disabled:opacity-50 cursor-pointer"
+                >
+                  Next
+                </button>
+              </div>
             )}
           </div>
-
-          {/* Pagination */}
-          {filteredProducts.length > productsPerPage && (
-            <div className="mt-6 flex justify-center">
-              <button
-                onClick={() => paginate(currentPage - 1)}
-                disabled={currentPage === 1}
-                className="px-4 py-2 bg-gray-700 text-white rounded-l disabled:opacity-50 cursor-pointer"
-              >
-                Prev
-              </button>
-
-              {Array.from({ length: totalPages }, (_, i) => i + 1).map(
-                (num) => (
-                  <button
-                    key={num}
-                    onClick={() => paginate(num)}
-                    className={`px-4 py-2 cursor-pointer ${
-                      currentPage === num ? "bg-[#776BF8]" : "bg-gray-700"
-                    } text-white`}
-                  >
-                    {num}
-                  </button>
-                )
-              )}
-
-              <button
-                onClick={() => paginate(currentPage + 1)}
-                disabled={currentPage === totalPages}
-                className="px-4 py-2 bg-gray-700 text-white rounded-r disabled:opacity-50 cursor-pointer"
-              >
-                Next
-              </button>
-            </div>
-          )}
         </div>
-      </div>
+      )}
     </Container>
   );
 }
