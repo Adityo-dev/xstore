@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import {
   FaFacebook,
@@ -10,8 +11,6 @@ import { FaUser } from "react-icons/fa6";
 import { FiShoppingBag } from "react-icons/fi";
 import { IoMdAdd, IoMdRemove } from "react-icons/io";
 import Container from "../Container";
-import DotsSlider from "../DotsSlider";
-import ImageCart from "./ImageCart";
 
 export default function SinglePage({ data }) {
   // 👉 Base total time (in seconds)
@@ -45,7 +44,7 @@ export default function SinglePage({ data }) {
   return (
     <Container className="flex flex-col-reverse lg:flex-row  gap-10 items-start">
       {/* ---------- LEFT CONTENT (Sticky) ---------- */}
-      <div className="w-full lg:w-1/2">
+      <div className="w-full lg:w-1/2 sticky top-44">
         <div className="sticky top-40 self-start">
           {/* Title */}
           <h1 className="text-[26px] md:text-[38px] font-semibold leading-tight">
@@ -165,16 +164,17 @@ export default function SinglePage({ data }) {
       </div>
 
       {/* ---------- RIGHT CONTENT (Scrollable images) ---------- */}
-      <div className="w-full lg:w-1/2 space-y-6">
-        <DotsSlider
-          data={data?.images}
-          CardComponent={ImageCart}
-          uniqueId="image-cart-slider"
-          slidesPerView={1}
-          spaceBetween={20}
-          loop={true}
-          paginationColor="#6c63ff"
-        />
+      <div className="w-full lg:w-1/2 space-y-4">
+        {data?.images.map((image) => (
+          <Image
+            key={image?.id}
+            src={image?.src}
+            width={500}
+            height={500}
+            alt={image.alt || "game image"}
+            className="w-full h-fit"
+          />
+        ))}
       </div>
     </Container>
   );

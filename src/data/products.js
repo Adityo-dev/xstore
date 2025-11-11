@@ -15,7 +15,26 @@ const products = [
       "Explore the wilderness of Alaska in this heroic tower defense adventure.",
     images: [
       { id: 1, alt: "Klondike gameplay cover", src: "/images/games1.jpg" },
-      { id: 2, alt: "Klondike gameplay cover", src: "/images/games1.jpg" },
+      {
+        id: 3,
+        alt: "Klondike gameplay cover",
+        src: "https://i.ibb.co/tPWdhrb0/stray1-1.jpg",
+      },
+      {
+        id: 4,
+        alt: "Klondike gameplay cover",
+        src: "https://i.ibb.co/HfZkv6xG/stray1-2.jpg",
+      },
+      {
+        id: 5,
+        alt: "Klondike gameplay cover",
+        src: "https://i.ibb.co/cK4h6FXT/stray1-3.jpg",
+      },
+      {
+        id: 6,
+        alt: "Klondike gameplay cover",
+        src: "https://i.ibb.co/8gxwHWcp/stray1-5.jpg",
+      },
     ],
     sold: 9,
     stock: 120,

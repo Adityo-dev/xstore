@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "title": "Klondike: Lost Expedition Farm & Explore Wilderness Of The Alaska",
+    "title": "Klondike: Lost Expedition",
     "subtitle": "Heroic Tower Defense with NFTs",
     "originalPrice": 49.99,
     "salePrice": 29.99,
@@ -11,7 +11,12 @@
     "developer": "Sony Interactive Entertainment",
     "languages": ["English[UK]", "French", "Dutch"],
     "platform": ["PS5", "Xbox Series X", "Steam"],
-    "description": "Explore the wilderness of Alaska in this heroic tower defense adventure.",
+    "description": "Explore the untamed wilderness of Alaska in this heroic tower-defense adventure with NFT integration.",
+    "cartImage": {
+      "id": 1,
+      "alt": "Klondike cart cover",
+      "src": "https://i.ibb.co/P84Yvzh/games1.jpg"
+    },
     "images": [
       {
         "id": 1,
@@ -56,9 +61,18 @@
     "developer": "CD Projekt Red",
     "languages": ["English[US]", "Spanish", "Japanese", "German"],
     "platform": ["PS5", "PC", "Xbox Series X"],
-    "description": "A dystopian cyberpunk city awaits your rebellion.",
+    "description": "Rebel in a dystopian cyberpunk metropolis where neon lights hide dark secrets.",
+    "cartImage": {
+      "id": 1,
+      "alt": "CyberSmith cart cover",
+      "src": "https://i.ibb.co/LzWKN4YT/games2.jpg"
+    },
     "images": [
-      { "id": 1, "alt": "Klondike gameplay cover", "src": "/images/games2.jpg" }
+      {
+        "id": 1,
+        "alt": "CyberSmith gameplay cover",
+        "src": "/images/games2.jpg"
+      }
     ],
     "sold": 45,
     "stock": 80,
@@ -89,14 +103,23 @@
     "developer": "SkyForge Studios",
     "languages": ["English[US]", "Korean", "Chinese"],
     "platform": ["Steam", "Epic Games"],
-    "description": "Command airships in epic sky battles.",
+    "description": "Pilot majestic airships in epic sky battles for supremacy.",
+    "cartImage": {
+      "id": 1,
+      "alt": "Aetherfall cart cover",
+      "src": "https://i.ibb.co/wrdVLYDG/games3.jpg"
+    },
     "images": [
       {
         "id": 1,
-        "alt": "Klondike gameplay cover",
+        "alt": "Aetherfall gameplay cover",
         "src": "/images/games3.jpg"
       },
-      { "id": 2, "alt": "Klondike gameplay cover", "src": "/images/games3.jpg" }
+      {
+        "id": 2,
+        "alt": "Aetherfall gameplay cover",
+        "src": "/images/games3.jpg"
+      }
     ],
     "sold": 120,
     "stock": 100,
@@ -127,9 +150,43 @@
     "developer": "Nitro Games",
     "languages": ["English[US]", "Japanese"],
     "platform": ["PS5", "Xbox Series X", "PC"],
-    "description": "Master the art of drifting in Tokyo streets.",
+    "description": "Master the art of drifting through neon-lit Tokyo streets at midnight.",
+    "cartImage": {
+      "id": 1,
+      "alt": "Drift Legends cart cover",
+      "src": "https://i.ibb.co/1tHQjy4W/stray.jpg"
+    },
     "images": [
-      { "id": 1, "alt": "Klondike gameplay cover", "src": "/images/games4.jpg" }
+      {
+        "id": 1,
+        "alt": "Drift Legends gameplay cover",
+        "src": "https://i.ibb.co/tPWdhrb0/stray1-1.jpg"
+      },
+      {
+        "id": 2,
+        "alt": "Drift Legends gameplay cover",
+        "src": "https://i.ibb.co/HfZkv6xG/stray1-2.jpg"
+      },
+      {
+        "id": 3,
+        "alt": "Drift Legends gameplay cover",
+        "src": "https://i.ibb.co/cK4h6FXT/stray1-3.jpg"
+      },
+      {
+        "id": 4,
+        "alt": "Drift Legends gameplay cover",
+        "src": "https://i.ibb.co/G4h03YJY/stray1-4.jpg"
+      },
+      {
+        "id": 5,
+        "alt": "Drift Legends gameplay cover",
+        "src": "https://i.ibb.co/8gxwHWcp/stray1-5.jpg"
+      },
+      {
+        "id": 6,
+        "alt": "Drift Legends gameplay cover",
+        "src": "https://i.ibb.co/ch5jPXhv/stray1.jpg"
+      }
     ],
     "sold": 88,
     "stock": 150,
@@ -152,9 +209,18 @@
     "developer": "Void Interactive",
     "languages": ["English[UK]", "Russian", "French"],
     "platform": ["Steam", "PS5"],
-    "description": "Survive alien horrors aboard a derelict spaceship.",
+    "description": "Fight for survival against alien horrors on a derelict spaceship.",
+    "cartImage": {
+      "id": 1,
+      "alt": "Echoes of the Void cart cover",
+      "src": "https://i.ibb.co/rK7dHjbF/games5.jpg"
+    },
     "images": [
-      { "id": 1, "alt": "Klondike gameplay cover", "src": "/images/games5.jpg" }
+      {
+        "id": 1,
+        "alt": "Echoes of the Void gameplay cover",
+        "src": "/images/games5.jpg"
+      }
     ],
     "sold": 33,
     "stock": 90,
@@ -185,9 +251,18 @@
     "developer": "Koei Tecmo",
     "languages": ["English[US]", "Japanese", "Chinese"],
     "platform": ["PS5", "Xbox Series X", "PC"],
-    "description": "Rise as a ronin in feudal Japan.",
+    "description": "Rise as a masterless ronin in the chaos of feudal Japan.",
+    "cartImage": {
+      "id": 1,
+      "alt": "Samurai Dawn cart cover",
+      "src": "https://i.ibb.co/SwZtxwKm/games6.jpg"
+    },
     "images": [
-      { "id": 1, "alt": "Klondike gameplay cover", "src": "/images/games6.jpg" }
+      {
+        "id": 1,
+        "alt": "Samurai Dawn gameplay cover",
+        "src": "/images/games6.jpg"
+      }
     ],
     "sold": 200,
     "stock": 300,
@@ -210,9 +285,38 @@
     "developer": "RetroByte Studio",
     "languages": ["English[US]", "Portuguese"],
     "platform": ["Steam", "Nintendo Switch"],
-    "description": "Explore a pixelated world full of secrets.",
+    "description": "Journey through a pixelated realm filled with secrets and retro charm.",
+    "cartImage": {
+      "id": 1,
+      "alt": "Pixel Quest cart cover",
+      "src": "https://i.ibb.co/Vfc8qV3/games7.jpg"
+    },
     "images": [
-      { "id": 1, "alt": "Klondike gameplay cover", "src": "/images/games7.jpg" }
+      {
+        "id": 1,
+        "alt": "Pixel Quest gameplay cover",
+        "src": "https://i.ibb.co/sdvKPpZx/kena1.jpg"
+      },
+      {
+        "id": 2,
+        "alt": "Pixel Quest gameplay cover",
+        "src": "https://i.ibb.co/wrzqTG39/kena8.jpg"
+      },
+      {
+        "id": 3,
+        "alt": "Pixel Quest gameplay cover",
+        "src": "https://i.ibb.co/M5VKvqGX/kena4.jpg"
+      },
+      {
+        "id": 4,
+        "alt": "Pixel Quest gameplay cover",
+        "src": "https://i.ibb.co/fYr4k8y4/kena3.jpg"
+      },
+      {
+        "id": 5,
+        "alt": "Pixel Quest gameplay cover",
+        "src": "https://i.ibb.co/jPZnMdGf/kena2.jpg"
+      }
     ],
     "sold": 500,
     "stock": 1000,
@@ -243,9 +347,18 @@
     "developer": "Phoenix Labs",
     "languages": ["English[US]", "German", "French", "Spanish"],
     "platform": ["Steam", "Epic Games"],
-    "description": "Build decks and conquer in eternal battles.",
+    "description": "Build powerful decks and wage eternal war in a living card game world.",
+    "cartImage": {
+      "id": 1,
+      "alt": "BattleForge cart cover",
+      "src": "https://i.ibb.co/27gQ80qT/games8.jpg"
+    },
     "images": [
-      { "id": 1, "alt": "Klondike gameplay cover", "src": "/images/games8.jpg" }
+      {
+        "id": 1,
+        "alt": "BattleForge gameplay cover",
+        "src": "/images/games8.jpg"
+      }
     ],
     "sold": 1200,
     "stock": 9999,
@@ -268,9 +381,18 @@
     "developer": "IcePeak Games",
     "languages": ["English[UK]", "Norwegian", "Russian"],
     "platform": ["PC", "Xbox Series X"],
-    "description": "Survive the brutal Arctic wilderness.",
+    "description": "Endure extreme cold and craft your survival in the unforgiving Arctic.",
+    "cartImage": {
+      "id": 1,
+      "alt": "Frostbite cart cover",
+      "src": "https://i.ibb.co/22DZ0mH/games9.jpg"
+    },
     "images": [
-      { "id": 1, "alt": "Klondike gameplay cover", "src": "/images/games9.jpg" }
+      {
+        "id": 1,
+        "alt": "Frostbite gameplay cover",
+        "src": "/images/games9.jpg"
+      }
     ],
     "sold": 67,
     "stock": 130,
@@ -293,11 +415,16 @@
     "developer": "Chrono Games",
     "languages": ["English[US]", "Italian", "Spanish"],
     "platform": ["PS5", "PC"],
-    "description": "Race through history and alter the timeline.",
+    "description": "Race through history, manipulate time, and rewrite the timeline.",
+    "cartImage": {
+      "id": 1,
+      "alt": "Quantum Rush cart cover",
+      "src": "https://i.ibb.co/9H1dwSSG/games10.jpg"
+    },
     "images": [
       {
         "id": 1,
-        "alt": "Klondike gameplay cover",
+        "alt": "Quantum Rush gameplay cover",
         "src": "/images/games10.jpg"
       }
     ],
@@ -322,13 +449,14 @@
     "developer": "Olympus Interactive",
     "languages": ["English[US]", "Greek", "Latin"],
     "platform": ["Steam", "Epic Games"],
-    "description": "Play as gods in epic 5v5 battles.",
+    "description": "Wield divine powers as gods in intense 5v5 mythological battles.",
+    "cartImage": {
+      "id": 1,
+      "alt": "Mythos cart cover",
+      "src": "https://i.ibb.co/DPMTKZhG/games11.jpg"
+    },
     "images": [
-      {
-        "id": 1,
-        "alt": "Klondike gameplay cover",
-        "src": "/images/games11.jpg"
-      }
+      { "id": 1, "alt": "Mythos gameplay cover", "src": "/images/games11.jpg" }
     ],
     "sold": 3000,
     "stock": 9999,
@@ -351,11 +479,16 @@
     "developer": "Vapor Games",
     "languages": ["English[US]"],
     "platform": ["Steam", "Nintendo Switch"],
-    "description": "Race to synth beats in a neon world.",
+    "description": "Drift through neon grids to pulsating synthwave beats.",
+    "cartImage": {
+      "id": 1,
+      "alt": "Neon Drift cart cover",
+      "src": "https://i.ibb.co/Q7YcXW26/games12.jpg"
+    },
     "images": [
       {
         "id": 1,
-        "alt": "Klondike gameplay cover",
+        "alt": "Neon Drift gameplay cover",
         "src": "/images/games12.jpg"
       }
     ],
@@ -388,11 +521,16 @@
     "developer": "TitanForge",
     "languages": ["English[US]", "Japanese", "Korean"],
     "platform": ["PC", "PS5"],
-    "description": "Command giant mechs in tactical warfare.",
+    "description": "Command colossal mechs in strategic, large-scale warfare.",
+    "cartImage": {
+      "id": 1,
+      "alt": "Iron Legion cart cover",
+      "src": "https://i.ibb.co/Rp4NzD68/games13.jpg"
+    },
     "images": [
       {
         "id": 1,
-        "alt": "Klondike gameplay cover",
+        "alt": "Iron Legion gameplay cover",
         "src": "/images/games13.jpg"
       }
     ],
@@ -417,11 +555,16 @@
     "developer": "Raven Tale Studios",
     "languages": ["English[UK]", "German", "French"],
     "platform": ["Steam", "Xbox Series X"],
-    "description": "Uncover twisted fairy tales in a haunted forest.",
+    "description": "Unravel twisted fairy tales in a haunting gothic forest.",
+    "cartImage": {
+      "id": 1,
+      "alt": "Whisperwood cart cover",
+      "src": "https://i.ibb.co/jZRks951/games14.jpg"
+    },
     "images": [
       {
         "id": 1,
-        "alt": "Klondike gameplay cover",
+        "alt": "Whisperwood gameplay cover",
         "src": "/images/games14.jpg"
       }
     ],
@@ -454,11 +597,16 @@
     "developer": "Nebula Soft",
     "languages": ["English[US]", "Spanish", "Portuguese"],
     "platform": ["PC", "Steam"],
-    "description": "Build colonies across the galaxy.",
+    "description": "Design and expand thriving colonies across distant star systems.",
+    "cartImage": {
+      "id": 1,
+      "alt": "StarForge cart cover",
+      "src": "https://i.ibb.co/WvhMkmQz/games15.jpg"
+    },
     "images": [
       {
         "id": 1,
-        "alt": "Klondike gameplay cover",
+        "alt": "StarForge gameplay cover",
         "src": "/images/games15.jpg"
       }
     ],
@@ -483,9 +631,18 @@
     "developer": "WarpFrog",
     "languages": ["English[US]"],
     "platform": ["Meta Quest", "SteamVR"],
-    "description": "Unleash magic and steel in VR.",
+    "description": "Wield swords and magic with full physics in immersive VR combat.",
+    "cartImage": {
+      "id": 1,
+      "alt": "Blade & Sorcery cart cover",
+      "src": "https://i.ibb.co/DPMTKZhG/games11.jpg"
+    },
     "images": [
-      { "id": 1, "alt": "Klondike gameplay cover", "src": "/images/games4.jpg" }
+      {
+        "id": 1,
+        "alt": "Blade & Sorcery gameplay cover",
+        "src": "/images/games4.jpg"
+      }
     ],
     "sold": 400,
     "stock": 800,
@@ -508,9 +665,18 @@
     "developer": "BloodMoon Studios",
     "languages": ["English[US]", "French", "Italian"],
     "platform": ["PS5", "Xbox Series X", "PC"],
-    "description": "Embrace the night as a vampire lord.",
+    "description": "Embrace eternal night as a powerful vampire lord in a sprawling open world.",
+    "cartImage": {
+      "id": 1,
+      "alt": "Crimson Dawn cart cover",
+      "src": "https://i.ibb.co/SwZtxwKm/games6.jpg"
+    },
     "images": [
-      { "id": 1, "alt": "Klondike gameplay cover", "src": "/images/games8.jpg" }
+      {
+        "id": 1,
+        "alt": "Crimson Dawn gameplay cover",
+        "src": "/images/games8.jpg"
+      }
     ],
     "sold": 130,
     "stock": 220,
@@ -541,9 +707,18 @@
     "developer": "Calm Games",
     "languages": ["English[US]", "Japanese", "Korean"],
     "platform": ["Nintendo Switch", "Mobile", "Steam"],
-    "description": "Solve puzzles in magical islands.",
+    "description": "Solve serene puzzles across magical floating islands.",
+    "cartImage": {
+      "id": 1,
+      "alt": "Puzzle Realm cart cover",
+      "src": "https://i.ibb.co/LzWKN4YT/games2.jpg"
+    },
     "images": [
-      { "id": 1, "alt": "Klondike gameplay cover", "src": "/images/games3.jpg" }
+      {
+        "id": 1,
+        "alt": "Puzzle Realm gameplay cover",
+        "src": "/images/games3.jpg"
+      }
     ],
     "sold": 800,
     "stock": 2000,
@@ -566,11 +741,16 @@
     "developer": "BattleNet Studios",
     "languages": ["English[US]", "Russian", "Chinese"],
     "platform": ["PC", "Steam"],
-    "description": "Lead nations in global warfare.",
+    "description": "Command armies and conquer nations in massive real-time warfare.",
+    "cartImage": {
+      "id": 1,
+      "alt": "Warfront cart cover",
+      "src": "/images/games10.jpg"
+    },
     "images": [
       {
         "id": 1,
-        "alt": "Klondike gameplay cover",
+        "alt": "Warfront gameplay cover",
         "src": "/images/games10.jpg"
       }
     ],
@@ -595,11 +775,16 @@
     "developer": "AstroForge",
     "languages": ["English[US]", "German", "French"],
     "platform": ["PC", "PS5"],
-    "description": "Build humanity's first lunar colony.",
+    "description": "Establish humanity's first permanent lunar colony and secure the future.",
+    "cartImage": {
+      "id": 1,
+      "alt": "Lunar Legacy cart cover",
+      "src": "/images/games14.jpg"
+    },
     "images": [
       {
         "id": 1,
-        "alt": "Klondike gameplay cover",
+        "alt": "Lunar Legacy gameplay cover",
         "src": "/images/games14.jpg"
       }
     ],

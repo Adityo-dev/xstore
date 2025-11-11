@@ -9,16 +9,13 @@ function RowCard({ game }) {
         href={`/game/${game?.id}`}
         className="w-[189px] sm:w-[220px] h-[189px] sm:h-[210px]"
       >
-        {game.images.map((img) => (
-          <Image
-            key={img?.id}
-            src={img?.src}
-            width={400}
-            height={400}
-            alt={img?.alt}
-            className="h-full w-full object-cover"
-          />
-        ))}
+        <Image
+          src={game?.cartImage.src}
+          width={400}
+          height={400}
+          alt={game.cartImage.alt || "Game Image"}
+          className="h-full w-full object-cover"
+        />
       </Link>
 
       <div className="pr-2">

@@ -1,19 +1,19 @@
 "use client";
-import { products } from "@/data/products";
 import ColumCard from "../cards/ColumCard";
 import DotsSlider from "../DotsSlider";
+import { useProductsData } from "../hooks/useProductsData";
 import SectionHeader from "../SectionHeader";
 
-const trending = products.filter((product) => product.isRecent);
-
 function RelatedProducts() {
+  const { products, loading, error } = useProductsData();
+
   return (
     <section className="container mx-auto">
       <SectionHeader title={"Related products"} />
 
       <div className="px-4">
         <DotsSlider
-          data={trending}
+          data={products}
           CardComponent={ColumCard}
           uniqueId="related-products"
           slidesPerView={1}

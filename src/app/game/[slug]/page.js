@@ -1,10 +1,12 @@
+"use client";
+import { useProductsData } from "@/components/hooks/useProductsData";
 import RelatedProducts from "@/components/relatedProducts/RelatedProducts";
 import SinglePage from "@/components/singlePage/SinglePage";
-import { products } from "@/data/products";
 
 function Page({ params }) {
   // slug
   const { slug } = params;
+  const { products, loading, error } = useProductsData();
   let data = products.find((item) => item?.id === Number(slug));
 
   return (

@@ -1,14 +1,14 @@
 "use client";
-import { products } from "@/data/products";
 import Image from "next/image";
 import Link from "next/link";
 import ColumCard from "../cards/ColumCard";
 import Container from "../Container";
 import DotsSlider from "../DotsSlider";
+import { useFilteredProducts } from "../hooks/useProductsData";
 import SectionHeader from "../SectionHeader";
 
 function TodayDiscounts() {
-  const discounts = products.filter((product) => product.isRecent);
+  const { products } = useFilteredProducts("isDiscounted");
 
   return (
     <>
@@ -17,7 +17,7 @@ function TodayDiscounts() {
       <Container className="grid grid-cols-12 gap-6">
         <div className="col-span-full sm:col-span-9">
           <DotsSlider
-            data={discounts}
+            data={products}
             CardComponent={ColumCard}
             uniqueId="todays-discounts"
             slidesPerView={1}

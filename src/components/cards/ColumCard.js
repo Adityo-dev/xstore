@@ -9,17 +9,16 @@ function ColumCard({ data }) {
     <div className="group relative bg-[#23262F] rounded-lg overflow-hidden w-full sm:max-w-[300px] h-full flex flex-col">
       {/* Image section */}
       <div className="relative">
-        {data?.images?.[0] && (
+        {data?.cartImage && (
           <Link
-            key={data.images[0].id}
             href={`/game/${data?.id}`}
             className="block sm:h-[250px] overflow-hidden relative"
           >
             <Image
-              src={data.images[0].src}
+              src={data.cartImage.src}
               width={400}
               height={400}
-              alt={data.images[0].alt || "Game Image"}
+              alt={data.cartImage.alt || "Game Image"}
               className="w-full h-full object-cover hover:scale-110 transition duration-300"
             />
           </Link>

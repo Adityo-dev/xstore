@@ -1,15 +1,15 @@
 "use client";
-import { products } from "@/data/products";
 import Image from "next/image";
 import ColumCard from "../cards/ColumCard";
 import Container from "../Container";
 import DotsSlider from "../DotsSlider";
+import { useFilteredProducts } from "../hooks/useProductsData";
 import SectionHeader from "../SectionHeader";
 import CustomButton from "../ui/buttons/CustomButton";
 
-const trending = products.filter((product) => product.isRecent);
-
 function CurrentlyTrending() {
+  const { products } = useFilteredProducts("isTrending");
+
   return (
     <>
       <SectionHeader title={"Currently Trending"} />
@@ -33,7 +33,7 @@ function CurrentlyTrending() {
         </div>
         <div className="col-span-full sm:col-span-8">
           <DotsSlider
-            data={trending}
+            data={products}
             CardComponent={ColumCard}
             uniqueId="currently-trending"
             slidesPerView={1}
