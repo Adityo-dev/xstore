@@ -4,12 +4,6 @@ import { useCart } from "../context/CartContext";
 import CustomButton from "../ui/buttons/CustomButton";
 
 export default function AsideAddToCard() {
-  const recommended = [
-    { id: 1, title: "Family Zoo The Story...", image: "/images/rec-1.jpg" },
-    { id: 2, title: "Stormfall: Saga Of S...", image: "/images/rec-2.jpg" },
-    { id: 3, title: "Lost Island: Blast A...", image: "/images/rec-3.jpg" },
-  ];
-
   const { cartItems, removeFromCart, updateQuantity, totalPrice } = useCart();
 
   return (
@@ -24,8 +18,8 @@ export default function AsideAddToCard() {
             >
               <div className="w-16 h-16 relative rounded overflow-hidden flex-shrink-0">
                 <Image
-                  src={item.images[0].src}
-                  alt={item.images[0].alt || item.title}
+                  src={item.cartImage.src}
+                  alt={item.cartImage.alt || item.title}
                   fill
                   sizes="64px"
                   className="object-cover"

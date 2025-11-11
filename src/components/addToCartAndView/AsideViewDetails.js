@@ -22,8 +22,8 @@ function AsideViewDetails({ data, onAddToCart }) {
     <div className="flex flex-col gap-5 py-4">
       <div className="relative w-full h-[350px] rounded-md overflow-hidden">
         <Image
-          src={data.images[0].src}
-          alt={data.images[0].alt}
+          src={data.cartImage.src}
+          alt={data.cartImage.alt}
           fill
           className="object-cover"
         />
@@ -45,7 +45,7 @@ function AsideViewDetails({ data, onAddToCart }) {
           </span>
         </div>
 
-        <GetStarRating rating={data?.reviews[0].rating} />
+        <GetStarRating rating={5} />
 
         <p className="text-[#8e919f] text-base my-3">
           {data?.description && data.description.length > 0
@@ -99,7 +99,7 @@ function AsideViewDetails({ data, onAddToCart }) {
               <span className="font-semibold text-gray-300">Category :</span>{" "}
               {data.categories.map((cat) => (
                 <Link
-                  key={cat.id}
+                  key={cat}
                   href={"#"}
                   className="text-[#888] hover:text-gray-300 transition duration-300"
                 >
