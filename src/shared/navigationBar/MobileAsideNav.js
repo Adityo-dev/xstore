@@ -13,6 +13,7 @@ function MobileAsideNav() {
         onClick={() =>
           openAside({
             children: <MobileNavBar />,
+            pos: "left",
           })
         }
       />

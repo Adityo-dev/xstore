@@ -25,14 +25,18 @@ export default function DynamicAsidePanel() {
 
       {/* Aside Panel */}
       <div
-        className={`fixed top-0 w-[85vw] sm:w-[400px] h-[100vh] bg-[#1e1e1e] z-[1000] shadow-2xl animate-slideIn flex flex-col ${
-          position === "right" ? "right-0" : "left-0"
-        }`}
+        className={`fixed top-0 w-[85vw] sm:w-[400px] h-[100vh] bg-[#1e1e1e] z-[1000] shadow-2xl flex flex-col ${
+          position === "right"
+            ? "right-0 animate-slideInRight"
+            : "left-0 animate-slideInLeft"
+        } `}
       >
         {/* Close Button */}
         <button
           onClick={closeAside}
-          className="absolute -left-12 top-6 w-10 h-10 flex items-center justify-center rounded-full bg-[#fb2c36] hover:rotate-90 transition duration-300 cursor-pointer"
+          className={`absolute ${
+            position === "right" ? "-left-12" : "-right-12"
+          } top-6 w-10 h-10 flex items-center justify-center rounded-full bg-[#776BF8] hover:rotate-90 transition duration-300 cursor-pointer`}
         >
           ✕
         </button>

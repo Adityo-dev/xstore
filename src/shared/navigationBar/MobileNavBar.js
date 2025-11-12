@@ -19,7 +19,7 @@ export default function MobileNavBar() {
   ];
 
   return (
-    <div className="flex flex-col items-start w-full min-h-screen">
+    <div className="flex flex-col items-start w-full">
       {/* ----- LOGO ----- */}
       <div className="w-full flex justify-center py-4 border-b border-gray-800">
         <Link href="/" onClick={closeAside}>
