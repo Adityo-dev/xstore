@@ -21,7 +21,7 @@ export default function AsidePanel({ isOpen, onClose, title, children }) {
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute -left-12 top-6 w-10 h-10 flex items-center justify-center rounded-full bg-[#fb2c36] hover:rotate-90 transition duration-300 cursor-pointer"
+          className="absolute -left-12 top-6 w-10 h-10 flex items-center justify-center rounded-full bg-[#776BF8] hover:rotate-90 transition duration-300 cursor-pointer"
         >
           ✕
         </button>

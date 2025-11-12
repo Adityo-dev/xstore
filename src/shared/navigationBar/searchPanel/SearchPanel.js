@@ -8,7 +8,7 @@ function SearchPanel({ onClose }) {
       {/* Close Button */}
       <button
         onClick={() => onClose(false)}
-        className="absolute hover:rotate-90 right-[30px] top-[30px] cursor-pointer w-12 h-12 flex items-center justify-center rounded-full bg-[#fb2c36] transition duration-300"
+        className="absolute hover:rotate-90 right-[30px] top-[30px] cursor-pointer w-12 h-12 flex items-center justify-center rounded-full bg-[#776BF8] transition duration-300"
       >
         <RxCross1 className="text-2xl " />
       </button>

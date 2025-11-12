@@ -1,4 +1,6 @@
+import { AsideProvider } from "@/components/context/AsideContext";
 import { CartProvider } from "@/components/context/CartContext";
+import DynamicAsidePanel from "@/components/DynamicAsidePanel";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
 import MainFooter from "@/shared/footer/MainFooter";
 import MainNavigationBar from "@/shared/navigationBar/MainNavigationBar";
@@ -29,9 +31,13 @@ export default function RootLayout({ children }) {
         className={`${unbounded.variable} ${rethinkSans.variable} antialiased`}
       >
         <CartProvider>
-          <MainNavigationBar />
-          {children}
+          <AsideProvider>
+            <MainNavigationBar />
+            {children}
+            <DynamicAsidePanel />
+          </AsideProvider>
         </CartProvider>
+
         <MainFooter />
         <ScrollToTopButton />
       </body>

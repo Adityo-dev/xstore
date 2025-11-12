@@ -93,7 +93,7 @@ export default function MyOrders() {
           <div className="bg-[#111] w-full max-w-2xl rounded-lg p-6 relative shadow-lg overflow-y-auto max-h-[90vh]">
             <button
               onClick={() => setSelectedOrder(null)}
-              className="absolute top-3 right-3 text-gray-400 hover:text-white text-2xl"
+              className="absolute top-3 right-3 text-[#776BF8] text-2xl cursor-pointer"
             >
               ✕
             </button>
@@ -161,8 +161,8 @@ export default function MyOrders() {
                   >
                     <div className="flex items-center gap-3">
                       <Image
-                        src={item.images[0].src}
-                        alt={item.title}
+                        src={item.cartImage.src}
+                        alt={item.cartImage.alt}
                         width={50}
                         height={50}
                         className="rounded-md object-cover"

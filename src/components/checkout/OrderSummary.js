@@ -22,8 +22,8 @@ function OrderSummary({
           >
             <div className="flex items-center gap-3">
               <Image
-                src={item.images[0].src}
-                alt={item.images[0].alt || item.title}
+                src={item.cartImage.src}
+                alt={item.cartImage.alt || item.title}
                 width={60}
                 height={60}
                 className="rounded-lg object-cover"

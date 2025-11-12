@@ -32,8 +32,8 @@ export default function ShoppingCart() {
                 {/* Product */}
                 <div className="flex items-center gap-4">
                   <Image
-                    src={item.images?.[0]?.src}
-                    alt={item.images?.[0]?.alt || item.title}
+                    src={item.cartImage.src}
+                    alt={item.cartImage?.alt || item.title}
                     width={75}
                     height={75}
                     className="rounded-md object-cover max-w-[80px] w-full h-full"

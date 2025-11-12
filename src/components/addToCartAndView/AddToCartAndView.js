@@ -1,71 +1,48 @@
 "use client";
-import { useState } from "react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { IoEyeOutline } from "react-icons/io5";
-import AsidePanel from "../asidePanel/AsidePanel";
+import { useAside } from "../context/AsideContext";
 import { useCart } from "../context/CartContext";
 import AsideAddToCard from "./AsideAddToCard";
 import AsideViewDetails from "./AsideViewDetails";
 
 function AddToCartAndView({ data }) {
-  const [openAside, setOpenAside] = useState(false);
-  const [panelType, setPanelType] = useState(null);
   const { addToCart } = useCart();
+  const { openAside } = useAside();
 
-  const openPanel = (type) => {
-    setPanelType(type);
-    setOpenAside(true);
+  const handleOpenCart = () => {
+    addToCart(data);
+    openAside({
+      children: <AsideAddToCard data={data} />,
+      title: "🛒 Your Cart",
+    });
   };
 
-  const handleAsideAddToCartOpen = (item) => {
-    addToCart(item);
-    setPanelType("cart");
-    setOpenAside(true);
+  const handleOpenView = () => {
+    openAside({
+      children: (
+        <AsideViewDetails data={data} onAddToCart={() => handleOpenCart()} />
+      ),
+      title: "View Details",
+    });
   };
 
   return (
-    <>
-      <div className="flex flex-col xl:flex-row items-center gap-2 xl:gap-3">
-        {/* Add to Cart */}
-        <button
-          onClick={() => {
-            openPanel("cart");
-            addToCart(data);
-          }}
-          className="bg-white text-[#776BF8] w-8 xl:w-10 h-8 xl:h-10 flex items-center justify-center xl:rounded-full shadow-md hover:bg-[#37a937] hover:text-white hover:scale-110 transition-all duration-300 cursor-pointer"
-        >
-          <AiOutlineShoppingCart size={20} />
-        </button>
+    <div className="flex flex-col xl:flex-row items-center gap-2 xl:gap-3">
+      <button
+        onClick={handleOpenCart}
+        className="bg-white text-[#776BF8] w-8 xl:w-10 h-8 xl:h-10 flex items-center justify-center xl:rounded-full shadow-md hover:bg-[#37a937] hover:text-white hover:scale-110 transition-all duration-300 cursor-pointer"
+      >
+        <AiOutlineShoppingCart size={20} />
+      </button>
 
-        {/* View Details */}
-        <button
-          onClick={() => openPanel("view")}
-          className="bg-white text-[#776BF8] w-8 xl:w-10 h-8 xl:h-10 flex items-center justify-center xl:rounded-full shadow-md hover:bg-[#37a937] hover:text-white hover:scale-110 transition-all duration-300 cursor-pointer"
-        >
-          <IoEyeOutline size={20} />
-        </button>
-      </div>
-
-      {/* Dynamic Aside Panel */}
-      {openAside && (
-        <AsidePanel
-          isOpen={openAside}
-          onClose={() => setOpenAside(false)}
-          title={panelType === "cart" ? "🛒 Your Cart" : ""}
-        >
-          {panelType === "cart" ? (
-            /* ---------------- CART CONTENT ---------------- */
-            <AsideAddToCard data={data} />
-          ) : (
-            /* ---------------- VIEW DETAILS CONTENT ---------------- */
-            <AsideViewDetails
-              data={data}
-              onAddToCart={handleAsideAddToCartOpen}
-            />
-          )}
-        </AsidePanel>
-      )}
-    </>
+      <button
+        onClick={handleOpenView}
+        className="bg-white text-[#776BF8] w-8 xl:w-10 h-8 xl:h-10 flex items-center justify-center xl:rounded-full shadow-md hover:bg-[#37a937] hover:text-white hover:scale-110 transition-all duration-300 cursor-pointer"
+      >
+        <IoEyeOutline size={20} />
+      </button>
+    </div>
   );
 }
 
