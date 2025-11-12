@@ -21,15 +21,15 @@ const locations = [
 
 export default function ContactLocations() {
   return (
-    <section className="container mx-auto  flex flex-col">
+    <section className="container mx-auto flex flex-col gap-8">
       {locations.map((loc) => (
-        <div key={loc?.id} className="space-y-5">
+        <div key={loc?.id}>
           {/* City Name */}
-          <h2 className="text-[30px] font-semibold font-marcellus">
+          <h2 className="text-[20px] mb-2 lg:text-[30px] font-semibold font-marcellus">
             {loc?.city}
           </h2>
 
-          <div className="flex gap-12">
+          <div className="flex flex-col xl:flex-row gap-6 lg:gap-12">
             {/* Address Section */}
             <div>
               <h3 className="text-[17px] font-semibold font-marcellus">
