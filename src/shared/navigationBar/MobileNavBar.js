@@ -39,7 +39,7 @@ export default function MobileNavBar() {
           <input
             type="text"
             placeholder="Search for products..."
-            className="w-full bg-[#1a1a1a] text-sm text-gray-300 placeholder-gray-500 px-4 py-3 rounded-md outline-none border border-gray-700 focus:border-[#776BF8] transition"
+            className="w-full bg-[#0b1220] border border-[#1f2a44] rounded-lg p-3 outline-none focus:border-[#776BF8] transition duration-300"
           />
           <FaSearch
             className="absolute right-4 top-3.5 text-gray-400"
