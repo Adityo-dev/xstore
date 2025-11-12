@@ -20,7 +20,7 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="bg-[#1E1F25] p-10 rounded-lg w-full lg:w-[450px]">
+    <div className="bg-[#1E1F25] p-4 md:p-6 lg:p-10 rounded-lg w-full lg:w-[450px]">
       <h2 className="text-2xl font-semibold mb-6 font-marcellus">
         How can help you?
       </h2>
