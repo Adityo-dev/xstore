@@ -7,12 +7,20 @@ import {
   FaTelegramPlane,
   FaYoutube,
 } from "react-icons/fa";
-import { FaUser } from "react-icons/fa6";
 import { FiShoppingBag } from "react-icons/fi";
 import { IoMdAdd, IoMdRemove } from "react-icons/io";
 import Container from "../Container";
+import Info from "./Info";
 
 export default function SinglePage({ data }) {
+  // if (!data) {
+  //   return (
+  //     <Container className="text-center py-20">
+  //       <p className="text-white text-lg">Product not found.</p>
+  //     </Container>
+  //   );
+  // }
+
   // 👉 Base total time (in seconds)
   const totalSeconds = 50 * 60 * 60; // 50 hours
 
@@ -75,6 +83,7 @@ export default function SinglePage({ data }) {
             <p className="text-red-400 font-semibold flex items-center mb-3">
               🚨 Hurry up
             </p>
+
             <div className="flex gap-3 text-center">
               {["DAYS", "HOURS", "MINS", "SECS"].map((label, idx) => (
                 <div
@@ -91,23 +100,21 @@ export default function SinglePage({ data }) {
           </div>
 
           {/* Progress Bar */}
-          <div>
-            <div className="flex justify-between text-sm text-gray-400 py-2">
-              <span>Sold:</span>
-              <span>{data?.sold}</span>
+          {data?.sold && (
+            <div>
+              <div className="flex justify-between text-sm text-gray-400 py-2">
+                <span>Sold:</span>
+                <span>{data?.sold}</span>
+              </div>
+              <div className="h-2 bg-gray-700 rounded-full overflow-hidden">
+                <div className="h-full w-[35%] bg-green-600"></div>
+              </div>
             </div>
-            <div className="h-2 bg-gray-700 rounded-full overflow-hidden">
-              <div className="h-full w-[35%] bg-green-600"></div>
-            </div>
-          </div>
+          )}
 
           {/* Description */}
           <p className="text-gray-400 leading-relaxed text-[17px] mt-4">
-            Contrary to popular beliefs, this has roots in a piece of classical
-            literature from 45 BC, making it over 2000 years old. Richard
-            McClintock, a professor at Hampden-Sydney College in Virginia,
-            looked up one of the more obscure Latin words and discovered its
-            undoubtable source.
+            {data?.description}
           </p>
 
           {/* Add to Cart */}
@@ -177,27 +184,5 @@ export default function SinglePage({ data }) {
         ))}
       </div>
     </Container>
-  );
-}
-
-// ✅ Reusable Info Component
-function Info({ label, values = [] }) {
-  return (
-    <div className="flex items-center gap-4">
-      <FaUser className="mt-[2px]" />
-      <div className="flex flex-col gap-1">
-        <p className="text-[#A3A1AF] font-semibold">{label}:</p>
-        <div className="flex flex-wrap gap-1.5">
-          {values?.map(
-            (v) =>
-              v && (
-                <p key={v} className="font-medium text-white">
-                  {v}
-                </p>
-              )
-          )}
-        </div>
-      </div>
-    </div>
   );
 }

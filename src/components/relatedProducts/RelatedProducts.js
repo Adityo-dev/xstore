@@ -13,7 +13,7 @@ function RelatedProducts() {
 
       <div className="px-4">
         <DotsSlider
-          data={products}
+          data={products.slice(0, 10)}
           CardComponent={ColumCard}
           uniqueId="related-products"
           slidesPerView={1}

@@ -26,6 +26,7 @@ function AsideViewDetails({ data, onAddToCart }) {
           alt={data.cartImage.alt}
           fill
           className="object-cover"
+          priority
         />
         {data.tag && (
           <span className="absolute left-3 top-3 px-2 py-1 text-xs font-semibold bg-[#37a937] rounded w-fit">

@@ -19,9 +19,11 @@ function RowCard({ game }) {
       </Link>
 
       <div className="pr-2">
-        <p className="text-sm md:text-[17px] font-semibold mb-3">
-          {game?.title}
-        </p>
+        <Link href={`/game/${game?.id}`}>
+          <p className="text-sm md:text-[17px] font-semibold mb-3">
+            {game?.title}
+          </p>
+        </Link>
         <GetStarRating rating={5} />
         <div className="flex items-center gap-2 mt-6 text-[15px]">
           <span className="line-through text-gray-400">
