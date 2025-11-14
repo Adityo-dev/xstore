@@ -7,20 +7,20 @@ function RowCard({ game }) {
     <div className="group relative flex items-center gap-4 md:gap-6 bg-[#23262F] rounded-lg overflow-hidden">
       <Link
         href={`/game/${game?.id}`}
-        className="w-[189px] sm:w-[220px] h-[189px] sm:h-[210px]"
+        className="w-[189px] sm:w-[220px] h-[189px] sm:h-[210px] relative flex-shrink-0 rounded overflow-hidden"
       >
         <Image
           src={game?.cartImage.src}
-          width={400}
-          height={400}
           alt={game.cartImage.alt || "Game Image"}
-          className="h-full w-full object-cover"
+          fill
+          className="object-cover w-full h-full"
+          sizes="(max-width: 768px) 220px, 189px"
         />
       </Link>
 
       <div className="pr-2">
         <Link href={`/game/${game?.id}`}>
-          <p className="text-sm md:text-[17px] font-semibold mb-3">
+          <p className="text-sm md:text-[17px] font-semibold mb-3 line-clamp-2">
             {game?.title}
           </p>
         </Link>
@@ -29,7 +29,7 @@ function RowCard({ game }) {
           <span className="line-through text-gray-400">
             ${game?.originalPrice}
           </span>
-          <span className="font-semibold text-green-600">
+          <span className="font-semibold text-[#37a937]">
             ${game?.salePrice}
           </span>
         </div>

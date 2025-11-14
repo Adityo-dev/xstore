@@ -66,7 +66,7 @@ function Bundle() {
                 <span className="line-through text-gray-400">
                   {bundleData[0].originalPrice}
                 </span>
-                <span className="font-semibold text-green-600">
+                <span className="font-semibold text-[#37a937]">
                   {bundleData[0].salePrice}
                 </span>
               </div>
@@ -97,7 +97,7 @@ function Bundle() {
                 <span className="line-through text-gray-400">
                   {bundleData[1].originalPrice}
                 </span>
-                <span className="font-semibold text-green-600">
+                <span className="font-semibold text-[#37a937]">
                   {bundleData[1].salePrice}
                 </span>
               </div>
@@ -121,7 +121,7 @@ function Bundle() {
               <span className="line-through text-[25px] text-[#858490]">
                 $99.98
               </span>
-              <span className="text-[40px] font-semibold text-green-500">
+              <span className="text-[40px] font-semibold text-[#37a937]">
                 $95.99
               </span>
             </div>

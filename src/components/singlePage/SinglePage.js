@@ -57,7 +57,7 @@ export default function SinglePage({ data }) {
             <span className="line-through text-gray-400">
               ${data?.originalPrice}
             </span>
-            <span className="font-semibold text-green-600">
+            <span className="font-semibold text-[#37a937]">
               ${data?.salePrice}
             </span>
           </div>

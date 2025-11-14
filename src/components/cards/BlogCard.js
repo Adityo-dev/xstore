@@ -11,7 +11,7 @@ function BlogCard({ data }) {
           alt={data?.title}
           className="w-full h-full object-cover cursor-pointer hover:scale-110 transition duration-300"
         />
-        <p className="absolute left-3 bottom-3 inline-block px-2 py-1 text-[.70rem] font-semibold bg-[#37a937] text-white rounded">
+        <p className="absolute left-3 bottom-3 inline-block px-2 py-1 text-[.70rem] font-semibold bg-[#37a937] rounded">
           {data?.tag}
         </p>
       </div>

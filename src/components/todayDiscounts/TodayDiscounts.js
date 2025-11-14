@@ -48,14 +48,14 @@ async function TodayDiscounts() {
                     <span className="text-gray-400 line-through text-sm">
                       $99.33
                     </span>
-                    <span className="text-[#00ff88] text-[18px] font-bold">
+                    <span className="text-[#37a937] text-[18px] font-bold">
                       $59.64
                     </span>
                   </div>
 
                   {/* Stock Info */}
                   <div className="flex justify-between text-sm pt-1">
-                    <span className="text-green-400">
+                    <span className="text-[#37a937]">
                       Available: <b>113</b>
                     </span>
                     <span className="text-gray-400">
@@ -66,7 +66,7 @@ async function TodayDiscounts() {
                   {/* Progress Bar */}
                   <div className="w-full bg-[#2b2e36] rounded-full h-2 mt-1">
                     <div
-                      className="bg-green-400 h-2 rounded-full"
+                      className="bg-[#37a937] h-2 rounded-full"
                       style={{ width: "12%" }}
                     ></div>
                   </div>
