@@ -13,19 +13,11 @@ import Container from "../Container";
 import Info from "./Info";
 
 export default function SinglePage({ data }) {
-  // if (!data) {
-  //   return (
-  //     <Container className="text-center py-20">
-  //       <p className="text-white text-lg">Product not found.</p>
-  //     </Container>
-  //   );
-  // }
-
-  // 👉 Base total time (in seconds)
   const totalSeconds = 50 * 60 * 60; // 50 hours
-
   const [secondsLeft, setSecondsLeft] = useState(totalSeconds);
   const [quantity, setQuantity] = useState(1);
+
+  const isOutOfStock = data?.stock === 0; // Stock check
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -41,7 +33,6 @@ export default function SinglePage({ data }) {
     return () => clearInterval(interval);
   }, []);
 
-  // Convert total seconds → days, hours, minutes, seconds
   const days = Math.floor(secondsLeft / (24 * 3600));
   const hours = Math.floor((secondsLeft % (24 * 3600)) / 3600);
   const mins = Math.floor((secondsLeft % 3600) / 60);
@@ -50,11 +41,10 @@ export default function SinglePage({ data }) {
   const timeLeft = { days, hours, mins, secs };
 
   return (
-    <Container className="flex flex-col-reverse lg:flex-row  gap-10 items-start">
+    <Container className="flex flex-col-reverse lg:flex-row gap-10 items-start">
       {/* ---------- LEFT CONTENT (Sticky) ---------- */}
       <div className="w-full lg:w-1/2 sticky top-44">
         <div className="sticky top-40 self-start">
-          {/* Title */}
           <h1 className="text-[26px] md:text-[38px] font-semibold leading-tight">
             {data?.title}
           </h1>
@@ -63,7 +53,6 @@ export default function SinglePage({ data }) {
             {data?.subtitle}
           </p>
 
-          {/* Price */}
           <div className="flex items-center gap-2 my-3 text-[30px]">
             <span className="line-through text-gray-400">
               ${data?.originalPrice}
@@ -73,7 +62,6 @@ export default function SinglePage({ data }) {
             </span>
           </div>
 
-          {/* Tax */}
           <p className="text-gray-400 text-sm mb-6">
             {data?.taxIncluded ? "Tax included." : "Not tax included."}
           </p>
@@ -100,19 +88,23 @@ export default function SinglePage({ data }) {
           </div>
 
           {/* Progress Bar */}
-          {data?.sold && (
+          {data?.sold != null && data?.stock != null && (
             <div>
               <div className="flex justify-between text-sm text-gray-400 py-2">
                 <span>Sold:</span>
                 <span>{data?.sold}</span>
               </div>
               <div className="h-2 bg-gray-700 rounded-full overflow-hidden">
-                <div className="h-full w-[35%] bg-green-600"></div>
+                <div
+                  className="h-full bg-green-600"
+                  style={{
+                    width: `${Math.min(100, (data.sold / data.stock) * 100)}%`,
+                  }}
+                ></div>
               </div>
             </div>
           )}
 
-          {/* Description */}
           <p className="text-gray-400 leading-relaxed text-[17px] mt-4">
             {data?.description}
           </p>
@@ -124,6 +116,7 @@ export default function SinglePage({ data }) {
               <button
                 onClick={() => setQuantity((q) => Math.max(1, q - 1))}
                 className="px-3 py-2.5 hover:text-[#776BF8] transition cursor-pointer"
+                disabled={isOutOfStock}
               >
                 <IoMdRemove size={18} />
               </button>
@@ -131,17 +124,22 @@ export default function SinglePage({ data }) {
               <button
                 onClick={() => setQuantity((q) => q + 1)}
                 className="px-3 py-2.5 hover:text-[#776BF8] transition cursor-pointer"
+                disabled={isOutOfStock}
               >
                 <IoMdAdd size={18} />
               </button>
             </div>
 
             <button
-              className="flex items-center gap-2 bg-[#776BF8] hover:bg-[#fff] hover:text-[#776BF8]
-                         text-[17px] font-semibold py-2 px-5 rounded transition-all duration-300 cursor-pointer"
+              className={`flex items-center gap-2 text-[17px] font-semibold py-2 px-5 rounded transition-all duration-300 ${
+                isOutOfStock
+                  ? "bg-gray-600 cursor-not-allowed"
+                  : "bg-[#776BF8] hover:bg-[#fff] hover:text-[#776BF8] cursor-pointer"
+              }`}
+              disabled={isOutOfStock}
             >
               <FiShoppingBag size={18} />
-              Add To Cart
+              {isOutOfStock ? "Out of Stock" : "Add To Cart"}
             </button>
           </div>
 

@@ -24,7 +24,7 @@ function RowCard({ game }) {
             {game?.title}
           </p>
         </Link>
-        <GetStarRating rating={5} />
+        <GetStarRating reviews={game?.reviews} />
         <div className="flex items-center gap-2 mt-6 text-[15px]">
           <span className="line-through text-gray-400">
             ${game?.originalPrice}

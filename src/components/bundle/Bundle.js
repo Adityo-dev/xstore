@@ -11,19 +11,35 @@ const bundleData = [
     id: 1,
     image: "/images/games6.jpg",
     title: "Ghost Recon Breakpoint. Lorem ipsum dolor sit amet, consectetur",
-    rating: 5,
     originalPrice: 69.99,
     salePrice: 54.99,
     tag: "SALE",
+    reviews: [
+      {
+        user: "Neil Armstrong Jr.",
+        rating: 4,
+        comment: "Dream come true for space fans!",
+        date: "2025-10-23",
+        userImage: "/images/users/neil-armstrong-jr.jpg",
+      },
+    ],
   },
   {
     id: 2,
     image: "/images/1.13-300x300.jpg",
     title: "Ghost Recon Breakpoint. Lorem ipsum dolor sit amet, consectetur",
-    rating: 5,
     originalPrice: 69.99,
     salePrice: 54.99,
     tag: "SALE",
+    reviews: [
+      {
+        user: "Neil Armstrong Jr.",
+        rating: 4.8,
+        comment: "Dream come true for space fans!",
+        date: "2025-10-23",
+        userImage: "/images/users/neil-armstrong-jr.jpg",
+      },
+    ],
   },
 ];
 
@@ -45,7 +61,7 @@ function Bundle() {
             />
             <div>
               <p className="font-semibold mb-3">{bundleData[0].title}</p>
-              <GetStarRating rating={5} />
+              <GetStarRating reviews={bundleData[0].reviews} />
               <div className="flex items-center gap-2 mt-6 text-[15px]">
                 <span className="line-through text-gray-400">
                   {bundleData[0].originalPrice}
@@ -76,7 +92,7 @@ function Bundle() {
             />
             <div>
               <p className="font-semibold mb-3">{bundleData[1].title}</p>
-              <GetStarRating rating={5} />
+              <GetStarRating reviews={bundleData[1].reviews} />
               <div className="flex items-center gap-2 mt-6 text-[15px]">
                 <span className="line-through text-gray-400">
                   {bundleData[1].originalPrice}
