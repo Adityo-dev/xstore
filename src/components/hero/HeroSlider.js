@@ -66,6 +66,7 @@ export default function HeroSlider() {
                   width={600}
                   height={600}
                   alt={slide.title}
+                  priority
                   className="rounded-lg shadow-xl border border-white/30 object-cover"
                 />
               </div>
