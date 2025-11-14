@@ -48,14 +48,16 @@ export default function HeroSlider() {
       >
         {slides.map((slide) => (
           <SwiperSlide key={slide.id}>
-            <div
-              className="relative flex flex-col md:flex-row items-center justify-center md:justify-between gap-12 w-full h-[480px] md:h-[400px] lg:h-[500px] px-4 sm:px-6 md:px-10 lg:px-20 overflow-hidden"
-              style={{
-                backgroundImage: `url(${slide.bgCover})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-            >
+            <div className="relative flex flex-col md:flex-row items-center justify-center md:justify-between gap-12 w-full h-[480px] md:h-[400px] lg:h-[500px] px-4 sm:px-6 md:px-10 lg:px-20 overflow-hidden">
+              {/* BG Image  */}
+              <Image
+                src={slide.bgCover}
+                alt="Slide Background"
+                fill
+                priority
+                className="object-cover object-center"
+              />
+
               {/* Dark Overlay */}
               <div className="absolute inset-0 bg-black/50 z-[1]" />
 
