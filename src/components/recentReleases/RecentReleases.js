@@ -1,11 +1,10 @@
-"use client";
+import { getFilteredProducts } from "@/lib/products";
 import RowCard from "../cards/RowCard";
 import Container from "../Container";
-import { useFilteredProducts } from "../hooks/useProductsData";
 import SectionHeader from "../SectionHeader";
 
-function RecentReleases() {
-  const { products } = useFilteredProducts("isRecent");
+export default async function RecentReleases() {
+  const products = await getFilteredProducts("isRecent");
 
   return (
     <>
@@ -23,5 +22,3 @@ function RecentReleases() {
     </>
   );
 }
-
-export default RecentReleases;

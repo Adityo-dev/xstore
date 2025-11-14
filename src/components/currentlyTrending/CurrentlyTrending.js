@@ -1,14 +1,12 @@
-"use client";
+import { getFilteredProducts } from "@/lib/products";
 import Image from "next/image";
-import ColumCard from "../cards/ColumCard";
 import Container from "../Container";
-import DotsSlider from "../DotsSlider";
-import { useFilteredProducts } from "../hooks/useProductsData";
 import SectionHeader from "../SectionHeader";
 import CustomButton from "../ui/buttons/CustomButton";
+import TrendingProducts from "./TrendingProducts";
 
-function CurrentlyTrending() {
-  const { products } = useFilteredProducts("isTrending");
+async function CurrentlyTrending() {
+  const products = await getFilteredProducts("isTrending");
 
   return (
     <>
@@ -31,21 +29,8 @@ function CurrentlyTrending() {
             <CustomButton href={"#"}>Shop Now</CustomButton>
           </div>
         </div>
-        <div className="col-span-full sm:col-span-8">
-          <DotsSlider
-            data={products}
-            CardComponent={ColumCard}
-            uniqueId="currently-trending"
-            slidesPerView={1}
-            spaceBetween={20}
-            loop={true}
-            paginationColor="#6c63ff"
-            breakpoints={{
-              640: { slidesPerView: 2 },
-              1024: { slidesPerView: 4 },
-            }}
-          />
-        </div>
+
+        <TrendingProducts products={products} />
       </Container>
     </>
   );

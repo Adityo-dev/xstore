@@ -1,35 +1,19 @@
-"use client";
+import { getFilteredProducts } from "@/lib/products";
 import Image from "next/image";
 import Link from "next/link";
-import ColumCard from "../cards/ColumCard";
 import Container from "../Container";
-import DotsSlider from "../DotsSlider";
-import { useFilteredProducts } from "../hooks/useProductsData";
 import SectionHeader from "../SectionHeader";
+import DiscountedProducts from "./DiscountedProducts";
 
-function TodayDiscounts() {
-  const { products } = useFilteredProducts("isDiscounted");
+async function TodayDiscounts() {
+  const products = await getFilteredProducts("isDiscounted");
 
   return (
     <>
       <SectionHeader title={"Today’s Discounts"} />
 
       <Container className="grid grid-cols-12 gap-6">
-        <div className="col-span-full sm:col-span-9">
-          <DotsSlider
-            data={products}
-            CardComponent={ColumCard}
-            uniqueId="todays-discounts"
-            slidesPerView={1}
-            spaceBetween={20}
-            loop={true}
-            paginationColor="#6c63ff"
-            breakpoints={{
-              640: { slidesPerView: 2 },
-              1024: { slidesPerView: 4 },
-            }}
-          />
-        </div>
+        <DiscountedProducts products={products} />
 
         <div className="col-span-full sm:col-span-3 rounded-lg overflow-hidden relative">
           <div className="sm:max-w-sm bg-[#1c1f26] rounded-xl overflow-hidden shadow-[0_0_10px_rgba(0,0,0,0.6)] border border-[#2a2d36] text-white">
