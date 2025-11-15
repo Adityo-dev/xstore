@@ -14,7 +14,7 @@ function DiscountedProducts({ products }) {
       loop={true}
       paginationColor="#6c63ff"
       breakpoints={{
-        640: { slidesPerView: 2 },
+        320: { slidesPerView: 2 },
         1024: { slidesPerView: 3 },
         1280: { slidesPerView: 4 },
       }}
