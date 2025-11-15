@@ -10,19 +10,17 @@ function AddToCartAndView({ data }) {
   const { addToCart } = useCart();
   const { openAside } = useAside();
 
-  const handleOpenCart = () => {
-    addToCart(data);
+  const handleOpenCart = (itemWithQty) => {
+    addToCart(itemWithQty);
     openAside({
-      children: <AsideAddToCard data={data} />,
+      children: <AsideAddToCard data={itemWithQty} />,
       title: "🛒 Your Cart",
     });
   };
 
   const handleOpenView = () => {
     openAside({
-      children: (
-        <AsideViewDetails data={data} onAddToCart={() => handleOpenCart()} />
-      ),
+      children: <AsideViewDetails data={data} onAddToCart={handleOpenCart} />,
       title: "View Details",
     });
   };
@@ -30,7 +28,7 @@ function AddToCartAndView({ data }) {
   return (
     <div className="flex flex-col xl:flex-row items-center gap-2 xl:gap-3">
       <button
-        onClick={handleOpenCart}
+        onClick={() => handleOpenCart({ ...data, quantity: 1 })}
         className="bg-white text-[#776BF8] w-8 xl:w-10 h-8 xl:h-10 flex items-center justify-center xl:rounded-full shadow-md hover:bg-[#37a937] hover:text-white hover:scale-110 transition-all duration-300 cursor-pointer"
       >
         <AiOutlineShoppingCart size={20} />

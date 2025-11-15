@@ -7,23 +7,27 @@ import { useCart } from "@/components/context/CartContext";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
+// Toastify imports
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 export default function CheckoutPage() {
   const { cartItems, totalPrice, updateQuantity, placeOrder, userInfo } =
     useCart();
-
   const router = useRouter();
 
   const [form, setForm] = useState(userInfo);
   const [errors, setErrors] = useState({});
   const [orderPlaced, setOrderPlaced] = useState(false);
-  const [showToast, setShowToast] = useState(false);
 
+  // Handle form input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
     setErrors((prev) => ({ ...prev, [name]: "" }));
   };
 
+  // Validate required fields
   const validateForm = () => {
     const newErrors = {};
     if (!form.firstName) newErrors.firstName = "First Name is required";
@@ -33,43 +37,64 @@ export default function CheckoutPage() {
     return newErrors;
   };
 
+  // Place order handler
   const handlePlaceOrder = () => {
     const formErrors = validateForm();
     if (Object.keys(formErrors).length > 0) {
+      toast.error("⚠ Please fill in all required fields!", {
+        position: "top-center",
+        autoClose: 4000,
+      });
       setErrors(formErrors);
       return;
     }
 
     const newOrder = placeOrder(form);
 
-    if (newOrder) {
-      setShowToast(true);
-      setOrderPlaced(true);
-      setForm({
-        firstName: "",
-        lastName: "",
-        street: "",
-        city: "",
-        phone: "",
-        email: "",
-        notes: "",
+    if (!newOrder) {
+      toast.error("⚠ Cannot place order. Your cart might be empty!", {
+        position: "top-center",
+        autoClose: 4000,
       });
-      setTimeout(() => setShowToast(false), 4000);
-      router.push("/order-status");
+      return;
     }
+
+    setOrderPlaced(true);
+
+    // Show success toast
+    toast.success("✅ Your order has been placed successfully!", {
+      position: "top-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+    });
+
+    // Reset form
+    setForm({
+      firstName: "",
+      lastName: "",
+      street: "",
+      city: "",
+      phone: "",
+      email: "",
+      notes: "",
+    });
+
+    setTimeout(() => {
+      router.push("/order-status");
+    }, 3000);
   };
 
   return (
     <Container>
-      {showToast && (
-        <div className="fixed top-1/2 left-1/2 -translate-x-1/2 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg font-semibold animate-bounce">
-          ✅ Your order has been placed successfully!
-        </div>
-      )}
+      {/* Toast container */}
+      <ToastContainer />
 
       {cartItems.length === 0 && !orderPlaced ? (
         <p className="text-center text-xl mt-20">
-          Your cart is empty. Please add items to your cart before checking
+          Your cart is empty. Please add items to your cart before checking out.
         </p>
       ) : (
         <div className="grid lg:grid-cols-2 gap-6">

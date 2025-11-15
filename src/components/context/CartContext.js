@@ -46,21 +46,21 @@ export function CartProvider({ children }) {
   const addToCart = (product) => {
     setCartItems((prev) => {
       const exist = prev.find((item) => item.id === product.id);
+      const qtyToAdd = product.quantity || 1; // respect passed quantity
       if (exist) {
         return prev.map((item) =>
           item.id === product.id
-            ? { ...item, quantity: item.quantity + 1 }
+            ? { ...item, quantity: item.quantity + qtyToAdd }
             : item
         );
       } else {
-        return [...prev, { ...product, quantity: 1 }];
+        return [...prev, { ...product, quantity: qtyToAdd }];
       }
     });
   };
 
-  const removeFromCart = (id) => {
+  const removeFromCart = (id) =>
     setCartItems((prev) => prev.filter((item) => item.id !== id));
-  };
 
   const updateQuantity = (id, quantity) => {
     if (quantity < 1) quantity = 1;

@@ -49,9 +49,7 @@ function AsideViewDetails({ data, onAddToCart }) {
         <GetStarRating reviews={data?.reviews} />
 
         <p className="text-[#8e919f] text-base my-3">
-          {data?.description && data.description.length > 0
-            ? data.description
-            : "No description available."}
+          {data?.description || "No description available."}
         </p>
 
         {data.stock <= 0 ? (
@@ -85,9 +83,9 @@ function AsideViewDetails({ data, onAddToCart }) {
             </div>
 
             <button
-              onClick={() => onAddToCart(data)}
-              className="flex items-center gap-2 bg-[#776BF8] hover:bg-[#fff] hover:text-[#776BF8]  text-[17px]
-                    font-semibold py-2 px-5 rounded transition-all duration-300 cursor-pointer"
+              onClick={() => onAddToCart({ ...data, quantity })}
+              className="flex items-center gap-2 bg-[#776BF8] hover:bg-[#fff] hover:text-[#776BF8] text-[17px] font-semibold py-2 px-5 rounded transition-all duration-300 cursor-pointer"
+              disabled={data.stock <= 0}
             >
               <FiShoppingBag size={18} />
               Add To Cart
