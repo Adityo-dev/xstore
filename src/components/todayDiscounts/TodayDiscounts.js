@@ -15,9 +15,11 @@ async function TodayDiscounts() {
           <SectionHeader title={"Today’s Discounts"} />
 
           <Container className="grid grid-cols-12 gap-6">
-            <DiscountedProducts products={products} />
+            <div className="col-span-full md:col-span-8 xl:col-span-9">
+              <DiscountedProducts products={products} />
+            </div>
 
-            <div className="col-span-full sm:col-span-3 rounded-lg overflow-hidden relative">
+            <div className="col-span-full md:col-span-4 xl:col-span-3 rounded-lg overflow-hidden relative">
               <div className="sm:max-w-sm bg-[#1c1f26] rounded-xl overflow-hidden shadow-[0_0_10px_rgba(0,0,0,0.6)] border border-[#2a2d36] text-white">
                 {/* Image */}
                 <Link
