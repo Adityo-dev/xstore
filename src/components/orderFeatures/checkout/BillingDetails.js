@@ -1,6 +1,6 @@
 function BillingDetails({ form, errors, handleChange }) {
   return (
-    <div className="bg-[#1E2129] p-4 md:p-6 rounded-lg space-y-6">
+    <div className="bg-[#1E2129] p-4 md:p-6 rounded-lg space-y-6 h-fit">
       <h2 className="text-2xl font-semibold text-[#f5f5f5]">Billing Details</h2>
       <div className="grid md:grid-cols-2 gap-4">
         <div>

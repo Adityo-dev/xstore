@@ -1,19 +1,17 @@
 "use client";
 
-import BillingDetails from "@/components/checkout/BillingDetails";
-import OrderSummary from "@/components/checkout/OrderSummary";
 import Container from "@/components/Container";
 import { useCart } from "@/components/context/CartContext";
+import BillingDetails from "@/components/orderFeatures/checkout/BillingDetails";
+import OrderSummary from "@/components/orderFeatures/checkout/OrderSummary";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-
-// Toastify imports
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 
 export default function CheckoutPage() {
   const { cartItems, totalPrice, updateQuantity, placeOrder, userInfo } =
     useCart();
+
   const router = useRouter();
 
   const [form, setForm] = useState(userInfo);
@@ -41,7 +39,7 @@ export default function CheckoutPage() {
   const handlePlaceOrder = () => {
     const formErrors = validateForm();
     if (Object.keys(formErrors).length > 0) {
-      toast.error("⚠ Please fill in all required fields!", {
+      toast.error("Please fill in all required fields!", {
         position: "top-center",
         autoClose: 4000,
       });
@@ -52,7 +50,7 @@ export default function CheckoutPage() {
     const newOrder = placeOrder(form);
 
     if (!newOrder) {
-      toast.error("⚠ Cannot place order. Your cart might be empty!", {
+      toast.error("Cannot place order. Your cart might be empty!", {
         position: "top-center",
         autoClose: 4000,
       });
@@ -62,9 +60,9 @@ export default function CheckoutPage() {
     setOrderPlaced(true);
 
     // Show success toast
-    toast.success("✅ Your order has been placed successfully!", {
+    toast.success("Your order has been placed successfully!", {
       position: "top-center",
-      autoClose: 3000,
+      autoClose: 4000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
@@ -82,16 +80,11 @@ export default function CheckoutPage() {
       notes: "",
     });
 
-    setTimeout(() => {
-      router.push("/order-status");
-    }, 3000);
+    router.push("/order-status");
   };
 
   return (
     <Container>
-      {/* Toast container */}
-      <ToastContainer />
-
       {cartItems.length === 0 && !orderPlaced ? (
         <p className="text-center text-xl mt-20">
           Your cart is empty. Please add items to your cart before checking out.

@@ -1,15 +1,23 @@
 "use client";
-
-import CartTotals from "@/components/cart/CartTotals";
-import CouponAndClear from "@/components/cart/CouponAndClear";
-import TableHeader from "@/components/cart/TableHeader";
 import Container from "@/components/Container";
 import { useCart } from "@/components/context/CartContext";
-import Image from "next/image";
+import CartItem from "@/components/orderFeatures/cart/CartItem";
+import CartTotals from "@/components/orderFeatures/cart/CartTotals";
+import CouponAndClear from "@/components/orderFeatures/cart/CouponAndClear";
+import TableHeader from "@/components/orderFeatures/cart/TableHeader";
+import { toast } from "react-toastify";
 
 export default function ShoppingCart() {
   const { cartItems, removeFromCart, updateQuantity, totalPrice, clearCart } =
     useCart();
+
+  const handleClearAllItems = () => {
+    clearCart();
+    toast.error("Cannot place order. Your cart might be empty!", {
+      position: "top-center",
+      autoClose: 4000,
+    });
+  };
 
   return (
     <Container className="grid lg:grid-cols-3 gap-6">
@@ -24,69 +32,20 @@ export default function ShoppingCart() {
             {/* Table Header */}
             <TableHeader />
 
-            {cartItems.map((item) => (
-              <div
-                key={item.id}
-                className="grid md:grid-cols-[3fr_1fr_1fr_1fr_1fr] items-center border-b border-gray-700 py-3 gap-4"
-              >
-                {/* Product */}
-                <div className="flex items-center gap-4">
-                  <Image
-                    src={item.cartImage.src}
-                    alt={item.cartImage?.alt || item.title}
-                    width={75}
-                    height={75}
-                    className="rounded-md object-cover max-w-[80px] w-full h-full"
-                  />
-                  <div>
-                    <p className="font-semibold text-[15px] leading-snug text-gray-100">
-                      {item.title}
-                    </p>
-                    <button
-                      onClick={() => removeFromCart(item.id)}
-                      className="text-[#776BF8] text-xs mt-2 hover:underline cursor-pointer"
-                    >
-                      Remove
-                    </button>
-                  </div>
-                </div>
-
-                {/* Price */}
-                <p className="text-gray-300 text-[15px]">${item?.salePrice}</p>
-
-                {/* SKU */}
-                <p className="text-gray-400 text-[15px]">{item.sku || "N/A"}</p>
-
-                {/* Quantity */}
-                <div className="flex items-center justify-center">
-                  <div className="flex items-center bg-[#0d0d0d] border border-gray-600 rounded-md">
-                    <button
-                      onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                      className="px-3 py-1 text-gray-300 hover:text-white cursor-pointer"
-                    >
-                      -
-                    </button>
-                    <span className="px-4 py-1 border-x border-gray-600 text-gray-200">
-                      {item.quantity}
-                    </span>
-                    <button
-                      onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                      className="px-3 py-1 text-gray-300 hover:text-white cursor-pointer"
-                    >
-                      +
-                    </button>
-                  </div>
-                </div>
-
-                {/* Subtotal */}
-                <p className="text-right font-semibold text-[15px]">
-                  ${(item.salePrice * item.quantity).toFixed(2)}
-                </p>
-              </div>
-            ))}
+            {/* cart Items */}
+            <div className="flex-1 max-h-[350px] overflow-y-auto custom-scrollbar pr-4">
+              {cartItems.map((item) => (
+                <CartItem
+                  key={item.id}
+                  item={item}
+                  onRemoveCart={removeFromCart}
+                  onUpdateQuantity={updateQuantity}
+                />
+              ))}
+            </div>
 
             {/* Coupon + Clear */}
-            <CouponAndClear onClearCart={clearCart} />
+            <CouponAndClear onClearAllItems={handleClearAllItems} />
           </>
         )}
       </div>

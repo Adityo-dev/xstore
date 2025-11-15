@@ -1,32 +1,17 @@
 "use client";
 import CustomButton from "@/components/ui/buttons/CustomButton";
 import InputField from "@/components/ui/InputField";
-import Image from "next/image";
 import Link from "next/link";
+import AuthLeftPanel from "../AuthLeftPanel";
 
 export default function LoginPage() {
   return (
     <div className="mb-16 md:mb-24 pt-32 xl:pt-44 px-4 flex items-center justify-center">
       <div className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 bg-gradient-to-br from-[#0f1724] via-[#0b0f1a] to-[#051024] rounded-lg shadow-lg overflow-hidden">
         {/* LEFT SIDE */}
-        <div className="relative hidden md:flex flex-col items-center justify-center">
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-          <div className="text-center space-y-6 p-4 md:p-6">
-            <h2 className="text-2xl font-extrabold tracking-tight">X-Store</h2>
-
-            <p className="max-w-xs text-sm text-[#B8C0D6]">
-              Sign in to access your library and gamer rewards.
-            </p>
-            <Image
-              src="/gifs/controller.gif"
-              alt="controller"
-              width={240}
-              height={160}
-              priority
-              className="w-full h-fit rounded-lg"
-            />
-          </div>
-        </div>
+        <AuthLeftPanel
+          title={"Sign in to access your library and gamer rewards."}
+        />
 
         {/* RIGHT SIDE */}
         <div className="p-4 md:p-6 flex flex-col justify-center">

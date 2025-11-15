@@ -5,13 +5,13 @@ function LogoAndSubscription() {
   return (
     <>
       {/* logo */}
-      <Link href={"/"}>
+      <Link href={"/"} className="shrink-0">
         <Image
           src={"/logos/Logo.png"}
           width={200}
           height={200}
-          alt=""
-          className="w-fit h-fit"
+          alt="Logo"
+          className="w-[150px] max-h-[30px] object-contain"
         />
       </Link>
 

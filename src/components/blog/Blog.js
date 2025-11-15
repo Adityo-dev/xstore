@@ -45,7 +45,6 @@ function Blog() {
           slidesPerView={1}
           spaceBetween={20}
           loop={true}
-          paginationColor="#6c63ff"
           breakpoints={{
             640: { slidesPerView: 2 },
             1024: { slidesPerView: 3 },

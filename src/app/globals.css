@@ -73,11 +73,12 @@ body {
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: #444;
+  background-color: #776bf8;
   border-radius: 10px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background-color: #666;
+  background-color: #776bf8;
+  cursor: pointer;
 }
 /* ------------------------------------------------ */

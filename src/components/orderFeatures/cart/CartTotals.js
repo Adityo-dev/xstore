@@ -1,4 +1,4 @@
-import CustomButton from "../ui/buttons/CustomButton";
+import CustomButton from "../../ui/buttons/CustomButton";
 
 function CartTotals({ totalPrice }) {
   return (

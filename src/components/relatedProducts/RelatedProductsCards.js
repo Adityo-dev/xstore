@@ -12,7 +12,6 @@ function RelatedProductsCards({ products }) {
         slidesPerView={1}
         spaceBetween={20}
         loop={true}
-        paginationColor="#6c63ff"
         breakpoints={{
           400: { slidesPerView: 2 },
           700: { slidesPerView: 3 },

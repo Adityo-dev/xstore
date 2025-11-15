@@ -13,7 +13,7 @@ export default function DotsSlider({
   spaceBetween = 24,
   loop = true,
   breakpoints,
-  paginationColor = "#776bf8",
+  paginationColor = "#6c63ff",
 }) {
   const paginationId = `custom-pagination-${uniqueId}`;
 

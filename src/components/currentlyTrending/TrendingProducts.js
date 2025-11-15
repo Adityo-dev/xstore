@@ -12,7 +12,6 @@ function TrendingProducts({ products }) {
       slidesPerView={1}
       spaceBetween={16}
       loop={true}
-      paginationColor="#6c63ff"
       breakpoints={{
         320: { slidesPerView: 2 },
         1024: { slidesPerView: 3 },
