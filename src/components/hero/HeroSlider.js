@@ -4,7 +4,6 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import BannerNavigationArrow from "./BannerNavigationArrow";
 import HeroBanner from "./HeroBanner";
 
 export default function HeroSlider() {
@@ -54,13 +53,18 @@ export default function HeroSlider() {
       </Swiper>
 
       {/* Navigation Arrows */}
-      <BannerNavigationArrow name={"custom-prev"} direction={"left"}>
-        <SlArrowLeft />
-      </BannerNavigationArrow>
 
-      <BannerNavigationArrow name={"custom-next"} direction={"right"}>
+      <button
+        className={`custom-prev absolute left-0 group-hover:left-2 sm:group-hover:left-4 top-1/2 -translate-y-1/2 z-30 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 flex items-center justify-center bg-[#FFFFFF38] hover:bg-[#ffffff60] text-white rounded-lg transition-all duration-300 opacity-0 group-hover:opacity-100 cursor-pointer`}
+      >
+        <SlArrowLeft />
+      </button>
+
+      <button
+        className={`custom-next absolute right-0 group-hover:right-2 sm:group-hover:right-4 top-1/2 -translate-y-1/2 z-30 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 flex items-center justify-center bg-[#FFFFFF38] hover:bg-[#ffffff60] text-white rounded-lg transition-all duration-300 opacity-0 group-hover:opacity-100 cursor-pointer`}
+      >
         <SlArrowRight />
-      </BannerNavigationArrow>
+      </button>
     </div>
   );
 }
