@@ -9,7 +9,7 @@ import GetStarRating from "../ui/GetStarRating";
 const bundleData = [
   {
     id: 1,
-    image: "/images/games6.jpg",
+    image: "https://i.ibb.co/SwZtxwKm/games6.jpg",
     title: "Ghost Recon Breakpoint. Lorem ipsum dolor sit amet, consectetur",
     originalPrice: 69.99,
     salePrice: 54.99,
@@ -26,7 +26,7 @@ const bundleData = [
   },
   {
     id: 2,
-    image: "/images/1.13-300x300.jpg",
+    image: "https://i.ibb.co/Rp4NzD68/games13.jpg",
     title: "Ghost Recon Breakpoint. Lorem ipsum dolor sit amet, consectetur",
     originalPrice: 69.99,
     salePrice: 54.99,
