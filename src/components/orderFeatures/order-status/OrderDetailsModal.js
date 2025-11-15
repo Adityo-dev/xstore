@@ -1,5 +1,3 @@
-"use client";
-
 import CustomerInfo from "./CustomerInfo";
 import OrderedProducts from "./OrderedProducts";
 
@@ -15,13 +13,13 @@ export default function OrderDetailsModal({ order, onClose }) {
         </button>
 
         <h2 className="text-2xl font-bold mb-4 text-white">
-          Order Details — {order.id}
+          Order Details — {order?.id}
         </h2>
 
-        <p className="text-gray-400 text-sm mb-6">Placed on: {order.date}</p>
+        <p className="text-gray-400 text-sm mb-6">Placed on: {order?.date}</p>
 
-        <CustomerInfo customer={order.customer} />
-        <OrderedProducts items={order.items} total={order.total} />
+        <CustomerInfo customer={order?.customer} />
+        <OrderedProducts items={order?.items} total={order?.total} />
       </div>
     </div>
   );

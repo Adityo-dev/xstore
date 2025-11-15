@@ -1,5 +1,3 @@
-"use client";
-
 export default function OrdersTable({ orders, getStatusColor, onSelect }) {
   return (
     <div className="overflow-x-auto">
