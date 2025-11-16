@@ -1,29 +1,43 @@
 [
   {
     "id": 1,
-    "title": "Klondike: The Lost Expedition into the Alaskan Wilderness",
+    "title": "Jurassic World Evolution 3",
     "subtitle": "Epic Heroic Tower Defense Adventure Integrated with Unique NFTs",
     "originalPrice": 49.99,
     "salePrice": 29.99,
     "taxIncluded": true,
     "genre": ["PvP", "Tower Defense", "RPG"],
     "categories": ["Strategy", "PvP"],
-    "developer": "Sony Interactive Entertainment",
+    "developer": "Frontier Developments",
     "languages": ["English[UK]", "French", "Dutch"],
-    "platform": ["PS5", "Xbox Series X", "Steam"],
-    "description": "Explore the untamed wilderness of Alaska in this heroic tower-defense adventure with NFT integration. Players will embark on a thrilling journey through snow-covered landscapes, building defenses against waves of enemies while collecting rare NFTs that enhance gameplay. Discover hidden treasures, forge alliances with other explorers, and unravel the mysteries of the lost expedition. With stunning graphics and immersive sound design, this game offers hours of strategic gameplay, challenging players to think tactically while managing resources in a harsh environment. Customize your towers with unique abilities unlocked through NFTs, participate in global PvP battles, and climb the leaderboards to become the ultimate Klondike legend. Whether you're a strategy enthusiast or an NFT collector, this game combines the best of both worlds for an unforgettable experience that keeps you coming back for more adventures in the frozen north.",
+    "platform": ["windows"],
+    "description": "Build your own Jurassic World like never before. Nurture generations of awe-inspiring dinosaurs with the series debut of juveniles, create and manage sprawling prehistoric parks around the globe, and let your imagination roar with powerful new creative options.",
     "cartImage": {
       "id": 1,
-      "alt": "Klondike cart cover",
-      "src": "https://i.ibb.co/P84Yvzh/games1.jpg"
+      "alt": "anning cart cover",
+      "src": "https://i.ibb.co/1JqhK90D/anning-1tq5z.jpg"
     },
     "images": [
       {
         "id": 1,
-        "alt": "Klondike gameplay cover",
-        "src": "/images/games1.jpg"
+        "alt": "Anning gameplay cover",
+        "src": "https://i.ibb.co/wFHW1CHp/anning-1lo7c.jpg"
       },
-      { "id": 2, "alt": "Klondike gameplay cover", "src": "/images/games1.jpg" }
+      {
+        "id": 2,
+        "alt": "Anning gameplay cover",
+        "src": "https://i.ibb.co/PvCccLHY/anning-1enm5.jpg"
+      },
+      {
+        "id": 3,
+        "alt": "Anning gameplay cover",
+        "src": "http://i.ibb.co/60VVbg5t/anning-1ibgi.jpg"
+      },
+      {
+        "id": 4,
+        "alt": "Anning gameplay cover",
+        "src": "https://i.ibb.co/XrJmRHY1/anning-18enw.jpg"
+      }
     ],
     "sold": 9,
     "stock": 120,
@@ -866,6 +880,56 @@
     ],
     "isRecent": true,
     "isTrending": false,
+    "isDiscounted": true,
+    "discountPercent": 40
+  },
+  {
+    "id": 21,
+    "title": "Klondike: The Lost Expedition into the Alaskan Wilderness",
+    "subtitle": "Epic Heroic Tower Defense Adventure Integrated with Unique NFTs",
+    "originalPrice": 49.99,
+    "salePrice": 29.99,
+    "taxIncluded": true,
+    "genre": ["PvP", "Tower Defense", "RPG"],
+    "categories": ["Strategy", "PvP"],
+    "developer": "Sony Interactive Entertainment",
+    "languages": ["English[UK]", "French", "Dutch"],
+    "platform": ["PS5", "Xbox Series X", "Steam"],
+    "description": "Explore the untamed wilderness of Alaska in this heroic tower-defense adventure with NFT integration. Players will embark on a thrilling journey through snow-covered landscapes, building defenses against waves of enemies while collecting rare NFTs that enhance gameplay. Discover hidden treasures, forge alliances with other explorers, and unravel the mysteries of the lost expedition. With stunning graphics and immersive sound design, this game offers hours of strategic gameplay, challenging players to think tactically while managing resources in a harsh environment. Customize your towers with unique abilities unlocked through NFTs, participate in global PvP battles, and climb the leaderboards to become the ultimate Klondike legend. Whether you're a strategy enthusiast or an NFT collector, this game combines the best of both worlds for an unforgettable experience that keeps you coming back for more adventures in the frozen north.",
+    "cartImage": {
+      "id": 1,
+      "alt": "Klondike cart cover",
+      "src": "https://i.ibb.co/P84Yvzh/games1.jpg"
+    },
+    "images": [
+      {
+        "id": 1,
+        "alt": "Klondike gameplay cover",
+        "src": "/images/games1.jpg"
+      },
+      { "id": 2, "alt": "Klondike gameplay cover", "src": "/images/games1.jpg" }
+    ],
+    "sold": 9,
+    "stock": 120,
+    "timeLeft": { "hours": 36 },
+    "reviews": [
+      {
+        "user": "Alex Morgan",
+        "rating": 4.8,
+        "comment": "Amazing graphics and storyline!",
+        "date": "2025-10-20",
+        "userImage": "/images/users/alex-morgan.jpg"
+      },
+      {
+        "user": "Sami Rahman",
+        "rating": 4.5,
+        "comment": "Fun to play, but needs optimization.",
+        "date": "2025-10-18",
+        "userImage": "/images/users/sami-rahman.jpg"
+      }
+    ],
+    "isRecent": false,
+    "isTrending": true,
     "isDiscounted": true,
     "discountPercent": 40
   }

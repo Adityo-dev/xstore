@@ -13,7 +13,7 @@ function ColumCard({ data }) {
         {data?.cartImage && (
           <Link
             href={`/game/${data?.id}`}
-            className="block sm:h-[250px] overflow-hidden relative"
+            className="block sm:h-[280px] overflow-hidden relative"
           >
             <Image
               src={data.cartImage.src}
