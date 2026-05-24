@@ -1,12 +1,14 @@
-import Banner1 from "@/components/banners/Banner1";
-import Banner2 from "@/components/banners/Banner2";
-import Blog from "@/components/blog/Blog";
-import Bundle from "@/components/bundle/Bundle";
-import CurrentlyTrending from "@/components/currentlyTrending/CurrentlyTrending";
+import dynamic from "next/dynamic";
 import Hero from "@/components/hero/Hero";
-import Marquee from "@/components/Marquee";
 import RecentReleases from "@/components/recentReleases/RecentReleases";
-import TodayDiscounts from "@/components/todayDiscounts/TodayDiscounts";
+
+const Marquee = dynamic(() => import("@/components/Marquee"));
+const Bundle = dynamic(() => import("@/components/bundle/Bundle"));
+const Banner2 = dynamic(() => import("@/components/banners/Banner2"));
+const CurrentlyTrending = dynamic(() => import("@/components/currentlyTrending/CurrentlyTrending"));
+const Banner1 = dynamic(() => import("@/components/banners/Banner1"));
+const TodayDiscounts = dynamic(() => import("@/components/todayDiscounts/TodayDiscounts"));
+const Blog = dynamic(() => import("@/components/blog/Blog"));
 
 export default function Home() {
   return (
