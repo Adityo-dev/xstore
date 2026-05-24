@@ -11,7 +11,7 @@ export default function DynamicAsidePanel() {
 
   useEffect(() => {
     if (isOpen) closeAside();
-  }, [pathname]);
+  }, [pathname, isOpen, closeAside]);
 
   if (!isOpen) return null;
 
