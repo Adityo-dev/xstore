@@ -55,9 +55,8 @@ export default function MobileNavBar() {
             key={list.id}
             href={list.url}
             onClick={closeAside}
-            className={`font-semibold border-b border-[#ffffff15] pb-3 ${
-              pathName === list.url && "text-[#776BF8]"
-            } hover:text-[#776BF8] transition-all duration-300`}
+            className={`font-semibold border-b border-[#ffffff15] pb-3 ${pathName === list.url && "text-[#776BF8]"
+              } hover:text-[#776BF8] transition-all duration-300`}
           >
             {list.name}
           </Link>
@@ -66,9 +65,8 @@ export default function MobileNavBar() {
         {/* ----- ACCOUNT LINK ----- */}
         <Link
           href={"/account/login"}
-          className={`flex items-center gap-2 cursor-pointer ${
-            pathName === "/account/login" && "text-[#776BF8]"
-          }`}
+          className={`flex items-center gap-2 cursor-pointer ${pathName === "/account/login" && "text-[#776BF8]"
+            }`}
         >
           <FiUser className="text-xl" />
           <p className="font-semibold">Sign In</p>
