@@ -3,15 +3,15 @@ import Marquee from "react-fast-marquee";
 
 export default function GameMarquee() {
   const items = [
-    "Nintendo",
-    "PS5",
-    "Switch",
-    "Xbox-One",
-    "Nintendo",
-    "PS4",
+    "PlayStation 5",
     "Xbox Series X",
-    "Nintendo",
-    "Switch",
+    "Nintendo Switch",
+    "Gaming PC",
+    "Keyboards",
+    "Headsets",
+    "Monitors",
+    "PlayStation 5",
+    "Xbox Series X",
   ];
 
   return (
