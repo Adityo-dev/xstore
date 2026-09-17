@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React from "react";
+
 import { FaFacebookF, FaLinkedin } from "react-icons/fa";
 import { FaGithub, FaUser } from "react-icons/fa6";
 
@@ -16,7 +16,7 @@ const paymentLogos: PaymentLogo[] = [
   { id: 4, src: "/logos/nogads.png", alt: "Nogad" },
 ];
 
-export default function SocialIconAndPayment(): React.JSX.Element {
+export default function SocialIconAndPayment() {
   return (
     <div className="border-t border-[#FFFFFF24] mt-4 pt-6 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-0">
       <div className="flex justify-center space-x-5 text-xl text-white">

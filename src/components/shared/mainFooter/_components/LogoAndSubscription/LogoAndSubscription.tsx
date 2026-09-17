@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 
-export default function LogoAndSubscription(): React.JSX.Element {
+
+export default function LogoAndSubscription() {
   return (
     <>
       {/* logo */}

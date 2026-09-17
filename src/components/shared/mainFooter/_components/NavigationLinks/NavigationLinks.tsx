@@ -1,5 +1,4 @@
 import Link from "next/link";
-import React from "react";
 
 export interface NavLinkItem {
   id: number;
@@ -48,7 +47,7 @@ const navigationData: NavSection[] = [
   },
 ];
 
-export default function NavigationLinks(): React.JSX.Element {
+export default function NavigationLinks() {
   return (
     <div className="flex flex-col sm:flex-row justify-between gap-8 sm:gap-0">
       {navigationData.map((section) => (

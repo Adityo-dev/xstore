@@ -1,10 +1,10 @@
 import Container from "@/components/shared/Container";
-import LogoAndSubscription from "./_components/LogoAndSubscription";
-import NavigationLinks from "./_components/NavigationLinks";
-import SocialIconAndPayment from "./_components/SocialIconAndPayment";
-import React from "react";
+import LogoAndSubscription from "./_components/LogoAndSubscription/LogoAndSubscription";
+import NavigationLinks from "./_components/NavigationLinks/NavigationLinks";
+import SocialIconAndPayment from "./_components/SocialIconAndPayment/SocialIconAndPayment";
 
-export default function MainFooter(): React.JSX.Element {
+
+export default function MainFooter() {
   return (
     <footer className="bg-[#1E1F25] text-white py-4">
       <Container>
