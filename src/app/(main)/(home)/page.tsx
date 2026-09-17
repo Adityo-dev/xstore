@@ -1,13 +1,13 @@
-import Banner1 from "@/components/main/home/_components/Banners/Banner1";
-import Banner2 from "@/components/main/home/_components/Banners/Banner2";
-import Blog from "@/components/main/home/_components/Blog/Blog";
-import Bundle from "@/components/main/home/_components/Bundle/Bundle";
-import CurrentlyTrending from "@/components/main/home/_components/CurrentlyTrending/CurrentlyTrending";
-import Hero from "@/components/main/home/_components/Hero/Hero";
+import Banner1 from "./_components/Banners/Banner1";
+import Banner2 from "./_components/Banners/Banner2";
+import Blog from "./_components/Blog/Blog";
+import Bundle from "./_components/Bundle/Bundle";
+import CurrentlyTrending from "./_components/CurrentlyTrending/CurrentlyTrending";
+import Hero from "./_components/Hero/Hero";
 import Marquee from "@/components/shared/Marquee";
-import RecentReleases from "@/components/main/home/_components/RecentReleases/RecentReleases";
-import TodayDiscounts from "@/components/main/home/_components/TodayDiscounts/TodayDiscounts";
-import TrustBadges from "@/components/main/home/_components/TrustBadges/TrustBadges";
+import RecentReleases from "./_components/RecentReleases/RecentReleases";
+import TodayDiscounts from "./_components/TodayDiscounts/TodayDiscounts";
+import TrustBadges from "./_components/TrustBadges/TrustBadges";
 
 export default function Home() {
   return (
