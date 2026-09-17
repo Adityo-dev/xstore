@@ -1,0 +1,37 @@
+import Container from "@/components/shared/Container";
+import Image from "next/image";
+import Link from "next/link";
+
+import MobileNavList from "./MobileAsideNav";
+import NavBarList from "./NavBarList";
+import NavBarRightSection from "./NavBarRightSection";
+import Search from "./Search";
+
+function MainNavigationBar() {
+  return (
+    <Container className="fixed left-0 right-0 z-50">
+      <div className="bg-[#23262F] py-[20px] px-[12px] md:px-[30px] rounded-[12px] mt-3 sm:mt-6 flex items-center justify-between">
+        <MobileNavList />
+        <div className="flex items-center lg:gap-[30px]">
+          <Link href={"/"} className="shrink-0">
+            <Image
+              src={"/logos/Logo.png"}
+              width={200}
+              height={200}
+              alt="Logo"
+              className="w-[150px] max-h-[30px] object-contain"
+            />
+          </Link>
+
+          <NavBarList />
+          <div className="hidden xl:block">
+            <Search />
+          </div>
+        </div>
+        <NavBarRightSection />
+      </div>
+    </Container>
+  );
+}
+
+export default MainNavigationBar;
