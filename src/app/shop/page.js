@@ -19,7 +19,7 @@ export default function Shop() {
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [priceRange, setPriceRange] = useState({
     min: 0,
-    max: query.max_price ? parseInt(query.max_price) : 314,
+    max: query.max_price ? parseInt(query.max_price) : 1500,
   });
   const [ratingFilter, setRatingFilter] = useState(
     query.rating_filter ? query.rating_filter.split(",").map(Number) : []
@@ -191,7 +191,7 @@ export default function Shop() {
           <input
             type="range"
             min="0"
-            max="314"
+            max="1500"
             value={priceRange.max}
             onChange={(e) => {
               const max = parseInt(e.target.value);

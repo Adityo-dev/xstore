@@ -20,7 +20,7 @@ function AsideViewDetails({ data, onAddToCart }) {
 
   return (
     <div className="flex flex-col gap-5 py-4">
-      <div className="relative w-full h-[350px] rounded-md overflow-hidden">
+      <div className="relative w-full aspect-[16/9] rounded-md overflow-hidden bg-[#18191c]">
         <Image
           src={data.cartImage.src}
           alt={data.cartImage.alt}

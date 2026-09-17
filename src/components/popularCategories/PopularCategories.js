@@ -1,11 +1,11 @@
 import {
-  FaChartLine,
+  FaDesktop,
   FaFire,
   FaGamepad,
-  FaGift,
-  FaRandom,
+  FaHeadphones,
+  FaKeyboard,
+  FaMicrophone,
   FaTag,
-  FaTicketAlt,
 } from "react-icons/fa";
 import DotsSlider from "../DotsSlider";
 import CategoriesCard from "../cards/CategoriesCard";
@@ -13,45 +13,45 @@ import CategoriesCard from "../cards/CategoriesCard";
 const menuItems = [
   {
     id: 1,
-    icon: <FaFire />,
-    name: "Bestsellers",
-    url: "/bestsellers",
+    icon: <FaGamepad />,
+    name: "Consoles",
+    url: "/shop?category=Consoles",
   },
   {
     id: 2,
-    icon: <FaTag />,
-    name: "Deal of the Day",
-    url: "/deal-of-the-day",
+    icon: <FaKeyboard />,
+    name: "Keyboards",
+    url: "/shop?category=Keyboards",
   },
   {
     id: 3,
-    icon: <FaChartLine />,
-    name: "Trending Games",
-    url: "/trending-games",
+    icon: <FaMicrophone />,
+    name: "Streaming Setup",
+    url: "/shop?category=Streaming+Gear",
   },
   {
     id: 4,
-    icon: <FaRandom />,
-    name: "Random Keys",
-    url: "/random-keys",
+    icon: <FaHeadphones />,
+    name: "Headsets",
+    url: "/shop?category=Headsets",
   },
   {
     id: 5,
-    icon: <FaGamepad />,
-    name: "Game Accounts",
-    url: "/game-accounts",
+    icon: <FaDesktop />,
+    name: "Monitors & Gear",
+    url: "/shop?category=Monitors",
   },
   {
     id: 6,
-    icon: <FaTicketAlt />,
-    name: "Coupon Deal",
-    url: "/coupon-deal",
+    icon: <FaFire />,
+    name: "Bestsellers",
+    url: "/shop?sort_by=popularity",
   },
   {
     id: 7,
-    icon: <FaGift />,
-    name: "Redeem Code",
-    url: "/redeem-code",
+    icon: <FaTag />,
+    name: "Hot Deals",
+    url: "/shop?availability=on_sale",
   },
 ];
 

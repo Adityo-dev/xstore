@@ -3,7 +3,7 @@ import SinglePage from "@/components/singlePage/SinglePage";
 import { getProducts } from "@/lib/products";
 
 export default async function Page({ params }) {
-  const { slug } = params;
+  const { slug } = await params;
   const products = await getProducts();
 
   const data = products.find((item) => item.id === Number(slug));

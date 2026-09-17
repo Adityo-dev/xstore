@@ -5,7 +5,8 @@ export async function getProducts() {
   try {
     const filePath = join(process.cwd(), "public", "data", "products.json");
     const fileData = await readFile(filePath, "utf-8");
-    return JSON.parse(fileData);
+    const parsed = JSON.parse(fileData);
+    return Array.isArray(parsed) ? parsed : (parsed.data || []);
   } catch (err) {
     console.error(err);
     return [];
@@ -15,5 +16,6 @@ export async function getProducts() {
 export async function getFilteredProducts(filterType) {
   const products = await getProducts();
   if (!filterType) return products;
-  return products.filter((p) => p[filterType]);
+  const filtered = products.filter((p) => p[filterType]);
+  return filtered.length > 0 ? filtered : products;
 }

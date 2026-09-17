@@ -60,6 +60,11 @@ export default function SinglePage({ data }) {
   const handleIncrease = () => setQuantity((q) => q + 1);
   const handleDecrease = () => setQuantity((q) => Math.max(1, q - 1));
 
+  const originalPrice = data?.originalPrice || data?.regularPrice || (data?.salePrice ? data.salePrice + 20 : null);
+  const productImages = Array.isArray(data?.images) && data.images.length > 0
+    ? data.images.map((img, idx) => typeof img === "string" ? { id: idx, src: img, alt: data?.title } : img)
+    : data?.image ? [{ id: 1, src: data.image, alt: data?.title }] : [];
+
   return (
     <Container className="flex flex-col-reverse lg:flex-row gap-10 items-start">
       {/* LEFT CONTENT */}
@@ -67,26 +72,30 @@ export default function SinglePage({ data }) {
         <h1 className="text-[26px] md:text-[38px] font-semibold leading-tight">
           {data?.title}
         </h1>
-        <p className="text-[#888] font-semibold text-lg mt-3">
-          {data?.subtitle}
-        </p>
+        {data?.subtitle && (
+          <p className="text-[#888] font-semibold text-lg mt-3">
+            {data?.subtitle}
+          </p>
+        )}
 
         <div className="flex items-center gap-2 my-3 text-[30px]">
-          <span className="line-through text-gray-400">
-            ${data?.originalPrice}
-          </span>
+          {originalPrice && originalPrice > data?.salePrice && (
+            <span className="line-through text-gray-400">
+              ${originalPrice}
+            </span>
+          )}
           <span className="font-semibold text-[#37a937]">
             ${data?.salePrice}
           </span>
         </div>
         <p className="text-gray-400 text-sm mb-6">
-          {data?.taxIncluded ? "Tax included." : "Not tax included."}
+          Tax included. Free Express Shipping available.
         </p>
 
         {/* Timer */}
         <div className="my-3">
           <p className="text-red-400 font-semibold flex items-center mb-3">
-            🚨 Hurry up
+            🚨 Limited Time Offer
           </p>
           <div className="flex gap-3 text-center">
             {["DAYS", "HOURS", "MINS", "SECS"].map((label, idx) => (
@@ -101,17 +110,17 @@ export default function SinglePage({ data }) {
         </div>
 
         {/* Sold / Stock Progress */}
-        {data?.sold != null && data?.stock != null && (
+        {data?.sold != null && (
           <div className="my-4">
             <div className="flex justify-between text-sm text-gray-400 py-2">
-              <span>Sold:</span>
-              <span>{data?.sold}</span>
+              <span>Units Sold:</span>
+              <span className="font-semibold text-white">{data?.sold}</span>
             </div>
             <div className="h-2 bg-gray-700 rounded-full overflow-hidden">
               <div
                 className="h-full bg-green-600"
                 style={{
-                  width: `${Math.min(100, (data.sold / data.stock) * 100)}%`,
+                  width: `${Math.min(100, (data.sold / (data.stock || 100)) * 100)}%`,
                 }}
               ></div>
             </div>
@@ -158,10 +167,10 @@ export default function SinglePage({ data }) {
 
         {/* Info Section */}
         <div className="grid md:grid-cols-2 gap-6">
-          <Info label="Genre" values={data?.genre} />
-          <Info label="Developer" values={[data?.developer]} />
-          <Info label="Languages" values={data?.languages} />
-          <Info label="Platform" values={data?.platform} />
+          <Info label="Categories" values={data?.categories || data?.genre} />
+          <Info label="Compatibility" values={data?.platform} />
+          {data?.badge && <Info label="Badge" values={[data?.badge]} />}
+          <Info label="Stock Status" values={[isOutOfStock ? "Out of Stock" : "In Stock"]} />
         </div>
 
         {/* Social Share */}
@@ -182,15 +191,20 @@ export default function SinglePage({ data }) {
 
       {/* RIGHT CONTENT (Images) */}
       <div className="w-full lg:w-1/2 space-y-4">
-        {data?.images.map((image) => (
-          <Image
-            key={image?.id}
-            src={image?.src}
-            width={500}
-            height={500}
-            alt={image.alt || "product image"}
-            className="w-full h-fit"
-          />
+        {productImages.map((image) => (
+          <div
+            key={image?.id || image?.src}
+            className="w-full aspect-[4/3] relative rounded-lg overflow-hidden bg-[#18191c]"
+          >
+            <Image
+              src={image?.src}
+              fill
+              alt={image?.alt || "product image"}
+              className="object-cover w-full h-full hover:scale-105 transition duration-500"
+              priority
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
+          </div>
         ))}
       </div>
     </Container>

@@ -5,24 +5,28 @@ import GetStarRating from "../ui/GetStarRating";
 
 function ColumCard({ data }) {
   const isOutOfStock = data?.stock === 0;
+  const imgSrc = typeof data?.image === "string"
+    ? data.image
+    : (data?.cartImage?.src || data?.images?.[0] || "");
+  const originalPrice = data?.originalPrice || data?.regularPrice || (data?.salePrice ? data.salePrice + 20 : null);
+  const tag = data?.tag || data?.badge;
 
   return (
     <div className="group relative bg-[#23262F] rounded-lg overflow-hidden w-full sm:max-w-[300px] h-full flex flex-col">
       {/* Image section */}
       <div className="relative">
-        {data?.cartImage && (
+        {imgSrc && (
           <Link
             href={`/game/${data?.id}`}
-            className="block sm:h-[280px] overflow-hidden relative"
+            className="block w-full aspect-[4/3] relative overflow-hidden bg-[#18191c]"
           >
             <Image
-              src={data.cartImage.src}
-              width={400}
-              height={400}
-              alt={data.cartImage.alt || "Game Image"}
-              className={`w-full h-full object-cover transition duration-300 ${
-                isOutOfStock ? "opacity-50 grayscale" : "hover:scale-110"
-              }`}
+              src={imgSrc}
+              fill
+              alt={data?.title || "Product Image"}
+              className={`object-cover transition duration-300 ${isOutOfStock ? "opacity-50 grayscale" : "group-hover:scale-105"
+                }`}
+              sizes="(max-width: 640px) 100vw, 300px"
             />
           </Link>
         )}
@@ -61,9 +65,11 @@ function ColumCard({ data }) {
         </div>
 
         <div className="flex items-center gap-2 mt-4 text-[15px]">
-          <span className="line-through text-gray-400">
-            ${data?.originalPrice}
-          </span>
+          {originalPrice && originalPrice > data?.salePrice && (
+            <span className="line-through text-gray-400">
+              ${originalPrice}
+            </span>
+          )}
           <span className="font-semibold text-[#37a937]">
             ${data?.salePrice}
           </span>
@@ -71,9 +77,9 @@ function ColumCard({ data }) {
       </div>
 
       {/* Tag badge */}
-      {data?.tag && (
+      {tag && (
         <span className="absolute left-3 top-0 mt-2 px-2 py-1 text-[.70rem] font-semibold bg-[#37a937] text-white rounded">
-          {data?.tag}
+          {tag}
         </span>
       )}
     </div>
