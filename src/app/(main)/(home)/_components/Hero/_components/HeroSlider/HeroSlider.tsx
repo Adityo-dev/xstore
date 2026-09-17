@@ -1,55 +1,69 @@
 "use client";
-import DotsSlider from "@/components/shared/DotsSlider";
-import HeroBanner from "../HeroBanner/HeroBanner";
+import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
+import "swiper/css";
+import "swiper/css/navigation";
+import { Autoplay, Navigation } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import HeroBanner, { HeroSlide } from "../HeroBanner/HeroBanner";
 
-interface SliderDataItem {
-  id: number;
-  bannerImage: string;
-  subTitle: string;
-  title: string;
-  btn: string;
-  btnUrl: string;
-}
+export default function HeroSlider() {
+  const slides: HeroSlide[] = [
+    {
+      id: 1,
+      image: "/images/heroCard3.jpg",
+      bgCover: "/images/hero-bg-slider3.jpeg",
+      title: "RISE OF THE",
+      subtitle: "ODYSSEY",
+      available: "Available Now",
+    },
+    {
+      id: 2,
+      image: "/images/heroCard2.jpg",
+      bgCover: "/images/hero-bg-slider2.jpeg",
+      title: "RISE OF THE",
+      subtitle: "XBOX",
+      available: "Available Now",
+    },
+    {
+      id: 3,
+      image: "/images/heroCard1.jpg",
+      bgCover: "/images/hero-bg-slider1.jpeg",
+      title: "RISE OF THE",
+      subtitle: "TITĀN",
+      available: "Available Now",
+    },
+  ];
 
-const sliderData: SliderDataItem[] = [
-  {
-    id: 1,
-    bannerImage: "/images/games5.jpg",
-    subTitle: "Exclusive Release",
-    title: "Call of Duty: Black Ops Cold War",
-    btn: "Pre-Order Now",
-    btnUrl: "/shop/call-of-duty-black-ops",
-  },
-  {
-    id: 2,
-    bannerImage: "/images/games6.jpg",
-    subTitle: "Trending Action",
-    title: "Ghost Recon Breakpoint Tactical Shooter",
-    btn: "Explore Game",
-    btnUrl: "/shop/ghost-recon-breakpoint",
-  },
-  {
-    id: 3,
-    bannerImage: "/images/games7.jpg",
-    subTitle: "Next-Gen Racing",
-    title: "Gran Turismo 7 Ultimate Racing Experience",
-    btn: "Buy Now",
-    btnUrl: "/shop/gran-turismo-7",
-  },
-];
-
-function HeroSlider() {
   return (
-    <DotsSlider
-      data={sliderData}
-      CardComponent={HeroBanner}
-      uniqueId="hero-slider"
-      slidesPerView={1}
-      spaceBetween={20}
-      loop={true}
-      autoplay={{ delay: 4000, disableOnInteraction: false }}
-    />
+    <div className="relative w-full rounded-xl overflow-hidden group">
+      <Swiper
+        modules={[Navigation, Autoplay]}
+        navigation={{
+          nextEl: ".custom-next",
+          prevEl: ".custom-prev",
+        }}
+        autoplay={{ delay: 6000 }}
+        loop
+      >
+        {slides.map((slide) => (
+          <SwiperSlide key={slide?.id}>
+            <HeroBanner slide={slide} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+
+      {/* Navigation Arrows */}
+      <button
+        className="custom-prev absolute left-0 group-hover:left-2 sm:group-hover:left-4 top-1/2 -translate-y-1/2 z-30 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 flex items-center justify-center bg-[#FFFFFF38] hover:bg-[#ffffff60] text-white rounded-lg transition-all duration-300 opacity-0 group-hover:opacity-100 cursor-pointer"
+      >
+        <SlArrowLeft />
+      </button>
+
+      <button
+        className="custom-next absolute right-0 group-hover:right-2 sm:group-hover:right-4 top-1/2 -translate-y-1/2 z-30 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 flex items-center justify-center bg-[#FFFFFF38] hover:bg-[#ffffff60] text-white rounded-lg transition-all duration-300 opacity-0 group-hover:opacity-100 cursor-pointer"
+      >
+        <SlArrowRight />
+      </button>
+    </div>
   );
 }
-
-export default HeroSlider;

@@ -1,57 +1,67 @@
 import Image from "next/image";
 import CustomButton from "@/components/ui/buttons/CustomButton";
 
-interface HeroBannerProps {
-  bannerImage?: string;
-  subTitle?: string;
+export interface HeroSlide {
+  id?: number | string;
+  image?: string;
+  bgCover?: string;
   title?: string;
-  btn?: string;
-  btnUrl?: string;
-  data?: {
-    bannerImage?: string;
-    subTitle?: string;
-    title?: string;
-    btn?: string;
-    btnUrl?: string;
-  };
+  subtitle?: string;
+  available?: string;
 }
 
-function HeroBanner(props: HeroBannerProps) {
-  const bannerImage = props.bannerImage || props.data?.bannerImage || "";
-  const subTitle = props.subTitle || props.data?.subTitle || "";
-  const title = props.title || props.data?.title || "";
-  const btn = props.btn || props.data?.btn || "";
-  const btnUrl = props.btnUrl || props.data?.btnUrl || "#";
+interface HeroBannerProps {
+  slide?: HeroSlide;
+}
 
+function HeroBanner({ slide }: HeroBannerProps) {
   return (
-    <div className="relative w-full overflow-hidden rounded-lg min-h-[350px] sm:min-h-[420px] md:min-h-[480px] lg:min-h-[500px]">
-      {/* Background Image */}
-      {bannerImage && (
+    <div className="relative flex flex-col md:flex-row items-center justify-center md:justify-between gap-12 w-full h-[480px] md:h-[400px] lg:h-[500px] px-4 sm:px-6 md:px-10 lg:px-20 overflow-hidden">
+      {/* BG Image  */}
+      {slide?.bgCover && (
         <Image
-          src={bannerImage}
-          alt={title || "Banner"}
-          width={1600}
-          height={800}
+          src={slide.bgCover}
+          alt="Slide Background"
+          fill
           priority
-          className="w-full h-full object-cover rounded-lg absolute inset-0"
+          className="object-cover object-center"
         />
       )}
 
-      {/* Overlay Content */}
-      <div className="relative z-10 flex flex-col justify-center items-start h-full p-6 sm:p-10 md:p-12 lg:p-16 max-w-xl">
-        {subTitle && (
-          <p className="text-[#37A937] text-xs sm:text-sm md:text-base font-semibold uppercase tracking-wider mb-2 drop-shadow">
-            {subTitle}
-          </p>
-        )}
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-black/50 z-[1]" />
 
-        {title && (
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-bold text-white leading-snug drop-shadow-md mb-6 font-marcellus">
-            {title}
-          </h1>
+      {/* Left Side: Image */}
+      <div className="relative z-[2] w-[160px] sm:w-[220px] md:w-[260px] lg:w-[300px] flex justify-center mb-6 md:mb-0">
+        {slide?.image && (
+          <Image
+            src={slide.image}
+            width={600}
+            height={600}
+            alt={slide?.title || "Hero Slide"}
+            priority
+            className="rounded-lg shadow-xl border border-white/30 object-cover"
+          />
         )}
+      </div>
 
-        {btn && <CustomButton href={btnUrl}>{btn}</CustomButton>}
+      {/* Right Side: Text */}
+      <div className="relative z-[2] text-white text-center md:text-left flex flex-col items-center md:items-start gap-1 sm:gap-2">
+        <h2 className="text-[14px] sm:text-[18px] md:text-[22px] uppercase tracking-widest font-light">
+          {slide?.title}
+        </h2>
+        <p className="text-[36px] sm:text-[50px] md:text-[70px] lg:text-[90px] font-marcellus uppercase leading-tight">
+          {slide?.subtitle}
+        </p>
+        <p className="text-sm sm:text-lg md:text-xl text-gray-200 mb-3 sm:mb-4">
+          {slide?.available}
+        </p>
+        <CustomButton
+          href="/shop"
+          className="px-5 py-2 sm:px-7 sm:py-3 text-xs sm:text-sm md:text-base font-semibold transition-all"
+        >
+          Purchase Now
+        </CustomButton>
       </div>
     </div>
   );
