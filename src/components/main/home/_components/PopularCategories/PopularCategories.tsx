@@ -10,7 +10,14 @@ import {
 import DotsSlider from "@/components/shared/DotsSlider";
 import CategoriesCard from "@/components/ui/cards/CategoriesCard";
 
-const menuItems = [
+interface CategoryMenuItem {
+  id: number;
+  icon: React.ReactNode;
+  name: string;
+  url: string;
+}
+
+const menuItems: CategoryMenuItem[] = [
   {
     id: 1,
     icon: <FaGamepad />,

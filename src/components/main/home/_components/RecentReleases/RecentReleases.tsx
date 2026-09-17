@@ -17,7 +17,7 @@ export default async function RecentReleases() {
       />
 
       <Container className="grid lg:grid-cols-2 2xl:grid-cols-3 gap-4 md:gap-6">
-        {products.slice(0, 6).map((game) => (
+        {products.slice(0, 6).map((game: any) => (
           <RowCard key={game?.id} game={game} />
         ))}
       </Container>

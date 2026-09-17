@@ -5,8 +5,25 @@ import Container from "@/components/shared/Container";
 import SectionHeader from "@/components/shared/SectionHeader";
 import GetStarRating from "@/components/ui/GetStarRating";
 
-// Example bundle data
-const bundleData = [
+interface BundleReview {
+  user: string;
+  rating: number;
+  comment: string;
+  date: string;
+  userImage: string;
+}
+
+interface BundleItem {
+  id: number;
+  image: string;
+  title: string;
+  originalPrice: number;
+  salePrice: number;
+  tag: string;
+  reviews: BundleReview[];
+}
+
+const bundleData: BundleItem[] = [
   {
     id: 1,
     image: "https://i.ibb.co/SwZtxwKm/games6.jpg",

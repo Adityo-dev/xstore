@@ -1,7 +1,21 @@
 import Image from "next/image";
 import CustomButton from "@/components/ui/buttons/CustomButton";
+import React from "react";
 
-function HeroBanner({ slide }) {
+export interface HeroSlide {
+  id: number;
+  image: string;
+  bgCover: string;
+  title: string;
+  subtitle: string;
+  available: string;
+}
+
+export interface HeroBannerProps {
+  slide: HeroSlide;
+}
+
+export default function HeroBanner({ slide }: HeroBannerProps): React.JSX.Element {
   return (
     <div className="relative flex flex-col md:flex-row items-center justify-center md:justify-between gap-12 w-full h-[480px] md:h-[400px] lg:h-[500px] px-4 sm:px-6 md:px-10 lg:px-20 overflow-hidden">
       {/* BG Image  */}
@@ -22,7 +36,7 @@ function HeroBanner({ slide }) {
           src={slide?.image}
           width={600}
           height={600}
-          alt={slide?.title}
+          alt={slide?.title || "Slide Image"}
           priority
           className="rounded-lg shadow-xl border border-white/30 object-cover"
         />
@@ -49,5 +63,3 @@ function HeroBanner({ slide }) {
     </div>
   );
 }
-
-export default HeroBanner;

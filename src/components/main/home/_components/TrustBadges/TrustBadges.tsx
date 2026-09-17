@@ -1,7 +1,14 @@
 import { FiTruck, FiShield, FiHeadphones, FiCreditCard } from "react-icons/fi";
 import Container from "@/components/shared/Container";
 
-const badges = [
+interface TrustBadgeItem {
+  id: number;
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+}
+
+const badges: TrustBadgeItem[] = [
   {
     id: 1,
     icon: <FiTruck className="text-3xl text-white group-hover:text-[#776BF8] transition-colors duration-300" />,

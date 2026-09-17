@@ -4,7 +4,15 @@ import Container from "@/components/shared/Container";
 import DotsSlider from "@/components/shared/DotsSlider";
 import SectionHeader from "@/components/shared/SectionHeader";
 
-const blogs = [
+interface BlogItem {
+  id: number;
+  image: string;
+  title: string;
+  tag: string;
+  url: string;
+}
+
+const blogs: BlogItem[] = [
   {
     id: 1,
     image: "/images/blog1.jpeg",

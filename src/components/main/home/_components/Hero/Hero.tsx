@@ -1,6 +1,6 @@
 "use client";
 import Container from "@/components/shared/Container";
-import PopularCategories from "@/components/main/popularCategories/PopularCategories";
+import PopularCategories from "../PopularCategories/PopularCategories";
 import HeroSlider from "./HeroSlider";
 
 export default function Hero() {

@@ -1,16 +1,20 @@
-// components/TrendingProducts.jsx
 "use client";
+
 import ColumCard from "@/components/ui/cards/ColumCard";
 import DotsSlider from "@/components/shared/DotsSlider";
 
-function TrendingProducts({ products }) {
+interface DiscountedProductsProps {
+  products: any[];
+}
+
+function DiscountedProducts({ products }: DiscountedProductsProps) {
   return (
     <DotsSlider
       data={products}
       CardComponent={ColumCard}
-      uniqueId="currently-trending"
+      uniqueId="todays-discounts"
       slidesPerView={1}
-      spaceBetween={16}
+      spaceBetween={20}
       loop={true}
       breakpoints={{
         320: { slidesPerView: 2 },
@@ -21,4 +25,4 @@ function TrendingProducts({ products }) {
   );
 }
 
-export default TrendingProducts;
+export default DiscountedProducts;
