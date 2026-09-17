@@ -1,8 +1,8 @@
 import { getFilteredProducts } from "@/lib/products";
 import Container from "@/components/shared/Container";
 import SectionHeader from "@/components/shared/SectionHeader";
-import DiscountedProducts from "./DiscountedProducts";
-import DiscountsBanner from "./DiscountsBanner";
+import DiscountedProducts from "./_components/DiscountedProducts/DiscountedProducts";
+import DiscountsBanner from "./_components/DiscountsBanner/DiscountsBanner";
 
 async function TodayDiscounts() {
   const products = await getFilteredProducts("isDiscounted");

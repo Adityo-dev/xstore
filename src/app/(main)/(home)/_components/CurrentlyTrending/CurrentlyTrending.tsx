@@ -1,8 +1,8 @@
 import { getFilteredProducts } from "@/lib/products";
 import Container from "@/components/shared/Container";
 import SectionHeader from "@/components/shared/SectionHeader";
-import TrendingBanner from "./TrendingBanner";
-import TrendingProducts from "./TrendingProducts";
+import TrendingBanner from "./_components/TrendingBanner/TrendingBanner";
+import TrendingProducts from "./_components/TrendingProducts/TrendingProducts";
 
 async function CurrentlyTrending() {
   const products = await getFilteredProducts("isTrending");

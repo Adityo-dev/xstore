@@ -1,5 +1,5 @@
-import Banner1 from "./_components/Banners/Banner1";
-import Banner2 from "./_components/Banners/Banner2";
+import Banner1 from "./_components/Banners/Banner1/Banner1";
+import Banner2 from "./_components/Banners/Banner2/Banner2";
 import Blog from "./_components/Blog/Blog";
 import Bundle from "./_components/Bundle/Bundle";
 import CurrentlyTrending from "./_components/CurrentlyTrending/CurrentlyTrending";
