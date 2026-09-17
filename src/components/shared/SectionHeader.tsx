@@ -1,7 +1,20 @@
 import Container from "./Container";
 import CustomButton from "@/components/ui/buttons/CustomButton";
+import { ReactNode } from "react";
 
-function SectionHeader({ title, btn, btnUrl = "#", justify = "between" }) {
+interface SectionHeaderProps {
+  title?: ReactNode;
+  btn?: ReactNode;
+  btnUrl?: string;
+  justify?: string;
+}
+
+function SectionHeader({
+  title,
+  btn,
+  btnUrl = "#",
+  justify = "between",
+}: SectionHeaderProps) {
   return (
     <Container
       className={`flex flex-wrap gap-4 items-center justify-${justify} mb-9`}
