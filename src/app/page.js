@@ -7,18 +7,20 @@ import Hero from "@/components/hero/Hero";
 import Marquee from "@/components/Marquee";
 import RecentReleases from "@/components/recentReleases/RecentReleases";
 import TodayDiscounts from "@/components/todayDiscounts/TodayDiscounts";
+import TrustBadges from "@/components/trustBadges/TrustBadges";
 
 export default function Home() {
   return (
     <section className="space-y-10 md:space-y-12 lg:space-y-20 mb-16 md:mb-24">
       <Hero />
+      <TrustBadges />
       <RecentReleases />
-      <Marquee />
-      <Bundle />
-      <Banner2 />
-      <CurrentlyTrending />
       <Banner1 />
+      <CurrentlyTrending />
+      <Bundle />
+      <Marquee />
       <TodayDiscounts />
+      <Banner2 />
       <Blog />
     </section>
   );
