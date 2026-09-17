@@ -1,8 +1,13 @@
+import React from "react";
 import { RxCross1 } from "react-icons/rx";
-import SearchBar from "./SearchBar";
-import TrendingSearches from "./TrendingSearches";
+import SearchBar from "../SearchBar/SearchBar";
+import TrendingSearches from "../TrendingSearches/TrendingSearches";
 
-function SearchPanel({ onClose }) {
+export interface SearchPanelProps {
+  onClose: (value: boolean) => void;
+}
+
+export default function SearchPanel({ onClose }: SearchPanelProps): React.JSX.Element {
   return (
     <div className="fixed top-0 left-0 w-full h-[85vh] bg-[#222222] z-50 animate-slideDown flex flex-col p-[20px] text-white">
       {/* Close Button */}
@@ -27,5 +32,3 @@ function SearchPanel({ onClose }) {
     </div>
   );
 }
-
-export default SearchPanel;

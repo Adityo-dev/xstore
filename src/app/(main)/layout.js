@@ -1,4 +1,4 @@
-import MainNavigationBar from "@/components/shared/navigationBar/MainNavigationBar";
+import MainNavigationBar from "@/components/shared/mainNavigationBar/MainNavigationBar";
 import MainFooter from "@/components/shared/mainFooter/MainFooter";
 import DynamicAsidePanel from "@/components/shared/DynamicAsidePanel";
 import ScrollToTopButton from "@/components/shared/ScrollToTopButton";

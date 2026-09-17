@@ -1,9 +1,10 @@
 import Link from "next/link";
+import React from "react";
 import { FaOpencart } from "react-icons/fa6";
 import { FiUser } from "react-icons/fi";
-import TotalItems from "./TotalItems";
+import TotalItems from "./_components/TotalItems/TotalItems";
 
-function NavBarRightSection() {
+export default function NavBarRightSection(): React.JSX.Element {
   return (
     <div className="relative flex items-center gap-[30px] pr-[20px]">
       <div className="cursor-pointer hidden xl:block">
@@ -13,19 +14,17 @@ function NavBarRightSection() {
         <p className="text-[17px] font-semibold">+8801770365981</p>
       </div>
       <Link
-        href={"/login"}
+        href="/login"
         className="hidden xl:flex items-center gap-2 cursor-pointer border-s border-[#FFFFFF24] pl-[20px]"
       >
         <FiUser className="text-2xl" />
         <p className="text-[17px] font-semibold">Sign In</p>
       </Link>
 
-      <Link href={"/cart"} className="relative">
+      <Link href="/cart" className="relative">
         <FaOpencart className="text-2xl cursor-pointer" />
         <TotalItems />
       </Link>
     </div>
   );
 }
-
-export default NavBarRightSection;

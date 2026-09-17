@@ -1,12 +1,13 @@
+import React from "react";
 import { FaChevronDown } from "react-icons/fa6";
 import { IoSearchOutline } from "react-icons/io5";
 
-function SearchBar() {
+export default function SearchBar(): React.JSX.Element {
   return (
     <div className="flex items-center bg-[#292D38] rounded-sm overflow-hidden">
       {/* Custom Dropdown */}
       <div className="relative inline-block">
-        <select className="appearance-none text-sm bg-[#292D38] px-6 py-3 pr-10  border-r border-[#222222] outline-0 cursor-pointer">
+        <select className="appearance-none text-sm bg-[#292D38] px-6 py-3 pr-10 border-r border-[#222222] outline-0 cursor-pointer text-white">
           <option value="all-categories">All categories</option>
           <option value="saab">Saab</option>
           <option value="mercedes">Mercedes </option>
@@ -14,7 +15,7 @@ function SearchBar() {
         </select>
 
         {/* Custom Arrow */}
-        <span className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
+        <span className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-white">
           <FaChevronDown />
         </span>
       </div>
@@ -27,12 +28,10 @@ function SearchBar() {
       />
 
       {/* Search Button */}
-      <button className="bg-[#776BF8] px-6 py-3 text-sm flex items-center gap-1 cursor-pointer">
+      <button className="bg-[#776BF8] px-6 py-3 text-sm flex items-center gap-1 cursor-pointer text-white">
         <IoSearchOutline className="text-lg" />
         Search
       </button>
     </div>
   );
 }
-
-export default SearchBar;

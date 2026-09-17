@@ -1,8 +1,16 @@
 "use client";
+
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import React from "react";
 
-const navList = [
+export interface HeaderNavItem {
+  id: number;
+  name: string;
+  url: string;
+}
+
+const navList: HeaderNavItem[] = [
   { id: 1, name: "Home", url: "/" },
   { id: 2, name: "About us", url: "/about-us" },
   { id: 3, name: "Shop", url: "/shop" },
@@ -11,7 +19,7 @@ const navList = [
   { id: 6, name: "Dashboard", url: "/dashboard" },
 ];
 
-function NavBarList() {
+export default function NavBarList(): React.JSX.Element {
   const pathname = usePathname();
 
   return (
@@ -21,16 +29,16 @@ function NavBarList() {
           const isActive = pathname === list.url;
 
           return (
-            <li key={list?.id}>
+            <li key={list.id}>
               <Link
-                href={list?.url}
+                href={list.url}
                 className={`text-[17px] font-semibold text-nowrap ${
                   isActive
                     ? "text-[#776BF8] border-b-2 border-[#776BF8] pb-1"
                     : "text-white"
                 } hover:text-[#776BF8] transition`}
               >
-                {list?.name}
+                {list.name}
               </Link>
             </li>
           );
@@ -39,5 +47,3 @@ function NavBarList() {
     </nav>
   );
 }
-
-export default NavBarList;

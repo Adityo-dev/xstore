@@ -1,22 +1,30 @@
 "use client";
+
 import { useAside } from "@/context/AsideContext";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import React from "react";
 import { FaSearch } from "react-icons/fa";
 import { FiUser } from "react-icons/fi";
 
-export default function MobileNavBar() {
+export interface NavItem {
+  id: number;
+  name: string;
+  url: string;
+}
+
+const navList: NavItem[] = [
+  { id: 1, name: "Home", url: "/" },
+  { id: 2, name: "About us", url: "/about-us" },
+  { id: 3, name: "Shop", url: "/shop" },
+  { id: 4, name: "FAQs", url: "/faqs" },
+  { id: 5, name: "Contacts", url: "/contacts" },
+];
+
+export default function MobileNavBar(): React.JSX.Element {
   const { closeAside } = useAside();
   const pathName = usePathname();
-
-  const navList = [
-    { id: 1, name: "Home", url: "/" },
-    { id: 2, name: "About us", url: "/about-us" },
-    { id: 3, name: "Shop", url: "/shop" },
-    { id: 4, name: "FAQs", url: "/faqs" },
-    { id: 5, name: "Contacts", url: "/contacts" },
-  ];
 
   return (
     <div className="flex flex-col items-start w-full">
@@ -24,7 +32,7 @@ export default function MobileNavBar() {
       <div className="w-full flex justify-center py-4 border-b border-gray-800">
         <Link href="/" onClick={closeAside}>
           <Image
-            src={"/logos/Logo.png"}
+            src="/logos/Logo.png"
             width={200}
             height={200}
             alt="Logo"
@@ -56,7 +64,7 @@ export default function MobileNavBar() {
             href={list.url}
             onClick={closeAside}
             className={`font-semibold border-b border-[#ffffff15] pb-3 ${
-              pathName === list.url && "text-[#776BF8]"
+              pathName === list.url ? "text-[#776BF8]" : ""
             } hover:text-[#776BF8] transition-all duration-300`}
           >
             {list.name}
@@ -65,9 +73,9 @@ export default function MobileNavBar() {
 
         {/* ----- ACCOUNT LINK ----- */}
         <Link
-          href={"/login"}
+          href="/login"
           className={`flex items-center gap-2 cursor-pointer ${
-            pathName === "/login" && "text-[#776BF8]"
+            pathName === "/login" ? "text-[#776BF8]" : ""
           }`}
         >
           <FiUser className="text-xl" />

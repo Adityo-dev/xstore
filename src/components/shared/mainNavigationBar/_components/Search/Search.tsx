@@ -1,12 +1,13 @@
 "use client";
-import { useState } from "react";
+
+import React, { useState } from "react";
 import { IoSearchOutline } from "react-icons/io5";
-import SearchPanel from "./searchPanel/SearchPanel";
+import SearchPanel from "./_components/SearchPanel/SearchPanel";
 
-function Search() {
-  const [openPanel, setOpenPanel] = useState(false);
+export default function Search(): React.JSX.Element {
+  const [openPanel, setOpenPanel] = useState<boolean>(false);
 
-  const closeSearchPanel = (value) => {
+  const closeSearchPanel = (value: boolean) => {
     setOpenPanel(value);
   };
 
@@ -25,5 +26,3 @@ function Search() {
     </>
   );
 }
-
-export default Search;
