@@ -11,6 +11,7 @@ export default function DynamicAsidePanel() {
 
   useEffect(() => {
     if (isOpen) closeAside();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
 
   if (!isOpen) return null;

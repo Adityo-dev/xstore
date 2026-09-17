@@ -1,13 +1,23 @@
 import Link from "next/link";
+import { ReactNode, MouseEventHandler } from "react";
+
+interface CustomButtonProps {
+  children: ReactNode;
+  href?: string;
+  className?: string;
+  type?: "button" | "submit" | "reset";
+  hoverDefault?: boolean;
+  onClick?: MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
+}
 
 function CustomButton({
   children,
   href,
-  className,
+  className = "",
   type = "button",
   hoverDefault = false,
   onClick,
-}) {
+}: CustomButtonProps) {
   const baseClass = `${
     hoverDefault
       ? "bg-[#fff] text-[#000]"
@@ -16,7 +26,7 @@ function CustomButton({
 
   if (href) {
     return (
-      <Link className={`${baseClass} ${className}`} href={href}>
+      <Link className={`${baseClass} ${className}`} href={href} onClick={onClick}>
         {children}
       </Link>
     );
