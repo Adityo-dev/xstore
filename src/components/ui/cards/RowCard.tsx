@@ -2,7 +2,11 @@ import GetStarRating from "@/components/ui/GetStarRating";
 import Image from "next/image";
 import Link from "next/link";
 
-function RowCard({ game }) {
+interface RowCardProps {
+  game?: any;
+}
+
+function RowCard({ game }: RowCardProps) {
   const imgSrc = typeof game?.image === "string"
     ? game.image
     : (game?.cartImage?.src || game?.images?.[0] || "");

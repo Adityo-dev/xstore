@@ -3,7 +3,11 @@ import Link from "next/link";
 import AddToCartAndView from "@/components/main/addToCartAndView/AddToCartAndView";
 import GetStarRating from "@/components/ui/GetStarRating";
 
-function ColumCard({ data }) {
+interface ColumCardProps {
+  data?: any;
+}
+
+function ColumCard({ data }: ColumCardProps) {
   const isOutOfStock = data?.stock === 0;
   const imgSrc = typeof data?.image === "string"
     ? data.image

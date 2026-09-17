@@ -1,7 +1,21 @@
 import { FaStar } from "react-icons/fa";
 
-export default function GetStarRating({ reviews }) {
-  const total = reviews.reduce((acc, review) => acc + review.rating, 0);
+interface GetStarRatingProps {
+  reviews?: Array<{ rating: number; [key: string]: any }>;
+}
+
+export default function GetStarRating({ reviews = [] }: GetStarRatingProps) {
+  if (!reviews || reviews.length === 0) {
+    return (
+      <div className="flex items-center gap-1 text-sm">
+        {[1, 2, 3, 4, 5].map((i) => (
+          <FaStar key={i} className="text-gray-500" />
+        ))}
+      </div>
+    );
+  }
+
+  const total = reviews.reduce((acc, review) => acc + (review?.rating || 0), 0);
   const averageRating = total / reviews.length;
 
   const stars = [];

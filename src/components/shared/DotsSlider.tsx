@@ -2,29 +2,50 @@
 
 import "swiper/css";
 import "swiper/css/pagination";
-import { Pagination } from "swiper/modules";
+import "swiper/css/autoplay";
+import { Pagination, Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { ComponentType } from "react";
 
-export default function DotsSlider({
+interface DotsSliderProps<T = any> {
+  data?: T[];
+  CardComponent?: ComponentType<any>;
+  uniqueId?: string;
+  slidesPerView?: number;
+  spaceBetween?: number;
+  loop?: boolean;
+  autoplay?: boolean | { delay?: number; disableOnInteraction?: boolean };
+  breakpoints?: Record<number, { slidesPerView?: number; spaceBetween?: number }>;
+  paginationColor?: string;
+}
+
+export default function DotsSlider<T extends { id?: any }>({
   data = [],
   CardComponent,
   uniqueId = "slider",
   slidesPerView = 1,
   spaceBetween = 24,
   loop = true,
+  autoplay,
   breakpoints,
   paginationColor = "#6c63ff",
-}) {
+}: DotsSliderProps<T>) {
   const paginationId = `custom-pagination-${uniqueId}`;
+
+  const modules = [Pagination];
+  if (autoplay) {
+    modules.push(Autoplay);
+  }
 
   return (
     <div className="relative w-full">
       <Swiper
         key={`swiper-${uniqueId}`}
-        modules={[Pagination]}
+        modules={modules}
         spaceBetween={spaceBetween}
         slidesPerView={slidesPerView}
         loop={loop}
+        autoplay={autoplay ? (typeof autoplay === "object" ? autoplay : { delay: 3000 }) : undefined}
         breakpoints={breakpoints}
         pagination={{
           clickable: true,
@@ -34,7 +55,7 @@ export default function DotsSlider({
       >
         {data.map((item, index) => (
           <SwiperSlide key={item?.id || index}>
-            {CardComponent ? <CardComponent data={item} /> : null}
+            {CardComponent ? <CardComponent data={item} {...item} /> : null}
           </SwiperSlide>
         ))}
       </Swiper>
