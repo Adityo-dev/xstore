@@ -1,13 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
+import React from "react";
 
-function LogoAndSubscription() {
+export default function LogoAndSubscription(): React.JSX.Element {
   return (
     <>
       {/* logo */}
-      <Link href={"/"} className="shrink-0">
+      <Link href="/" className="shrink-0">
         <Image
-          src={"/logos/Logo.png"}
+          src="/logos/Logo.png"
           width={200}
           height={200}
           alt="Logo"
@@ -32,5 +33,3 @@ function LogoAndSubscription() {
     </>
   );
 }
-
-export default LogoAndSubscription;

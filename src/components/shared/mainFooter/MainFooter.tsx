@@ -2,8 +2,9 @@ import Container from "@/components/shared/Container";
 import LogoAndSubscription from "./_components/LogoAndSubscription";
 import NavigationLinks from "./_components/NavigationLinks";
 import SocialIconAndPayment from "./_components/SocialIconAndPayment";
+import React from "react";
 
-export default function MainFooter() {
+export default function MainFooter(): React.JSX.Element {
   return (
     <footer className="bg-[#1E1F25] text-white py-4">
       <Container>
@@ -24,7 +25,7 @@ export default function MainFooter() {
 
         {/* copy right */}
         <p className="pt-12 text-center text-xs text-[#A9ABB2] font-marcellus">
-          © 2025 XStore Gaming. Powered by Next Js
+          © 2025 XStore Gaming. Powered by Next.js & TypeScript
         </p>
       </Container>
     </footer>
