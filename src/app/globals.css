@@ -3,11 +3,23 @@
 :root {
   --background: #18191c;
   --foreground: #ededed;
+
+  /*======> Custom Colors <=======*/
+  --color-primary: #34796f;
+  --color-secondary: #e96600;
+  --color-primary-dark: #151519;
+  --color-secondary-dark: #2a2d33;
 }
 
-@theme inline {
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
+  --color-primary: var(--color-primary);
+  --color-secondary: var(--color-secondary);
+  --color-primary-dark: var(--color-primary-dark);
+  --color-secondary-dark: var(--color-secondary-dark);
+
   --font-marcellus: var(--font-marcellus);
   --font-rethink-sans: var(--font-rethink-sans);
 }
@@ -73,12 +85,12 @@ body {
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: #776bf8;
+  background-color: var(--color-primary);
   border-radius: 10px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background-color: #776bf8;
+  background-color: var(--color-primary);
   cursor: pointer;
 }
 /* ------------------------------------------------ */

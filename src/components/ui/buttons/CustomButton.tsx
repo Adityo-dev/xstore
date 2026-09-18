@@ -20,8 +20,8 @@ function CustomButton({
 }: CustomButtonProps) {
   const baseClass = `${
     hoverDefault
-      ? "bg-[#fff] text-[#000]"
-      : "bg-[#776BF8] hover:bg-[#fff] hover:text-[#776BF8]"
+      ? "bg-white text-black"
+      : "bg-primary hover:bg-white hover:text-primary text-white"
   } px-8 py-2.5 rounded-lg cursor-pointer text-[17px] font-semibold transition duration-300`;
 
   if (href) {
