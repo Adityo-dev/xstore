@@ -16,7 +16,6 @@ const navList: HeaderNavItem[] = [
   { id: 3, name: "Shop", url: "/shop" },
   { id: 4, name: "FAQs", url: "/faqs" },
   { id: 5, name: "Contacts", url: "/contacts" },
-  { id: 6, name: "Dashboard", url: "/dashboard" },
 ];
 
 export default function NavBarList(): React.JSX.Element {
@@ -32,11 +31,10 @@ export default function NavBarList(): React.JSX.Element {
             <li key={list.id}>
               <Link
                 href={list.url}
-                className={`text-[17px] font-semibold text-nowrap ${
-                  isActive
+                className={`text-[17px] font-semibold text-nowrap ${isActive
                     ? "text-[#776BF8] border-b-2 border-[#776BF8] pb-1"
                     : "text-white"
-                } hover:text-[#776BF8] transition`}
+                  } hover:text-[#776BF8] transition`}
               >
                 {list.name}
               </Link>

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import AddToCartAndView from "@/components/main/addToCartAndView/AddToCartAndView";
+import AddToCartAndView from "@/components/ui/addToCartAndView/AddToCartAndView";
 import GetStarRating from "@/components/ui/GetStarRating";
 
 interface ColumCardProps {
