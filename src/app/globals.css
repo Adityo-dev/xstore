@@ -5,10 +5,10 @@
   --foreground: #ededed;
 
   /*======> Custom Colors <=======*/
-  --color-primary: #34796f;
-  --color-secondary: #e96600;
-  --color-primary-dark: #151519;
-  --color-secondary-dark: #2a2d33;
+  --color-primary: #776BF8;
+  --color-secondary: #37a937;
+  --color-primary-dark: #18191c;
+  --color-secondary-dark: #23262F;
 }
 
 @theme {
@@ -43,10 +43,12 @@ body {
   from {
     transform: translateX(100%);
   }
+
   to {
     transform: translateX(0);
   }
 }
+
 .animate-slideInRight {
   animation: slideInRight 0.4s ease-out forwards;
 }
@@ -56,10 +58,12 @@ body {
   from {
     transform: translateX(-100%);
   }
+
   to {
     transform: translateX(0);
   }
 }
+
 .animate-slideInLeft {
   animation: slideInLeft 0.4s ease-out forwards;
 }
@@ -69,10 +73,12 @@ body {
   from {
     transform: translateY(-100%);
   }
+
   to {
     transform: translateY(0);
   }
 }
+
 .animate-slideDown {
   animation: slideDown 0.3s ease-out forwards;
 }
@@ -93,4 +99,5 @@ body {
   background-color: var(--color-primary);
   cursor: pointer;
 }
+
 /* ------------------------------------------------ */
