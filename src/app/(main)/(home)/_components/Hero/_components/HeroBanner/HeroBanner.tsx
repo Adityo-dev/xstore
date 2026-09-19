@@ -1,6 +1,5 @@
 import Image from "next/image";
 import DynamicActionButton from "@/components/shared/DynamicActionButton/DynamicActionButton";
-import { ArrowRight } from "lucide-react";
 
 export interface HeroSlide {
   id?: number | string;
@@ -60,7 +59,7 @@ function HeroBanner({ slide }: HeroBannerProps) {
         <DynamicActionButton
           href="/shop"
           variant="default"
-          icon={ArrowRight}
+          icon="ArrowRight"
           showIcon
           iconPosition="right"
         >

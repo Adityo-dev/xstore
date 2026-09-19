@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Container from "@/components/shared/Container";
 import DynamicActionButton from "@/components/shared/DynamicActionButton/DynamicActionButton";
-import { ShoppingBag, Compass } from "lucide-react";
 
 function Banner1() {
   return (
@@ -35,7 +34,7 @@ function Banner1() {
             <DynamicActionButton
               href="/shop"
               variant="default"
-              icon={ShoppingBag}
+              icon="ShoppingBag"
               showIcon
             >
               Shop Now
@@ -43,7 +42,7 @@ function Banner1() {
             <DynamicActionButton
               href="/shop"
               variant="outline"
-              icon={Compass}
+              icon="Compass"
               showIcon
               className="border-white text-white hover:bg-white hover:text-primary"
             >

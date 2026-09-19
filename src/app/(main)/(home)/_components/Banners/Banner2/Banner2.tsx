@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Container from "@/components/shared/Container";
 import DynamicActionButton from "@/components/shared/DynamicActionButton/DynamicActionButton";
-import { ShoppingCart } from "lucide-react";
 
 function Banner2() {
   return (
@@ -32,7 +31,7 @@ function Banner2() {
           <DynamicActionButton
             href="/shop"
             variant="default"
-            icon={ShoppingCart}
+            icon="ShoppingCart"
             showIcon
           >
             Purchase Now

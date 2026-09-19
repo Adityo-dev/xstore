@@ -1,8 +1,9 @@
 "use client";
-import CustomButton from "@/components/ui/buttons/CustomButton";
+import DynamicActionButton from "@/components/shared/DynamicActionButton/DynamicActionButton";
 import InputField from "@/components/ui/InputField";
 import Link from "next/link";
 import AuthLeftPanel from "../AuthLeftPanel";
+import { LogIn } from "lucide-react";
 
 export default function LoginPage() {
   return (
@@ -35,9 +36,14 @@ export default function LoginPage() {
               isRequired={true}
             />
 
-            <CustomButton className="w-full" type="submit">
+            <DynamicActionButton
+              className="w-full"
+              type="submit"
+              icon={LogIn}
+              showIcon
+            >
               Sign in
-            </CustomButton>
+            </DynamicActionButton>
           </form>
 
           <p className="text-xs text-[#9AA3C7] text-center mt-4">

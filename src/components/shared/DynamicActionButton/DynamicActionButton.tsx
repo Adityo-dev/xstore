@@ -2,8 +2,32 @@
 
 import React, { ReactNode, MouseEventHandler } from 'react';
 import Link from 'next/link';
-import { Loader2, LucideIcon } from 'lucide-react';
+import {
+  Loader2,
+  LucideIcon,
+  ShoppingBag,
+  ShoppingCart,
+  ArrowRight,
+  Compass,
+  Send,
+  LogIn,
+  UserPlus,
+  CheckCircle2,
+  Plus,
+} from 'lucide-react';
 import { cn } from '@/lib/utils';
+
+const iconMap: Record<string, LucideIcon> = {
+  ShoppingBag,
+  ShoppingCart,
+  ArrowRight,
+  Compass,
+  Send,
+  LogIn,
+  UserPlus,
+  CheckCircle2,
+  Plus,
+};
 
 export type ButtonVariant =
   | 'default'
@@ -25,7 +49,7 @@ export interface DynamicActionButtonProps {
   hoverDefault?: boolean;
   disabled?: boolean;
   isLoading?: boolean;
-  icon?: LucideIcon | React.ComponentType<{ className?: string; size?: number }> | null;
+  icon?: string | LucideIcon | React.ComponentType<any> | null;
   showIcon?: boolean;
   iconPosition?: 'left' | 'right';
   className?: string;
@@ -42,7 +66,7 @@ export default function DynamicActionButton({
   hoverDefault = false,
   disabled = false,
   isLoading = false,
-  icon: Icon,
+  icon,
   showIcon = false,
   iconPosition = 'left',
   className = '',
@@ -70,14 +94,21 @@ export default function DynamicActionButton({
     className
   );
 
-  const shouldShowIcon = isLoading || showIcon || !!Icon;
+  let ResolvedIcon: any = null;
+  if (typeof icon === 'string') {
+    ResolvedIcon = iconMap[icon] || null;
+  } else if (typeof icon === 'function' || typeof icon === 'object') {
+    ResolvedIcon = icon;
+  }
+
+  const shouldShowIcon = isLoading || showIcon || !!ResolvedIcon;
 
   const renderIcon = () => {
     if (isLoading) {
       return <Loader2 className="h-4 w-4 animate-spin" />;
     }
-    if (Icon) {
-      return <Icon className="h-4 w-4" size={18} />;
+    if (ResolvedIcon) {
+      return <ResolvedIcon className="h-4 w-4" size={18} />;
     }
     return null;
   };

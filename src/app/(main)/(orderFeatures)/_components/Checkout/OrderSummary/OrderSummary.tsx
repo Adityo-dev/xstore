@@ -1,5 +1,6 @@
-import CustomButton from "@/components/ui/buttons/CustomButton";
+import DynamicActionButton from "@/components/shared/DynamicActionButton/DynamicActionButton";
 import OrderItem from "../OrderItem/OrderItem";
+import { CheckCircle2, ShoppingBag } from "lucide-react";
 
 interface OrderSummaryProps {
   cartItems: any[];
@@ -38,12 +39,14 @@ function OrderSummary({
         <span>${totalPrice.toFixed(2)}</span>
       </div>
 
-      <CustomButton
+      <DynamicActionButton
         onClick={handlePlaceOrder}
         className="w-full block text-center"
+        icon={orderPlaced ? CheckCircle2 : ShoppingBag}
+        showIcon
       >
         {orderPlaced ? "Order Placed!" : "Place Order"}
-      </CustomButton>
+      </DynamicActionButton>
     </div>
   );
 }

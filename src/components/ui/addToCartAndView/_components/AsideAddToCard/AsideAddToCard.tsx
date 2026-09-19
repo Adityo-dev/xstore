@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useCart } from "@/context/CartContext";
-import CustomButton from "@/components/ui/buttons/CustomButton";
+import DynamicActionButton from "@/components/shared/DynamicActionButton/DynamicActionButton";
 
 interface AsideAddToCardProps {
   data?: any;
@@ -79,17 +79,17 @@ export default function AsideAddToCard({ data }: AsideAddToCardProps) {
           <p className="text-sm font-semibold">${totalPrice.toFixed(2)}</p>
         </div>
 
-        <CustomButton
+        <DynamicActionButton
           href={"/cart"}
           className="w-full block text-center mb-3"
           hoverDefault={true}
         >
           View Cart
-        </CustomButton>
+        </DynamicActionButton>
 
-        <CustomButton href={"/checkout"} className="w-full block text-center">
+        <DynamicActionButton href={"/checkout"} className="w-full block text-center">
           Checkout
-        </CustomButton>
+        </DynamicActionButton>
       </div>
     </section>
   );

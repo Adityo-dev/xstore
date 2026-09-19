@@ -5,7 +5,6 @@ import Container from "@/components/shared/Container";
 import SectionHeader from "@/components/shared/SectionHeader";
 import GetStarRating from "@/components/ui/GetStarRating";
 import DynamicActionButton from "@/components/shared/DynamicActionButton/DynamicActionButton";
-import { ShoppingCart } from "lucide-react";
 
 interface BundleReview {
   user: string;
@@ -144,7 +143,7 @@ function Bundle() {
                 $95.99
               </span>
             </div>
-            <DynamicActionButton variant="default" icon={ShoppingCart} showIcon>
+            <DynamicActionButton variant="default" icon="ShoppingCart" showIcon>
               Add to Cart
             </DynamicActionButton>
           </div>

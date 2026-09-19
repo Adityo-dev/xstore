@@ -1,6 +1,5 @@
 import Image from "next/image";
 import DynamicActionButton from "@/components/shared/DynamicActionButton/DynamicActionButton";
-import { ShoppingBag } from "lucide-react";
 
 function TrendingBanner() {
   return (
@@ -20,7 +19,7 @@ function TrendingBanner() {
         <DynamicActionButton
           href="/shop"
           variant="default"
-          icon={ShoppingBag}
+          icon="ShoppingBag"
           showIcon
         >
           Shop Now
