@@ -9,6 +9,7 @@
   --color-secondary: #37a937;
   --color-primary-dark: #18191c;
   --color-secondary-dark: #23262F;
+  --color-danger: #ff4757;
 }
 
 @theme {
@@ -19,6 +20,7 @@
   --color-secondary: var(--color-secondary);
   --color-primary-dark: var(--color-primary-dark);
   --color-secondary-dark: var(--color-secondary-dark);
+  --color-danger: var(--color-danger);
 
   --font-marcellus: var(--font-marcellus);
   --font-rethink-sans: var(--font-rethink-sans);

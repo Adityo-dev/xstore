@@ -11,12 +11,12 @@ export default async function RecentReleases() {
   return (
     <>
       <SectionHeader
-        title={"Recent Releases"}
-        btn={"Discover All"}
-        btnUrl={"/recent"}
+        title="Recent Releases"
+        btn="Discover All"
+        btnUrl="/recent"
       />
 
-      <Container className="grid lg:grid-cols-2 2xl:grid-cols-3 gap-4 md:gap-6">
+      <Container className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
         {products.slice(0, 6).map((game: any) => (
           <RowCard key={game?.id} game={game} />
         ))}

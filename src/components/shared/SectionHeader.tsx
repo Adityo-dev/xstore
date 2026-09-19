@@ -17,10 +17,12 @@ function SectionHeader({
 }: SectionHeaderProps) {
   return (
     <Container
-      className={`flex flex-wrap gap-4 items-center justify-${justify} mb-9`}
+      className={`flex flex-wrap gap-3 sm:gap-4 items-center justify-${justify} mb-6 md:mb-9`}
     >
       {title && (
-        <h2 className="text-[30px] font-semibold font-marcellus">{title}</h2>
+        <h2 className="text-2xl sm:text-[30px] font-semibold font-marcellus leading-tight">
+          {title}
+        </h2>
       )}
       {btn && <DynamicActionButton href={btnUrl}>{btn}</DynamicActionButton>}
     </Container>
