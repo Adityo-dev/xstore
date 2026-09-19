@@ -2,32 +2,8 @@
 
 import React, { ReactNode, MouseEventHandler } from 'react';
 import Link from 'next/link';
-import {
-  Loader2,
-  LucideIcon,
-  ShoppingBag,
-  ShoppingCart,
-  ArrowRight,
-  Compass,
-  Send,
-  LogIn,
-  UserPlus,
-  CheckCircle2,
-  Plus,
-} from 'lucide-react';
+import { Loader2, LucideIcon, Plus } from 'lucide-react';
 import { cn } from '@/lib/utils';
-
-const iconMap: Record<string, LucideIcon> = {
-  ShoppingBag,
-  ShoppingCart,
-  ArrowRight,
-  Compass,
-  Send,
-  LogIn,
-  UserPlus,
-  CheckCircle2,
-  Plus,
-};
 
 export type ButtonVariant =
   | 'default'
@@ -40,8 +16,8 @@ export type ButtonVariant =
   | 'ghost';
 
 export interface DynamicActionButtonProps {
-  children?: ReactNode;
   label?: string;
+  children?: ReactNode;
   href?: string;
   onClick?: MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
   type?: 'button' | 'submit' | 'reset';
@@ -49,7 +25,7 @@ export interface DynamicActionButtonProps {
   hoverDefault?: boolean;
   disabled?: boolean;
   isLoading?: boolean;
-  icon?: string | LucideIcon | React.ComponentType<any> | null;
+  icon?: LucideIcon | React.ComponentType<{ className?: string; size?: number }> | null;
   showIcon?: boolean;
   iconPosition?: 'left' | 'right';
   className?: string;
@@ -57,8 +33,8 @@ export interface DynamicActionButtonProps {
 }
 
 export default function DynamicActionButton({
-  children,
   label,
+  children,
   href,
   onClick,
   type = 'button',
@@ -66,7 +42,7 @@ export default function DynamicActionButton({
   hoverDefault = false,
   disabled = false,
   isLoading = false,
-  icon,
+  icon: Icon = Plus,
   showIcon = false,
   iconPosition = 'left',
   className = '',
@@ -94,30 +70,19 @@ export default function DynamicActionButton({
     className
   );
 
-  let ResolvedIcon: any = null;
-  if (typeof icon === 'string') {
-    ResolvedIcon = iconMap[icon] || null;
-  } else if (typeof icon === 'function' || typeof icon === 'object') {
-    ResolvedIcon = icon;
-  }
+  const iconElement = isLoading ? (
+    <Loader2 className="h-4 w-4 animate-spin" />
+  ) : (
+    showIcon && Icon && <Icon className="h-4 w-4" size={18} />
+  );
 
-  const shouldShowIcon = isLoading || showIcon || !!ResolvedIcon;
-
-  const renderIcon = () => {
-    if (isLoading) {
-      return <Loader2 className="h-4 w-4 animate-spin" />;
-    }
-    if (ResolvedIcon) {
-      return <ResolvedIcon className="h-4 w-4" size={18} />;
-    }
-    return null;
-  };
+  const buttonText = label || children;
 
   const content = (
     <>
-      {shouldShowIcon && iconPosition === 'left' && renderIcon()}
-      {(children || label) && <span>{children || label}</span>}
-      {shouldShowIcon && iconPosition === 'right' && renderIcon()}
+      {iconPosition === 'left' && iconElement}
+      {buttonText && <span>{buttonText}</span>}
+      {iconPosition === 'right' && iconElement}
     </>
   );
 
