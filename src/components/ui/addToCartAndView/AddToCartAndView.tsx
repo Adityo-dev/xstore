@@ -1,10 +1,8 @@
 "use client";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { IoEyeOutline } from "react-icons/io5";
-import { useAside } from "@/context/AsideContext";
+import { useModal } from "@/context/ModalContext";
 import { useCart } from "@/context/CartContext";
-import AsideAddToCard from "./_components/AsideAddToCard/AsideAddToCard";
-import AsideViewDetails from "./_components/AsideViewDetails/AsideViewDetails";
 
 interface AddToCartAndViewProps {
   data: any;
@@ -12,20 +10,25 @@ interface AddToCartAndViewProps {
 
 function AddToCartAndView({ data }: AddToCartAndViewProps) {
   const { addToCart } = useCart();
-  const { openAside } = useAside();
+  const { openModal } = useModal();
 
   const handleOpenCart = (itemWithQty: any) => {
     addToCart(itemWithQty);
-    openAside({
-      children: <AsideAddToCard data={itemWithQty} />,
+    openModal({
+      view: "CART_DRAWER",
+      layout: "DRAWER",
+      position: "right",
       title: "🛒 Your Cart",
+      data: itemWithQty,
     });
   };
 
   const handleOpenView = () => {
-    openAside({
-      children: <AsideViewDetails data={data} onAddToCart={handleOpenCart} />,
+    openModal({
+      view: "PRODUCT_QUICK_VIEW",
+      layout: "MODAL",
       title: "View Details",
+      data: data,
     });
   };
 

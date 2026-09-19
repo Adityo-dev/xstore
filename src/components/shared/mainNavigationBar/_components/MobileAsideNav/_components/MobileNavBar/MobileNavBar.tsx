@@ -1,6 +1,6 @@
 "use client";
 
-import { useAside } from "@/context/AsideContext";
+import { useModal } from "@/context/ModalContext";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -23,14 +23,14 @@ const navList: NavItem[] = [
 ];
 
 export default function MobileNavBar(): React.JSX.Element {
-  const { closeAside } = useAside();
+  const { closeModal } = useModal();
   const pathName = usePathname();
 
   return (
     <div className="flex flex-col items-start w-full">
       {/* ----- LOGO ----- */}
       <div className="w-full flex justify-center py-4 border-b border-gray-800">
-        <Link href="/" onClick={closeAside}>
+        <Link href="/" onClick={closeModal}>
           <Image
             src="/logos/Logo.png"
             width={200}
@@ -62,10 +62,9 @@ export default function MobileNavBar(): React.JSX.Element {
           <Link
             key={list.id}
             href={list.url}
-            onClick={closeAside}
-            className={`font-semibold border-b border-[#ffffff15] pb-3 ${
-              pathName === list.url ? "text-[#776BF8]" : ""
-            } hover:text-[#776BF8] transition-all duration-300`}
+            onClick={closeModal}
+            className={`font-semibold border-b border-[#ffffff15] pb-3 ${pathName === list.url ? "text-[#776BF8]" : ""
+              } hover:text-[#776BF8] transition-all duration-300`}
           >
             {list.name}
           </Link>
@@ -74,9 +73,9 @@ export default function MobileNavBar(): React.JSX.Element {
         {/* ----- ACCOUNT LINK ----- */}
         <Link
           href="/login"
-          className={`flex items-center gap-2 cursor-pointer ${
-            pathName === "/login" ? "text-[#776BF8]" : ""
-          }`}
+          onClick={closeModal}
+          className={`flex items-center gap-2 cursor-pointer ${pathName === "/login" ? "text-[#776BF8]" : ""
+            }`}
         >
           <FiUser className="text-xl" />
           <p className="font-semibold">Sign In</p>

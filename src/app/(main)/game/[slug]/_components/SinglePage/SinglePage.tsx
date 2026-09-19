@@ -9,9 +9,8 @@ import {
 } from "react-icons/fa";
 import { FiShoppingBag } from "react-icons/fi";
 import { IoMdAdd, IoMdRemove } from "react-icons/io";
-import AsideAddToCard from "@/components/ui/addToCartAndView/_components/AsideAddToCard/AsideAddToCard";
 import Container from "@/components/shared/Container";
-import { useAside } from "@/context/AsideContext";
+import { useModal } from "@/context/ModalContext";
 import { useCart } from "@/context/CartContext";
 import Info from "./_components/Info/Info";
 
@@ -21,16 +20,19 @@ interface SinglePageProps {
 
 export default function SinglePage({ data }: SinglePageProps) {
   const { addToCart } = useCart();
-  const { openAside } = useAside();
+  const { openModal } = useModal();
   const [quantity, setQuantity] = useState(1);
 
   const handleAddToCart = () => {
     const itemWithQty = { ...data, quantity };
     addToCart(itemWithQty);
 
-    openAside({
+    openModal({
+      view: "CART_DRAWER",
+      layout: "DRAWER",
+      position: "right",
       title: "🛒 Your Cart",
-      children: <AsideAddToCard data={itemWithQty} />,
+      data: itemWithQty,
     });
   };
 

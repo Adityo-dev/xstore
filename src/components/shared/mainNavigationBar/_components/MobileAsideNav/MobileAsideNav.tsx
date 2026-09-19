@@ -1,22 +1,23 @@
 "use client";
 
-import { useAside } from "@/context/AsideContext";
 import React from "react";
 import { RiMenuFill } from "react-icons/ri";
-import MobileNavBar from "../MobileNavBar/MobileNavBar";
+import { useModal } from "@/context/ModalContext";
 
 export default function MobileAsideNav(): React.JSX.Element {
-  const { openAside } = useAside();
+  const { openModal } = useModal();
 
   return (
     <div className="xl:hidden">
       <RiMenuFill
         size={26}
-        className="cursor-pointer"
+        className="cursor-pointer hover:text-primary transition duration-300"
         onClick={() =>
-          openAside({
-            children: <MobileNavBar />,
+          openModal({
+            view: "MOBILE_MENU",
+            layout: "DRAWER",
             position: "left",
+            title: "Navigation",
           })
         }
       />
