@@ -3,7 +3,7 @@
 import React, { ReactNode, MouseEventHandler } from 'react';
 import Link from 'next/link';
 import { Loader2, LucideIcon, Plus } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { Button } from '@/components/ui/button';
 
 export type ButtonVariant =
   | 'default'
@@ -48,27 +48,7 @@ export default function DynamicActionButton({
   className = '',
   target,
 }: DynamicActionButtonProps) {
-  const actualVariant = hoverDefault ? 'white' : variant;
-
-  const variantStyles: Record<string, string> = {
-    default: 'bg-primary text-white hover:bg-white hover:text-primary border-primary',
-    primary: 'bg-primary text-white hover:bg-white hover:text-primary border-primary',
-    secondary: 'bg-secondary text-white hover:bg-white hover:text-secondary border-secondary',
-    white: 'bg-white text-black hover:bg-primary hover:text-white border-white',
-    light: 'bg-white text-black hover:bg-primary hover:text-white border-white',
-    outline: 'bg-transparent text-primary hover:bg-primary hover:text-white border-primary',
-    danger: 'bg-red-600 text-white hover:bg-red-700 border-red-600',
-    ghost: 'bg-transparent text-gray-300 hover:text-white hover:bg-white/10 border-transparent',
-  };
-
-  const baseStyles =
-    'inline-flex items-center justify-center gap-2 px-8 py-2.5 rounded-lg text-[17px] font-semibold border transition duration-300 cursor-pointer select-none disabled:opacity-50 disabled:cursor-not-allowed';
-
-  const combinedClasses = cn(
-    baseStyles,
-    variantStyles[actualVariant] || variantStyles.default,
-    className
-  );
+  const actualVariant = (hoverDefault ? 'white' : variant) as ButtonVariant;
 
   const iconElement = isLoading ? (
     <Loader2 className="h-4 w-4 animate-spin" />
@@ -88,26 +68,32 @@ export default function DynamicActionButton({
 
   if (href && !disabled) {
     return (
-      <Link
-        href={href}
-        className={combinedClasses}
-        onClick={onClick}
-        target={target}
-        rel={target === '_blank' ? 'noopener noreferrer' : undefined}
+      <Button
+        asChild
+        variant={actualVariant}
+        className={className}
       >
-        {content}
-      </Link>
+        <Link
+          href={href}
+          onClick={onClick}
+          target={target}
+          rel={target === '_blank' ? 'noopener noreferrer' : undefined}
+        >
+          {content}
+        </Link>
+      </Button>
     );
   }
 
   return (
-    <button
+    <Button
       type={type}
-      className={combinedClasses}
+      variant={actualVariant}
+      className={className}
       onClick={onClick}
       disabled={disabled || isLoading}
     >
       {content}
-    </button>
+    </Button>
   );
 }
