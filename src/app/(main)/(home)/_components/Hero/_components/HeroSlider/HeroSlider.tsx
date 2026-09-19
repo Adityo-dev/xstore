@@ -4,7 +4,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import HeroBanner, { HeroSlide } from "../HeroBanner/HeroBanner";
+import HeroBanner, { HeroSlide } from "./_components/HeroBanner/HeroBanner";
 
 export default function HeroSlider() {
   const slides: HeroSlide[] = [
