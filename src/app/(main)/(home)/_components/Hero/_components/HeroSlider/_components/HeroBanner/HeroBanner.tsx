@@ -58,10 +58,9 @@ function HeroBanner({ slide }: HeroBannerProps) {
         </p>
         <DynamicActionButton
           href="/shop"
+          label="Purchase Now"
           className="px-5 py-2 sm:px-7 sm:py-3 text-xs sm:text-sm md:text-base font-semibold transition-all"
-        >
-          Purchase Now
-        </DynamicActionButton>
+        />
       </div>
     </div>
   );

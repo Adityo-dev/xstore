@@ -143,9 +143,7 @@ function Bundle() {
                 $95.99
               </span>
             </div>
-            <DynamicActionButton>
-              Add to Cart
-            </DynamicActionButton>
+            <DynamicActionButton label="Add to Cart" />
           </div>
         </div>
       </Container>

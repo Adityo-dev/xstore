@@ -16,7 +16,7 @@ function TrendingBanner() {
         <h2 className="text-nowrap text-[30px] font-semibold font-marcellus text-white">
           Row Game
         </h2>
-        <DynamicActionButton href={"#"}>Shop Now</DynamicActionButton>
+        <DynamicActionButton href="#" label="Shop Now" />
       </div>
     </div>
   );

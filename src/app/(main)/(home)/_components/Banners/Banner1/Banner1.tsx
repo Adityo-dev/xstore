@@ -31,16 +31,13 @@ function Banner1() {
           </p>
 
           <div className="flex justify-center space-x-4 sm:space-x-6 flex-wrap gap-y-3">
-            <DynamicActionButton href="/shop">
-              Shop Now
-            </DynamicActionButton>
+            <DynamicActionButton href="/shop" label="Shop Now" />
             <DynamicActionButton
               href="/shop"
+              label="Explore Collection"
               variant="outline"
               className="border-white text-white hover:bg-white hover:text-primary"
-            >
-              Explore Collection
-            </DynamicActionButton>
+            />
           </div>
         </Container>
       </div>
