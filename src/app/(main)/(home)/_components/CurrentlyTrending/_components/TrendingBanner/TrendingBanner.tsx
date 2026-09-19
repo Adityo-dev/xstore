@@ -12,18 +12,11 @@ function TrendingBanner() {
         className="w-full h-full object-cover"
       />
 
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center justify-center gap-5 text-center w-full px-4">
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center justify-center gap-5 text-center">
         <h2 className="text-nowrap text-[30px] font-semibold font-marcellus text-white">
           Row Game
         </h2>
-        <DynamicActionButton
-          href="/shop"
-          variant="default"
-          icon="ShoppingBag"
-          showIcon
-        >
-          Shop Now
-        </DynamicActionButton>
+        <DynamicActionButton href={"#"}>Shop Now</DynamicActionButton>
       </div>
     </div>
   );

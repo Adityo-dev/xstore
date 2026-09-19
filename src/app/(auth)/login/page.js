@@ -3,7 +3,6 @@ import DynamicActionButton from "@/components/shared/DynamicActionButton/Dynamic
 import InputField from "@/components/ui/InputField";
 import Link from "next/link";
 import AuthLeftPanel from "../AuthLeftPanel";
-import { LogIn } from "lucide-react";
 
 export default function LoginPage() {
   return (
@@ -36,12 +35,7 @@ export default function LoginPage() {
               isRequired={true}
             />
 
-            <DynamicActionButton
-              className="w-full"
-              type="submit"
-              icon={LogIn}
-              showIcon
-            >
+            <DynamicActionButton className="w-full" type="submit">
               Sign in
             </DynamicActionButton>
           </form>

@@ -28,12 +28,7 @@ function Banner2() {
             words don’t look believable.
           </p>
 
-          <DynamicActionButton
-            href="/shop"
-            variant="default"
-            icon="ShoppingCart"
-            showIcon
-          >
+          <DynamicActionButton href="#" className="py-3">
             Purchase Now
           </DynamicActionButton>
         </div>

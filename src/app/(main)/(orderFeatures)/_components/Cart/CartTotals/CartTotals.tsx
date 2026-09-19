@@ -1,5 +1,4 @@
 import DynamicActionButton from "@/components/shared/DynamicActionButton/DynamicActionButton";
-import { ArrowRight, ShoppingBag } from "lucide-react";
 
 interface CartTotalsProps {
   totalPrice: number;
@@ -21,18 +20,10 @@ function CartTotals({ totalPrice }: CartTotalsProps) {
         href={"/checkout"}
         className="w-full block mb-3 text-center"
         hoverDefault={true}
-        icon={ArrowRight}
-        showIcon
-        iconPosition="right"
       >
         Proceed to Checkout
       </DynamicActionButton>
-      <DynamicActionButton
-        href={"/shop"}
-        className="w-full block text-center"
-        icon={ShoppingBag}
-        showIcon
-      >
+      <DynamicActionButton href={"/shop"} className="w-full block text-center">
         Continue Shopping
       </DynamicActionButton>
     </div>

@@ -1,6 +1,5 @@
 import DynamicActionButton from "@/components/shared/DynamicActionButton/DynamicActionButton";
 import OrderItem from "../OrderItem/OrderItem";
-import { CheckCircle2, ShoppingBag } from "lucide-react";
 
 interface OrderSummaryProps {
   cartItems: any[];
@@ -42,8 +41,6 @@ function OrderSummary({
       <DynamicActionButton
         onClick={handlePlaceOrder}
         className="w-full block text-center"
-        icon={orderPlaced ? CheckCircle2 : ShoppingBag}
-        showIcon
       >
         {orderPlaced ? "Order Placed!" : "Place Order"}
       </DynamicActionButton>

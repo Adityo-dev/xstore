@@ -3,7 +3,6 @@ import DynamicActionButton from "@/components/shared/DynamicActionButton/Dynamic
 import InputField from "@/components/ui/InputField";
 import Link from "next/link";
 import AuthLeftPanel from "../AuthLeftPanel";
-import { UserPlus } from "lucide-react";
 
 export default function RegisterPage() {
   return (
@@ -32,12 +31,7 @@ export default function RegisterPage() {
               placeholder="Your secure password"
             />
 
-            <DynamicActionButton
-              className="w-full"
-              type="submit"
-              icon={UserPlus}
-              showIcon
-            >
+            <DynamicActionButton className="w-full" type="submit">
               Register Now
             </DynamicActionButton>
           </form>

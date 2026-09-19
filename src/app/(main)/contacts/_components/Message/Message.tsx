@@ -1,7 +1,6 @@
 "use client";
 import { useState, ChangeEvent, FormEvent } from "react";
 import DynamicActionButton from "@/components/shared/DynamicActionButton/DynamicActionButton";
-import { Send } from "lucide-react";
 
 export default function Message() {
   const [form, setForm] = useState({
@@ -71,12 +70,7 @@ export default function Message() {
           ></textarea>
         </div>
 
-        <DynamicActionButton
-          className="w-full"
-          type="submit"
-          icon={Send}
-          showIcon
-        >
+        <DynamicActionButton className="w-full" type="submit">
           Send Message
         </DynamicActionButton>
       </form>
