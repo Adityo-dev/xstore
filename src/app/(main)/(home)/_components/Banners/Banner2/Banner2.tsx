@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Container from "@/components/shared/Container";
-import CustomButton from "@/components/ui/buttons/CustomButton";
+import DynamicActionButton from "@/components/shared/DynamicActionButton/DynamicActionButton";
+import { ShoppingCart } from "lucide-react";
 
 function Banner2() {
   return (
@@ -28,9 +29,14 @@ function Banner2() {
             words don’t look believable.
           </p>
 
-          <CustomButton href="#" className="py-3">
+          <DynamicActionButton
+            href="/shop"
+            variant="default"
+            icon={ShoppingCart}
+            showIcon
+          >
             Purchase Now
-          </CustomButton>
+          </DynamicActionButton>
         </div>
       </div>
     </Container>

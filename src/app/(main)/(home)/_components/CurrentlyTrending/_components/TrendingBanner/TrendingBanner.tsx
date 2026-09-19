@@ -1,5 +1,6 @@
 import Image from "next/image";
-import CustomButton from "@/components/ui/buttons/CustomButton";
+import DynamicActionButton from "@/components/shared/DynamicActionButton/DynamicActionButton";
+import { ShoppingBag } from "lucide-react";
 
 function TrendingBanner() {
   return (
@@ -8,15 +9,22 @@ function TrendingBanner() {
         src={"/images/banner2.png"}
         width={600}
         height={600}
-        alt=""
+        alt="Trending Banner"
         className="w-full h-full object-cover"
       />
 
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center justify-center gap-5 text-center">
-        <h2 className="text-nowrap text-[30px] font-semibold font-marcellus">
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center justify-center gap-5 text-center w-full px-4">
+        <h2 className="text-nowrap text-[30px] font-semibold font-marcellus text-white">
           Row Game
         </h2>
-        <CustomButton href={"#"}>Shop Now</CustomButton>
+        <DynamicActionButton
+          href="/shop"
+          variant="default"
+          icon={ShoppingBag}
+          showIcon
+        >
+          Shop Now
+        </DynamicActionButton>
       </div>
     </div>
   );

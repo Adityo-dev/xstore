@@ -1,5 +1,6 @@
 import Image from "next/image";
-import CustomButton from "@/components/ui/buttons/CustomButton";
+import DynamicActionButton from "@/components/shared/DynamicActionButton/DynamicActionButton";
+import { ArrowRight } from "lucide-react";
 
 export interface HeroSlide {
   id?: number | string;
@@ -56,12 +57,15 @@ function HeroBanner({ slide }: HeroBannerProps) {
         <p className="text-sm sm:text-lg md:text-xl text-gray-200 mb-3 sm:mb-4">
           {slide?.available}
         </p>
-        <CustomButton
+        <DynamicActionButton
           href="/shop"
-          className="px-5 py-2 sm:px-7 sm:py-3 text-xs sm:text-sm md:text-base font-semibold transition-all"
+          variant="default"
+          icon={ArrowRight}
+          showIcon
+          iconPosition="right"
         >
           Purchase Now
-        </CustomButton>
+        </DynamicActionButton>
       </div>
     </div>
   );

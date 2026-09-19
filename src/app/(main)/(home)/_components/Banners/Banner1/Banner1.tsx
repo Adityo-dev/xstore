@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Container from "@/components/shared/Container";
+import DynamicActionButton from "@/components/shared/DynamicActionButton/DynamicActionButton";
+import { ShoppingBag, Compass } from "lucide-react";
 
 function Banner1() {
   return (
@@ -17,7 +19,7 @@ function Banner1() {
       {/* Dark Overlay for Text Legibility */}
       <div className="absolute inset-0 bg-black/60 pointer-events-none" />
 
-      {/* Overlay Content - Same on Desktop, Responsive on Mobile */}
+      {/* Overlay Content */}
       <div className="absolute inset-0 flex items-center justify-center">
         <Container className="text-center px-4 sm:px-6 lg:px-8 relative z-10">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[48px] font-semibold font-marcellus capitalize leading-tight text-white drop-shadow-lg">
@@ -29,13 +31,24 @@ function Banner1() {
             Discover the ultimate collection of flagship keyboards, mice, and high-performance monitors crafted for champions.
           </p>
 
-          <div className="flex justify-center space-x-4 sm:space-x-6">
-            <button className="flex items-center gap-2 text-[17px] font-semibold py-2 px-5 rounded transition-all duration-300 bg-[#776BF8] hover:bg-[#fff] hover:text-[#776BF8] cursor-pointer text-white">
+          <div className="flex justify-center space-x-4 sm:space-x-6 flex-wrap gap-y-3">
+            <DynamicActionButton
+              href="/shop"
+              variant="default"
+              icon={ShoppingBag}
+              showIcon
+            >
               Shop Now
-            </button>
-            <button className="flex items-center gap-2 text-[17px] font-semibold py-2 px-5 rounded transition-all duration-300 bg-transparent border border-white hover:bg-white hover:text-[#776BF8] cursor-pointer text-white">
+            </DynamicActionButton>
+            <DynamicActionButton
+              href="/shop"
+              variant="outline"
+              icon={Compass}
+              showIcon
+              className="border-white text-white hover:bg-white hover:text-primary"
+            >
               Explore Collection
-            </button>
+            </DynamicActionButton>
           </div>
         </Container>
       </div>

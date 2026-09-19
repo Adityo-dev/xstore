@@ -1,5 +1,5 @@
 import Container from "./Container";
-import CustomButton from "@/components/ui/buttons/CustomButton";
+import DynamicActionButton from "@/components/shared/DynamicActionButton/DynamicActionButton";
 import { ReactNode } from "react";
 
 interface SectionHeaderProps {
@@ -22,7 +22,7 @@ function SectionHeader({
       {title && (
         <h2 className="text-[30px] font-semibold font-marcellus">{title}</h2>
       )}
-      {btn && <CustomButton href={btnUrl}>{btn}</CustomButton>}
+      {btn && <DynamicActionButton href={btnUrl}>{btn}</DynamicActionButton>}
     </Container>
   );
 }

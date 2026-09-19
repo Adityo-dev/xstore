@@ -4,6 +4,8 @@ import { HiMiniEquals } from "react-icons/hi2";
 import Container from "@/components/shared/Container";
 import SectionHeader from "@/components/shared/SectionHeader";
 import GetStarRating from "@/components/ui/GetStarRating";
+import DynamicActionButton from "@/components/shared/DynamicActionButton/DynamicActionButton";
+import { ShoppingCart } from "lucide-react";
 
 interface BundleReview {
   user: string;
@@ -142,9 +144,9 @@ function Bundle() {
                 $95.99
               </span>
             </div>
-            <button className="bg-[#776BF8] hover:bg-[#fff] hover:text-[#776BF8] px-8 py-2 rounded-lg cursor-pointer text-[17px] font-semibold transition duration-300">
+            <DynamicActionButton variant="default" icon={ShoppingCart} showIcon>
               Add to Cart
-            </button>
+            </DynamicActionButton>
           </div>
         </div>
       </Container>
