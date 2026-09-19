@@ -43,10 +43,25 @@ export default function DotsSlider<T extends { id?: any }>({
     modules.push(Autoplay);
   }
 
+  if (!mounted) {
+    return (
+      <div className="w-full">
+        <div className="grid grid-cols-1 min-[400px]:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-7 gap-5 overflow-hidden">
+          {data.map((item, index) => (
+            <div key={item?.id || index} className="w-full">
+              {CardComponent ? <CardComponent data={item} {...item} /> : null}
+            </div>
+          ))}
+        </div>
+        <div className="flex justify-center mt-6 h-3"></div>
+      </div>
+    );
+  }
+
   return (
     <div className="relative w-full">
       <Swiper
-        key={`swiper-${uniqueId}-${mounted ? "mounted" : "ssr"}`}
+        key={`swiper-${uniqueId}`}
         modules={modules}
         spaceBetween={spaceBetween}
         slidesPerView={slidesPerView}
@@ -69,38 +84,8 @@ export default function DotsSlider<T extends { id?: any }>({
       {/* External pagination */}
       <div className={`${paginationId} flex justify-center mt-6`}></div>
 
-      {/* Custom Swiper Dots & SSR Hydration Layout Fix */}
+      {/* Custom Swiper Dots */}
       <style jsx global>{`
-        /* Fix initial layout shift before Swiper JS initializes breakpoints */
-        .swiper-slide:not([style*="width"]) {
-          flex-shrink: 0;
-        }
-        @media (min-width: 400px) {
-          .swiper-slide:not([style*="width"]) {
-            width: calc(50% - 10px) !important;
-          }
-        }
-        @media (min-width: 768px) {
-          .swiper-slide:not([style*="width"]) {
-            width: calc(33.333% - 14px) !important;
-          }
-        }
-        @media (min-width: 1024px) {
-          .swiper-slide:not([style*="width"]) {
-            width: calc(25% - 15px) !important;
-          }
-        }
-        @media (min-width: 1280px) {
-          .swiper-slide:not([style*="width"]) {
-            width: calc(20% - 16px) !important;
-          }
-        }
-        @media (min-width: 1440px) {
-          .swiper-slide:not([style*="width"]) {
-            width: calc(14.285% - 18px) !important;
-          }
-        }
-
         .swiper-pagination-bullet {
           background-color: #ffffff;
           opacity: 0.5;
