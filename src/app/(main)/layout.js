@@ -1,5 +1,5 @@
-import MainNavigationBar from "@/components/shared/mainNavigationBar/MainNavigationBar";
-import MainFooter from "@/components/shared/mainFooter/MainFooter";
+import MainNavigationBar from "@/components/main/mainNavigationBar/MainNavigationBar";
+import MainFooter from "@/components/main/mainFooter/MainFooter";
 import ScrollToTopButton from "@/components/shared/ScrollToTopButton";
 
 export default function StoreLayout({ children }) {

@@ -1,0 +1,140 @@
+[
+  {
+    "id": 1,
+    "title": "Pro Tactical Shooter & Studio Audio Combo",
+    "badge": "HOT COMBO",
+    "items": [
+      {
+        "id": 101,
+        "image": "https://i.ibb.co/SwZtxwKm/games6.jpg",
+        "title": "Ghost Recon Breakpoint. Deluxe Tactical Edition",
+        "category": "PC Games",
+        "originalPrice": 69.99,
+        "salePrice": 54.99,
+        "tag": "SALE",
+        "reviews": [{ "rating": 4.8 }]
+      },
+      {
+        "id": 102,
+        "image": "https://i.ibb.co/Rp4NzD68/games13.jpg",
+        "title": "Xiaomi HyperOS Premium Wooden Stand Studio Headset",
+        "category": "Headsets",
+        "originalPrice": 299.99,
+        "salePrice": 249.99,
+        "tag": "SALE",
+        "reviews": [{ "rating": 5.0 }]
+      }
+    ],
+    "originalTotal": 369.98,
+    "bundlePrice": 289.99,
+    "savings": 79.99,
+    "stock": 10,
+    "categories": ["PC Games", "Headsets"]
+  },
+  {
+    "id": 2,
+    "title": "Ultimate Wireless Esports Gear Pack",
+    "badge": "MOST POPULAR",
+    "items": [
+      {
+        "id": 201,
+        "image": "https://i.ibb.co/SwZtxwKm/games6.jpg",
+        "title": "Xbox Levitating Moss Edition Wireless Pro Controller",
+        "category": "Controllers",
+        "originalPrice": 199.99,
+        "salePrice": 179.99,
+        "tag": "HOT",
+        "reviews": [{ "rating": 4.9 }]
+      },
+      {
+        "id": 202,
+        "image": "https://i.ibb.co/Rp4NzD68/games13.jpg",
+        "title": "Logitech G Pro X Superlight 2 Wireless Gaming Mouse",
+        "category": "Gaming Mice",
+        "originalPrice": 159.99,
+        "salePrice": 139.99,
+        "tag": "HOT",
+        "reviews": [{ "rating": 4.9 }]
+      }
+    ],
+    "originalTotal": 359.98,
+    "bundlePrice": 299.99,
+    "savings": 59.99,
+    "stock": 5,
+    "categories": ["Controllers", "Gaming Mice"]
+  },
+  {
+    "id": 3,
+    "title": "The Ultimate 3-in-1 Streamer Kit",
+    "badge": "CREATOR SPECIAL",
+    "items": [
+      {
+        "id": 301,
+        "image": "https://i.ibb.co/SwZtxwKm/games6.jpg",
+        "title": "DJI Osmo Pocket Floating Debris Gimbal Camera",
+        "category": "Streaming Gear",
+        "originalPrice": 529.99,
+        "salePrice": 479.99,
+        "tag": "SPECIAL",
+        "reviews": [{ "rating": 4.7 }]
+      },
+      {
+        "id": 302,
+        "image": "https://i.ibb.co/Rp4NzD68/games13.jpg",
+        "title": "Professional Studio Condenser Mic & Boom Arm",
+        "category": "Microphones",
+        "originalPrice": 249.99,
+        "salePrice": 199.99,
+        "tag": "SPECIAL",
+        "reviews": [{ "rating": 4.8 }]
+      },
+      {
+        "id": 303,
+        "image": "https://i.ibb.co/Rp4NzD68/games13.jpg",
+        "title": "Elgato Stream Deck XL 32-key Macro Pad",
+        "category": "Accessories",
+        "originalPrice": 249.99,
+        "salePrice": 220.00,
+        "tag": "SPECIAL",
+        "reviews": [{ "rating": 4.9 }]
+      }
+    ],
+    "originalTotal": 1029.97,
+    "bundlePrice": 850.00,
+    "savings": 179.97,
+    "stock": 0,
+    "categories": ["Streaming Gear", "Microphones", "Accessories"]
+  },
+  {
+    "id": 4,
+    "title": "Immersive RPG Starter Pack",
+    "badge": "NEW",
+    "items": [
+      {
+        "id": 401,
+        "image": "https://i.ibb.co/SwZtxwKm/games6.jpg",
+        "title": "Elden Ring: Shadow of the Erdtree Edition",
+        "category": "RPG Games",
+        "originalPrice": 79.99,
+        "salePrice": 69.99,
+        "tag": "NEW",
+        "reviews": [{ "rating": 5.0 }]
+      },
+      {
+        "id": 402,
+        "image": "https://i.ibb.co/Rp4NzD68/games13.jpg",
+        "title": "Sony Inzone H9 Wireless Noise Canceling Gaming Headset",
+        "category": "Headsets",
+        "originalPrice": 299.99,
+        "salePrice": 269.99,
+        "tag": "SALE",
+        "reviews": [{ "rating": 4.6 }]
+      }
+    ],
+    "originalTotal": 379.98,
+    "bundlePrice": 319.99,
+    "savings": 59.99,
+    "stock": 25,
+    "categories": ["RPG Games", "Headsets"]
+  }
+]

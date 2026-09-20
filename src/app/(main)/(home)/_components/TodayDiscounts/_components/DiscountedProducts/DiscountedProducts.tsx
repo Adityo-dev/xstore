@@ -17,7 +17,8 @@ function DiscountedProducts({ products }: DiscountedProductsProps) {
       spaceBetween={20}
       loop={true}
       breakpoints={{
-        320: { slidesPerView: 1 },
+        0: { slidesPerView: 1 },
+        320: { slidesPerView: 2 },
         480: { slidesPerView: 2 },
         1024: { slidesPerView: 3 },
         1280: { slidesPerView: 4 },
