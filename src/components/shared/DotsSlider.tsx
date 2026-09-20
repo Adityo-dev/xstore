@@ -15,6 +15,7 @@ interface DotsSliderProps<T = any> {
   spaceBetween?: number;
   loop?: boolean;
   autoplay?: boolean | { delay?: number; disableOnInteraction?: boolean };
+  speed?: number;
   breakpoints?: Record<number, { slidesPerView?: number; spaceBetween?: number }>;
   paginationColor?: string;
 }
@@ -27,6 +28,7 @@ export default function DotsSlider<T extends { id?: any }>({
   spaceBetween = 24,
   loop = true,
   autoplay,
+  speed = 800,
   breakpoints,
   paginationColor = "#6c63ff",
 }: DotsSliderProps<T>) {
@@ -66,7 +68,8 @@ export default function DotsSlider<T extends { id?: any }>({
         spaceBetween={spaceBetween}
         slidesPerView={slidesPerView}
         loop={loop}
-        autoplay={autoplay ? (typeof autoplay === "object" ? autoplay : { delay: 3000 }) : undefined}
+        speed={speed}
+        autoplay={autoplay ? (typeof autoplay === "object" ? autoplay : { delay: 8000 }) : undefined}
         breakpoints={breakpoints}
         pagination={{
           clickable: true,
@@ -81,24 +84,44 @@ export default function DotsSlider<T extends { id?: any }>({
         ))}
       </Swiper>
 
-      {/* External pagination */}
-      <div className={`${paginationId} flex justify-center mt-6`}></div>
+      {/* External pagination container */}
+      <div className={`swiper-pagination ${paginationId} flex justify-center items-center gap-2 mt-6`}></div>
 
-      {/* Custom Swiper Dots */}
+      {/* Modern Active-Pill Slider Dots */}
       <style jsx global>{`
-        .swiper-pagination-bullet {
-          background-color: #ffffff;
-          opacity: 0.5;
-          width: 10px;
-          height: 10px;
-          margin: 0 4px;
-          border-radius: 50%;
-          transition: all 0.3s ease;
+        .${paginationId}.swiper-pagination {
+          position: relative !important;
+          bottom: auto !important;
+          left: auto !important;
+          top: auto !important;
+          width: 100% !important;
+          display: flex !important;
+          justify-content: center !important;
+          align-items: center !important;
+          gap: 8px !important;
+          margin-top: 1.25rem !important;
+          transform: none !important;
         }
-        .swiper-pagination-bullet-active {
-          background-color: ${paginationColor};
-          opacity: 1;
-          transform: scale(1.3);
+        .${paginationId} .swiper-pagination-bullet {
+          width: 8px !important;
+          height: 8px !important;
+          margin: 0 !important;
+          border-radius: 9999px !important;
+          background-color: rgba(255, 255, 255, 0.25) !important;
+          opacity: 1 !important;
+          transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important;
+          cursor: pointer !important;
+        }
+        .${paginationId} .swiper-pagination-bullet:hover {
+          background-color: rgba(255, 255, 255, 0.5) !important;
+          transform: scale(1.2) !important;
+        }
+        .${paginationId} .swiper-pagination-bullet-active {
+          width: 28px !important;
+          height: 8px !important;
+          border-radius: 9999px !important;
+          background-color: ${paginationColor || "var(--color-primary, #776BF8)"} !important;
+          box-shadow: 0 0 12px ${paginationColor ? `${paginationColor}80` : "rgba(119, 107, 248, 0.5)"} !important;
         }
       `}</style>
     </div>

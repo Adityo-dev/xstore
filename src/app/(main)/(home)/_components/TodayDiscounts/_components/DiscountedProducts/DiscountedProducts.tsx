@@ -10,7 +10,7 @@ interface DiscountedProductsProps {
 function DiscountedProducts({ products }: DiscountedProductsProps) {
   return (
     <DotsSlider
-      data={products}
+      data={products.slice(0, 10)}
       CardComponent={ColumCard}
       uniqueId="todays-discounts"
       slidesPerView={1}

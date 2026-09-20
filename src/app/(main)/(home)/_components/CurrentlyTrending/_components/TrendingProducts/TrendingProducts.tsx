@@ -9,7 +9,7 @@ interface TrendingProductsProps {
 function TrendingProducts({ products }: TrendingProductsProps) {
   return (
     <DotsSlider
-      data={products}
+      data={products.slice(0, 10)}
       CardComponent={ColumCard}
       uniqueId="currently-trending"
       slidesPerView={1}
