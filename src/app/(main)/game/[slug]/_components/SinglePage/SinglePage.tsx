@@ -263,11 +263,10 @@ export default function SinglePage({ data }: SinglePageProps) {
 
             <button
               onClick={() => setIsWishlisted(!isWishlisted)}
-              className={`p-3 rounded border transition cursor-pointer ${
-                isWishlisted
-                  ? "bg-danger/20 border-danger text-danger"
-                  : "bg-secondary-dark border-white/15 text-gray-400 hover:text-white"
-              }`}
+              className={`p-3 rounded border transition cursor-pointer ${isWishlisted
+                ? "bg-danger/20 border-danger text-danger"
+                : "bg-secondary-dark border-white/15 text-gray-400 hover:text-white"
+                }`}
               title="Wishlist"
             >
               <FiHeart size={20} className={isWishlisted ? "fill-danger" : ""} />

@@ -16,14 +16,20 @@ export const ModalContainer = () => {
 
   if (!modalContent) return null;
 
-  if (layout === 'DRAWER') {
+  const isDrawerLayout =
+    layout === 'DRAWER' ||
+    view === 'PRODUCT_QUICK_VIEW' ||
+    view === 'CART_DRAWER' ||
+    view === 'MOBILE_MENU';
+
+  if (isDrawerLayout) {
     return (
       <DynamicDrawer
         isOpen={isOpen}
         onClose={closeModal}
         title={title}
         description={description}
-        position={position}
+        position={position || 'right'}
       >
         {modalContent}
       </DynamicDrawer>

@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useEffect } from 'react';
-import { X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { TDrawerPosition } from '@/types/customModal.types';
 
@@ -41,55 +40,58 @@ const DynamicDrawer: React.FC<DynamicDrawerProps> = ({
   if (!isOpen) return null;
 
   const positionStyles: Record<TDrawerPosition, string> = {
-    right: 'top-0 right-0 h-full w-[85vw] sm:w-[420px] md:w-[460px] animate-slideInRight border-l border-[#2a2d36]',
-    left: 'top-0 left-0 h-full w-[85vw] sm:w-[420px] md:w-[460px] animate-slideInLeft border-r border-[#2a2d36]',
-    top: 'top-0 left-0 w-full h-[60vh] animate-slideDown border-b border-[#2a2d36]',
-    bottom: 'bottom-0 left-0 w-full h-[60vh] animate-slideDown border-t border-[#2a2d36]',
+    right: 'top-0 right-0 h-full w-[85vw] sm:w-[400px] animate-slideInRight',
+    left: 'top-0 left-0 h-full w-[85vw] sm:w-[400px] animate-slideInLeft',
+    top: 'top-0 left-0 w-full h-[60vh] animate-slideDown',
+    bottom: 'bottom-0 left-0 w-full h-[60vh] animate-slideDown',
   };
 
   return (
-    <div className="fixed inset-0 z-[10000] flex">
-      {/* Backdrop */}
+    <>
+      {/* Overlay */}
       <div
         onClick={onClose}
-        className="fixed inset-0 bg-black/75 backdrop-blur-sm transition-opacity duration-300 cursor-pointer"
+        className="fixed inset-0 bg-black/50 z-[999] cursor-pointer transition-opacity duration-300"
       />
 
-      {/* Drawer Panel */}
+      {/* Aside Panel */}
       <div
         className={cn(
-          'fixed z-10 flex flex-col bg-[#18191c] text-white shadow-2xl overflow-hidden',
+          'fixed top-0 w-[85vw] sm:w-[400px] h-[100vh] bg-[#1e1e1e] text-white z-[1000] shadow-2xl flex flex-col',
           positionStyles[position],
           className
         )}
       >
-        {/* Header */}
-        <div className="flex items-center justify-between p-4 sm:p-5 border-b border-[#2a2d36] bg-[#1E2129]">
-          <div>
-            {title && (
-              <h2 className="text-xl font-semibold font-marcellus text-white">
-                {title}
-              </h2>
-            )}
+        {/* Floating Close Button (Original DynamicAsidePanel style) */}
+        <button
+          onClick={onClose}
+          className={cn(
+            'absolute top-6 w-10 h-10 flex items-center justify-center rounded-full bg-[#776BF8] text-white hover:rotate-90 transition duration-300 cursor-pointer shadow-lg z-[1001]',
+            position === 'right' ? '-left-12' : '-right-12'
+          )}
+          aria-label="Close panel"
+        >
+          ✕
+        </button>
+
+        {/* Title Header */}
+        {title && (
+          <div className="border-b border-gray-700 p-4">
+            <h2 className="text-xl font-semibold text-white">
+              {title}
+            </h2>
             {description && (
-              <p className="text-xs text-gray-400 mt-0.5">{description}</p>
+              <p className="text-xs text-gray-400 mt-1">{description}</p>
             )}
           </div>
-          <button
-            onClick={onClose}
-            className="flex h-9 w-9 items-center justify-center rounded-full bg-[#18191c] text-gray-400 hover:text-white hover:bg-[#776BF8] transition duration-300 cursor-pointer"
-            aria-label="Close panel"
-          >
-            <X size={18} />
-          </button>
-        </div>
+        )}
 
-        {/* Scrollable Content */}
-        <div className="flex-1 overflow-y-auto p-4 sm:p-6 custom-scrollbar">
+        {/* Content */}
+        <div className="flex-1 overflow-y-auto px-4 pb-6 custom-scrollbar">
           {children}
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
