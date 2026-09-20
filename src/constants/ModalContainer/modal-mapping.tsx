@@ -2,7 +2,7 @@
 
 import React from 'react';
 import AsideAddToCard from '@/components/ui/addToCartAndView/_components/AsideAddToCard/AsideAddToCard';
-import MobileNavBar from '@/components/shared/mainNavigationBar/_components/MobileAsideNav/_components/MobileNavBar/MobileNavBar';
+import MobileNavBar from '@/components/main/mainNavigationBar/_components/MobileAsideNav/_components/MobileNavBar/MobileNavBar';
 import AsideViewDetails from '@/components/ui/addToCartAndView/_components/AsideViewDetails/AsideViewDetails';
 import { TModalView } from '@/types/customModal.types';
 

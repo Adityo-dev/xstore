@@ -1,7 +1,7 @@
 import Banner1 from "./_components/Banners/Banner1/Banner1";
-import Banner2 from "./_components/Banners/Banner2/Banner2";
+import PreOrderBanner from "./_components/Banners/PreOrderBanner/PreOrderBanner";
 import Blog from "./_components/Blog/Blog";
-import Bundle from "./_components/Bundle/Bundle";
+import ComboOffers from "./_components/ComboOffers/ComboOffers";
 import CurrentlyTrending from "./_components/CurrentlyTrending/CurrentlyTrending";
 import Hero from "./_components/Hero/Hero";
 import Marquee from "@/components/shared/Marquee";
@@ -17,10 +17,10 @@ export default function Home() {
       <RecentReleases />
       <Banner1 />
       <CurrentlyTrending />
-      <Bundle />
+      <ComboOffers />
       <Marquee />
       <TodayDiscounts />
-      <Banner2 />
+      <PreOrderBanner />
       <Blog />
     </section>
   );

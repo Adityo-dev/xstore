@@ -41,9 +41,9 @@ export default function TrustBadges() {
       {badges.map((badge) => (
         <div
           key={badge.id}
-          className="flex items-center gap-5 p-5 md:p-6 bg-[#23262F] rounded-lg border border-transparent hover:border-[#776BF8]/50 hover:bg-[#2a2d36] transition-all duration-300 group"
+          className="flex items-center gap-5 p-5 md:p-6 bg-[#23262F] rounded-lg hover:bg-[#2a2d36] transition-all duration-300 group"
         >
-          <div className="w-14 h-14 flex flex-shrink-0 items-center justify-center bg-[#18191c] rounded-full border border-gray-800 group-hover:border-[#776BF8]/30 transition-all duration-300">
+          <div className="w-14 h-14 flex flex-shrink-0 items-center justify-center bg-[#18191c] rounded-full transition-all duration-300">
             {badge.icon}
           </div>
           <div>

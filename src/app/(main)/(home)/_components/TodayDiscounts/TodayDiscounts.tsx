@@ -17,7 +17,7 @@ async function TodayDiscounts() {
           <DiscountedProducts products={products} />
         </div>
 
-        <DiscountsBanner />
+        <DiscountsBanner product={products[0]} />
       </Container>
     </>
   );
