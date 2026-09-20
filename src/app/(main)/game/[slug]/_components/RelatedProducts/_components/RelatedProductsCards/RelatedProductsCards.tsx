@@ -1,6 +1,6 @@
 "use client";
 import ColumCard from "@/components/ui/cards/ColumCard";
-import DotsSlider from "@/components/shared/DotsSlider";
+import DotsSlider from "@/components/shared/DotsSlider/DotsSlider";
 
 interface RelatedProductsCardsProps {
   products: any[];

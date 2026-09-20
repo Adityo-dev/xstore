@@ -7,7 +7,7 @@ import Container from "@/components/shared/Container";
 import SectionHeader from "@/components/shared/SectionHeader";
 import GetStarRating from "@/components/ui/GetStarRating";
 import DynamicActionButton from "@/components/shared/DynamicActionButton/DynamicActionButton";
-import DotsSlider from "@/components/shared/DotsSlider";
+import DotsSlider from "@/components/shared/DotsSlider/DotsSlider";
 
 interface BundleItemDetail {
   id: number;

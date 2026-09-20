@@ -34,10 +34,10 @@ function AddToCartAndView({ data }: AddToCartAndViewProps) {
   };
 
   return (
-    <div className="bg-[#111111]/90 p-1.5 rounded-lg border border-white/10 flex flex-col gap-1.5 shadow-xl">
+    <div className="flex flex-col xl:flex-row items-center gap-2 xl:gap-3">
       <button
         onClick={() => handleOpenCart({ ...data, quantity: 1 })}
-        className="w-9 h-9 bg-white text-secondary hover:bg-secondary hover:text-white rounded flex items-center justify-center transition-all duration-300 cursor-pointer"
+        className="bg-white text-primary w-8 xl:w-10 h-8 xl:h-10 flex items-center justify-center xl:rounded-full shadow-md hover:bg-secondary hover:text-white hover:scale-110 transition-all duration-300 cursor-pointer"
         title="Add to Cart"
       >
         <AiOutlineShoppingCart size={20} />
@@ -45,7 +45,7 @@ function AddToCartAndView({ data }: AddToCartAndViewProps) {
 
       <button
         onClick={handleOpenView}
-        className="w-9 h-9 bg-white text-secondary hover:bg-secondary hover:text-white rounded flex items-center justify-center transition-all duration-300 cursor-pointer"
+        className="bg-white text-primary w-8 xl:w-10 h-8 xl:h-10 flex items-center justify-center xl:rounded-full shadow-md hover:bg-secondary hover:text-white hover:scale-110 transition-all duration-300 cursor-pointer"
         title="View Details"
       >
         <IoEyeOutline size={20} />

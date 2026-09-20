@@ -7,7 +7,7 @@ import { Pagination, Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { ComponentType, useEffect, useState } from "react";
 
-interface DotsSliderProps<T = any> {
+export interface DotsSliderProps<T = any> {
   data?: T[];
   CardComponent?: ComponentType<any>;
   uniqueId?: string;
@@ -45,17 +45,28 @@ export default function DotsSlider<T extends { id?: any }>({
     modules.push(Autoplay);
   }
 
+  if (!data || data.length === 0) return null;
+
+  // SSR Initial Render Fallback (Exact matching grid to prevent Swiper layout shifts & 1-item flicker)
   if (!mounted) {
+    const visibleCount = slidesPerView > 1 ? slidesPerView : 1;
+    const initialItems = data.slice(0, visibleCount);
+
     return (
-      <div className="w-full">
-        <div className="grid grid-cols-1 min-[400px]:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-7 gap-5 overflow-hidden">
-          {data.map((item, index) => (
+      <div className="relative w-full">
+        <div
+          className="grid gap-4 overflow-hidden w-full"
+          style={{
+            gridTemplateColumns: `repeat(${visibleCount}, minmax(0, 1fr))`,
+          }}
+        >
+          {initialItems.map((item, index) => (
             <div key={item?.id || index} className="w-full">
               {CardComponent ? <CardComponent data={item} {...item} /> : null}
             </div>
           ))}
         </div>
-        <div className="flex justify-center mt-6 h-3"></div>
+        <div className="flex justify-center items-center gap-2 mt-6 h-3"></div>
       </div>
     );
   }
@@ -67,10 +78,12 @@ export default function DotsSlider<T extends { id?: any }>({
         modules={modules}
         spaceBetween={spaceBetween}
         slidesPerView={slidesPerView}
-        loop={loop}
+        loop={loop && data.length > 1}
         speed={speed}
         autoplay={autoplay ? (typeof autoplay === "object" ? autoplay : { delay: 8000 }) : undefined}
         breakpoints={breakpoints}
+        observer={true}
+        observeParents={true}
         pagination={{
           clickable: true,
           el: `.${paginationId}`,

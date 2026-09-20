@@ -1,7 +1,7 @@
 "use client";
 import BlogCard from "@/components/ui/cards/BlogCard";
 import Container from "@/components/shared/Container";
-import DotsSlider from "@/components/shared/DotsSlider";
+import DotsSlider from "@/components/shared/DotsSlider/DotsSlider";
 import SectionHeader from "@/components/shared/SectionHeader";
 
 interface BlogItem {

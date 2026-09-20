@@ -1,7 +1,7 @@
 "use client";
 import TestimonialCard from "@/components/ui/cards/TestimonialCard";
 import Container from "@/components/shared/Container";
-import DotsSlider from "@/components/shared/DotsSlider";
+import DotsSlider from "@/components/shared/DotsSlider/DotsSlider";
 import SectionHeader from "@/components/shared/SectionHeader";
 
 interface TestimonialItem {

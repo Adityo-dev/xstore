@@ -7,7 +7,7 @@ import {
   FaMicrophone,
   FaTag,
 } from "react-icons/fa";
-import DotsSlider from "@/components/shared/DotsSlider";
+import DotsSlider from "@/components/shared/DotsSlider/DotsSlider";
 import CategoriesCard from "@/components/ui/cards/CategoriesCard";
 
 interface CategoryMenuItem {
