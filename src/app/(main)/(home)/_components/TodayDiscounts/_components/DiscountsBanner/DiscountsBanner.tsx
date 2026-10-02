@@ -62,25 +62,26 @@ function DiscountsBanner({ product }: DiscountsBannerProps) {
 
   return (
     <div className="col-span-full md:col-span-4 xl:col-span-3 rounded-lg overflow-hidden relative">
-      <div className="sm:max-w-sm bg-[#1c1f26] rounded-xl overflow-hidden shadow-[0_0_10px_rgba(0,0,0,0.6)] border border-[#2a2d36] text-white">
+      <div className="w-full max-w-sm mx-auto md:max-w-none bg-[#1c1f26] rounded-lg overflow-hidden border border-[#2a2d36] text-white">
+        {/* Image Container with Deal Badge */}
+        <div className="relative w-full h-[200px] sm:h-[170px] md:h-[180px] overflow-hidden bg-primary-dark">
+          {/* Deal Badge */}
+          <div className="absolute top-2.5 left-2.5 z-10 bg-danger text-white text-[11px] font-bold px-2 py-0.5 rounded uppercase tracking-wider shadow-sm">
+            Deal of the Day
+          </div>
 
-        {/* Deal Badge */}
-        <div className="absolute top-2 left-2 z-10 bg-danger text-white text-[11px] font-bold px-2 py-1 rounded uppercase tracking-wider shadow-lg">
-          Deal of the Day
+          <Link href={`/game/${product.id}`} className="block w-full h-full">
+            {imgSrc && (
+              <Image
+                src={imgSrc}
+                fill
+                sizes="(max-width: 640px) 100vw, 350px"
+                alt={product.title || "Game Image"}
+                className="w-full h-full object-cover hover:scale-105 transition duration-300"
+              />
+            )}
+          </Link>
         </div>
-
-        {/* Image */}
-        <Link href={`/game/${product.id}`} className="block sm:h-[160px] overflow-hidden relative">
-          {imgSrc && (
-            <Image
-              src={imgSrc}
-              fill
-              sizes="(max-width: 640px) 100vw, 300px"
-              alt={product.title || "Game Image"}
-              className="w-full h-full object-cover hover:scale-110 transition duration-300"
-            />
-          )}
-        </Link>
 
         {/* Text Content */}
         <div className="p-4 space-y-2">
