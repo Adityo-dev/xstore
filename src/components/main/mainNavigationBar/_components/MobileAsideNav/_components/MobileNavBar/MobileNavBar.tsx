@@ -18,8 +18,9 @@ const navList: NavItem[] = [
   { id: 1, name: "Home", url: "/" },
   { id: 2, name: "About us", url: "/about-us" },
   { id: 3, name: "Shop", url: "/shop" },
-  { id: 4, name: "FAQs", url: "/faqs" },
-  { id: 5, name: "Contacts", url: "/contacts" },
+  { id: 4, name: "Combo Offers", url: "/combo-offers" },
+  { id: 5, name: "FAQs", url: "/faqs" },
+  { id: 6, name: "Contacts", url: "/contacts" },
 ];
 
 export default function MobileNavBar(): React.JSX.Element {
