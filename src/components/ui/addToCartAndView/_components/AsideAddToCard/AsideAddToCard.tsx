@@ -63,7 +63,7 @@ export default function AsideAddToCard({ data }: AsideAddToCardProps) {
                   </div>
 
                   <div className="ml-auto text-sm font-semibold">
-                    × ${item.salePrice.toFixed(2)}
+                    × ${(item.salePrice ?? item.price ?? 0).toFixed(2)}
                   </div>
                 </div>
               </div>
