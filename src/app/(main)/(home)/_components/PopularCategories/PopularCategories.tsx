@@ -72,12 +72,13 @@ function PopularCategories() {
       spaceBetween={20}
       loop={true}
       breakpoints={{
-        0: { slidesPerView: 1 },
-        400: { slidesPerView: 2 },
-        768: { slidesPerView: 3 },
-        1024: { slidesPerView: 4 },
-        1280: { slidesPerView: 5 },
-        1440: { slidesPerView: 7 },
+        0: { slidesPerView: 2, spaceBetween: 10 },
+        480: { slidesPerView: 2, spaceBetween: 12 },
+        640: { slidesPerView: 3, spaceBetween: 14 },
+        768: { slidesPerView: 3, spaceBetween: 16 },
+        1024: { slidesPerView: 4, spaceBetween: 18 },
+        1280: { slidesPerView: 5, spaceBetween: 20 },
+        1440: { slidesPerView: 7, spaceBetween: 20 },
       }}
     />
   );
