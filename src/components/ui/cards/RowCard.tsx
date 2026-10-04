@@ -4,9 +4,10 @@ import Link from "next/link";
 
 interface RowCardProps {
   game?: any;
+  className?: string;
 }
 
-function RowCard({ game }: RowCardProps) {
+function RowCard({ game, className = "" }: RowCardProps) {
   const imgSrc = typeof game?.image === "string"
     ? game.image
     : (game?.cartImage?.src || game?.images?.[0] || "");
@@ -21,10 +22,10 @@ function RowCard({ game }: RowCardProps) {
       : null;
 
   return (
-    <div className="group relative flex items-center gap-3 sm:gap-4 md:gap-6 bg-secondary-dark rounded-lg overflow-hidden min-h-[130px] sm:min-h-[160px] md:min-h-[180px] border border-transparent hover:border-primary/40 transition-all duration-300">
+    <div className={`group relative flex items-center gap-3 sm:gap-4 md:gap-6 bg-secondary-dark rounded-lg overflow-hidden min-h-[150px] sm:min-h-[175px] md:min-h-[190px] border border-transparent hover:border-primary/40 transition-all duration-300 ${className}`}>
       <Link
         href={`/game/${game?.id}`}
-        className="w-[130px] min-[400px]:w-[150px] sm:w-[190px] md:w-[220px] xl:w-[240px] aspect-[4/3] relative flex-shrink-0 bg-primary-dark overflow-hidden h-full"
+        className="w-[130px] min-[400px]:w-[150px] sm:w-[190px] md:w-[220px] xl:w-[240px] aspect-[4/3] relative flex-shrink-0 bg-primary-dark overflow-hidden self-stretch"
       >
         {imgSrc && (
           <Image

@@ -7,21 +7,23 @@
       {
         "id": 101,
         "image": "/images/games6.jpg",
-        "title": "Ghost Recon Breakpoint. Lorem ipsum dolor sit amet, consectetur",
-        "category": "Action Games",
+        "title": "PUBG: Battlegrounds - Ultimate Survivor Special Edition",
+        "category": "Battle Royale",
         "originalPrice": 69.99,
         "salePrice": 54.99,
-        "tag": "SALE",
+        "tag": "HOT",
+        "badge": "HOT",
         "reviews": [{ "rating": 4.8 }]
       },
       {
         "id": 102,
         "image": "/images/games13.jpg",
-        "title": "Ghost Recon Breakpoint. Lorem ipsum dolor sit amet, consectetur",
+        "title": "The Crew Motorfest - Deluxe Gold Open Road Edition",
         "category": "Racing Games",
         "originalPrice": 69.99,
         "salePrice": 54.99,
-        "tag": "SALE",
+        "tag": "TRENDING",
+        "badge": "TRENDING",
         "reviews": [{ "rating": 5.0 }]
       }
     ],
@@ -29,7 +31,7 @@
     "bundlePrice": 95.99,
     "savings": 43.99,
     "stock": 14,
-    "categories": ["Action Games", "Racing Games"]
+    "categories": ["Battle Royale", "Racing Games"]
   },
   {
     "id": 2,
@@ -40,20 +42,22 @@
         "id": 201,
         "image": "/images/games2.jpg",
         "title": "Ghost Recon Breakpoint. Deluxe Tactical Edition",
-        "category": "Shooter",
+        "category": "Tactical Shooter",
         "originalPrice": 69.99,
         "salePrice": 54.99,
-        "tag": "SALE",
+        "tag": "TACTICAL",
+        "badge": "TACTICAL",
         "reviews": [{ "rating": 4.9 }]
       },
       {
         "id": 202,
         "image": "/images/games3.jpg",
         "title": "Far Cry 6 - Gold Yara Guerilla Warfare Edition",
-        "category": "Action",
+        "category": "Action FPS",
         "originalPrice": 59.99,
         "salePrice": 44.99,
-        "tag": "SALE",
+        "tag": "FLAGSHIP",
+        "badge": "FLAGSHIP",
         "reviews": [{ "rating": 4.7 }]
       }
     ],
@@ -61,31 +65,33 @@
     "bundlePrice": 89.99,
     "savings": 39.99,
     "stock": 8,
-    "categories": ["Shooter", "Action"]
+    "categories": ["Tactical Shooter", "Action FPS"]
   },
   {
     "id": 3,
     "title": "Cyberpunk 2077 & Elden Ring Ultimate Duo",
-    "badge": "SPECIAL",
+    "badge": "BEST VALUE",
     "items": [
       {
         "id": 301,
         "image": "/images/games15.jpg",
         "title": "Cyberpunk 2077: Phantom Liberty Expansion Pass",
-        "category": "RPG Games",
+        "category": "Sci-Fi RPG",
         "originalPrice": 79.99,
         "salePrice": 64.99,
-        "tag": "SALE",
+        "tag": "TOP RATED",
+        "badge": "TOP RATED",
         "reviews": [{ "rating": 4.9 }]
       },
       {
         "id": 302,
         "image": "/images/games7.jpg",
         "title": "Elden Ring: Shadow of the Erdtree Deluxe Edition",
-        "category": "RPG Games",
+        "category": "Souls RPG",
         "originalPrice": 69.99,
         "salePrice": 54.99,
-        "tag": "SALE",
+        "tag": "GOTY",
+        "badge": "GOTY",
         "reviews": [{ "rating": 5.0 }]
       }
     ],
@@ -93,31 +99,33 @@
     "bundlePrice": 109.99,
     "savings": 39.99,
     "stock": 10,
-    "categories": ["RPG Games"]
+    "categories": ["Sci-Fi RPG", "Souls RPG"]
   },
   {
     "id": 4,
     "title": "Assassin's Creed Mirage & Stray Adventure Duo",
-    "badge": "NEW",
+    "badge": "NEW ARRIVAL",
     "items": [
       {
         "id": 401,
         "image": "/images/games1.jpg",
         "title": "Assassin's Creed Mirage - Master Assassin Edition",
-        "category": "Action Adventure",
+        "category": "Stealth Action",
         "originalPrice": 59.99,
         "salePrice": 49.99,
-        "tag": "SALE",
+        "tag": "NEW",
+        "badge": "NEW",
         "reviews": [{ "rating": 4.6 }]
       },
       {
         "id": 402,
         "image": "/images/stray.jpg",
         "title": "Stray - Cyber City Feline Adventure Game",
-        "category": "Adventure",
+        "category": "Adventure Indie",
         "originalPrice": 39.99,
         "salePrice": 29.99,
-        "tag": "SALE",
+        "tag": "FEATURED",
+        "badge": "FEATURED",
         "reviews": [{ "rating": 4.9 }]
       }
     ],
@@ -125,6 +133,6 @@
     "bundlePrice": 69.99,
     "savings": 29.99,
     "stock": 19,
-    "categories": ["Action Adventure", "Adventure"]
+    "categories": ["Stealth Action", "Adventure Indie"]
   }
 ]

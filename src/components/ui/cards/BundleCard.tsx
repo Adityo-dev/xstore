@@ -1,14 +1,13 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { AiOutlinePlus } from "react-icons/ai";
 import { HiMiniEquals } from "react-icons/hi2";
-import GetStarRating from "@/components/ui/GetStarRating";
 import { Fragment } from "react";
 import { useCart } from "@/context/CartContext";
 import { useModal } from "@/context/ModalContext";
 import DynamicActionButton from "@/components/shared/DynamicActionButton/DynamicActionButton";
+import RowCard from "@/components/ui/cards/RowCard";
 
 export interface BundleItemDetail {
   id: number;
@@ -18,6 +17,7 @@ export interface BundleItemDetail {
   originalPrice?: number;
   salePrice: number;
   tag?: string;
+  badge?: string;
   reviews?: any[];
 }
 
@@ -75,63 +75,13 @@ export default function BundleCard({ data }: { data: BundlePackage }) {
   return (
     <div className="bg-secondary-dark/60 border border-white/10 rounded-lg p-3 sm:p-5 w-full">
       <div className="flex flex-col xl:flex-row items-stretch xl:items-center justify-between gap-3 sm:gap-4 md:gap-6 w-full">
-        {/* Dynamic 2 Items (RowCard design rules with aspect-[4/3] image and theme tokens) */}
+        {/* Dynamic 2 Items using the exact RowCard from Recent Releases */}
         <div className="flex-1 flex flex-col md:flex-row items-stretch md:items-center gap-3 sm:gap-4 md:gap-6">
           {data.items.slice(0, 2).map((item, index) => {
-            const originalPrice = item.originalPrice || (item.salePrice ? item.salePrice + 15 : null);
-            const tag = item.tag || "SALE";
-
             return (
               <Fragment key={item.id}>
-                {/* RowCard matching container: rounded-lg, bg-secondary-dark, border transition */}
-                <div className="group relative flex-1 flex items-center gap-3 sm:gap-4 md:gap-6 bg-secondary-dark rounded-lg overflow-hidden min-h-[150px] sm:min-h-[175px] md:min-h-[195px] border border-transparent hover:border-primary/40 transition-all duration-300">
-                  {/* Product Image Area with Aspect [4/3] */}
-                  <Link
-                    href={`/game/${item.id}`}
-                    className="w-[130px] min-[400px]:w-[150px] sm:w-[180px] md:w-[200px] xl:w-[220px] aspect-[4/3] relative flex-shrink-0 bg-primary-dark overflow-hidden self-stretch"
-                  >
-                    <Image
-                      src={item.image}
-                      alt={item.title || "Product Image"}
-                      fill
-                      className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
-                      sizes="(max-width: 640px) 160px, (max-width: 1024px) 200px, 240px"
-                    />
-
-                    {/* Tag / Badge - following project rule: bg-secondary text-white rounded */}
-                    {tag && (
-                      <span className="absolute left-1.5 top-1.5 sm:left-2 sm:top-2 px-1.5 sm:px-2 py-0.5 text-[.65rem] sm:text-[.70rem] font-semibold bg-secondary text-white rounded z-10 uppercase tracking-wider">
-                        {tag}
-                      </span>
-                    )}
-                  </Link>
-
-                  {/* Product Details Area - following RowCard padding and typography rules */}
-                  <div className="pr-3 sm:pr-4 py-3 sm:py-5 flex-1 flex flex-col justify-center min-w-0">
-                    {/* Title */}
-                    <Link href={`/game/${item.id}`}>
-                      <p className="text-xs sm:text-sm md:text-[17px] font-semibold mb-1 sm:mb-2 line-clamp-2 hover:text-primary transition-colors leading-snug">
-                        {item.title}
-                      </p>
-                    </Link>
-
-                    {/* Rating */}
-                    <div className="mb-2">
-                      <GetStarRating reviews={item.reviews} />
-                    </div>
-
-                    {/* Pricing - following project rules: text-secondary, text-gray-400 */}
-                    <div className="flex items-center gap-1.5 sm:gap-2 mt-1 sm:mt-2 text-xs sm:text-sm md:text-[15px] flex-wrap">
-                      {originalPrice && originalPrice > item.salePrice && (
-                        <span className="line-through text-gray-400">
-                          ${originalPrice.toFixed(2)}
-                        </span>
-                      )}
-                      <span className="font-semibold text-secondary">
-                        ${item.salePrice.toFixed(2)}
-                      </span>
-                    </div>
-                  </div>
+                <div className="flex-1 flex w-full">
+                  <RowCard game={item} className="flex-1 w-full" />
                 </div>
 
                 {/* Plus (+) Node Connector */}
@@ -155,15 +105,18 @@ export default function BundleCard({ data }: { data: BundlePackage }) {
           <div>
             {/* Header: Deal Badge (Left) & "Your Price" (Right) */}
             <div className="flex items-center justify-between gap-2 mb-1.5">
-              {bundleDiscountPercent && bundleDiscountPercent > 0 ? (
-                <span className="inline-flex items-center gap-1 text-[11px] sm:text-xs font-bold text-danger bg-danger/10 border border-danger/20 px-2 py-0.5 rounded uppercase tracking-wider">
-                  SAVE {bundleDiscountPercent}%
-                </span>
-              ) : (
-                <span className="inline-flex items-center gap-1 text-[11px] sm:text-xs font-bold text-primary bg-primary/10 border border-primary/20 px-2 py-0.5 rounded uppercase tracking-wider">
-                  DUO DEAL
-                </span>
-              )}
+              <div className="flex items-center gap-1.5 flex-wrap">
+                {data.badge && (
+                  <span className="inline-flex items-center gap-1 text-[11px] sm:text-xs font-bold text-primary bg-primary/10 border border-primary/20 px-2 py-0.5 rounded uppercase tracking-wider">
+                    {data.badge}
+                  </span>
+                )}
+                {bundleDiscountPercent && bundleDiscountPercent > 0 && (
+                  <span className="inline-flex items-center gap-1 text-[11px] sm:text-xs font-bold text-danger bg-danger/10 border border-danger/20 px-2 py-0.5 rounded uppercase tracking-wider">
+                    SAVE {bundleDiscountPercent}%
+                  </span>
+                )}
+              </div>
               <span className="text-xs sm:text-sm text-gray-300 font-medium">
                 Your Price
               </span>
