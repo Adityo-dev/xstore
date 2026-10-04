@@ -68,8 +68,8 @@ function PopularCategories() {
       data={menuItems}
       CardComponent={CategoriesCard}
       uniqueId="popular-categories"
-      slidesPerView={7}
-      spaceBetween={20}
+      slidesPerView={2}
+      spaceBetween={12}
       loop={true}
       breakpoints={{
         0: { slidesPerView: 2, spaceBetween: 10 },

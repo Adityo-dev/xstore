@@ -13,7 +13,7 @@ function DiscountedProducts({ products }: DiscountedProductsProps) {
       data={products.slice(0, 10)}
       CardComponent={ColumCard}
       uniqueId="todays-discounts"
-      slidesPerView={4}
+      slidesPerView={2}
       spaceBetween={20}
       loop={true}
       breakpoints={{

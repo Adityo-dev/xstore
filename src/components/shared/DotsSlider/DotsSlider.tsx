@@ -5,7 +5,7 @@ import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import { Pagination, Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { ComponentType, useEffect, useState } from "react";
+import { ComponentType } from "react";
 
 export interface DotsSliderProps<T = any> {
   data?: T[];
@@ -32,43 +32,13 @@ export default function DotsSlider<T extends { id?: any }>({
   breakpoints,
   paginationColor = "#6c63ff",
 }: DotsSliderProps<T>) {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  if (!data || data.length === 0) return null;
 
   const paginationId = `custom-pagination-${uniqueId}`;
 
   const modules = [Pagination];
   if (autoplay) {
     modules.push(Autoplay);
-  }
-
-  if (!data || data.length === 0) return null;
-
-  // SSR Initial Render Fallback (Exact matching grid to prevent Swiper layout shifts & 1-item flicker)
-  if (!mounted) {
-    const visibleCount = slidesPerView > 1 ? slidesPerView : 1;
-    const initialItems = data.slice(0, visibleCount);
-
-    return (
-      <div className="relative w-full">
-        <div
-          className="grid gap-4 overflow-hidden w-full"
-          style={{
-            gridTemplateColumns: `repeat(${visibleCount}, minmax(0, 1fr))`,
-          }}
-        >
-          {initialItems.map((item, index) => (
-            <div key={item?.id || index} className="w-full">
-              {CardComponent ? <CardComponent data={item} {...item} /> : null}
-            </div>
-          ))}
-        </div>
-        <div className="flex justify-center items-center gap-2 mt-6 h-3"></div>
-      </div>
-    );
   }
 
   return (

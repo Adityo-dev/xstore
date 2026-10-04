@@ -12,7 +12,7 @@ function TrendingProducts({ products }: TrendingProductsProps) {
       data={products.slice(0, 10)}
       CardComponent={ColumCard}
       uniqueId="currently-trending"
-      slidesPerView={4}
+      slidesPerView={2}
       spaceBetween={16}
       loop={true}
       breakpoints={{
