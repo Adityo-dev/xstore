@@ -69,14 +69,14 @@ function ColumCard({ data }: ColumCardProps) {
         <div>
           {/* Category Name */}
           {categoryName && (
-            <span className="text-[10px] sm:text-xs font-semibold text-primary uppercase tracking-wider mb-0.5 sm:mb-1 block line-clamp-1">
+            <span className="text-xs sm:text-xs md:text-sm font-semibold text-primary uppercase tracking-wider mb-1 block line-clamp-1">
               {categoryName}
             </span>
           )}
 
           {/* Title */}
           <Link href={`/game/${data?.id}`}>
-            <p className="text-xs sm:text-sm md:text-[17px] font-semibold mb-1 sm:mb-2 line-clamp-2 hover:text-primary transition-colors leading-snug">
+            <p className="text-sm sm:text-base md:text-[17px] font-semibold mb-1.5 sm:mb-2 line-clamp-2 hover:text-primary transition-colors leading-snug">
               {data?.title}
             </p>
           </Link>
@@ -86,7 +86,7 @@ function ColumCard({ data }: ColumCardProps) {
         </div>
 
         {/* Pricing & SAVE Badge */}
-        <div className="flex items-center gap-1.5 sm:gap-2 mt-2 sm:mt-3 text-xs sm:text-sm md:text-[15px] flex-wrap">
+        <div className="flex items-center gap-1.5 sm:gap-2 mt-2.5 sm:mt-3 text-sm sm:text-base md:text-[16px] flex-wrap">
           {originalPrice && originalPrice > data?.salePrice && (
             <span className="line-through text-gray-400">
               ${originalPrice}
@@ -97,10 +97,10 @@ function ColumCard({ data }: ColumCardProps) {
           </span>
 
           {discountPercent && discountPercent > 0 && (
-            <span className="text-[10px] sm:text-[11px] font-bold text-danger bg-danger/10 px-1.5 py-0.5 rounded">
+            <span className="text-xs font-bold text-danger bg-danger/10 px-1.5 py-0.5 rounded">
               SAVE {discountPercent}%
             </span>
-          )}
+          )} 
         </div>
       </div>
 
