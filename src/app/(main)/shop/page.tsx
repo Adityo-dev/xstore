@@ -60,6 +60,26 @@ export default function ShopPage() {
     fetchData();
   }, []);
 
+  // Synchronize filters when URL search parameters change
+  useEffect(() => {
+    const categoryParam = searchParams.get("category");
+    setCategoryFilter(categoryParam ? categoryParam.split(",") : []);
+
+    const platformParam = searchParams.get("platform");
+    setPlatformFilter(platformParam ? platformParam.split(",") : []);
+
+    const maxPriceParam = searchParams.get("max_price");
+    if (maxPriceParam) {
+      setPriceRange((prev) => ({ ...prev, max: parseInt(maxPriceParam) }));
+    }
+
+    const sortParam = searchParams.get("sort_by");
+    if (sortParam) setSortBy(sortParam);
+
+    const pageParam = searchParams.get("page");
+    setCurrentPage(pageParam ? parseInt(pageParam) : 1);
+  }, [searchParams]);
+
   // Dynamic categories and platforms
   const allCategories = [
     ...new Set(products.flatMap((p) => p.categories || [])),
