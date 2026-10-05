@@ -8,6 +8,7 @@ import Marquee from "@/components/shared/Marquee";
 import RecentReleases from "./_components/RecentReleases/RecentReleases";
 import TodayDiscounts from "./_components/TodayDiscounts/TodayDiscounts";
 import TrustBadges from "./_components/TrustBadges/TrustBadges";
+import WhyChooseUs from "./_components/WhyChooseUs/WhyChooseUs";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <ComboOffers />
       <Marquee />
       <TodayDiscounts />
+      <WhyChooseUs />
       <PreOrderBanner />
       <Blog />
     </section>
